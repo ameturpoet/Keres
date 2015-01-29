@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "NavigationController",
+		uint64 ResourceId = 546929c5fe5a295e,
+	},
+},

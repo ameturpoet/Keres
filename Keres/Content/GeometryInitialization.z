@@ -1,0 +1,49 @@
+class GeometryInitialization : ZilchComponent
+{
+    [Dependency]
+    var NavigationEvents : NavigationEvents = null;
+    var Started : Boolean = false;
+    var Do45 : Boolean = false;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (!this.Started)
+        {
+            if (this.Space.FindObjectByName("Painter") != null)
+            {
+                this.Started = true;
+            }
+        }
+        else
+        {
+            if (this.Space.FindObjectByName("Painter") != null)
+            {
+            }
+            else
+            {
+                if (!this.Do45)
+                {
+                    var geometryEvent = new GeometryStartEvent();
+                    
+                    geometryEvent.PlayerLocation = this.Space.FindObjectByName("Player").Transform.Translation;
+            
+                    this.Owner.Space.DispatchEvent("StartGeometry", geometryEvent);
+                    
+                    this.Do45 = true;
+                }
+                else
+                {
+                    var geometry45event = new Geometry45Event();
+            
+                    this.Owner.Space.DispatchEvent("Start45Corners", geometry45event);
+                    
+                    this.Owner.Destroy();
+                }
+            }
+        }
+    }
+}

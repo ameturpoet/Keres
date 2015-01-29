@@ -1,0 +1,72 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Floor",
+	},
+	Archetyped = 
+	{
+		string Name = "5469260c6b8cec37:PlaneFloor",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [16.5228, 10.7582, 3.12853],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
+		string MeshName = "541a9554d9923aae:Plane",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	MeshCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		string PhysicsMeshName = "541a9554d9923ab3:Plane",
+		bool DrawEdges = true,
+		bool DrawFaces = false,
+		bool DrawFaceNormals = false,
+	},
+	NavigationPoint = 
+	{
+		bool FortyFiveCorner = false,
+	},
+	NavigationEvents = 
+	{
+	},
+	Hierarchy = 
+	{
+		ArchetypeInstance = 
+		{
+			string Name = "5499e414e1e44e80:Text",
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, -0.656552],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [1, -4.37114e-008, 4.37114e-008, 1.91069e-015],
+			},
+			Named = 
+			{
+				string Name = "FloorText",
+			},
+		},
+	},
+},

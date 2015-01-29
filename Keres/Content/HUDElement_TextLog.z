@@ -1,0 +1,30 @@
+class HUDElement_TextLog : ZilchComponent
+{
+    [Property]
+    var TextArchetype : Archetype = null;
+    [Property]
+    var MaxLines : Integer = 5;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    //Adds a line of text to the text log
+    //
+    function AddLine(lineText : String)
+    {
+        var lines = this.Owner.Children;
+        
+        foreach (var li in lines)
+        {
+            li.HUDElement_TextLine.IncrementLine(this.MaxLines);
+        }
+        
+        var textLocation = Real3(0, 0, 0);
+        textLocation.Z = 0.5;
+        var newText = this.Owner.Space.CreateAtPosition(this.TextArchetype, textLocation);
+        newText.AttachTo(this.Owner);
+        newText.SpriteText.Text = lineText;
+    }
+}

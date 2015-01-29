@@ -1,0 +1,45 @@
+class Effect_FadeToDeletion : ZilchComponent
+{
+    [Property]
+    var Lifetime : Real = 1.0;
+    [Property]
+    var StartFadingAt : Real = 1.0;
+    var TimePassed : Real = 0.0;
+    var FadeStartDifference : Real = 0.0;
+    
+    //This causes objects to begin fading after a certain amount of time, deleting themselves once they're no longer visible
+    //
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.FadeStartDifference = this.Lifetime - this.StartFadingAt;
+        if (this.FadeStartDifference <= 0.0)
+        {
+            this.FadeStartDifference = 1.0;
+        }
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.TimePassed += event.Dt;
+        
+        if (this.Owner.Sprite != null && this.TimePassed >= this.StartFadingAt)
+        {
+            var newColor = this.Owner.Sprite.Color;
+            newColor.W =  (this.StartFadingAt - this.TimePassed) / this.FadeStartDifference;
+            if (this.Owner.Sprite.Visible)
+            {
+                this.Owner.Sprite.Color = newColor;
+            }
+            if (this.Owner.SpriteText != null)
+            {
+                this.Owner.SpriteText.Color = newColor;
+            }
+        }
+        
+        if (this.TimePassed >= this.Lifetime)
+        {
+            this.Owner.Destroy();
+        }
+    }
+}

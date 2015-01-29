@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "LightEffect_Pulse",
+		uint64 ResourceId = 5405e1e4a4942728,
+	},
+},

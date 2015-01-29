@@ -1,0 +1,30 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Archetyped = 
+	{
+		string Name = "541bb1b178430132:tileMAT_TestMetal",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Tile_Replace3D = 
+	{
+		string MainProp = "541bb64001d5a427:TilePainter_TestMetal",
+		string FloorProp = "541bb64001d5a427:TilePainter_TestMetal",
+		string CeilingProp = "541bb64001d5a427:TilePainter_TestMetal",
+		bool JustProp = true,
+		bool FloorCeiling = false,
+		bool Up = false,
+		bool Down = false,
+		bool Left = false,
+		bool Right = false,
+		bool FortyFiveCorner = false,
+	},
+},

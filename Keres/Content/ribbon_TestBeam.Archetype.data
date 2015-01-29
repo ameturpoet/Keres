@@ -1,0 +1,31 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Archetyped = 
+	{
+		string Name = "541bbd020465b0f4:ribbon_TestBeam",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [0.005, 0.005, 0.005],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		string MaterialName = "541bb26add47e2d3:Mat_Beam",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	RibbonParticle = 
+	{
+		string LightEmitter = "54d5e159b4d2587c:light_MuzzleFlareTest",
+		float Lifetime = 0.06,
+		bool FadeOut = false,
+	},
+},

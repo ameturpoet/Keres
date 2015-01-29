@@ -1,0 +1,75 @@
+class NavigationPoint : ZilchComponent
+{
+    [Dependency]
+    var NavigationEvents : NavigationEvents = null;
+    [Property]
+    var FortyFiveCorner : Boolean = false;
+    var Weight : Integer = 0;
+    var NearPoints : Array[Cog] = null;
+    var Done : Boolean = true;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, "StartGeometry", this.SetNearbyPoints);
+        //Zero.Connect(this.Space, "Start45Corners", this.ForwardIfFortyFive);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.SetNearbyWeight);
+        this.NearPoints = new Array[Cog]();
+    }
+    
+    //Searches for all floor tiles adjacent to the current tile and saves them as references
+    //Only runs once
+    //
+    function SetNearbyPoints(event : GeometryStartEvent)
+    {
+        var tiles = this.Owner.Space.FindAllObjectsByName("Floor");
+        this.NearPoints = new Array[Cog]();
+        
+        foreach (var ti in tiles)
+        {
+            var tempLocation = Real2(ti.Transform.Translation.X, ti.Transform.Translation.Y);
+            var tempMyLocation = Real2(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y);
+            
+            tempLocation = tempLocation - tempMyLocation;
+            
+            if (Math.Pow(tempLocation.X, 2) + Math.Pow(tempLocation.Y, 2) <= 1.0)
+            {
+                this.NearPoints.Add(ti);
+            }
+        }
+    }
+    
+    function ForwardIfFortyFive(event : Geometry45Event)
+    {
+        Console.WriteLine(this.NearPoints);
+        this.NearPoints.Get(0).NavigationPoint.NearPoints.RemoveFirst(this.Owner);
+        this.NearPoints.Get(0).NavigationPoint.NearPoints.Add(this.NearPoints.Get(1));
+        this.NearPoints.Get(1).NavigationPoint.NearPoints.RemoveFirst(this.Owner);
+        this.NearPoints.Get(1).NavigationPoint.NearPoints.Add(this.NearPoints.Get(0));
+    }
+    
+    //Updates the pathing weight of all nearby tiles
+    //
+    function SetNearbyWeight(event : UpdateEvent)
+    {
+        if (!this.Done && !this.FortyFiveCorner)
+        {
+            foreach (var ti in this.NearPoints)
+            {
+                if (ti.NavigationPoint.Weight == 0)
+                {
+                    ti.NavigationPoint.Weight = this.Weight + 1;
+                    
+                    var sr = new StringBuilder();
+                    
+                    sr.WriteLine(this.Weight + 1);
+                    
+                    ti.FindChildByName("FloorText").SpriteText.Text = sr.ToString();
+                    
+                    ti.NavigationPoint.Done = false;
+                }
+            }
+            this.Done = true;
+        }
+    }
+    
+}

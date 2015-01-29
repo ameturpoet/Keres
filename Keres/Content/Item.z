@@ -1,0 +1,18 @@
+class Item : ZilchComponent
+{
+    [Property]
+    var Name : String = "Epic Swag";
+    [Property]
+    var Value : Integer = 0;
+    [Property]
+    var QuestItem : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

@@ -1,0 +1,29 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Brick_Block",
+	},
+	Archetyped = 
+	{
+		string Name = "54e5c511efbea3db:Brick_Floor",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [13.0753, 5.50129, 2.38955],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		string MaterialName = "5405d40331521f4c:Mat_Dirt",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+},

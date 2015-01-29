@@ -1,0 +1,36 @@
+Material = 
+{
+	Phong = 
+	{
+		float SpecularExponent = 7,
+		float SpecularScalar = 1,
+	},
+	NormalMapping = 
+	{
+		float Bumpiness = 2,
+		string NormalMapTexture = "5403b43973ac806c:Metal_Pearlstone_n",
+		Vec2 NormalScroll = [0, 0],
+		Vec2 NormalTiling = [1, 1],
+		Vec2 NormalOffset = [0, 0],
+	},
+	Reflective = 
+	{
+		float Reflectivity = 0.05,
+		string Environment = "5403b4374cadb53c:CM_Rainbow",
+		Vec2 ReflectiveScroll = [0, 0],
+	},
+	SpecularMapping = 
+	{
+		string SpecularMapTexture = "5403b7f947b9cf2f:Metal_Pearlstone_m",
+		Vec2 SpecularTiling = [1, 1],
+		Vec2 SpecularOffset = [0, 0],
+		Vec2 SpecularScroll = [0, 0],
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "5403b439738bac25:Metal_Pearlstone",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

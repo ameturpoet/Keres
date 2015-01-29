@@ -1,0 +1,33 @@
+CollisionTable = 
+{
+	Array RegisteredGroups = 
+	[
+		"4e740859314e5515:DefaultGroup",
+		"541aa83f40c06b32:TerrainGroup",
+		"541aa82f43c126ba:TileRayGroup",
+	],
+	Array CollisionFilters = 
+	[
+		{
+			string TypeA = "541aa82f43c126ba:TileRayGroup",
+			string TypeB = "541aa82f43c126ba:TileRayGroup",
+			bool SkipResolution = false,
+			bool SkipDetectingCollision = true,
+			bool StartEvent = false,
+			bool EndEvent = false,
+			bool PersistedEvent = false,
+			bool PreSolveEvent = false,
+		},
+		{
+			string TypeA = "4e740859314e5515:DefaultGroup",
+			string TypeB = "541aa82f43c126ba:TileRayGroup",
+			bool SkipResolution = false,
+			bool SkipDetectingCollision = true,
+			bool StartEvent = false,
+			bool EndEvent = false,
+			bool PersistedEvent = false,
+			bool PreSolveEvent = false,
+		},
+	],
+	bool AutoRegister = true,
+},

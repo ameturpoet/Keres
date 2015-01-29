@@ -1,0 +1,42 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 541a9fa8e2873d14,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "Plane45",
+				uint64 ResourceId = 541a9fa8e28becf9,
+			},
+		],
+		MeshMode MeshMode = Single,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+	PhysicsMeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "Plane45",
+				uint64 ResourceId = 541a9fa8e28bed00,
+			},
+		],
+		bool MakeConvex = false,
+		bool OnlyUseMarkedCollision = false,
+		PhysicsMeshType MeshBuilt = GenericMesh,
+	},
+},

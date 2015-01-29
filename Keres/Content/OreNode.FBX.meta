@@ -1,0 +1,39 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 540261543269d34d,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [0.03, 0.03, 0.03],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+		],
+		MeshMode MeshMode = Single,
+		ResourceCompression CompressMesh = None,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+	PhysicsMeshBuilder = 
+	{
+		Array Meshes = 
+		[
+		],
+		bool MakeConvex = false,
+		bool OnlyUseMarkedCollision = false,
+		PhysicsMeshType MeshBuilt = ConvexMesh,
+	},
+	SkeletonBuilder = 
+	{
+		string Name = "OreNode",
+		uint64 ResourceId = 540261543269d348,
+	},
+},

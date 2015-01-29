@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "GeometryInitialization",
+		uint64 ResourceId = 546932fbcd4fa62f,
+	},
+},

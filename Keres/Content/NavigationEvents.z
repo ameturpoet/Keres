@@ -1,0 +1,37 @@
+class NavigationEvents : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}
+
+//Base event for geometry events
+class GeometryStartEvent : Event
+{
+    var PlayerLocation : Real3 = Real3(0, 0, 0);
+    
+    constructor() : base()
+    {
+    }
+}
+
+//Base event for geometry events EXCLUSIVELY for 45-degree corners
+class Geometry45Event : Event
+{
+    constructor() : base()
+    {
+    }
+}
+
+//Base event for pathing events
+class PathingUpdateEvent : Event
+{
+    constructor() : base()
+    {
+    }
+}

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "ResizetoScreen",
+		uint64 ResourceId = 5468037e044ecf17,
+	},
+},

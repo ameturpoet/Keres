@@ -1,0 +1,69 @@
+class Interactable_Gate : ZilchComponent
+{
+    [Dependency]
+    var Interactable : Interactable = null;
+    [Property]
+    var PlayerCantOpen : Boolean = false;
+    [Property]
+    var Locked : Boolean = false;
+    [Property]
+    var Key : String = "";
+    [Property]
+    var OpenLocation : Real3 = Real3(0, 0, 0);
+    var StartLocation : Real3 = Real3(0, 0, 0);
+    var ToOpenVector : Real3 = Real3(0, 0, 0);
+    
+    var MovementTimer : Real = 0.0;
+    
+    var State : Integer = 2;
+    //4 states:
+    //0-Open
+    //1-Opening
+    //2-Closed
+    //3-Closing
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.Update);
+        this.StartLocation = this.Owner.Transform.Translation;
+        this.ToOpenVector = this.OpenLocation - this.Owner.Transform.Translation;
+    }
+    
+    function Toggle()
+    {
+        if (this.State == 0 || this.State == 1)
+        {
+            this.State = 3;
+            this.MovementTimer = 0.0;
+        }
+        else if (this.State == 2 || this.State == 3)
+        {
+            this.State = 1;
+            this.MovementTimer = 0.0;
+        }
+    }
+
+    function Update(event : UpdateEvent)
+    {
+        if (this.State == 1)
+        {
+            this.Owner.Transform.Translation += this.ToOpenVector * event.Dt;
+            this.MovementTimer += event.Dt;
+            if (this.MovementTimer >= 1.0)
+            {
+                this.State = 0;
+                this.Owner.Transform.Translation = this.OpenLocation;
+            }
+        }
+        else if (this.State == 3)
+        {
+            this.Owner.Transform.Translation -= this.ToOpenVector * event.Dt;
+            this.MovementTimer += event.Dt;
+            if (this.MovementTimer >= 1.0)
+            {
+                this.State = 2;
+                this.Owner.Transform.Translation = this.StartLocation;
+            }
+        }
+    }
+}

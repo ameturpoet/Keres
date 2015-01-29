@@ -1,0 +1,21 @@
+class HUDElement_TextLine : ZilchComponent
+{
+    var LineNumber : Integer = 1;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    //Moves the lines of text up and kills the ones that exceed the number of lines allotted
+    //
+    function IncrementLine(maxLines : Integer)
+    {
+        this.LineNumber += 1;
+        if (this.LineNumber > maxLines)
+        {
+            this.Owner.Destroy();
+        }
+        this.Owner.Transform.Translation += Real3(0, this.Owner.SpriteText.MeasureText().Y + 0.05, 0);
+    }
+}

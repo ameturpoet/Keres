@@ -1,0 +1,36 @@
+Material = 
+{
+	Phong = 
+	{
+		float SpecularExponent = 7,
+		float SpecularScalar = 1,
+	},
+	NormalMapping = 
+	{
+		float Bumpiness = 2,
+		string NormalMapTexture = "5405f43639bca451:Gold_n",
+		Vec2 NormalScroll = [0, 0],
+		Vec2 NormalTiling = [1, 1],
+		Vec2 NormalOffset = [0, 0],
+	},
+	Reflective = 
+	{
+		float Reflectivity = 0.22544,
+		string Environment = "5405f42f3afa10ec:CM_Gold",
+		Vec2 ReflectiveScroll = [0, 0],
+	},
+	SpecularMapping = 
+	{
+		string SpecularMapTexture = "5405f43639ba71f1:Gold_m",
+		Vec2 SpecularTiling = [1, 1],
+		Vec2 SpecularOffset = [0, 0],
+		Vec2 SpecularScroll = [0, 0],
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "5405f43639b2cdb1:Gold",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

@@ -1,0 +1,27 @@
+class ScreenAreaBlock : ZilchComponent
+{
+    [Property]
+    var Cam : CogPath = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function GetTop() : Real3
+    {
+        return Real3(0, this.Owner.Sprite.Size.Y * this.Cam.Cog.HUDOrganizer.ScreenResolution.Y / 2, 0);
+    }
+    function GetBottom() : Real3
+    {
+        return Real3(0, this.Owner.Sprite.Size.Y * this.Cam.Cog.HUDOrganizer.ScreenResolution.Y / -2, 0);
+    }
+    function GetLeftSide() : Real3
+    {
+        return Real3(this.Owner.Sprite.Size.X * this.Cam.Cog.HUDOrganizer.ScreenResolution.X / -2, 0, 0);
+    }
+    function GetRightSide() : Real3
+    {
+        return Real3(this.Owner.Sprite.Size.X * this.Cam.Cog.HUDOrganizer.ScreenResolution.X / 2, 0, 0);
+    }
+}

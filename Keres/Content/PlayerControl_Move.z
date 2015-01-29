@@ -1,0 +1,309 @@
+class PlayerControl_Move : ZilchComponent
+{
+    var Camra : Cog = null;
+    var LevelGeometry : Cog = null;
+    [Property]
+    var Speed : Real = 1.0;
+    [Property]
+    var LookSensitivity : Real = 6.0;
+    [Property]
+    var Height : Real = 0.0;
+    [Property]
+    var Weapon : CogPath = null;
+    [Dependency]
+    var Controller : Controller = null;
+    
+    var Disabled : Boolean = false;
+    var Moving : Boolean = false;
+    var CameraOffset : Real3 = Real3(0, 0, 0);
+    var HeadBobCounter : Real = 0.0;
+    var HighlightedObject : Cog = null;
+    var HUDspace : Space = null;
+    var Radar : Cog = null;
+    var TextLog : Cog = null;
+    var OldPosition : Real3 = Real3(0, 0, 0);
+    var MovementTracker : Real3 = Real3(0, 0, 0);
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.MouseMove, this.OnMouseMove);
+        Zero.Mouse.ToggleTrapped();
+        this.Camra = this.Owner.Space.FindObjectByName("Camera");
+        this.LevelGeometry = this.Owner.Space.FindObjectByName("LevelGeometry");
+        this.HUDspace = this.GameSession.FindSpaceByName("HUDSpace");
+    }
+
+    //Master update function, calls everything else from here
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (!this.Disabled)
+        {
+            this.Movement(event.Dt);
+            this.Aiming(event.Dt);
+            this.ObjectInteraction();
+            this.RadarPing();
+            this.UpdateHUD();
+            
+            //Old position is used mostly for moving blips around on the radar
+            this.OldPosition = this.Owner.Transform.Translation;
+        }
+    }
+    
+    //Sends out a radar ping, tagging all enemies within the radar distance of the player
+    //The radar distance is defined on the radar itself in the HUD level
+    //
+    function RadarPing()
+    {
+        if (this.Radar != null && this.TextLog != null)
+        {
+            this.Radar.HUDElement_Radar.UpdateBlips(this.Owner.Transform.Translation - this.OldPosition);
+            
+            //If the radar key is pressed, loop through all enemies and send their relative positions to the radar
+            //The radar determines whether or not the enemies are within range
+            if (Zero.Keyboard.KeyIsPressed(this.Controller.RadarPing))
+            {
+                var enemies = this.Owner.Space.FindAllObjectsByName("enemy");
+                
+                foreach (var en in enemies)
+                {
+                    var relativePosition = en.Transform.Translation - this.Owner.Transform.Translation;
+                    
+                    this.Radar.HUDElement_Radar.AddBlip(relativePosition);
+                }
+            }
+        }
+        else
+        {
+            this.Radar = this.HUDspace.FindObjectByName("HUD_Radar");
+            this.TextLog = this.HUDspace.FindObjectByName("HUD_TextLog");
+        }
+    }
+    
+    //Updates all elements of the player's HUD
+    //
+    function UpdateHUD()
+    {
+        this.HUDspace.FindObjectByName("HUD_Radar").Transform.SetEulerAnglesXYZ(0, 0, -1 * this.Owner.Transform.EulerAngles.Z);
+    }
+    
+    //Updates weapon stuff
+    //The weapon script contains all the other details
+    //
+    function WeaponStuff(deltaTime : Real, impactPoint : Real3)
+    {
+        if (this.Weapon.Cog != null)
+        {
+            this.Weapon.Cog.Weapon.UpdateGun(deltaTime, impactPoint);
+        }
+    }
+    
+    //Raycasts from the center of the screen to interact with stuff
+    //Also triggers weapon stuff
+    //
+    function Aiming(deltaTime : Real)
+    {
+        var ray = Ray();
+        
+        ray.Start = this.Owner.Transform.Translation + Real3(0, 0, this.Camra.Transform.Translation.Z);
+        var startP = Real3(0, 0, -1);
+        startP = Math.RotateVector(startP, Real3(1, 0, 0), this.Camra.Transform.EulerAngles.X + this.Owner.Transform.EulerAngles.X);
+        
+        startP = Math.RotateVector(startP, Real3(0, 0, 1), this.Owner.Transform.EulerAngles.Z);
+        
+        ray.Direction = Math.Normalize(startP);
+        
+        var result = this.Space.PhysicsSpace.CastRayFirst(ray);
+        if (result.ObjectHit != null && result.Distance <= 1)
+        {
+            if (result.ObjectHit.Interactable != null && result.ObjectHit.Interactable.ShowTooltip)
+            {
+                this.HighlightedObject = result.ObjectHit;
+            }
+            else
+            {
+                this.HighlightedObject = null;
+            }
+        }
+        else
+        {
+            this.HighlightedObject = null;
+        }
+        
+        this.WeaponStuff(deltaTime, result.WorldPosition);
+    }
+    
+    //Displays the HUD tooltip for any interactable objects targeted by the Aiming function
+    //as well as accepting key input for interacting with them
+    //
+    function ObjectInteraction()
+    {
+        if (this.HighlightedObject != null)
+        {
+            var text = this.HUDspace.FindObjectByName("InfoText");
+            
+            if (!text.SpriteText.Visible)
+            {
+                if (this.HighlightedObject.Interactable.ShowTooltip)
+                {
+                    text.SpriteText.Text = this.HighlightedObject.Interactable.Tooltip;
+                    text.SpriteText.Visible = true;
+                }
+                if (this.HighlightedObject.Interactable.ShowControl)
+                {
+                    var key = this.HUDspace.FindObjectByName("InfoKey");
+                    var builder = new StringBuilder();
+                    builder.Write("[");
+                    builder.Write(this.HighlightedObject.Interactable.Control);
+                    builder.Write("]");
+                    key.SpriteText.Text = builder.ToString();
+                    key.SpriteText.Visible = true;
+                }
+            }
+            
+            if (Zero.Keyboard.KeyIsPressed(this.Controller.Activate))
+            {
+                this.HighlightedObject.Interactable.Activate();
+            }
+        }
+        else
+        {
+            var text = this.HUDspace.FindObjectByName("InfoText");
+            
+            if (text.SpriteText.Visible)
+            {
+                var key = this.HUDspace.FindObjectByName("InfoKey");
+                text.SpriteText.Visible = false;
+                key.SpriteText.Visible = false;
+            }
+        }
+    }
+    
+    //Causes the player's viewport to bob around as they walk
+    //
+    function HeadBob(deltaTime : Real, isMoving : Boolean)
+    {
+        if (isMoving)
+        {
+            this.HeadBobCounter += deltaTime * 8;
+            
+            if (this.HeadBobCounter >= Math.Pi * 2)
+            {
+                this.HeadBobCounter -= Math.Pi * 2;
+            }
+            
+            //Basically, the camera's position is offset by the cosine of the counter and the sine of 2x the counter
+            //This creates a headbobbing pattern like a figure 8
+            this.CameraOffset = Real3(Math.Sin(this.HeadBobCounter), Math.Sin(this.HeadBobCounter * 2), Math.Sin(this.HeadBobCounter * 2)) * 0.03;
+        }
+        else
+        {
+            //Quickly resets the camera's position to where it started (or at least pretty close)
+            //if the player stops walking
+            
+            if (this.HeadBobCounter > 0)
+            {
+                this.HeadBobCounter = 0;
+            }
+            
+            var length = Math.Length(this.CameraOffset);
+            if (length > 0.01)
+            {
+                this.CameraOffset *= 0.85;
+            }
+            else if (length <= 0.001 && length != 0)
+            {
+                this.CameraOffset = Real3(0, 0, 0);
+            }
+        }
+        
+        this.Camra.Transform.Translation = this.CameraOffset * Real3(1, 0, 1);
+        this.Weapon.Cog.Transform.Translation = this.Weapon.Cog.Weapon.StartLocation - (this.CameraOffset * Real3(1, 1, 0)) * 0.04;
+    }
+    
+    //Moves the player, oddly enough
+    //
+    function Movement(deltaTime : Real)
+    {
+        var direction = Real2(0, 0);
+        
+        if (Zero.Keyboard.KeyIsDown(this.Controller.MoveForward))
+        {
+            direction.Y = -1;
+        }
+        else if (Zero.Keyboard.KeyIsDown(this.Controller.MoveBackward))
+        {
+            direction.Y = 1;
+        }
+        if (Zero.Keyboard.KeyIsDown(this.Controller.MoveRight))
+        {
+            direction.X = 1;
+        }
+        else if (Zero.Keyboard.KeyIsDown(this.Controller.MoveLeft))
+        {
+            direction.X = -1;
+        }
+        
+        direction = Math.Normalize(direction);
+        
+        if (Math.Length(direction) > 0)
+        {
+            var directionAngle = this.Owner.Transform.EulerAngles.Z - (Math.Pi / 2);
+            var forward = Real3(Math.Cos(directionAngle), Math.Sin(directionAngle), 0);
+            var right = Real3(Math.Cos(this.Owner.Transform.EulerAngles.Z), Math.Sin(this.Owner.Transform.EulerAngles.Z), 0);
+            
+            //Because 'forward' varies based on which direction the player is facing, 
+            //we have to calculate relative forward and right and add them to the player's position
+            //based on the keys that were pressed
+            
+            var tempRight = direction.X * right * deltaTime * this.Speed;
+            var tempForward = direction.Y * forward * deltaTime * this.Speed;
+            
+            this.Owner.Transform.Translation += tempRight;
+            this.Owner.Transform.Translation += tempForward;
+            
+            
+            //Adds to the current movement tracker, which just keeps track of how much distance was covered
+            this.MovementTracker += tempRight;
+            this.MovementTracker += tempForward;
+            
+            var length = Math.Pow(this.MovementTracker.X, 2) + Math.Pow(this.MovementTracker.Y, 2);
+            
+            //If the user has moved by at least 1 unit, the level pathing is recalculated
+            if (length >= 1.0 || length < 0.0)
+            {
+                this.MovementTracker = Real3(0, 0, 0);
+                this.LevelGeometry.NavigationController.UpdateWeights(this.Owner.Transform.Translation);
+            }
+            
+            //Also calls the HeadBob function
+            this.HeadBob(deltaTime, true);
+        }
+        else
+        {
+            this.HeadBob(deltaTime, false);
+        }
+    }
+    
+    //Rotates the player and looks up or down based on mouse movement
+    //The mouse is automatically rubberbanded to the center of the screen, so we
+    //don't have to worry about running out of space
+    //
+    function OnMouseMove(event : MouseEvent)
+    {
+        var deltaAngle = Real3(event.Movement.Y * 0.85, 0, event.Movement.X);
+        deltaAngle /= 100 * (11 - this.LookSensitivity);
+        this.Camra.Transform.EulerAngles -= Real3(deltaAngle.X, 0, 0);
+        if (this.Camra.Transform.EulerAngles.X > 3.0)
+        {
+            var temp = this.Camra.Transform.EulerAngles;
+            this.Camra.Transform.SetEulerAnglesXYZ(3.0, temp.Y, temp.Z);
+        }
+        else if (this.Camra.Transform.EulerAngles.X < 0)
+        {
+            var temp = this.Camra.Transform.EulerAngles;
+            this.Camra.Transform.SetEulerAnglesXYZ(0, temp.Y, temp.Z);
+        }
+        this.Owner.Transform.EulerAngles -= Real3(0, 0, deltaAngle.Z);
+    }
+}

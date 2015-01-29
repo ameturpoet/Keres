@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Effect_FadeToDeletion",
+		uint64 ResourceId = 5491ff9a8235a1a6,
+	},
+},

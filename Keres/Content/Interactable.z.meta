@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Interactable",
+		uint64 ResourceId = 5405bb0246e5a9ed,
+	},
+},

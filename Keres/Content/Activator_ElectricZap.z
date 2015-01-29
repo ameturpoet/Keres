@@ -1,0 +1,22 @@
+class Activator_ElectricZap : ZilchComponent
+{
+    [Property]
+    var ActivationTarget : CogPath = null;
+    [Property]
+    var LimitedUse : Boolean = false;
+    [Property]
+    var ChargesLeft : Integer = 1;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollide);
+    }
+
+    function OnCollide(event : CollisionEvent)
+    {
+        if (event.OtherObject.Name == "Zap")
+        {
+            this.ActivationTarget.Cog.Interactable.Activate();
+        }
+    }
+}

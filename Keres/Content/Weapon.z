@@ -1,0 +1,43 @@
+class Weapon : ZilchComponent
+{
+    [Property]
+    var Projectile : Archetype = null;
+    [Property]
+    var RibbonObject : Archetype = null;
+    [Property]
+    var ProjectileNode : CogPath = null;
+    
+    var MouseState : Boolean = false;
+    var OldMState : Boolean = false;
+    var StartLocation : Real3 = Real3(0, 0, 0);
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.StartLocation = this.Owner.Transform.Translation;
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.DebugStuff);
+    }
+    
+    function DebugStuff(event : UpdateEvent)
+    {
+        Console.WriteLine(this.Owner.Transform.Translation);
+    }
+
+    function UpdateGun(deltaTime : Real, impactLocation : Real3)
+    {
+        this.MouseState = Zero.Mouse.IsButtonDown(MouseButtons.Left);
+        if (this.MouseState != this.OldMState && this.MouseState)
+        {
+            this.Fire(impactLocation);
+        }
+        this.OldMState = this.MouseState;
+    }
+    
+    function Fire(impactLocation : Real3)
+    {
+        this.Owner.Space.CreateAtPosition(this.Projectile, impactLocation);
+        var ribbon = this.Owner.Space.CreateAtPosition(this.RibbonObject, impactLocation);
+        ribbon.RibbonParticle.Start = this.ProjectileNode.Cog.Transform.WorldTranslation;
+        ribbon.RibbonParticle.End = impactLocation;
+        ribbon.RibbonParticle.CalculateScale();
+    }
+}

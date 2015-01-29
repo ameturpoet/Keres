@@ -1,0 +1,62 @@
+class Interactable : ZilchComponent
+{
+    [Property]
+    var ShowTooltip : Boolean = true;
+    [Property]
+    var Tooltip : String = null;
+    
+    [Property]
+    var ShowControl : Boolean = true;
+    [Property]
+    var Control : Keys = Keys.A;
+    
+    function Initialize(init : CogInitializer)
+    {
+        if (this.Owner.Interactable_Gate != null && this.Owner.Interactable_Gate.PlayerCantOpen)
+        {
+            this.ShowTooltip = false;
+        }
+    }
+
+    //Actives the interactable object, resulting in different outcomes based on what scripts are attached to it
+    //E.g., an Interactable_Gate will open, an Item will be added to the player's inventory, etc.
+    //
+    function Activate()
+    {
+        //GATE
+        if (this.Owner.Interactable_Gate != null)
+        {
+            if (this.Owner.Interactable_Gate.Key == "" || !this.Owner.Interactable_Gate.Locked)
+            {
+                this.Owner.Interactable_Gate.Toggle();
+            }
+            else
+            {
+                var player = this.Owner.Space.FindObjectByName("Player");
+                if (player.Inventory.HasItem(this.Owner.Interactable_Gate.Key))
+                {
+                    this.Owner.Interactable_Gate.Toggle();
+                    this.Owner.Interactable_Gate.Locked = false;
+                    player.PlayerControl_Move.TextLog.HUDElement_TextLog.AddLine(String.Concatenate("Door opened with the ", player.Inventory.GetItemName(this.Owner.Interactable_Gate.Key)));
+                    player.Inventory.DeleteItem(this.Owner.Interactable_Gate.Key);
+                }
+                else
+                {
+                    player.PlayerControl_Move.TextLog.HUDElement_TextLog.AddLine("This door is locked and requires a key");
+                }
+            }
+        }
+        //BUTTON
+        else if (this.Owner.Activator_PushButton != null)
+        {
+            this.Owner.Activator_PushButton.Activate();
+        }
+        //ITEM
+        else if (this.Owner.Item != null)
+        {
+            var player = this.Owner.Space.FindObjectByName("Player");
+            player.Inventory.PickUpItem(this.Owner);
+            player.PlayerControl_Move.TextLog.HUDElement_TextLog.AddLine(String.Concatenate("Picked up a ", this.Owner.Item.Name));
+        }
+    }
+}

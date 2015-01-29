@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "HUDElement_NoRotate",
+		uint64 ResourceId = 541aa028def7de14,
+	},
+},

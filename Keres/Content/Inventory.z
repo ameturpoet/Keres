@@ -1,0 +1,60 @@
+class Inventory : ZilchComponent
+{
+    [Property]
+    var InventoryObject : CogPath = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function HasItem(id : String): Boolean
+    {
+        var result = this.InventoryObject.Cog.FindChildByName(id);
+        
+        if (result != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    function GetItemName(id : String): String
+    {
+        var result = this.InventoryObject.Cog.FindChildByName(id);
+        
+        if (result != null)
+        {
+            return result.Item.Name;
+        }
+        else
+        {
+            return null;
+        }
+    }
+    
+    function AddItem(itemArchetype : Archetype)
+    {
+        var newItem = this.InventoryObject.Cog.Space.CreateAtPosition(itemArchetype, this.InventoryObject.Cog.Transform.Translation);
+        newItem.AttachTo(this.InventoryObject.Cog);
+    }
+    
+    function PickUpItem(item : Cog)
+    {
+        item.Transform.Translation = this.InventoryObject.Cog.Transform.Translation;
+        item.AttachTo(this.InventoryObject.Cog);
+    }
+    
+    function DeleteItem(id : String)
+    {
+        var result = this.InventoryObject.Cog.FindChildByName(id);
+        
+        if (result != null)
+        {
+            result.Destroy();
+        }
+    }
+}

@@ -1,0 +1,73 @@
+class HUDElement : ZilchComponent
+{
+    var StartOffset : Real3 = Real3(0, 0, 0);
+    var Done : Boolean = false;
+    
+    [Property]
+    var Anchor_Top : Boolean = false;
+    [Property]
+    var Anchor_Bottom : Boolean = false;
+    [Property]
+    var Anchor_Left : Boolean = false;
+    [Property]
+    var Anchor_Right : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        if (this.Anchor_Top)
+        {
+            this.StartOffset.Y = 10 - this.Owner.Transform.Translation.Y; 
+        }
+        else if (this.Anchor_Bottom)
+        {
+            this.StartOffset.Y = -10 - this.Owner.Transform.Translation.Y; 
+        }
+        
+        if (this.Anchor_Right)
+        {
+            this.StartOffset.X = 16 - this.Owner.Transform.Translation.X; 
+        }
+        else if (this.Anchor_Left)
+        {
+            this.StartOffset.X = -16 - this.Owner.Transform.Translation.X; 
+        }
+        
+        this.StartOffset.Z = this.Owner.Transform.Translation.Z * -1;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var screenArea = this.Owner.Space.FindObjectByName("SCREENAREA");
+        
+        if (screenArea != null && !this.Done)
+        {
+            var newPos = -1 * this.StartOffset;
+            
+            if (this.Anchor_Top)
+            {
+                newPos += screenArea.ScreenAreaBlock.GetTop();
+            }
+            else if (this.Anchor_Bottom)
+            {
+                newPos += screenArea.ScreenAreaBlock.GetBottom();
+            }
+            
+            if (this.Anchor_Right)
+            {
+                newPos += screenArea.ScreenAreaBlock.GetRightSide();
+            }
+            else if (this.Anchor_Left)
+            {
+                newPos += screenArea.ScreenAreaBlock.GetLeftSide();
+            }
+            
+            Console.WriteLine(newPos);
+            
+            this.Owner.Transform.Translation = newPos;
+            
+            this.Done = true;
+        }
+    }
+}

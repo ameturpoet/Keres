@@ -1,0 +1,123 @@
+class Tile_Replace3D : ZilchComponent
+{
+    [Property]
+    var MainProp : Archetype = null;
+    [Property]
+    var FloorProp : Archetype = null;
+    [Property]
+    var CeilingProp : Archetype = null;
+    [Property]
+    var JustProp : Boolean = false;
+    [Property]
+    var FloorCeiling : Boolean = false;
+    [Property]
+    var Up : Boolean = false;
+    [Property]
+    var Down : Boolean = false;
+    [Property]
+    var Left : Boolean = false;
+    [Property]
+    var Right : Boolean = false;
+    [Property]
+    var FortyFiveCorner : Boolean = false;
+    
+    var Done : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (!this.Done)
+        {
+            var geometryParent = this.Owner.Space.FindObjectByName("LevelGeometry");
+            
+            if (this.JustProp)
+            {
+                this.Owner.Space.CreateAtPosition(this.MainProp, this.Owner.Transform.Translation);
+            }
+            
+            if (this.FloorCeiling)
+            {
+                var floor = this.Owner.Space.CreateAtPosition(this.FloorProp, this.Owner.Transform.Translation + Real3(0, 0, -1));
+                floor.Transform.SetEulerAnglesXYZ(Math.Pi, 0, 0);
+                floor.AttachTo(geometryParent);
+                floor.Name = "Floor";
+                if (this.FortyFiveCorner)
+                {
+                    floor.NavigationPoint.FortyFiveCorner = true;
+                    floor.Name = "Floor45";
+                }
+                var ceiling = this.Owner.Space.CreateAtPosition(this.CeilingProp, this.Owner.Transform.Translation + Real3(0, 0, 1));
+                ceiling.Transform.SetEulerAnglesXYZ(0, 0, 0);
+                ceiling.AttachTo(geometryParent);
+                ceiling.Name = "Ceiling";
+                
+            }
+            if (!this.FortyFiveCorner)
+            {
+                if (this.Up)
+                {
+                    var wallup = this.Owner.Space.CreateAtPosition(this.MainProp, this.Owner.Transform.Translation);
+                    wallup.Transform.SetEulerAnglesXYZ(Math.Pi / 2, 0, 0);
+                    wallup.AttachTo(geometryParent);
+                }
+                if (this.Down)
+                {
+                    var walldown = this.Owner.Space.CreateAtPosition(this.MainProp, this.Owner.Transform.Translation);
+                    walldown.Transform.SetEulerAnglesXYZ(Math.Pi / 2, 0, Math.Pi);
+                    walldown.AttachTo(geometryParent);
+                }
+                if (this.Left)
+                {
+                    var wallleft = this.Owner.Space.CreateAtPosition(this.MainProp, this.Owner.Transform.Translation);
+                    wallleft.Transform.SetEulerAnglesXYZ(Math.Pi / 2, 0, Math.Pi / 2);
+                    wallleft.AttachTo(geometryParent);
+                }
+                if (this.Right)
+                {
+                    var wallright = this.Owner.Space.CreateAtPosition(this.MainProp, this.Owner.Transform.Translation);
+                    wallright.Transform.SetEulerAnglesXYZ(Math.Pi / 2, 0, 3 * Math.Pi / 2);
+                    wallright.AttachTo(geometryParent);
+                }
+            }
+            else
+            {
+                if (this.Up)
+                {
+                    if (this.Right)
+                    {
+                        var wall = this.Owner.Space.CreateAtPosition(this.MainProp, this.Owner.Transform.Translation);
+                        wall.Transform.SetEulerAnglesXYZ(Math.Pi / -2, 0, 0);
+                        wall.AttachTo(geometryParent);
+                    }
+                    else
+                    {
+                        var wall = this.Owner.Space.CreateAtPosition(this.MainProp, this.Owner.Transform.Translation);
+                        wall.Transform.SetEulerAnglesXYZ(Math.Pi / -2, 0, Math.Pi / 2);
+                        wall.AttachTo(geometryParent);
+                    }
+                }
+                else
+                {
+                    if (this.Right)
+                    {
+                        var wall = this.Owner.Space.CreateAtPosition(this.MainProp, this.Owner.Transform.Translation);
+                        wall.Transform.SetEulerAnglesXYZ(Math.Pi / -2, 0, 3 * Math.Pi / 2);
+                        wall.AttachTo(geometryParent);
+                    }
+                    else
+                    {
+                        var wall = this.Owner.Space.CreateAtPosition(this.MainProp, this.Owner.Transform.Translation);
+                        wall.Transform.SetEulerAnglesXYZ(Math.Pi / -2, 0, Math.Pi);
+                        wall.AttachTo(geometryParent);
+                    }
+                }
+            }
+            this.Done = true;
+            this.Owner.Destroy();
+        }
+    }
+}

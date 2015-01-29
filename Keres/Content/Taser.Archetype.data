@@ -1,0 +1,70 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Taser",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Gun",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.206774, 0.000321244, -0.603963],
+				Vec3 Scale = [0.0408621, 0.0408621, 0.0408621],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "546eaa26c7015017:Material__25",
+				string MeshName = "546eaa26c71ec467:Taser.Gun",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "Battery",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.902462, 0.0209555, -0.614083],
+				Vec3 Scale = [0.0408621, 0.0271797, 0.0194336],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				string MaterialName = "546eaa21c704af2c:Material__27",
+				string MeshName = "546eaa26c71ec471:Taser.Battery",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},

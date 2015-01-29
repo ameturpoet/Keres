@@ -1,0 +1,19 @@
+class PlayerStats : ZilchComponent
+{
+    [Property]
+    var Life : Integer = 100;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Life <= 0)
+        {
+            this.Owner.PlayerControl_Move.Disabled = true;
+        }
+    }
+}

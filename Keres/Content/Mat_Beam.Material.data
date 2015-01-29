@@ -1,0 +1,31 @@
+Material = 
+{
+	EmissiveMapping = 
+	{
+		float EmissiveScale = 1,
+		string EmissiveMapTexture = "546fd8b316239e1a:CM_Zap",
+		Vec2 EmissiveScroll = [5, 5],
+		Vec2 EmissiveTiling = [0.3, 0.3],
+		Vec2 EmissiveOffset = [0, 0],
+	},
+	NormalMapping = 
+	{
+		float Bumpiness = 2,
+		string NormalMapTexture = "5405f43639bca451:Gold_n",
+		Vec2 NormalScroll = [0, 0],
+		Vec2 NormalTiling = [1, 1],
+		Vec2 NormalOffset = [0, 0],
+	},
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Additive,
+		bool CastShadow = false,
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "5405f43639b2cdb1:Gold",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

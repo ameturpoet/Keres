@@ -1,0 +1,60 @@
+class NavigationController : ZilchComponent
+{
+    [Dependency]
+    var NavigationEvents : NavigationEvents = null;
+    var AllTiles : Array[Cog] = null;
+    var Initialized : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, "StartGeometry", this.MakeTileList);
+    }
+
+    //Sets the list of all floor tiles and then disconnects this function
+    //
+    function MakeTileList(event : GeometryStartEvent)
+    {
+        var tempTiles = this.Space.FindAllObjectsByName("Floor");
+        this.AllTiles = new Array[Cog]();
+        
+        foreach (var ti in tempTiles)
+        {
+            this.AllTiles.Add(ti);
+        }
+        
+    }
+    
+    
+    //Begins the recalculation of the pathing weights for the floor tiles
+    //
+    function UpdateWeights(playerLocation : Real3)
+    {
+        var startingTile : Cog = null;
+        var currentDistance = -1337.0;
+        
+        //Calculates the starting location and resets the weights of all tiles
+        foreach (var ti in this.AllTiles)
+        {
+            var tempLocation = ti.Transform.Translation - playerLocation;
+            var distance = Math.Pow(tempLocation.X, 2) + Math.Pow(tempLocation.Y, 2);
+            
+            ti.NavigationPoint.Weight = 0;
+            
+            if (!ti.NavigationPoint.FortyFiveCorner && (currentDistance < 0 || distance < currentDistance))
+            {
+                startingTile = ti;
+                currentDistance = distance;
+            }
+        }
+        
+        //Starts with the first tile
+        if (startingTile != null)
+        {
+            //The first tile sets the weights of the tiles around it to its weight + 1
+            //From there, the tiles it affected set the weights of the tiles around them to their weight + 1, and so on and so forth
+            startingTile.NavigationPoint.Weight = 1;
+            startingTile.NavigationPoint.Done = false;
+            startingTile.FindChildByName("FloorText").SpriteText.Text = "1";
+        }
+    }
+}

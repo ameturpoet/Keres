@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "HUDElement_TextLog",
+		uint64 ResourceId = 5491d1c1babcf4ed,
+	},
+},

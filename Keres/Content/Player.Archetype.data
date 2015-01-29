@@ -1,0 +1,278 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Player",
+	},
+	Archetyped = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 2, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0.707107, 0, 0, 0.707107],
+	},
+	Model = 
+	{
+		bool Visible = false,
+		bool VisibilityCulling = false,
+		string MaterialName = "5403b42c4e36be37:Mat_Pearlstone",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = true,
+		bool Mode2D = true,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	PlayerControl_Move = 
+	{
+		float Speed = 3,
+		float LookSensitivity = 6,
+		float Height = 0.15,
+		CogPath Weapon = "Camera/flashlight/Taser",
+	},
+	CylinderCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 0.35,
+		float Height = 0.6,
+		uint Direction = 1,
+	},
+	Inventory = 
+	{
+		CogPath InventoryObject = ":/invPlayer",
+	},
+	PlayerStats = 
+	{
+		int Life = 100,
+	},
+	Controller = 
+	{
+		Enum MoveForward = W,
+		Enum MoveBackward = S,
+		Enum MoveRight = D,
+		Enum MoveLeft = A,
+		Enum Activate = Space,
+		Enum RadarPing = F,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Camera",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Camera = 
+			{
+				ProjectionMode ProjectionMode = Perspective,
+				Facing Facing = NegativeZ,
+				CameraTransparentSort TransparentSort = InheritFromSpace,
+				float FieldOfView = 45,
+				float NearPlane = 0.001,
+				float FarPlane = 200,
+				float Size = 40,
+			},
+			Microphone = 
+			{
+				bool Active = true,
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "flashlight",
+					},
+					Archetyped = 
+					{
+						string Name = "4faa6050b86884ec:DefaultArchetype",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.13763, -0.0460505, -0.235939],
+						Vec3 Scale = [0.05, 0.05, 0.05],
+						Quat Rotation = [0.0431205, -5.8629e-007, 0.99907, 1.47948e-007],
+					},
+					Model = 
+					{
+						bool Visible = false,
+						bool VisibilityCulling = true,
+						string MaterialName = "5405f4023f587018:Mat_Gold",
+						string MeshName = "4de0354322b345ae:Cube",
+						Vec4 Color = [1, 1, 1, 1],
+					},
+					Light = 
+					{
+						bool Visible = true,
+						bool VisibilityCulling = false,
+						LightType LightType = Spot,
+						Vec4 Color = [1, 1, 1, 1],
+						float Intensity = 0.95,
+						float Range = 7,
+						float Falloff = 1,
+						float Angle = 69,
+						float Size = 20,
+					},
+					Shadow = 
+					{
+						Quality Quality = HighQuality,
+						ShadowType ShadowType = Esm,
+						bool SoftShadows = true,
+						uint Splits = 1,
+						uint CurrentSplit = 63228464,
+						float PaddingScaler = 0.3,
+						Vec4 Color = [0, 0, 0, 1],
+						bool Active = true,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 4,
+							},
+							Named = 
+							{
+								string Name = "Taser",
+							},
+							Archetyped = 
+							{
+								string Name = "546eaa26c71a7a71:Taser",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0.0384656, 1.13658, -0.163183],
+								Vec3 Scale = [20, 20, 20],
+								Quat Rotation = [-0.5, -0.5, -0.5, 0.5],
+							},
+							Weapon = 
+							{
+								string Projectile = "541bb3f68b66bc61:projectile_Bullet",
+								string RibbonObject = "541bbd020465b0f4:ribbon_TestBeam",
+								CogPath ProjectileNode = "ProjectileNode",
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 5,
+									},
+									Named = 
+									{
+										string Name = "Gun",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-0.206774, 0.000321244, -0.603963],
+										Vec3 Scale = [0.0408621, 0.0408621, 0.0408621],
+										Quat Rotation = [-0.707107, -0, 0, 0.707107],
+									},
+									Model = 
+									{
+										bool Visible = true,
+										bool VisibilityCulling = true,
+										string MaterialName = "546eb7504997842c:Mat_TaserBody",
+										string MeshName = "546eaa26c71ec467:Taser.Gun",
+										Vec4 Color = [1, 1, 1, 1],
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 6,
+									},
+									Named = 
+									{
+										string Name = "Battery",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0.902462, 0.0209555, -0.614083],
+										Vec3 Scale = [0.0408621, 0.0271797, 0.0194336],
+										Quat Rotation = [-0.707107, -0, 0, 0.707107],
+									},
+									Model = 
+									{
+										bool Visible = true,
+										bool VisibilityCulling = true,
+										string MaterialName = "546eb77d4536fa77:Mat_TaserBattery",
+										string MeshName = "546eaa26c71ec471:Taser.Battery",
+										Vec4 Color = [1, 1, 1, 1],
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 7,
+									},
+									Named = 
+									{
+										string Name = "ProjectileNode",
+									},
+									Archetyped = 
+									{
+										string Name = "4faa6050b86884ec:DefaultArchetype",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-0.112079, 0.00261568, -0.0564492],
+										Vec3 Scale = [0.01, 0.01, 0.01],
+										Quat Rotation = [0.73694, -0.675958, -7.20636e-007, 5.29579e-007],
+									},
+									Model = 
+									{
+										bool Visible = false,
+										bool VisibilityCulling = true,
+										string MaterialName = "4de020863e85bb61:DefaultMaterial",
+										string MeshName = "4de0354322b345ae:Cube",
+										Vec4 Color = [1, 1, 1, 1],
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+},

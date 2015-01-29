@@ -1,0 +1,41 @@
+class TileMaterial : ZilchComponent
+{
+    [Property]
+    var FloorMaterial : Material = null;
+    [Property]
+    var WallMaterial : Material = null;
+    [Property]
+    var CeilingMaterial : Material = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Owner.Collider.Contacts.IsNotEmpty)
+        {
+            foreach (var c in this.Owner.Collider.Contacts.All)
+            {
+                var distBase = Real2(this.Owner.Transform.Translation.X - c.OtherObject.Transform.Translation.X, this.Owner.Transform.Translation.Y - c.OtherObject.Transform.Translation.Y);
+                if (Math.Length(distBase) < 0.1)
+                {
+                    if (c.OtherObject.Name == "Wall")
+                    {
+                        c.OtherObject.Model.Material = this.WallMaterial;
+                    }
+                    else if (c.OtherObject.Name == "Ceiling")
+                    {
+                        c.OtherObject.Model.Material = this.CeilingMaterial;
+                    }
+                    else if (c.OtherObject.Name == "Floor" || c.OtherObject.Name == "Floor45")
+                    {
+                        c.OtherObject.Model.Material = this.FloorMaterial;
+                    }
+                }
+            }
+            this.Owner.Destroy();
+        }
+    }
+}

@@ -1,0 +1,58 @@
+class HUDElement_Radar : ZilchComponent
+{
+    [Property]
+    var BlipArchetype : Archetype = null;
+    [Property]
+    var RadarDistance : Real = 5.0;
+    
+    /*
+    *
+    * ***NOTE***
+    *
+    * All radar functions are called by the player, none of these should trigger on their own
+    *
+    */
+    
+    //Updates the locations of all blips based on the movement of the player
+    //
+    function UpdateBlips(deltaMovement : Real3)
+    {
+        var allBlips = this.Owner.FindAllChildrenByName("Blip");
+        
+        //Loops through all blips
+        foreach (var bl in allBlips)
+        {
+            //Translates the blip
+            bl.Transform.Translation -= 2 * deltaMovement / this.RadarDistance;
+            
+            //If the blip if outside the area of the radar, it vanishes
+            if (Math.Length(bl.Transform.Translation) > this.Owner.Sprite.Size.X / 2)
+            {
+                if (bl.Sprite.Visible)
+                {
+                    bl.Sprite.Visible = false;
+                }
+            }
+            else
+            {
+                if (!bl.Sprite.Visible)
+                {
+                    bl.Sprite.Visible = true;
+                }
+            }
+        }
+    }
+
+    //Adds a blip to the radar using the relative position from the player to the enemy
+    //
+    function AddBlip(relativePosition : Real3)
+    {
+        if (Math.Length(Real2(relativePosition.X, relativePosition.Y)) <= this.RadarDistance)
+        {
+            var blipLocation = (relativePosition / this.RadarDistance) * this.Owner.Sprite.Size.X / 2;
+            blipLocation.Z = 0.5;
+            var newBlip = this.Owner.Space.CreateAtPosition(this.BlipArchetype, blipLocation);
+            newBlip.AttachTo(this.Owner);
+        }
+    }
+}

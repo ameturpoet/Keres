@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "RibbonParticle",
+		uint64 ResourceId = 541bb2becdbaaa2f,
+	},
+},

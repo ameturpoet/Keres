@@ -1,0 +1,29 @@
+class ProjectileScript : ZilchComponent
+{
+    [Property]
+    var Speed : Real = 1.0;
+    [Property]
+    var Damage : Integer = 35;
+    var Direction : Real3 = Real3(0, 0, 0);
+    var DeleteNext : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollide);
+    }
+    
+    function OnCollide(event : CollisionEvent)
+    {
+        this.DeleteNext = true;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Owner.Transform.Translation += this.Direction * this.Speed;
+        if (this.DeleteNext)
+        {
+            this.Owner.Destroy();
+        }
+    }
+}

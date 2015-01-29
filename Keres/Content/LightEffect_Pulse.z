@@ -1,0 +1,32 @@
+class LightEffect_Pulse : ZilchComponent
+{
+    [Property]
+    var Range : Real = 1.0;
+    [Property]
+    var Speed : Real = 1.0;
+    
+    var Timer : Real = 0.0;
+    var Base : Real = 1.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.Base = this.Owner.Light.Range;
+        var rnd = Random();
+        this.Timer = rnd.Range(0, Math.Pi);
+    }
+    
+    //Causes the light attached to the object to pulse in brightness at the speed
+    //and intensity defined
+    //
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Timer += event.Dt * this.Speed;
+        if (this.Timer >= Math.Pi)
+        {
+            this.Timer -= Math.Pi;
+        }
+        
+        this.Owner.Light.Range = this.Base + Math.Sin(this.Timer) * this.Range;
+    }
+}

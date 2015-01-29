@@ -1,0 +1,29 @@
+class MenuButton : ZilchComponent
+{
+    [Property]
+    var Target : String = null;
+    //The target determines the function the menu button will perform
+    [Property]
+    var LoadTargetAsLevel : Boolean = false;
+    //If LoadTargetAsLevel is true, the button will try to load a level whose name is the value of Target
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.MouseUp, this.DoTarget);
+    }
+
+    function DoTarget(event : MouseEvent)
+    {
+        if (this.LoadTargetAsLevel)
+        {
+            this.Space.LoadLevel(Level.Find(this.Target));
+        }
+        else
+        {
+            if (this.Target == "Quit")
+            {
+                this.GameSession.Quit();
+            }
+        }
+    }
+}

@@ -1,0 +1,94 @@
+enum EnemyState { Idle, Aggroed }
+
+class EnemyAI : ZilchComponent
+{
+    var CurrentTile : Cog = null;
+    var TargetTile : Cog = null;
+    var ToTargetVector : Real3 = Real3(0, 0, 0);
+    var State : EnemyState = EnemyState.Idle;
+    [Property]
+    var Speed : Real = 1.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.State == EnemyState.Aggroed)
+        {
+            if (this.TargetTile != null)
+            {
+                var temp1 = this.Owner.Transform.Translation;
+                temp1.Z = 0;
+                var temp2 = this.TargetTile.Transform.Translation;
+                temp2.Z = 0;
+                
+                if (Math.Distance(temp1, temp2) > event.Dt * this.Speed)
+                {
+                    this.Owner.Transform.Translation += this.Speed * event.Dt * this.ToTargetVector;
+                    Console.WriteLine(Math.Distance(temp1, temp2));
+                    //Console.WriteLine(temp2);
+                }
+                else
+                {
+                    this.CurrentTile = this.TargetTile;
+                    this.GetNextTile();
+                }
+            }
+            else
+            {
+                this.GetNextTile();
+            }
+        }
+        else
+        {
+            if (this.CurrentTile != null)
+            {
+                this.State = EnemyState.Aggroed;
+                this.GetNextTile();
+            }
+            else
+            {
+                this.GetCurrentTile();
+            }
+        }
+    }
+    
+    function GetNextTile()
+    {
+        foreach (var ti in this.CurrentTile.NavigationPoint.NearPoints)
+        {
+            if (ti.NavigationPoint.Weight < this.CurrentTile.NavigationPoint.Weight)
+            {
+                this.TargetTile = ti;
+            }
+        }
+        
+        if (this.TargetTile != null)
+        {
+            this.ToTargetVector = Math.Normalize(this.TargetTile.Transform.Translation - this.CurrentTile.Transform.Translation);
+        }
+        
+    }
+    
+    function GetCurrentTile()
+    {
+        var tiles = this.Space.FindAllObjectsByName("Floor");
+        
+        var currentDistance = -1337.0;
+        
+        foreach (var ti in tiles)
+        {
+            var tempLocation = ti.Transform.Translation - this.Owner.Transform.Translation;
+            var distance = Math.Pow(tempLocation.X, 2) + Math.Pow(tempLocation.Y, 2);
+            
+            if (!ti.NavigationPoint.FortyFiveCorner && (currentDistance < 0 || distance < currentDistance))
+            {
+                this.CurrentTile = ti;
+                currentDistance = distance;
+            }
+        }
+    }
+}

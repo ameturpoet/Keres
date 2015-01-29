@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Planet_Rotate",
+		uint64 ResourceId = 546d97e7426c389b,
+	},
+},

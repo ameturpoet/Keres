@@ -1,0 +1,34 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "tile_Up",
+	},
+	Archetyped = 
+	{
+		string Name = "541a96c15c33a3ec:tile_UpLeftRight",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Tile_Replace3D = 
+	{
+		string MainProp = "541a9554d969de2c:Plane",
+		string FloorProp = "5469260c6b8cec37:PlaneFloor",
+		string CeilingProp = "541a9554d969de2c:Plane",
+		bool JustProp = false,
+		bool FloorCeiling = false,
+		bool Up = true,
+		bool Down = false,
+		bool Left = true,
+		bool Right = true,
+		bool FortyFiveCorner = false,
+	},
+},

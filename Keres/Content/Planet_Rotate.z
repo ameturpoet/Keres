@@ -1,0 +1,14 @@
+class Planet_Rotate : ZilchComponent
+{
+    //Please note: Although it is not technically a planet, Pluto still gets this script because it totally should still be a planet
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Owner.Transform.EulerAngles += Real3(0.01, 0.003, 0.03) * event.Dt;
+    }
+}

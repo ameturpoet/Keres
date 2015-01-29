@@ -1,0 +1,21 @@
+Material = 
+{
+	DoubledSide = 
+	{
+	},
+	EmissiveMapping = 
+	{
+		float EmissiveScale = 0.3,
+		string EmissiveMapTexture = "546cc09b45747fa3:Starfield_g",
+		Vec2 EmissiveScroll = [0.005, 0.001],
+		Vec2 EmissiveTiling = [1, 1],
+		Vec2 EmissiveOffset = [0, 0],
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "546cc68b21107f6b:Starfield",
+		Vec2 DiffuseScroll = [0.005, 0.001],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "LoadHUD",
+		uint64 ResourceId = 5405bea9e4057e90,
+	},
+},

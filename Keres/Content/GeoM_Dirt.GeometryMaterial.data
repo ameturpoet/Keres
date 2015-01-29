@@ -1,0 +1,14 @@
+GeometryMaterial = 
+{
+	string ArchetypeName = "5405d42e0d5fd423:GeoGeoM_DirtArchetype",
+	GraphicsMaterialBlock = 
+	{
+		string MultiMaterialName = "5405d42e0d5d1937:GeoGeoM_DirtMulti",
+		Vec2 TextureScalarFace = [1, 1],
+		float TextureScalarSurface = 1,
+		bool DoubleSided = true,
+	},
+	PhysicsMaterialBlock = 
+	{
+	},
+},

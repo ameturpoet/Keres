@@ -1,0 +1,67 @@
+class RibbonParticle : ZilchComponent
+{
+    var Start : Real3 = Real3(0, 0, 0);
+    var End : Real3 = Real3(0, 0, 0);
+    [Property]
+    var LightEmitter : Archetype = null;
+    [Property]
+    var Lifetime : Real = 1.3;
+    [Property]
+    var FadeOut : Boolean = false;
+    var MaxLifetime : Real = 1.3;
+    var WidthStart : Real = 1.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.MaxLifetime = this.Lifetime;
+        this.WidthStart = this.Owner.Transform.Scale.Y;
+    }
+    
+    //Please, dear lord, find a better way to do this if you can
+    //
+    function CalculateScale()
+    {
+        var difference = this.End - this.Start;
+        var distance = Math.Sqrt(Math.Pow(difference.X, 2) + Math.Pow(difference.Y, 2) + Math.Pow(difference.Z, 2));
+        var normalizedDiff = difference / distance;
+        this.Owner.Transform.Scale = Real3(distance, this.Owner.Transform.Scale.Y, this.Owner.Transform.Scale.Z);
+        this.Owner.Transform.Translation = this.Start + (difference / 2);
+        
+        var angle1 = Math.Angle2D(difference);
+        var angle2 = this.AngleBetween(normalizedDiff, Real3(normalizedDiff.X, normalizedDiff.Y, 0));
+        
+        this.Owner.Space.CreateAtPosition(this.LightEmitter, this.Start);
+        this.Owner.Space.CreateAtPosition(this.LightEmitter, this.End - difference * 0.1);
+        
+        if (normalizedDiff.Z >= 0.0)
+        {
+            angle2 *= -1;
+        }
+        
+        this.Owner.Transform.SetEulerAnglesXYZ(0, angle2, angle1);
+    }
+    
+    function AngleBetween(vecA : Real3, vecB : Real3) : Real
+    {
+        var dot = vecA.X * vecB.X + vecA.Y * vecB.Y + vecA.Z * vecB.Z;
+        var lengthA = Math.Sqrt(Math.Pow(vecA.X, 2) + Math.Pow(vecA.Y, 2) + Math.Pow(vecA.Z, 2));
+        var lengthB = Math.Sqrt(Math.Pow(vecB.X, 2) + Math.Pow(vecB.Y, 2) + Math.Pow(vecB.Z, 2));
+        
+        return Math.ACos(dot / (lengthA * lengthB));
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Lifetime -= event.Dt;
+        
+        //this.Owner.Model.Color = Real4(1.0, 1.0, 1.0, this.Lifetime / this.MaxLifetime);
+        var temp = this.Lifetime / this.MaxLifetime;
+        this.Owner.Transform.Scale = Real3(this.Owner.Transform.Scale.X, temp * this.WidthStart, temp * this.WidthStart);
+        
+        if (this.Lifetime <= 0.0)
+        {
+            this.Owner.Destroy();
+        }
+    }
+}

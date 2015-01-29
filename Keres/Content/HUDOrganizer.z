@@ -1,0 +1,22 @@
+class HUDOrganizer : ZilchComponent
+{
+    [Property]
+    var ScreenResolution : Real2 = Real2(32, 20);
+    [Property]
+    var ScreenAreaBlock : CogPath = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.ScreenResolution = this.Owner.Camera.Viewport.CameraViewport.ViewPlaneSize(this.Owner.Transform.Translation.Z);
+        
+        var newScale = Real3(1, 1, 1);
+        newScale.X = this.ScreenResolution.X;
+        newScale.Y = this.ScreenResolution.Y;
+        
+        this.ScreenAreaBlock.Cog.Transform.Scale = newScale;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

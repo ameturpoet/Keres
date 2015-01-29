@@ -1,0 +1,37 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "muzzleflare",
+	},
+	Archetyped = 
+	{
+		string Name = "54d5e159b4d2587c:light_MuzzleFlareTest",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Light = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		LightType LightType = Point,
+		Vec4 Color = [0.9925, 1, 0.625, 1],
+		float Intensity = 0.53,
+		float Range = 3,
+		float Falloff = 1,
+		float Angle = 45,
+		float Size = 20,
+	},
+	LightEffect_DimtoDeath = 
+	{
+		float Lifetime = 0.085,
+	},
+},

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "ScreenAreaBlock",
+		uint64 ResourceId = 5491dad66ada4f8e,
+	},
+},

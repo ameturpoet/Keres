@@ -1,0 +1,25 @@
+Material = 
+{
+	Phong = 
+	{
+		float SpecularExponent = 16,
+		float SpecularScalar = 0.25,
+	},
+	Reflective = 
+	{
+		float Reflectivity = 1,
+		string Environment = "5403b4374cadb53c:CM_Rainbow",
+		Vec2 ReflectiveScroll = [0.3, 0.3],
+	},
+	ReflectiveMapping = 
+	{
+		string ReflectiveMap = "546fd8b2165b910b:zappyTest_m",
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "546fd8b2162cdf53:zappyTest",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

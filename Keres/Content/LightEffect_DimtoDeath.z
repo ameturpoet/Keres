@@ -1,0 +1,24 @@
+class LightEffect_DimtoDeath : ZilchComponent
+{
+    [Property]
+    var Lifetime : Real = 1.0;
+    var MaxLifetime : Real = 1.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.MaxLifetime = this.Lifetime;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Lifetime -= event.Dt;
+        
+        this.Owner.Light.Intensity = (this.Lifetime / this.MaxLifetime);
+        
+        if (this.Lifetime <= 0.0)
+        {
+            this.Owner.Destroy();
+        }
+    }
+}
