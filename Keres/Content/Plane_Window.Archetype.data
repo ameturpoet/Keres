@@ -8,6 +8,10 @@ Cog =
 	{
 		string Name = "Plane_Window",
 	},
+	Archetyped = 
+	{
+		string Name = "546cc2d092154022:Plane_Window",
+	},
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
@@ -18,6 +22,8 @@ Cog =
 	{
 		bool Visible = true,
 		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
 		string MaterialName = "540260c6159f9173:Material__2",
 		string MeshName = "546cc2d0921cf846:Plane_Window",
 		Vec4 Color = [1, 1, 1, 1],

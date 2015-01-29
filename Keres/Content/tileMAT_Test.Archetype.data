@@ -4,6 +4,10 @@ Cog =
 	{
 		uint Id = 1,
 	},
+	Named = 
+	{
+		string Name = "tile_Paint",
+	},
 	Archetyped = 
 	{
 		string Name = "541aae722817816d:tileMAT_Test",
@@ -16,6 +20,7 @@ Cog =
 	},
 	Tile_Replace3D = 
 	{
+		Enum Type = TilePainter,
 		string MainProp = "541ab5d2f88dcb1c:TilePainter",
 		string FloorProp = "541ab5d2f88dcb1c:TilePainter",
 		string CeilingProp = "541ab5d2f88dcb1c:TilePainter",
@@ -26,5 +31,8 @@ Cog =
 		bool Left = false,
 		bool Right = false,
 		bool FortyFiveCorner = false,
+	},
+	NavigationEvents = 
+	{
 	},
 },

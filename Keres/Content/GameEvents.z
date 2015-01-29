@@ -10,6 +10,30 @@ class NavigationEvents : ZilchComponent
     }
 }
 
+//Event that occurs when the level is all generated and ready to be played
+class ReadyEvent : Event
+{
+    constructor() : base()
+    {
+    }
+}
+
+//Event that occurs upon the start of the level, used mostly to begin level geometry generation
+class GenerateGeometryEvent : Event
+{
+    constructor() : base()
+    {
+    }
+}
+
+//Event that occurs after the level geometry has been generated, used to begin painting textures
+class BeginPaintingEvent : Event
+{
+    constructor() : base()
+    {
+    }
+}
+
 //Base event for geometry events
 class GeometryStartEvent : Event
 {

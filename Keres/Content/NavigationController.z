@@ -7,7 +7,7 @@ class NavigationController : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Space, "StartGeometry", this.MakeTileList);
+        Zero.Connect(this.Space, "ConnectTiles", this.MakeTileList);
     }
 
     //Sets the list of all floor tiles and then disconnects this function

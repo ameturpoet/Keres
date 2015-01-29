@@ -14,12 +14,6 @@ class Weapon : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         this.StartLocation = this.Owner.Transform.Translation;
-        //Zero.Connect(this.Space, Events.LogicUpdate, this.DebugStuff);
-    }
-    
-    function DebugStuff(event : UpdateEvent)
-    {
-        Console.WriteLine(this.Owner.Transform.Translation);
     }
 
     function UpdateGun(deltaTime : Real, impactLocation : Real3)

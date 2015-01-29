@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "LoadIconSpin",
+		uint64 ResourceId = 546454c3c2f8ec04,
+	},
+},

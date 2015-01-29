@@ -1,0 +1,116 @@
+enum LevelState { Generating, Painting, Connecting, Ready, Done }
+
+
+class LevelGenerator : ZilchComponent
+{
+    [Dependency]
+    var NavigationEvents : NavigationEvents = null;
+    var CurrentState : LevelState = LevelState.Generating;
+    var LoadingText : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.LoadingText = this.GameSession.FindSpaceByName("HUDSpace").FindObjectByName("LoadingText");
+    }
+
+    //Controls the current state of level generation, ensuring that everything occurs in the right order
+    //
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //Starts with terrain generation
+        if (this.CurrentState == LevelState.Generating)
+        {
+            if (this.Owner.Space.FindObjectByName("tile_Up") != null)
+            {
+                Console.WriteLine("Generating level geometry");
+                this.SendGeneratingEvent();
+            }
+            else
+            {
+                this.CurrentState = LevelState.Painting;
+            }
+        }
+        //Then terrain painting
+        else if (this.CurrentState == LevelState.Painting)
+        {
+            if (this.Owner.Space.FindObjectByName("tile_Paint") != null)
+            {
+                Console.WriteLine("Painting level");
+                this.SendPaintingEvent();
+            }
+            else
+            {
+                this.CurrentState = LevelState.Connecting;
+            }
+        }
+        //Then tile connection. for pathfinding
+        else if (this.CurrentState == LevelState.Connecting)
+        {
+            if (this.Owner.Space.FindObjectByName("Floor") != null)
+            {
+                Console.WriteLine("Connecting Tiles");
+                this.SendConnectingEvent();
+                this.CurrentState = LevelState.Ready;
+            }
+        }
+        //Finally, when everything is done, sends out the 'ready' event for everything to start
+        else if (this.CurrentState == LevelState.Ready)
+        {
+            Console.WriteLine("All done");
+            this.SendReadyEvent();
+            this.CurrentState = LevelState.Done;
+            this.Owner.Destroy();
+        }
+    }
+    
+    function SendReadyEvent()
+    {
+        var readyEvent = new GenerateGeometryEvent();
+
+        this.Owner.Space.DispatchEvent("ReadyToPlay", readyEvent);
+        
+        if (this.LoadingText != null)
+        {
+            this.LoadingText.SpriteText.Text = "Done";
+        }
+    }
+    
+    function SendGeneratingEvent()
+    {
+        var generationEvent = new GenerateGeometryEvent();
+
+        this.Owner.Space.DispatchEvent("GenerateGeometry", generationEvent);
+        
+        if (this.LoadingText != null)
+        {
+            this.LoadingText.SpriteText.Text = "Generating level geometry...";
+        }
+    }
+    
+    function SendPaintingEvent()
+    {
+        var paintingEvent = new BeginPaintingEvent();
+
+        this.Owner.Space.DispatchEvent("StartPainting", paintingEvent);
+        
+        if (this.LoadingText != null)
+        {
+            this.LoadingText.SpriteText.Text = "Painting tiles...";
+        }
+    }
+    
+    function SendConnectingEvent()
+    {
+        var connectionEvent = new GeometryStartEvent();
+                    
+        connectionEvent.PlayerLocation = this.Space.FindObjectByName("Player").Transform.Translation;
+
+        this.Owner.Space.DispatchEvent("ConnectTiles", connectionEvent);
+        
+        if (this.LoadingText != null)
+        {
+            this.LoadingText.SpriteText.Text = "Connecting tiles...";
+        }
+    }
+}

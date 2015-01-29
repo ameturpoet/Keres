@@ -1,0 +1,37 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "LevelGenerator",
+	},
+	Archetyped = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-2.7441, 13.1623, 0.416983],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "546441068a020187:dev_LevelGenerator",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	NavigationEvents = 
+	{
+	},
+	LevelGenerator = 
+	{
+	},
+},

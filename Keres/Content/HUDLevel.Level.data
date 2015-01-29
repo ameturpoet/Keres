@@ -75,27 +75,27 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [1.73771, 0.74223, 39.4011],
+			Vec3 Translation = [3.04028, -0.477581, 36.6746],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0314088, 0.0104666, 0.000328924, 0.999452],
+			Quat Rotation = [-0.00261782, -1.1497e-006, -3.02186e-009, 0.999997],
 		},
 		Camera = 
 		{
-			ProjectionMode ProjectionMode = Perspective,
+			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
 			CameraTransparentSort TransparentSort = InheritFromSpace,
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 22.0464,
+			float Size = 32.8894,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = ZPlane,
-			float LookDistance = 37.0408,
-			float VerticalAngle = 0.0628313,
-			float HorizontalAngle = -0.020944,
-			Vec3 LookTarget = [0.963515, -1.58356, 2.44153],
+			float LookDistance = 33.5159,
+			float VerticalAngle = 0.00523564,
+			float HorizontalAngle = 2.29012e-006,
+			Vec3 LookTarget = [3.04035, -0.653057, 3.15919],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -554,12 +554,61 @@ Level =
 		{
 			CogPath Cam = ":/Camera",
 		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 14,
+				},
+				Named = 
+				{
+					string Name = "BlackOverlay",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 3.58969],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [0, 0, 0, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "541a8e91d7b5c749:0000",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool OnTop = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				LoadScreenElement = 
+				{
+				},
+				NavigationEvents = 
+				{
+				},
+			},
+		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 14,
+			uint Id = 15,
 		},
 		Named = 
 		{
@@ -602,7 +651,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 15,
+			uint Id = 16,
 		},
 		Named = 
 		{
@@ -643,6 +692,125 @@ Level =
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 17,
+		},
+		Named = 
+		{
+			string Name = "LoadingText",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-14, -8.61998, 3.5],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		ScreenAreaBlock = 
+		{
+			CogPath Cam = ":/Camera",
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			TextPositionMode Position = UpperLeft,
+			string FontName = "4e7bac697bec55c5:Verdana",
+			uint FontSize = 36,
+			string Text = "Doing a thing...",
+			bool OnTop = false,
+			Vec2 Size = [0, 0],
+			TextAlign Align = Left,
+			float PixelsPerUnit = 64,
+			bool Smoothing = true,
+		},
+		HUDElement = 
+		{
+			bool Anchor_Top = false,
+			bool Anchor_Bottom = true,
+			bool Anchor_Left = true,
+			bool Anchor_Right = false,
+		},
+		LoadScreenElement = 
+		{
+		},
+		NavigationEvents = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 18,
+		},
+		Named = 
+		{
+			string Name = "LoadingIcon",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-15, -9, 3.5],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		ScreenAreaBlock = 
+		{
+			CogPath Cam = ":/Camera",
+		},
+		HUDElement = 
+		{
+			bool Anchor_Top = false,
+			bool Anchor_Bottom = true,
+			bool Anchor_Left = true,
+			bool Anchor_Right = false,
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "54645521c4831771:loadingIcon",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool OnTop = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		LoadIconSpin = 
+		{
+			float SpinTime = 1,
+		},
+		LoadScreenElement = 
+		{
+		},
+		NavigationEvents = 
+		{
 		},
 	},
 },

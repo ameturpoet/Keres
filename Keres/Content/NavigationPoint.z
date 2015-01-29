@@ -10,7 +10,7 @@ class NavigationPoint : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Space, "StartGeometry", this.SetNearbyPoints);
+        Zero.Connect(this.Space, "ConnectTiles", this.SetNearbyPoints);
         //Zero.Connect(this.Space, "Start45Corners", this.ForwardIfFortyFive);
         Zero.Connect(this.Space, Events.LogicUpdate, this.SetNearbyWeight);
         this.NearPoints = new Array[Cog]();
@@ -40,7 +40,6 @@ class NavigationPoint : ZilchComponent
     
     function ForwardIfFortyFive(event : Geometry45Event)
     {
-        Console.WriteLine(this.NearPoints);
         this.NearPoints.Get(0).NavigationPoint.NearPoints.RemoveFirst(this.Owner);
         this.NearPoints.Get(0).NavigationPoint.NearPoints.Add(this.NearPoints.Get(1));
         this.NearPoints.Get(1).NavigationPoint.NearPoints.RemoveFirst(this.Owner);

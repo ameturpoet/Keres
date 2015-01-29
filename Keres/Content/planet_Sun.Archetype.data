@@ -1,0 +1,37 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "sun",
+	},
+	Archetyped = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-4.09672, 0.736011, 6.89613],
+		Vec3 Scale = [0.05, 0.05, 0.05],
+		Quat Rotation = [-4.37114e-008, 1, 4.37114e-008, -1.91069e-015],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		string MaterialName = "546453262a7eeac5:Mat_Star",
+		string MeshName = "546d945262a248a4:Pluto",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	Planet_Rotate = 
+	{
+	},
+	Hierarchy = 
+	{
+	},
+},

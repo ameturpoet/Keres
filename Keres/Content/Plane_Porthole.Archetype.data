@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-6.5, 5.5, 0],
+		Vec3 Translation = [-0.5, 5.5, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [-3.09086e-008, 0.707107, 0.707107, -3.09086e-008],
 	},
@@ -22,7 +22,9 @@ Cog =
 	{
 		bool Visible = true,
 		bool VisibilityCulling = true,
-		string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "541bb26add47e2d3:Mat_Beam",
 		string MeshName = "546cc2d0921cf846:Plane_Window",
 		Vec4 Color = [1, 1, 1, 1],
 	},

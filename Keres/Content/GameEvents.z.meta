@@ -2,7 +2,7 @@ TextContent =
 {
 	ZilchScriptBuilder = 
 	{
-		string Name = "NavigationEvents",
+		string Name = "GameEvents",
 		uint64 ResourceId = 546930eea87d77f5,
 	},
 },

@@ -12,7 +12,7 @@ Level =
 		},
 		DragEffect = 
 		{
-			bool Active = true,
+			bool Active = false,
 			bool WakeUpOnChange = false,
 			float Drag = 0.7,
 		},
@@ -79,9 +79,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.67615, 2.3345, 9.21444],
+			Vec3 Translation = [-0.367126, 1.05389, 8.35152],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.0130892, 0.00524222, -6.8623e-005, 0.999901],
+			Quat Rotation = [-0.0130881, -0.0157025, -0.00020556, 0.999791],
 		},
 		Camera = 
 		{
@@ -91,15 +91,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 11.0803,
+			float Size = 30.1192,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 9.13421,
-			float VerticalAngle = -0.0261796,
-			float HorizontalAngle = 6.2727,
-			Vec3 LookTarget = [2.58041, 2.5736, 0.0838658],
+			float VerticalAngle = 0.0261803,
+			float HorizontalAngle = 6.31459,
+			Vec3 LookTarget = [-0.0803754, 0.814786, -0.77506],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -153,13 +153,6 @@ Level =
 			Vec3 Velocity = [0, 0, 0],
 			Vec3 AngularVelocity = [0, 0, 0],
 		},
-		PlayerControl_Move = 
-		{
-			float Speed = 3,
-			float LookSensitivity = 6,
-			float Height = 0.15,
-			CogPath Weapon = "Camera/Taser",
-		},
 		CylinderCollider = 
 		{
 			bool Ghost = false,
@@ -168,7 +161,7 @@ Level =
 			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
-			float Radius = 0.35,
+			float Radius = 0.23,
 			float Height = 0.6,
 			uint Direction = 2,
 		},
@@ -189,6 +182,16 @@ Level =
 			Enum Activate = Space,
 			Enum RadarPing = Q,
 		},
+		NavigationEvents = 
+		{
+		},
+		PlayerControl_Move = 
+		{
+			float Speed = 3,
+			float LookSensitivity = 6,
+			float Height = 0,
+			CogPath Weapon = "Camera/Taser",
+		},
 		Hierarchy = 
 		{
 			Cog = 
@@ -203,9 +206,9 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, 0, 0],
+					Vec3 Translation = [2.38419e-007, 0, 0],
 					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0.707107, 0, 0, 0.707107],
+					Quat Rotation = [0.707107, -6.88377e-008, -6.88377e-008, 0.707107],
 				},
 				Camera = 
 				{
@@ -530,6 +533,9 @@ Level =
 			bool Locked = false,
 			string Key = "",
 			Vec3 OpenLocation = [-3.5, 2.5, -0.99],
+		},
+		Hierarchy = 
+		{
 		},
 	},
 	Cog = 
@@ -1163,19 +1169,12 @@ Level =
 			float Speed = 1,
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "546cc041552d39d4:Plane_Porthole",
 		LinkId = 
 		{
 			uint Id = 29,
-		},
-		Named = 
-		{
-			string Name = "Wall",
-		},
-		Archetyped = 
-		{
-			string Name = "546cc041552d39d4:Plane_Porthole",
 		},
 		Transform = 
 		{
@@ -1183,28 +1182,9 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-3.09086e-008, 0.707107, 0.707107, -3.09086e-008],
 		},
-		Model = 
+		Named = 
 		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
-			string MeshName = "546cc2d0921cf846:Plane_Window",
-			Vec4 Color = [1, 1, 1, 1],
-		},
-		MeshCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			string PhysicsMeshName = "541a9554d9923ab3:Plane",
-			bool DrawEdges = true,
-			bool DrawFaces = false,
-			bool DrawFaceNormals = false,
+			string Name = "Wall",
 		},
 	},
 	Cog = 
@@ -1600,19 +1580,12 @@ Level =
 			Vec3 OpenLocation = [-20, 1.4, -0.99],
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "546d945262be4643:Pluto",
 		LinkId = 
 		{
 			uint Id = 42,
-		},
-		Named = 
-		{
-			string Name = "Pluto",
-		},
-		Archetyped = 
-		{
-			string Name = "546d945262be4643:Pluto",
 		},
 		Transform = 
 		{
@@ -1620,18 +1593,9 @@ Level =
 			Vec3 Scale = [0.3, 0.3, 0.3],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Model = 
+		Named = 
 		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "546d94b56b7de6b3:Mat_Pluto",
-			string MeshName = "546d945262a248a4:Pluto",
-			Vec4 Color = [1, 1, 1, 1],
-		},
-		Planet_Rotate = 
-		{
+			string Name = "Pluto",
 		},
 	},
 	Cog = 
@@ -1749,98 +1713,76 @@ Level =
 			float Size = 20,
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		LinkId = 
 		{
 			uint Id = 46,
 		},
-		Named = 
-		{
-			string Name = "GeometryInitializer",
-		},
-		Archetyped = 
-		{
-			string Name = "4faa6050b86884ec:DefaultArchetype",
-		},
 		Transform = 
 		{
-			Vec3 Translation = [-5.95158, -4.28958, 4.44919],
-			Vec3 Scale = [1, 1, 1],
+			Vec3 Translation = [0.893577, 0.724929, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
 			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "4de020863e85bb61:DefaultMaterial",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 1],
-		},
-		NavigationEvents = 
-		{
-		},
-		GeometryInitialization = 
-		{
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 47,
 		},
 		Named = 
 		{
 			string Name = "enemy",
 		},
-		Archetyped = 
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "546451358f6468ef:Level_Generator",
+		LinkId = 
 		{
-			string Name = "5499dbe25aa98c1a:Enemy_Keres",
+			uint Id = 47,
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.5, 0.5, 0],
-			Vec3 Scale = [0.1, 0.1, 0.1],
+			Vec3 Translation = [-2.7441, 13.1623, 0.416983],
+			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Model = 
+		Named = 
 		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "5403b42c4e36be37:Mat_Pearlstone",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 1],
+			string Name = "LevelGenerator",
 		},
-		EnemyAI = 
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54645e3dc3ce41f3:planet_Sun",
+		LinkId = 
 		{
-			float Speed = 2,
+			uint Id = 48,
 		},
-		BoxCollider = 
+		Transform = 
 		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 4],
+			Vec3 Translation = [-23.6782, -67.1687, 4.96067],
+			Vec3 Scale = [0.05, 0.05, 0.05],
+			Quat Rotation = [0, 0, 0, 1],
 		},
-		RigidBody = 
+		Named = 
 		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = true,
-			bool RotationLocked = false,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
+			string Name = "sun",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "546cc041552d39d4:Plane_Porthole",
+		LinkId = 
+		{
+			uint Id = 49,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.5, -2.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Named = 
+		{
+			string Name = "Wall",
 		},
 	},
 },

@@ -1,0 +1,16 @@
+Pre-Alpha 1.01
+1/29/2015
+-------------
+Changes
+---
++Made the player's movement velocity-based
++Made the enemy's movement velocity-based
++Added the sun
++Added black overlay with loading elements to the HUD level, covering up background processes during level generation
+
+---
+Bugfixes
+---
++Player camera no longer moves when walking into walls
++Enemy can no longer make player slide around upon collision
++Enemy doesn't detach from pathfinding grid and walk through the level into infinity

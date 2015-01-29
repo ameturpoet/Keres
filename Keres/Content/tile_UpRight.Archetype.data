@@ -20,6 +20,7 @@ Cog =
 	},
 	Tile_Replace3D = 
 	{
+		Enum Type = Tile,
 		string MainProp = "541a9554d969de2c:Plane",
 		string FloorProp = "5469260c6b8cec37:PlaneFloor",
 		string CeilingProp = "541a9554d969de2c:Plane",
@@ -30,5 +31,8 @@ Cog =
 		bool Left = false,
 		bool Right = true,
 		bool FortyFiveCorner = false,
+	},
+	NavigationEvents = 
+	{
 	},
 },

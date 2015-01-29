@@ -63,8 +63,6 @@ class HUDElement : ZilchComponent
                 newPos += screenArea.ScreenAreaBlock.GetLeftSide();
             }
             
-            Console.WriteLine(newPos);
-            
             this.Owner.Transform.Translation = newPos;
             
             this.Done = true;

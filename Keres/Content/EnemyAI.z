@@ -20,16 +20,13 @@ class EnemyAI : ZilchComponent
         {
             if (this.TargetTile != null)
             {
-                var temp1 = this.Owner.Transform.Translation;
-                temp1.Z = 0;
-                var temp2 = this.TargetTile.Transform.Translation;
-                temp2.Z = 0;
+                var temp = Math.Distance(this.Owner.Transform.Translation, this.TargetTile.Transform.Translation * Real3(1, 1, 0));
                 
-                if (Math.Distance(temp1, temp2) > event.Dt * this.Speed)
+                this.Owner.RigidBody.Velocity *= 0;
+                
+                if (temp > event.Dt * this.Speed)
                 {
-                    this.Owner.Transform.Translation += this.Speed * event.Dt * this.ToTargetVector;
-                    Console.WriteLine(Math.Distance(temp1, temp2));
-                    //Console.WriteLine(temp2);
+                    this.Owner.RigidBody.Velocity = this.Speed * this.ToTargetVector;
                 }
                 else
                 {
@@ -68,7 +65,7 @@ class EnemyAI : ZilchComponent
         
         if (this.TargetTile != null)
         {
-            this.ToTargetVector = Math.Normalize(this.TargetTile.Transform.Translation - this.CurrentTile.Transform.Translation);
+            this.ToTargetVector = Math.Normalize((this.TargetTile.Transform.Translation - this.Owner.Transform.Translation) * Real3(1, 1, 0));
         }
         
     }

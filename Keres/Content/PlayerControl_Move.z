@@ -12,6 +12,8 @@ class PlayerControl_Move : ZilchComponent
     var Weapon : CogPath = null;
     [Dependency]
     var Controller : Controller = null;
+    [Dependency]
+    var NavigationEvents : NavigationEvents = null;
     
     var Disabled : Boolean = false;
     var Moving : Boolean = false;
@@ -37,6 +39,8 @@ class PlayerControl_Move : ZilchComponent
     //Master update function, calls everything else from here
     function OnLogicUpdate(event : UpdateEvent)
     {
+        Console.WriteLine(event.Dt);
+        
         if (!this.Disabled)
         {
             this.Movement(event.Dt);
@@ -227,6 +231,8 @@ class PlayerControl_Move : ZilchComponent
     {
         var direction = Real2(0, 0);
         
+        this.Owner.RigidBody.Velocity *= 0;
+        
         if (Zero.Keyboard.KeyIsDown(this.Controller.MoveForward))
         {
             direction.Y = -1;
@@ -256,16 +262,15 @@ class PlayerControl_Move : ZilchComponent
             //we have to calculate relative forward and right and add them to the player's position
             //based on the keys that were pressed
             
-            var tempRight = direction.X * right * deltaTime * this.Speed;
-            var tempForward = direction.Y * forward * deltaTime * this.Speed;
+            var tempRight = direction.X * right * this.Speed;
+            var tempForward = direction.Y * forward * this.Speed;
             
-            this.Owner.Transform.Translation += tempRight;
-            this.Owner.Transform.Translation += tempForward;
+            this.Owner.RigidBody.Velocity = tempRight + tempForward;
             
             
             //Adds to the current movement tracker, which just keeps track of how much distance was covered
-            this.MovementTracker += tempRight;
-            this.MovementTracker += tempForward;
+            this.MovementTracker += tempRight * deltaTime;
+            this.MovementTracker += tempForward * deltaTime;
             
             var length = Math.Pow(this.MovementTracker.X, 2) + Math.Pow(this.MovementTracker.Y, 2);
             

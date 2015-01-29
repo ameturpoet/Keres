@@ -1,0 +1,19 @@
+class LoadIconSpin : ZilchComponent
+{
+    [Property]
+    var SpinTime : Real = 0.75;
+    
+    var SpinSpeed : Real = 1.00;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        this.SpinSpeed = (Math.Pi * 2) / this.SpinTime;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Owner.Transform.SetEulerAnglesXYZ(0, 0, this.Owner.Transform.EulerAngles.Z + this.SpinSpeed * event.Dt);
+    }
+}

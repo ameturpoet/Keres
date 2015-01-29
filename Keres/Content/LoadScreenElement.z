@@ -1,0 +1,52 @@
+class LoadScreenElement : ZilchComponent
+{
+    var Alpha : Real = 1.0;
+    var FadeOut : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        var levelSpace = this.GameSession.FindSpaceByName("Main");
+        
+        Zero.Connect(levelSpace, "ReadyToPlay", this.BeginFading);
+    }
+    
+    function BeginFading(event : ReadyEvent)
+    {
+        this.FadeOut = true;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.FadeOut)
+        {
+            var temp = Real4(0, 0, 0, 0);
+            
+            if (this.Owner.Sprite != null)
+            {
+                temp = this.Owner.Sprite.Color;
+                temp.W = this.Alpha;
+                this.Owner.Sprite.Color = temp;
+                
+                if (this.Owner.HUDElement != null)
+                {
+                    this.Owner.Sprite.Visible = false;
+                }
+            }
+            if (this.Owner.SpriteText != null)
+            {
+                if (this.Owner.HUDElement != null)
+                {
+                    this.Owner.SpriteText.Visible = false;
+                }
+            }
+            
+            this.Alpha -= event.Dt;
+            if (this.Alpha <= 0.0)
+            {
+                this.Owner.Destroy();
+            }
+        }
+    }
+}

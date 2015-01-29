@@ -8,6 +8,10 @@ Cog =
 	{
 		string Name = "Taser",
 	},
+	Archetyped = 
+	{
+		string Name = "546eaa26c71a7a71:Taser",
+	},
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
@@ -36,6 +40,8 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
 				string MaterialName = "546eaa26c7015017:Material__25",
 				string MeshName = "546eaa26c71ec467:Taser.Gun",
 				Vec4 Color = [1, 1, 1, 1],
@@ -61,6 +67,8 @@ Cog =
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
 				string MaterialName = "546eaa21c704af2c:Material__27",
 				string MeshName = "546eaa26c71ec471:Taser.Battery",
 				Vec4 Color = [1, 1, 1, 1],
