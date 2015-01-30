@@ -3,4 +3,4 @@
 -Restrict taser range
 -Add system for going to different areas, will require ability to transfer player's status and items across levels
 -Add hazards
--Finish enemy AI (attacking, line-of-sight, stun, pretty much everything other than pathfinding)
+-Finish enemy AI (attacking, stun, pretty much everything other than pathfinding)

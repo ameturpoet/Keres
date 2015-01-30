@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0.893577, 0.724929, 0],
+		Vec3 Translation = [9.67103, 3.36129, 0],
 		Vec3 Scale = [0.1, 0.1, 0.1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -30,14 +30,15 @@ Cog =
 	},
 	EnemyAI = 
 	{
-		float Speed = 2,
+		float Speed = 1.7,
+		float SightDistance = 5,
 	},
 	BoxCollider = 
 	{
 		bool Ghost = false,
 		bool SendsMessages = true,
 		bool Seamless = true,
-		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string MaterialName = "549b32dd4f6c5252:EnemyMaterial",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 		Vec3 Offset = [0, 0, 0],
 		Vec3 Size = [0.5, 0.5, 4],
@@ -47,7 +48,7 @@ Cog =
 		bool Static = false,
 		bool Asleep = false,
 		bool Kinematic = false,
-		bool RotationLocked = false,
+		bool RotationLocked = true,
 		bool Mode2D = true,
 		bool AllowSleep = true,
 		bool Inherit2DMode = true,

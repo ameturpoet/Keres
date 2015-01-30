@@ -39,7 +39,6 @@ class PlayerControl_Move : ZilchComponent
     //Master update function, calls everything else from here
     function OnLogicUpdate(event : UpdateEvent)
     {
-        Console.WriteLine(event.Dt);
         
         if (!this.Disabled)
         {

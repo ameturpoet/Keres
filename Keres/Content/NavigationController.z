@@ -55,6 +55,10 @@ class NavigationController : ZilchComponent
             startingTile.NavigationPoint.Weight = 1;
             startingTile.NavigationPoint.Done = false;
             startingTile.FindChildByName("FloorText").SpriteText.Text = "1";
+            
+            var pathingUpdateEvent = new PathingUpdateEvent();
+
+            this.Owner.Space.DispatchEvent("PathingChanged", pathingUpdateEvent);
         }
     }
 }

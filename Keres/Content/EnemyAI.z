@@ -1,56 +1,142 @@
-enum EnemyState { Idle, Aggroed }
+enum EnemyState { Idle, Aware, Aggroed }
 
 class EnemyAI : ZilchComponent
 {
+    [Dependency] 
+    var NavigationEvents : NavigationEvents = null;
     var CurrentTile : Cog = null;
+    var Disabled : Boolean = true;
     var TargetTile : Cog = null;
     var ToTargetVector : Real3 = Real3(0, 0, 0);
+    var ToPlayerRay : Ray = Ray();
     var State : EnemyState = EnemyState.Idle;
+    var Player : Cog = null;
+    var PlayerSightCooldown : Real = 0.0;
     [Property]
-    var Speed : Real = 1.0;
+    var Speed : Real = 1.0; //Movement speed
+    [Property]
+    var SightDistance : Real = 5.0; //Minimum sight distance for becoming aggroed
+    [Property]
+    var AttentionSpanTime : Real = 3.0; //Max amount of time it takes to lose interest and become idle
     
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, "PathingChanged", this.UpdateTilePath);
+        Zero.Connect(this.Space, "ReadyToPlay", this.Enable);
+        this.Player = this.Owner.Space.FindObjectByName("Player");
+    }
+    
+    function Enable(event : ReadyEvent)
+    {
+        this.Disabled = false;
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if (this.State == EnemyState.Aggroed)
+        if (!this.Disabled)
         {
-            if (this.TargetTile != null)
+            if (this.State == EnemyState.Aware)
             {
-                var temp = Math.Distance(this.Owner.Transform.Translation, this.TargetTile.Transform.Translation * Real3(1, 1, 0));
-                
-                this.Owner.RigidBody.Velocity *= 0;
-                
-                if (temp > event.Dt * this.Speed)
-                {
-                    this.Owner.RigidBody.Velocity = this.Speed * this.ToTargetVector;
-                }
-                else
-                {
-                    this.CurrentTile = this.TargetTile;
-                    this.GetNextTile();
-                }
+                Console.WriteLine("Aware");
+                this.MoveByGrid(event.Dt);
+                this.CheckForPlayer(event.Dt);
+            }
+            else if (this.State == EnemyState.Aggroed)
+            {
+                Console.WriteLine("Aggoed");
+                this.MoveTowardsPlayer(event.Dt);
+                this.CheckForPlayer(event.Dt);
             }
             else
             {
+                Console.WriteLine("Idle");
+                this.CheckForPlayer(event.Dt);
+                if (this.CurrentTile != null)
+                {
+                    this.GetNextTile();
+                }
+                else
+                {
+                    this.GetCurrentTile();
+                }
+            }
+        }
+    }
+    
+    function Wander(deltaTime : Real)
+    {
+        
+    }
+    
+    function MoveTowardsPlayer(deltaTime : Real)
+    {
+        this.Owner.RigidBody.Velocity = this.Speed * (this.Player.Transform.Translation - this.Owner.Transform.Translation);
+    }
+    
+    function MoveByGrid(deltaTime : Real)
+    {
+        if (this.TargetTile != null)
+        {
+            var temp = Math.Distance(this.Owner.Transform.Translation, this.TargetTile.Transform.Translation * Real3(1, 1, 0));
+            
+            this.Owner.RigidBody.Velocity *= 0;
+            
+            if (temp > deltaTime * this.Speed)
+            {
+                this.Owner.RigidBody.Velocity = this.Speed * this.ToTargetVector;
+            }
+            else
+            {
+                this.CurrentTile = this.TargetTile;
                 this.GetNextTile();
             }
         }
         else
         {
-            if (this.CurrentTile != null)
+            this.GetNextTile();
+        }
+    }
+    
+    function CheckForPlayer(deltaTime : Real)
+    {
+        this.ToPlayerRay.Start = this.Owner.Transform.Translation;
+        this.ToPlayerRay.Direction = Math.Normalize(this.Player.Transform.Translation - this.Owner.Transform.Translation);
+        
+        var detectPlayer = this.Space.PhysicsSpace.CastRayFirst(this.ToPlayerRay);
+        
+        if (detectPlayer.ObjectHit != null && detectPlayer.ObjectHit.Name == "Player")
+        {
+            if (Math.Distance(this.Player.Transform.Translation, this.Owner.Transform.Translation) <= this.SightDistance)
             {
-                this.State = EnemyState.Aggroed;
-                this.GetNextTile();
+                if (this.State != EnemyState.Aggroed)
+                {
+                    this.State = EnemyState.Aggroed;
+                    this.PlayerSightCooldown = this.AttentionSpanTime;
+                }
             }
             else
             {
-                this.GetCurrentTile();
+                if (this.State != EnemyState.Aware)
+                {
+                    this.State = EnemyState.Aware;
+                    this.PlayerSightCooldown = this.AttentionSpanTime;
+                }
             }
         }
+        else
+        {
+            this.PlayerSightCooldown -= deltaTime;
+            if (this.PlayerSightCooldown <= 0.0)
+            {
+                this.State = EnemyState.Idle;
+            }
+        }
+    }
+    
+    function UpdateTilePath(event : PathingUpdateEvent)
+    {
+        this.GetNextTile();
     }
     
     function GetNextTile()

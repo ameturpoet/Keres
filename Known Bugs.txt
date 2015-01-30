@@ -1,2 +1,1 @@
--Player can push enemy around and screw up pathfinding
 -Gates act strangely when opened and closed in quick succession
