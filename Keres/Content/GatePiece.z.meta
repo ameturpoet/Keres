@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "GatePiece",
+		uint64 ResourceId = 549a214b6709809b,
+	},
+},

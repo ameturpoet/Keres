@@ -1,0 +1,13 @@
+Pre-Alpha 1.03
+1/30/2015
+-------------
+Changes
+---
++Added reliance on ammo for player gun & cooldown for radar
++Made enemies stunnable with taser
++Openable doors can now have multiple parts and behaviours
+
+---
+Bugfixes
+---
++Fixed odd door movement

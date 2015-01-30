@@ -1,0 +1,39 @@
+enum OpenType { MoveLeft, MoveRight, SwingLeft, SwingRight }
+
+class GatePiece : ZilchComponent
+{
+    [Property]
+    var TypeOfDoor : OpenType = OpenType.MoveRight;
+    [Property]
+    var OpenDistance : Real = 1.0;
+    [Property]
+    var OpenAngle : Real = 90.0;
+    var StartingLocation : Real3 = Real3(0, 0, 0);
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.StartingLocation = this.Owner.Transform.Translation;
+    }
+
+    //Sets the position of the door based on the current level of open-ness
+    //For instance, if openLevel is 0.5 and the door is supposed to swing open by 90*, the door will be open by 45*
+    function SetOpenPosition(openLevel : Real)
+    {
+        if (this.TypeOfDoor == OpenType.MoveRight)
+        {
+            this.Owner.Transform.Translation = this.StartingLocation + Real3(1, 0, 0) * this.OpenDistance * openLevel;
+        }
+        else if (this.TypeOfDoor == OpenType.MoveLeft)
+        {
+            this.Owner.Transform.Translation = this.StartingLocation - Real3(1, 0, 0) * this.OpenDistance * openLevel;
+        }
+        else if (this.TypeOfDoor == OpenType.SwingRight)
+        {
+            this.Owner.Transform.SetEulerAnglesXYZ(0, 0, openLevel * this.OpenAngle * Math.Pi / 180);
+        }
+        else if (this.TypeOfDoor == OpenType.SwingLeft)
+        {
+            this.Owner.Transform.SetEulerAnglesXYZ(0, 0, openLevel * this.OpenAngle * Math.Pi / -180);
+        }
+    }
+}
