@@ -9,11 +9,9 @@ class Interactable_Gate : ZilchComponent
     [Property]
     var Key : String = "";
     [Property]
-    var OpenLocation : Real3 = Real3(0, 0, 0);
-    var StartLocation : Real3 = Real3(0, 0, 0);
-    var ToOpenVector : Real3 = Real3(0, 0, 0);
+    var OpenTime : Real = 1.0;
     
-    var MovementTimer : Real = 0.0;
+    var CurrentOpenTime : Real = 0.0;
     
     var State : Integer = 2;
     //4 states:
@@ -25,8 +23,6 @@ class Interactable_Gate : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.Update);
-        this.StartLocation = this.Owner.Transform.Translation;
-        this.ToOpenVector = this.OpenLocation - this.Owner.Transform.Translation;
     }
     
     function Toggle()
@@ -34,12 +30,20 @@ class Interactable_Gate : ZilchComponent
         if (this.State == 0 || this.State == 1)
         {
             this.State = 3;
-            this.MovementTimer = 0.0;
         }
         else if (this.State == 2 || this.State == 3)
         {
             this.State = 1;
-            this.MovementTimer = 0.0;
+        }
+    }
+    
+    function UpdateSubObjects()
+    {
+        var pieces = this.Owner.FindAllChildrenByName("doorPiece");
+        
+        foreach (var pi in pieces)
+        {
+            pi.GatePiece.SetOpenPosition(this.CurrentOpenTime / this.OpenTime);
         }
     }
 
@@ -47,23 +51,23 @@ class Interactable_Gate : ZilchComponent
     {
         if (this.State == 1)
         {
-            this.Owner.Transform.Translation += this.ToOpenVector * event.Dt;
-            this.MovementTimer += event.Dt;
-            if (this.MovementTimer >= 1.0)
+            this.CurrentOpenTime += event.Dt;
+            if (this.CurrentOpenTime >= this.OpenTime)
             {
                 this.State = 0;
-                this.Owner.Transform.Translation = this.OpenLocation;
+                this.CurrentOpenTime = this.OpenTime;
             }
+            this.UpdateSubObjects();
         }
         else if (this.State == 3)
         {
-            this.Owner.Transform.Translation -= this.ToOpenVector * event.Dt;
-            this.MovementTimer += event.Dt;
-            if (this.MovementTimer >= 1.0)
+            this.CurrentOpenTime -= event.Dt;
+            if (this.CurrentOpenTime <= 0.0)
             {
                 this.State = 2;
-                this.Owner.Transform.Translation = this.StartLocation;
+                this.CurrentOpenTime = 0.0;
             }
+            this.UpdateSubObjects();
         }
     }
 }

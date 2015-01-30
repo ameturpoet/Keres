@@ -2,7 +2,13 @@ class PlayerStats : ZilchComponent
 {
     [Property]
     var Life : Integer = 100;
-    
+    [Property]
+    var Energy : Integer = 100;
+    [Property]
+    var Oxygen : Integer = 100;
+    [Property]
+    var RadarCooldown : Real = 2.0;
+    var CooldownTimer : Real = 0.0;
     
     function Initialize(init : CogInitializer)
     {
@@ -14,6 +20,14 @@ class PlayerStats : ZilchComponent
         if (this.Life <= 0)
         {
             this.Owner.PlayerControl_Move.Disabled = true;
+        }
+        if (this.CooldownTimer > 0)
+        {
+            this.CooldownTimer -= event.Dt;
+            if (this.CooldownTimer < 0)
+            {
+                this.CooldownTimer = 0.0;
+            }
         }
     }
 }

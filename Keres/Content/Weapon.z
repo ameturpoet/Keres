@@ -6,6 +6,8 @@ class Weapon : ZilchComponent
     var RibbonObject : Archetype = null;
     [Property]
     var ProjectileNode : CogPath = null;
+    [Property]
+    var EnergyUse : Integer = 5;
     
     var MouseState : Boolean = false;
     var OldMState : Boolean = false;
@@ -16,12 +18,13 @@ class Weapon : ZilchComponent
         this.StartLocation = this.Owner.Transform.Translation;
     }
 
-    function UpdateGun(deltaTime : Real, impactLocation : Real3)
+    function UpdateGun(deltaTime : Real, impactLocation : Real3, playerStats : PlayerStats)
     {
         this.MouseState = Zero.Mouse.IsButtonDown(MouseButtons.Left);
-        if (this.MouseState != this.OldMState && this.MouseState)
+        if (playerStats.Energy >= this.EnergyUse && (this.MouseState != this.OldMState && this.MouseState))
         {
             this.Fire(impactLocation);
+            playerStats.Energy -= this.EnergyUse;
         }
         this.OldMState = this.MouseState;
     }

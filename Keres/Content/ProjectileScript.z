@@ -15,6 +15,10 @@ class ProjectileScript : ZilchComponent
     
     function OnCollide(event : CollisionEvent)
     {
+        if (event.OtherObject.Name == "enemy")
+        {
+            event.OtherObject.EnemyAI.Stun();
+        }
         this.DeleteNext = true;
     }
 

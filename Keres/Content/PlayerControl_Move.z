@@ -7,13 +7,13 @@ class PlayerControl_Move : ZilchComponent
     [Property]
     var LookSensitivity : Real = 6.0;
     [Property]
-    var Height : Real = 0.0;
-    [Property]
     var Weapon : CogPath = null;
     [Dependency]
     var Controller : Controller = null;
     [Dependency]
     var NavigationEvents : NavigationEvents = null;
+    [Dependency]
+    var PlayerStats : PlayerStats = null;
     
     var Disabled : Boolean = false;
     var Moving : Boolean = false;
@@ -64,8 +64,10 @@ class PlayerControl_Move : ZilchComponent
             
             //If the radar key is pressed, loop through all enemies and send their relative positions to the radar
             //The radar determines whether or not the enemies are within range
-            if (Zero.Keyboard.KeyIsPressed(this.Controller.RadarPing))
+            if (this.PlayerStats.CooldownTimer <= 0.0 && Zero.Keyboard.KeyIsPressed(this.Controller.RadarPing))
             {
+                this.PlayerStats.CooldownTimer = this.PlayerStats.RadarCooldown;
+                
                 var enemies = this.Owner.Space.FindAllObjectsByName("enemy");
                 
                 foreach (var en in enemies)
@@ -97,7 +99,7 @@ class PlayerControl_Move : ZilchComponent
     {
         if (this.Weapon.Cog != null)
         {
-            this.Weapon.Cog.Weapon.UpdateGun(deltaTime, impactPoint);
+            this.Weapon.Cog.Weapon.UpdateGun(deltaTime, impactPoint, this.PlayerStats);
         }
     }
     
@@ -107,6 +109,9 @@ class PlayerControl_Move : ZilchComponent
     function Aiming(deltaTime : Real)
     {
         var ray = Ray();
+        var filter = CastFilter();
+        
+        filter.CollisionGroup = CollisionGroup.Find("TileRayGroup");
         
         ray.Start = this.Owner.Transform.Translation + Real3(0, 0, this.Camra.Transform.Translation.Z);
         var startP = Real3(0, 0, -1);
@@ -116,7 +121,7 @@ class PlayerControl_Move : ZilchComponent
         
         ray.Direction = Math.Normalize(startP);
         
-        var result = this.Space.PhysicsSpace.CastRayFirst(ray);
+        var result = this.Space.PhysicsSpace.CastRayFirstFiltered(ray, filter);
         if (result.ObjectHit != null && result.Distance <= 1)
         {
             if (result.ObjectHit.Interactable != null && result.ObjectHit.Interactable.ShowTooltip)
