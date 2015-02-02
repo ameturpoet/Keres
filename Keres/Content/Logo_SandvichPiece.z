@@ -1,0 +1,41 @@
+class Logo_SandvichPiece : ZilchComponent
+{
+    [Property]
+    var TopLayer : Boolean = false;
+    [Property]
+    var TargetY : Real = 0.0;
+    [Property]
+    var FallSpeed : Real = 2.5;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Owner.Sprite.Visible)
+        {
+            if (this.Owner.Transform.Translation.Y > this.TargetY)
+            {
+                this.Owner.Transform.Translation += Real3(0, -1, 0) * this.FallSpeed * event.Dt;
+            }
+            else
+            {
+                if (this.Owner.Transform.Translation.Y != this.TargetY)
+                {
+                    this.Owner.Transform.Translation = Real3(0, this.TargetY, this.Owner.Transform.Translation.Z);
+                }
+                if (this.TopLayer)
+                {
+                    this.Space.FindObjectByName("SandvichLogo").Sprite.Visible = true;
+                    var logoPieces = this.Space.FindAllObjectsByName("SandvichPiece");
+                    foreach (var piece in logoPieces)
+                    {
+                        piece.Destroy();
+                    }
+                }
+            }
+        }
+    }
+}

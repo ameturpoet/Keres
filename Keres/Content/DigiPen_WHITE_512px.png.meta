@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "DigiPen_WHITE_512px",
+		uint64 ResourceId = 549e06037b88bea4,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 512,
+		uint FrameSizeY = 124,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833333,
+		float OriginX = 256,
+		float OriginY = 62,
+		float PixelsPerUnit = 64,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

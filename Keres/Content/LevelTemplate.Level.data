@@ -38,15 +38,6 @@ Level =
 			Vec2 Resolution = [1280, 720],
 			Vec4 MarginColor = [0, 0, 0, 1],
 		},
-		ForwardRenderer = 
-		{
-			Vec4 ClearColor = [0.155, 0.155, 0.155, 1],
-			bool DrawNonVisible = false,
-			bool DrawDebugObjects = true,
-			bool DrawEditorIcons = true,
-			bool EditorIconDepth = true,
-			bool Wireframe = false,
-		},
 		GridDraw = 
 		{
 			bool Active = true,
@@ -66,6 +57,26 @@ Level =
 		{
 			string HUDLevel = "5405bf9da2baec93:HUDLevel",
 		},
+		DeferredRenderer = 
+		{
+			Vec4 ClearColor = [0, 0, 0, 1],
+			bool DrawNonVisible = false,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool EditorIconDepth = true,
+			bool Hdr = true,
+			bool Shadows = true,
+			bool AntiAliasing = false,
+			bool Refraction = true,
+			bool GodRays = true,
+			bool RenderMasks = false,
+			bool Glow = true,
+			float GlowThreshold = 1,
+		},
+		Level_SetMouseState = 
+		{
+			Enum MouseState = Trapped,
+		},
 	},
 	Cog = 
 	{
@@ -79,9 +90,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-3.23805, -17.5894, 41.357],
+			Vec3 Translation = [-4.51385, -6.23553, 33.2428],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.163196, 0.108245, 0.018017, 0.980472],
+			Quat Rotation = [-0.0287658, -0.044473, -0.0012811, 0.998596],
 		},
 		Camera = 
 		{
@@ -91,15 +102,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 100,
+			float Size = 30.1194,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = ZPlane,
 			float LookDistance = 50,
-			float VerticalAngle = 0.329868,
-			float HorizontalAngle = -0.219911,
-			Vec3 LookTarget = [-13.5572, -33.7853, -4.808],
+			float VerticalAngle = 0.0575966,
+			float HorizontalAngle = 0.0890123,
+			Vec3 LookTarget = [-0.0764772, -9.11377, -16.4767],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -581,6 +592,24 @@ Level =
 		Named = 
 		{
 			string Name = "sun",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "549e0d668f0d5948:PlayerInventory",
+		LinkId = 
+		{
+			uint Id = 18,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, -17.536],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "invPlayer",
 		},
 	},
 },

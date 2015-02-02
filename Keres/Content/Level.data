@@ -73,6 +73,10 @@ Level =
 			bool Glow = false,
 			float GlowThreshold = 1,
 		},
+		Level_SetMouseState = 
+		{
+			Enum MouseState = Trapped,
+		},
 	},
 	Cog = 
 	{
@@ -86,7 +90,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-9.30712, 3.15422, 9.67609],
+			Vec3 Translation = [-3.47862, 5.63063, 9.62794],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.00261806, 0.00524265, -1.37257e-005, 0.999983],
 		},
@@ -98,7 +102,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 12.0993,
+			float Size = 14.7781,
 		},
 		EditorCameraController = 
 		{
@@ -106,7 +110,7 @@ Level =
 			float LookDistance = 9.13421,
 			float VerticalAngle = -0.00523619,
 			float HorizontalAngle = 6.2727,
-			Vec3 LookTarget = [-9.4029, 3.20205, 0.542503],
+			Vec3 LookTarget = [-3.57439, 5.67846, 0.494355],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -412,19 +416,12 @@ Level =
 			},
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "549e0a49834032ed:Item_Key",
 		LinkId = 
 		{
 			uint Id = 10,
-		},
-		Named = 
-		{
-			string Name = "TestLevelKey",
-		},
-		Archetyped = 
-		{
-			string Name = "4faa6050b86884ec:DefaultArchetype",
 		},
 		Transform = 
 		{
@@ -432,44 +429,9 @@ Level =
 			Vec3 Scale = [0.1, 0.4, 0.1],
 			Quat Rotation = [0, 0, -0.555729, 0.831364],
 		},
-		Model = 
+		Named = 
 		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "5405f4023f587018:Mat_Gold",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 1],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-		Interactable = 
-		{
-			bool ShowTooltip = true,
-			string Tooltip = "Pick up Blocky Key",
-			bool ShowControl = true,
-			Enum Control = Space,
-		},
-		Item = 
-		{
-			string Name = "Blocky Key",
-			int Value = 0,
-			bool QuestItem = false,
-		},
-		Item_Key = 
-		{
-		},
-		Hierarchy = 
-		{
+			string Name = "TestLevelKey",
 		},
 	},
 	ArchetypeInstance = 
@@ -692,7 +654,7 @@ Level =
 		TileMap = 
 		{
 			string SourceName = "54e5c0d97379555b:Level_TileMap01",
-			string PaletteName = "541a8eb12d86f4ed:LevelDesignPallette",
+			string PaletteName = "541aaf73f838e64f:TextureMapPallette",
 			float UnitsPerTile = 1,
 			float MeshThickness = 1.2,
 		},
@@ -1582,10 +1544,12 @@ Level =
 		},
 		EnemyAI = 
 		{
+			int AttackDamage = 50,
 			float MaxStunTime = 2.5,
 			float Speed = 1.7,
 			float SightDistance = 5,
 			float AttentionSpanTime = 3,
+			float AttackCooldown = 0.3,
 		},
 		BoxCollider = 
 		{

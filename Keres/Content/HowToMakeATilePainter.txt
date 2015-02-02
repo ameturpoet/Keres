@@ -1,0 +1,40 @@
+HOW TO MAKE A TILE PAINTER
+
+Note: Again, it's easier to copy an existing TilePainter and change its properties to what you need
+
+---
+1. The Painter
+---
+    The painter is the object that gets spawned in by the MaterialMap and does the actual painting
+
+    1: Attach the TileMaterial script to the object and adjust its properties for the desired effect
+        +FloorMaterial is the Material that will be applied to the floor
+        +WallMaterial is the Material that will be applied to the walls
+        +CeilingMaterial is the Material that will be applied to the ceiling
+    2: Attach the NavigationEvents script to the TilePainter. This controls the order in which level generation occurs and makes sure
+       that things work properly
+
+---
+2. The Spawning Tile
+---
+    1: Duplicate the tileMAT_Test Archetype and name the Archetype appropriately. DO NOT CHANGE THE OBJECT'S NAME, JUST THE ARCHETYPE'S NAME
+       (E.g., name it tileMAT_BrickWall for a painter that makes brick walls. This just makes organization easier)
+    2: Change the properties of the Tile_Replace3D script
+        +Change the MainProp to the TilePainter you made in step 1
+        +The Type should be TilePainter, and only JustProp should be checked off
+
+---
+3. Adding the Tile to the Palette
+---
+    1: Select the TileEditor2D tool and set the TilePalette to TextureMapPallette*
+    2: Click on a space that doesn't already have a sprite on it, this will create a new tile
+    3: Adjust the properties of the tile you've just made
+        +Change the Archetype to the spawning tile you made in step 2 (the one you named tileMAT_name)
+        +Change the Sprite to something distinct. Typically, you want a custom SpriteSource that has the wall texture in the center of it,
+          the ceiling texture on top, and the floor texture on the bottom. This makes it easier when designing the level, as you'll be able to
+          quickly see the textures that you're painting
+    4: Set the Collision to None. Just click the red X next to the list to do this
+    5: MAKE SURE THAT Mergeable IS SET TO FALSE. THIS WILL SCREW LITERALLY EVERYTHING UP IF YOU ALLOW THE TILES TO MERGE
+    6: Paint the tile onto the MaterialMap, it should repaint the geometry around it to the textures you attached to it
+
+*Yes, Pallette is misspelled. Deal with it.

@@ -1,6 +1,7 @@
 HOW TO MAKE A NEW LEVEL
 
 Note: All Archetypes you need to spawn in are tagged with the 'LevelDesign' tag for convenience
+Note 2: There's totally a template level that you don't need to do aaaaaaaany of this for. Just sayin'.
 
 ---
 1. Player & Camera
@@ -11,15 +12,21 @@ Note: All Archetypes you need to spawn in are tagged with the 'LevelDesign' tag 
     4: On the Camera's Camera script, set the ProjectionMode to 'Perspective', and its NearPlane to 0.0001
     5: In the objects list (lower-right corner again), there should be an object called 'Taser' attached to the Player. Click and drag the Taser onto the Camera.
        This attached the Taser to the Camera.
+    6: Drag the PlayerInventory archetype into the level
+    7: Move the PlayerInventory to an area that will never be seen, like directly beneath the floor
     
 ---
 2. Level Generating Objects
 ---
     1: In the objects list, select the LevelSettings object. Attach the 'LoadHUD' script to it.
     2: In the LevelSettings' LoadHUD script, set the HUDLevel property to 'HUDLevel'
-    3: Drag the Level_Generator archetype anywhere into the level. The LevelGenerator initializes all level generation events, ensuring that the geometry and
+    3: In the LevelSettings' DragEffect script, set Active to False
+    4: In the LevelSettings' GravyEffect script, set Active to False
+    5: Delete the ForwardRenderer attached to the LevelSettings and attach DeferredRenderer, set the properties Glow and AntiAliasing to True
+    6: Attach the Level_SetMouseState script to the LevelSettings object and set MouseState to Trapped
+    7: Drag the Level_Generator archetype anywhere into the level. The LevelGenerator initializes all level generation events, ensuring that the geometry and
        pathing grid work properly
-    4: Drag the LevelGeometry archetype anywhere into the level and set its Translation to (0, 0, 0). The LevelGeometry can be used to make the entire level
+    8: Drag the LevelGeometry archetype anywhere into the level and set its Translation to (0, 0, 0). The LevelGeometry can be used to make the entire level
        shake, move, or rotate if we need to.
 
 ---

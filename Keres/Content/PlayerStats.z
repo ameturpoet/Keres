@@ -20,6 +20,7 @@ class PlayerStats : ZilchComponent
         if (this.Life <= 0)
         {
             this.Owner.PlayerControl_Move.Disabled = true;
+            this.Space.LoadLevel(Level.Find("MainMenu"));
         }
         if (this.CooldownTimer > 0)
         {

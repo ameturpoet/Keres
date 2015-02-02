@@ -1,0 +1,17 @@
+DataContent = 
+{
+	DataBuilder = 
+	{
+		string Name = "Item_Key",
+		uint64 ResourceId = 549e0a49834032ed,
+		string LoaderType = "Cog",
+		uint Version = 0,
+		bool ShowInEditor = true,
+	},
+	ContentTags = 
+	{
+		Array Tags = 
+		[
+		],
+	},
+},

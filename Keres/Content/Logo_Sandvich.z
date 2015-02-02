@@ -1,0 +1,36 @@
+class Logo_Sandvich : ZilchComponent
+{
+    [Property]
+    var BiteDelay : Real = 1.3;
+    [Property]
+    var DisplayTime : Real = 2.0;
+    var DeleteNow : Boolean = false;
+    var Timer : Real = 1.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Owner.Sprite.Visible && !this.DeleteNow)
+        {
+            this.Timer += event.Dt;
+            if (this.Timer >= this.BiteDelay && !this.Owner.Sprite.AnimationActive)
+            {
+                this.Owner.Sprite.AnimationActive = true;
+                this.DeleteNow = true;
+                this.Timer = 0.0;
+            }
+        }
+        else if (this.DeleteNow)
+        {
+            if (this.Timer >= this.DisplayTime)
+            {
+                this.Space.LoadLevel(Level.Find("MainMenu"));
+            }
+            this.Timer += event.Dt;
+        }
+    }
+}

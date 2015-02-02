@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Logo_Sandvich",
+		uint64 ResourceId = 5481fa6b82e677f6,
+	},
+},

@@ -73,6 +73,10 @@ Level =
 		{
 			Vec4 Color = [0.2, 0.2, 0.2, 1],
 		},
+		Level_SetMouseState = 
+		{
+			Enum MouseState = Normal,
+		},
 	},
 	Cog = 
 	{
@@ -86,7 +90,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-3.02002, -2.41851, 53.9609],
+			Vec3 Translation = [-0.354481, 0.575703, 53.9609],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-7.52045e-007, -1.19161e-006, -9.12944e-013, 1],
 		},
@@ -98,7 +102,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 22.3129,
+			float Size = 18.2683,
 		},
 		EditorCameraController = 
 		{
@@ -106,7 +110,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 1.50409e-006,
 			float HorizontalAngle = 2.33855e-006,
-			Vec3 LookTarget = [-3.0199, -2.41859, 3.96091],
+			Vec3 LookTarget = [-0.354364, 0.575628, 3.96091],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -601,7 +605,7 @@ Level =
 			TextPositionMode Position = UpperLeft,
 			string FontName = "4e7bac697bec55c5:Verdana",
 			uint FontSize = 32,
-			string Text = "Pre-Alpha 1.04",
+			string Text = "Pre-Alpha 1.05",
 			bool OnTop = false,
 			Vec2 Size = [0, 0],
 			TextAlign Align = Center,

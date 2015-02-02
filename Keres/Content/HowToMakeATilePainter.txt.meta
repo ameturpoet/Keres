@@ -1,0 +1,8 @@
+TextContent = 
+{
+	TextBuilder = 
+	{
+		string Name = "HowToMakeATilePainter",
+		uint64 ResourceId = 549e09856fba8de7,
+	},
+},

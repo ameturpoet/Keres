@@ -11,6 +11,8 @@ class Controller : ZilchComponent
     [Property]
     var Activate : Keys = Keys.Space;
     [Property]
+    var Sprint : Keys = Keys.Shift;
+    [Property]
     var RadarPing : Keys = Keys.F;
     
     function Initialize(init : CogInitializer)

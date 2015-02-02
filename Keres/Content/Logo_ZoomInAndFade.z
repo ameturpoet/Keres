@@ -1,0 +1,58 @@
+class Logo_ZoomInAndFade : ZilchComponent
+{
+    var Timer : Real = 0.0;
+    [Property]
+    var FadeIntoTime : Real = 0.4;
+    [Property]
+    var BeginFadeOut : Real = 2.4;
+    [Property]
+    var EndFadeOut : Real = 2.8;
+    [Property]
+    var StartScale : Real = 0.8;
+    [Property]
+    var EndScale : Real = 1.4;
+    var ScaleDiff : Real = 0.6;
+    var StartingScale : Real3 = Real3(1, 1, 1);
+    var Color : Real4 = Real4(1.0, 1.0, 1.0, 0.0);
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.ScaleDiff = this.EndScale - this.StartScale;
+        this.StartingScale = this.Owner.Transform.Scale;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Timer <= this.FadeIntoTime)
+        {
+            this.Color.W = this.Timer / this.FadeIntoTime;
+        }
+        else if (this.Timer > this.FadeIntoTime && this.Timer < this.BeginFadeOut)
+        {
+            this.Color.W = 1.0;
+        }
+        else if (this.Timer >= this.BeginFadeOut && this.Timer < this.EndFadeOut)
+        {
+            this.Color.W = 1.0 - ((this.Timer - this.BeginFadeOut) / (this.EndFadeOut - this.BeginFadeOut));
+        }
+        else
+        {
+            var logoPieces = this.Owner.Space.FindAllObjectsByName("SandvichPiece");
+            
+            foreach (var piece in logoPieces)
+            {
+                piece.Sprite.Visible = true;
+            }
+            
+            this.Owner.Destroy();
+        }
+        
+        Console.WriteLine(this.Timer);
+        
+        this.Timer += event.Dt;
+        
+        this.Owner.Sprite.Color = this.Color;
+        this.Owner.Transform.Scale = Real3(1, 1, 1) * (this.ScaleDiff * (this.Timer / this.EndFadeOut) + this.StartScale);
+    }
+}

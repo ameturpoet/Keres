@@ -4,6 +4,8 @@ class EnemyAI : ZilchComponent
 {
     [Dependency] 
     var NavigationEvents : NavigationEvents = null;
+    [Property]
+    var AttackDamage : Integer = 50;
     var CurrentTile : Cog = null;
     var Disabled : Boolean = true;
     var TargetTile : Cog = null;
@@ -22,12 +24,17 @@ class EnemyAI : ZilchComponent
     var SightDistance : Real = 5.0; //Minimum sight distance for becoming aggroed
     [Property]
     var AttentionSpanTime : Real = 3.0; //Max amount of time it takes to lose interest and become idle
+    [Property]
+    var AttackCooldown : Real = 0.3; //The cooldown between attacks for the enemy
+    var CurrentCooldown : Real = 0.0;
     
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Space, "PathingChanged", this.UpdateTilePath);
         Zero.Connect(this.Space, "ReadyToPlay", this.Enable);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.AttackPlayer);
+        Zero.Connect(this.Owner, Events.CollisionPersisted, this.AttackPlayer);
         this.Player = this.Owner.Space.FindObjectByName("Player");
         this.RayFilter.CollisionGroup = CollisionGroup.Find("LineofSightRayGroup");
     }
@@ -37,12 +44,29 @@ class EnemyAI : ZilchComponent
     {
         this.Disabled = false;
     }
+    
+    //Attacks the player upon collision
+    function AttackPlayer(event : CollisionEvent)
+    {
+        if (event.OtherObject.Name == "Player" && this.CurrentCooldown <= 0.0)
+        {
+            event.OtherObject.PlayerStats.Life -= this.AttackDamage;
+            this.CurrentCooldown = this.AttackCooldown;
+            Console.WriteLine("Attacked");
+        }
+    }
 
     //Updates the enemy
     function OnLogicUpdate(event : UpdateEvent)
     {
         if (!this.Disabled)
         {
+            //Decreases the attack cooldown if the enemy recently attacked
+            if (this.CurrentCooldown > 0.0)
+            {
+                this.CurrentCooldown -= event.Dt;
+            }
+            
             //If the enemy's state is Aware, it moves along the grid and checks for line-of-sight to the player
             if (this.State == EnemyState.Aware)
             {

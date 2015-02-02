@@ -1,0 +1,44 @@
+enum MouseState { Normal, Trapped, Invisible }
+
+class Level_SetMouseState : ZilchComponent
+{
+    [Property]
+    var MouseState : MouseState = MouseState.Normal;
+    
+    function Initialize(init : CogInitializer)
+    {
+        if (this.MouseState == MouseState.Trapped)
+        {
+            if (!Zero.Mouse.Trapped)
+            {
+                Zero.Mouse.ToggleTrapped();
+            }
+        }
+        else
+        {
+            if (Zero.Mouse.Trapped)
+            {
+                Zero.Mouse.ToggleTrapped();
+            }
+        }
+        
+        if (this.MouseState == MouseState.Normal)
+        {
+            if (Zero.Mouse.Cursor != Cursor.Arrow)
+            {
+                Zero.Mouse.Cursor = Cursor.Arrow;
+            }
+        }
+        else if (this.MouseState == MouseState.Invisible)
+        {
+            if (Zero.Mouse.Cursor != Cursor.Invisible)
+            {
+                Zero.Mouse.Cursor = Cursor.Invisible;
+            }
+        }
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

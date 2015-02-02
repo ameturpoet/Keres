@@ -5,6 +5,8 @@ class PlayerControl_Move : ZilchComponent
     [Property]
     var Speed : Real = 1.0;
     [Property]
+    var SprintMultiplier : Real = 1.3;
+    [Property]
     var LookSensitivity : Real = 6.0;
     [Property]
     var Weapon : CogPath = null;
@@ -25,12 +27,12 @@ class PlayerControl_Move : ZilchComponent
     var TextLog : Cog = null;
     var OldPosition : Real3 = Real3(0, 0, 0);
     var MovementTracker : Real3 = Real3(0, 0, 0);
+    var Sprinting : Real = 0.0;
     
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Space, Events.MouseMove, this.OnMouseMove);
-        Zero.Mouse.ToggleTrapped();
         this.Camra = this.Owner.Space.FindObjectByName("Camera");
         this.LevelGeometry = this.Owner.Space.FindObjectByName("LevelGeometry");
         this.HUDspace = this.GameSession.FindSpaceByName("HUDSpace");
@@ -42,6 +44,7 @@ class PlayerControl_Move : ZilchComponent
         
         if (!this.Disabled)
         {
+            this.DoSprinting();
             this.Movement(event.Dt);
             this.Aiming(event.Dt);
             this.ObjectInteraction();
@@ -50,6 +53,26 @@ class PlayerControl_Move : ZilchComponent
             
             //Old position is used mostly for moving blips around on the radar
             this.OldPosition = this.Owner.Transform.Translation;
+        }
+    }
+    
+    //Detects if the player is holding the sprint key and sprints
+    function DoSprinting()
+    {
+        if (Zero.Keyboard.KeyIsDown(this.Owner.Controller.Sprint))
+        {
+            if (this.Sprinting == 0.0)
+            {
+                this.Sprinting = 1.0;
+            }
+            //INSERT CODE FOR OXYGEN DEPLETION HERE
+        }
+        else if (!Zero.Keyboard.KeyIsDown(this.Owner.Controller.Sprint))
+        {
+            if (this.Sprinting == 1.0)
+            {
+                this.Sprinting = 0.0;
+            }
         }
     }
     
@@ -193,7 +216,14 @@ class PlayerControl_Move : ZilchComponent
     {
         if (isMoving)
         {
-            this.HeadBobCounter += deltaTime * 8;
+            if (this.Sprinting == 1.0)
+            {
+                this.HeadBobCounter += deltaTime * 8 * this.SprintMultiplier;
+            }
+            else
+            {
+                this.HeadBobCounter += deltaTime * 8;
+            }
             
             if (this.HeadBobCounter >= Math.Pi * 2)
             {
@@ -266,8 +296,8 @@ class PlayerControl_Move : ZilchComponent
             //we have to calculate relative forward and right and add them to the player's position
             //based on the keys that were pressed
             
-            var tempRight = direction.X * right * this.Speed;
-            var tempForward = direction.Y * forward * this.Speed;
+            var tempRight = direction.X * right * (this.Speed + this.SprintMultiplier * this.Sprinting);
+            var tempForward = direction.Y * forward * (this.Speed + this.SprintMultiplier * this.Sprinting);
             
             this.Owner.RigidBody.Velocity = tempRight + tempForward;
             
@@ -300,19 +330,22 @@ class PlayerControl_Move : ZilchComponent
     //
     function OnMouseMove(event : MouseEvent)
     {
-        var deltaAngle = Real3(event.Movement.Y * 0.85, 0, event.Movement.X);
-        deltaAngle /= 100 * (11 - this.LookSensitivity);
-        this.Camra.Transform.EulerAngles -= Real3(deltaAngle.X, 0, 0);
-        if (this.Camra.Transform.EulerAngles.X > 3.0)
+        if (!this.Disabled)
         {
-            var temp = this.Camra.Transform.EulerAngles;
-            this.Camra.Transform.SetEulerAnglesXYZ(3.0, temp.Y, temp.Z);
+            var deltaAngle = Real3(event.Movement.Y * 0.85, 0, event.Movement.X);
+            deltaAngle /= 100 * (11 - this.LookSensitivity);
+            this.Camra.Transform.EulerAngles -= Real3(deltaAngle.X, 0, 0);
+            if (this.Camra.Transform.EulerAngles.X > 3.0)
+            {
+                var temp = this.Camra.Transform.EulerAngles;
+                this.Camra.Transform.SetEulerAnglesXYZ(3.0, temp.Y, temp.Z);
+            }
+            else if (this.Camra.Transform.EulerAngles.X < 0)
+            {
+                var temp = this.Camra.Transform.EulerAngles;
+                this.Camra.Transform.SetEulerAnglesXYZ(0, temp.Y, temp.Z);
+            }
+            this.Owner.Transform.EulerAngles -= Real3(0, 0, deltaAngle.Z);
         }
-        else if (this.Camra.Transform.EulerAngles.X < 0)
-        {
-            var temp = this.Camra.Transform.EulerAngles;
-            this.Camra.Transform.SetEulerAnglesXYZ(0, temp.Y, temp.Z);
-        }
-        this.Owner.Transform.EulerAngles -= Real3(0, 0, deltaAngle.Z);
     }
 }

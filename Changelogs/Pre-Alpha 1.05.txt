@@ -1,0 +1,13 @@
+Pre-Alpha 1.05
+2/2/2015
+-------------
+Changes
+---
++Added more tutorials
++Added sprinting (default key is Shift)
++Added player death
++Added early version of splash screen
+
+---
+Bugfixes
+---

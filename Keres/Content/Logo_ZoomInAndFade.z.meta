@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Logo_ZoomInAndFade",
+		uint64 ResourceId = 549e06d270569ef8,
+	},
+},
