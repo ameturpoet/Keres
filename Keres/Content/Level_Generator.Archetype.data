@@ -10,7 +10,7 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "4faa6050b86884ec:DefaultArchetype",
+		string Name = "546451358f6468ef:Level_Generator",
 	},
 	Transform = 
 	{

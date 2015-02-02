@@ -1,0 +1,52 @@
+HOW TO MAKE A NEW LEVEL
+
+Note: All Archetypes you need to spawn in are tagged with the 'LevelDesign' tag for convenience
+
+---
+1. Player & Camera
+---
+    1: Drag the Player archetype into the level
+    2: In the objects list (lower-right corner), click and drag the Camera onto the Player, this parents the Camera to the Player
+    3: Set the Camera's Translation to (0, 0, 0) and its Rotation to (90, 0, 0)
+    4: On the Camera's Camera script, set the ProjectionMode to 'Perspective', and its NearPlane to 0.0001
+    5: In the objects list (lower-right corner again), there should be an object called 'Taser' attached to the Player. Click and drag the Taser onto the Camera.
+       This attached the Taser to the Camera.
+    
+---
+2. Level Generating Objects
+---
+    1: In the objects list, select the LevelSettings object. Attach the 'LoadHUD' script to it.
+    2: In the LevelSettings' LoadHUD script, set the HUDLevel property to 'HUDLevel'
+    3: Drag the Level_Generator archetype anywhere into the level. The LevelGenerator initializes all level generation events, ensuring that the geometry and
+       pathing grid work properly
+    4: Drag the LevelGeometry archetype anywhere into the level and set its Translation to (0, 0, 0). The LevelGeometry can be used to make the entire level
+       shake, move, or rotate if we need to.
+
+---
+3. Tilemaps and Level Generation
+---
+
+    1: Select the TileEditor2D tool and create a new TileMap.
+    2: Select the LevelDesignPallette* and use it to design the level. The tiles themselves spawn in the level geometry
+        +Light gray sections indicate floor and ceiling
+        +Dark gray sections are blank space
+        +Purple lines are walls
+    3: Click CreateTileMap to create another tile map for the material painting, rename it MaterialMap or something different to differentiate it from the first TileMap
+    4: Select the TextureMapPallette* and paint over the locations of all tiles on the first TileMap. The tiles in the TextureMapPallette spawn in objects that paint the
+       level with different textures. The textures to be painted should match the icon on the MaterialMap
+    5: Set the MaterialMap's Translation to (0, 0, 1). This seperates it from the TileMap and makes it look better in the editor
+
+---
+4. Planets and Decorations
+---
+    1: Drag the Skybox into the level and set its Translation to (0, 0, 0)
+       Can be resized to achieve desired effect
+    2: Drag the planet** Pluto into the level and position wherever looks best
+    3: Drag the Pluto_Lighting archetype into the level and position near Pluto for the best effect
+    4: Drag the planet_Sun archetype*** into the level and position it for best effect, typically on the opposite end of the level from Pluto
+
+*Yes, the word Palette is misspelled. Don't question it.
+
+**Pluto is planet. Don't let those crazy scientists tell you otherwise
+
+***I don't know why the archetype is called planet_Sun. I mean, I made it, but I really couldn't answer that question if you asked me.

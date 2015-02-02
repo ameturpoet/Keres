@@ -2,8 +2,8 @@ DataContent =
 {
 	DataBuilder = 
 	{
-		string Name = "Player",
-		uint64 ResourceId = 54907c8d0d73e0da,
+		string Name = "Activator_PushButton",
+		uint64 ResourceId = 549e1e47fdc7d5a4,
 		string LoaderType = "Cog",
 		uint Version = 0,
 		bool ShowInEditor = true,
@@ -12,7 +12,7 @@ DataContent =
 	{
 		Array Tags = 
 		[
-			"LevelDesign",
+			"Activator",
 		],
 	},
 },

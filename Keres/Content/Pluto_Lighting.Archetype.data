@@ -1,0 +1,35 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "plutoLighting",
+	},
+	Archetyped = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [9.19732, 32.5914, 7.37944],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Light = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		LightType LightType = Point,
+		Vec4 Color = [1, 1, 1, 1],
+		float Intensity = 2.47,
+		float Range = 20,
+		float Falloff = 1,
+		float Angle = 45,
+		float Size = 20,
+	},
+},

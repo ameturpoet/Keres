@@ -1,0 +1,34 @@
+HOW TO MAKE A WORKING DOOR
+
+---
+1. The Door
+---
+    1: Drag an Archetype with the Door tag into the level and position wherever you need it
+    2: Under the Interactable_Gate script, edit the properties to make the door behave how you want to
+        +PlayerCantOpen prevents the player from manually opening it under any circumstance. It must be opened by an outside source
+        +Locked prevents the player from opening the door UNLESS they have the correct item in their inventory, which then sets it to Unlocked
+        +Key is a string, if the player has an item in their inventory whose name is the Key string, the door will become unlocked
+            NOTE: the Key string is checked against the object's EDITOR name, not the name on its Item script
+        +OpenTime is how long the door takes to completely open and close
+
+---
+2. Attaching an Activator
+---
+    If your door has the property PlayerCantOpen set to True, then it cannot be opened manually by the player
+    You must create an activator that opens it for you
+
+    1: Drag an Archetype with the Activator tag into the level and position wherever you need it
+    2: Under the Activator script (could be named Activator_PushButton, Activator_ElectricZap, etc), edit the properties to make it behave
+       how you want it to
+        +ActivationTarget is the door you want it to activate. Click and hold the little yellow and orange ball-thingy and drag your cursor
+            over to the door you want it to open
+        +LimitedUse restricts the number of times the Activator can be used
+        +ChargesLeft is the number of times you can activate this if LimitedUse is True
+    3: Different Activator_(BLANK) scripts have different properties
+        +Activator_ElectricZap activates when you shoot it with the taser
+        +Activator_PushButton activates when push it
+
+---
+3. Making your own door
+---
+    Stuff, later :D

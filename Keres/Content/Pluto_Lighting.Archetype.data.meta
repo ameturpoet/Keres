@@ -2,8 +2,8 @@ DataContent =
 {
 	DataBuilder = 
 	{
-		string Name = "Player",
-		uint64 ResourceId = 54907c8d0d73e0da,
+		string Name = "Pluto_Lighting",
+		uint64 ResourceId = 549e1a985bf3e563,
 		string LoaderType = "Cog",
 		uint Version = 0,
 		bool ShowInEditor = true,

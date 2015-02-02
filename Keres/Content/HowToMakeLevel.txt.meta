@@ -1,0 +1,8 @@
+TextContent = 
+{
+	TextBuilder = 
+	{
+		string Name = "HowToMakeLevel",
+		uint64 ResourceId = 549e275cac2f52aa,
+	},
+},

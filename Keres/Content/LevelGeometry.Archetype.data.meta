@@ -2,8 +2,8 @@ DataContent =
 {
 	DataBuilder = 
 	{
-		string Name = "Player",
-		uint64 ResourceId = 54907c8d0d73e0da,
+		string Name = "LevelGeometry",
+		uint64 ResourceId = 549e21b7e0952dfd,
 		string LoaderType = "Cog",
 		uint Version = 0,
 		bool ShowInEditor = true,

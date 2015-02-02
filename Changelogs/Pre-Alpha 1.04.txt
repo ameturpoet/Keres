@@ -1,0 +1,11 @@
+Pre-Alpha 1.04
+2/2/2015
+-------------
+Changes
+---
++Added level template
++Added Readmes on how to make a level and door from scratch
+
+---
+Bugfixes
+---

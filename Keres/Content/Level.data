@@ -57,14 +57,21 @@ Level =
 			float Strength = 10,
 			Vec3 Direction = [0, 0, -1],
 		},
-		ForwardRenderer = 
+		DeferredRenderer = 
 		{
 			Vec4 ClearColor = [0, 0, 0, 1],
 			bool DrawNonVisible = false,
 			bool DrawDebugObjects = true,
 			bool DrawEditorIcons = true,
 			bool EditorIconDepth = true,
-			bool Wireframe = false,
+			bool Hdr = true,
+			bool Shadows = true,
+			bool AntiAliasing = false,
+			bool Refraction = true,
+			bool GodRays = true,
+			bool RenderMasks = false,
+			bool Glow = false,
+			float GlowThreshold = 1,
 		},
 	},
 	Cog = 
@@ -79,9 +86,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [4.71847, 4.17945, 8.50173],
+			Vec3 Translation = [-9.30712, 3.15422, 9.67609],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-1.71829e-007, 5.59389e-006, 9.54195e-013, 1],
+			Quat Rotation = [0.00261806, 0.00524265, -1.37257e-005, 0.999983],
 		},
 		Camera = 
 		{
@@ -91,15 +98,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 6.72051,
+			float Size = 12.0993,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 9.13421,
-			float VerticalAngle = 3.43658e-007,
-			float HorizontalAngle = 6.28317,
-			Vec3 LookTarget = [4.71837, 4.17945, -0.632484],
+			float VerticalAngle = -0.00523619,
+			float HorizontalAngle = 6.2727,
+			Vec3 LookTarget = [-9.4029, 3.20205, 0.542503],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -192,7 +199,6 @@ Level =
 		{
 			float Speed = 3,
 			float LookSensitivity = 6,
-			float Height = 0,
 			CogPath Weapon = "Camera/Taser",
 		},
 		Hierarchy = 
@@ -237,63 +243,6 @@ Level =
 						},
 						Named = 
 						{
-							string Name = "flashlight",
-						},
-						Archetyped = 
-						{
-							string Name = "4faa6050b86884ec:DefaultArchetype",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [0.0198202, -0.0460504, 0.00679553],
-							Vec3 Scale = [0.05, 0.05, 0.05],
-							Quat Rotation = [0.00953029, -5.90066e-007, 0.999955, 1.0816e-007],
-						},
-						Model = 
-						{
-							bool Visible = false,
-							bool VisibilityCulling = true,
-							bool VisibilityEvents = false,
-							bool CastShadows = true,
-							string MaterialName = "5405f4023f587018:Mat_Gold",
-							string MeshName = "4de0354322b345ae:Cube",
-							Vec4 Color = [1, 1, 1, 1],
-						},
-						Light = 
-						{
-							bool Visible = true,
-							bool VisibilityCulling = false,
-							bool VisibilityEvents = false,
-							bool CastShadows = false,
-							LightType LightType = Spot,
-							Vec4 Color = [1, 1, 1, 1],
-							float Intensity = 0.95,
-							float Range = 7,
-							float Falloff = 1,
-							float Angle = 69,
-							float Size = 20,
-						},
-						Shadow = 
-						{
-							bool Active = true,
-							Quality Quality = HighQuality,
-							ShadowMapping ShadowMapping = Standard,
-							ShadowSoftening ShadowSoftening = None,
-							Vec4 Color = [0, 0, 0, 1],
-							float SplitPlaneDistribution = 0.8,
-						},
-						Hierarchy = 
-						{
-						},
-					},
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 6,
-						},
-						Named = 
-						{
 							string Name = "Taser",
 						},
 						Archetyped = 
@@ -302,7 +251,7 @@ Level =
 						},
 						Transform = 
 						{
-							Vec3 Translation = [0.0259838, -0.024826, -0.0535955],
+							Vec3 Translation = [0.0259838, -0.024826, -0.053596],
 							Vec3 Scale = [0.25, 0.25, 0.250001],
 							Quat Rotation = [0.516585, -0.482847, 0.482846, 0.516584],
 						},
@@ -319,7 +268,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 7,
+									uint Id = 6,
 								},
 								Named = 
 								{
@@ -346,7 +295,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 8,
+									uint Id = 7,
 								},
 								Named = 
 								{
@@ -373,7 +322,7 @@ Level =
 							{
 								LinkId = 
 								{
-									uint Id = 9,
+									uint Id = 8,
 								},
 								Named = 
 								{
@@ -398,6 +347,63 @@ Level =
 									string MaterialName = "4de020863e85bb61:DefaultMaterial",
 									string MeshName = "4de0354322b345ae:Cube",
 									Vec4 Color = [1, 1, 1, 1],
+								},
+							},
+							Cog = 
+							{
+								LinkId = 
+								{
+									uint Id = 9,
+								},
+								Named = 
+								{
+									string Name = "flashlight",
+								},
+								Archetyped = 
+								{
+									string Name = "4faa6050b86884ec:DefaultArchetype",
+								},
+								Transform = 
+								{
+									Vec3 Translation = [-0.0643758, 0.0203596, 0.0293735],
+									Vec3 Scale = [0.2, 0.199999, 0.2],
+									Quat Rotation = [0.487748, 0.51196, 0.511959, 0.487747],
+								},
+								Model = 
+								{
+									bool Visible = false,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = true,
+									string MaterialName = "5405f4023f587018:Mat_Gold",
+									string MeshName = "4de0354322b345ae:Cube",
+									Vec4 Color = [1, 1, 1, 1],
+								},
+								Light = 
+								{
+									bool Visible = true,
+									bool VisibilityCulling = false,
+									bool VisibilityEvents = false,
+									bool CastShadows = false,
+									LightType LightType = Spot,
+									Vec4 Color = [1, 1, 1, 1],
+									float Intensity = 1.07,
+									float Range = 7,
+									float Falloff = 1,
+									float Angle = 69,
+									float Size = 20,
+								},
+								Shadow = 
+								{
+									bool Active = true,
+									Quality Quality = HighQuality,
+									ShadowMapping ShadowMapping = Standard,
+									ShadowSoftening ShadowSoftening = None,
+									Vec4 Color = [0, 0, 0, 1],
+									float SplitPlaneDistribution = 0.8,
+								},
+								Hierarchy = 
+								{
 								},
 							},
 						},
@@ -1102,54 +1108,18 @@ Level =
 			Enum Control = Space,
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "549e1e47fdc7d5a4:Activator_PushButton",
 		LinkId = 
 		{
 			uint Id = 27,
-		},
-		Archetyped = 
-		{
-			string Name = "5491e19eade6d049:Activator_Zap_WallTerminal",
 		},
 		Transform = 
 		{
 			Vec3 Translation = [-2.98943, 3.50301, 0.05],
 			Vec3 Scale = [0.5, 0.25, 0.25],
 			Quat Rotation = [0, 0, 0.707107, 0.707107],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "4de020863e85bb61:DefaultMaterial",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 1],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-		Interactable = 
-		{
-			bool ShowTooltip = true,
-			string Tooltip = "Door Control Button",
-			bool ShowControl = true,
-			Enum Control = Space,
-		},
-		Activator_PushButton = 
-		{
-			CogPath ActivationTarget = ":/gate1",
-			bool LimitedUse = false,
-			int ChargesLeft = 1,
 		},
 	},
 	Cog = 
@@ -1406,19 +1376,12 @@ Level =
 			string Name = "Wall",
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "549e1a6db7a10449:Skybox",
 		LinkId = 
 		{
 			uint Id = 36,
-		},
-		Named = 
-		{
-			string Name = "skybox",
-		},
-		Archetyped = 
-		{
-			string Name = "4faa6050b86884ec:DefaultArchetype",
 		},
 		Transform = 
 		{
@@ -1426,133 +1389,16 @@ Level =
 			Vec3 Scale = [2.5, 2.5, 2.5],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Model = 
+		Named = 
 		{
-			bool Visible = false,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "4de020863e85bb61:DefaultMaterial",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 1],
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 37,
-				},
-				Archetyped = 
-				{
-					string Name = "4faa6050b86884ec:DefaultArchetype",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [1.52405, -6.03178, -1.01726],
-					Vec3 Scale = [50, 50, 50],
-					Quat Rotation = [-0.5, -0.5, 0.5, -0.5],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "546f39d69d23c76f:Mat_Stars",
-					string MeshName = "541a9554d9923aae:Plane",
-					Vec4 Color = [1, 1, 1, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 38,
-				},
-				Archetyped = 
-				{
-					string Name = "4faa6050b86884ec:DefaultArchetype",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [1.52405, -6.03178, -1.01726],
-					Vec3 Scale = [50, 50.0001, 50],
-					Quat Rotation = [-0.707107, 0, 0.707107, 0],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "546f39d69d23c76f:Mat_Stars",
-					string MeshName = "541a9554d9923aae:Plane",
-					Vec4 Color = [1, 1, 1, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 39,
-				},
-				Archetyped = 
-				{
-					string Name = "4faa6050b86884ec:DefaultArchetype",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [1.52405, -6.03178, -1.01726],
-					Vec3 Scale = [50, 50, 50],
-					Quat Rotation = [0, 0.707107, 0, 0.707107],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "546f39d69d23c76f:Mat_Stars",
-					string MeshName = "541a9554d9923aae:Plane",
-					Vec4 Color = [1, 1, 1, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 40,
-				},
-				Archetyped = 
-				{
-					string Name = "4faa6050b86884ec:DefaultArchetype",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [1.52405, -6.03178, -1.01726],
-					Vec3 Scale = [50, 50, 50],
-					Quat Rotation = [-0.5, 0.5, 0.5, 0.5],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "546f39d69d23c76f:Mat_Stars",
-					string MeshName = "541a9554d9923aae:Plane",
-					Vec4 Color = [1, 1, 1, 1],
-				},
-			},
+			string Name = "skybox",
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 41,
+			uint Id = 37,
 		},
 		Named = 
 		{
@@ -1593,7 +1439,7 @@ Level =
 		string Name = "546d945262be4643:Pluto",
 		LinkId = 
 		{
-			uint Id = 42,
+			uint Id = 38,
 		},
 		Transform = 
 		{
@@ -1610,7 +1456,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 43,
+			uint Id = 39,
 		},
 		Named = 
 		{
@@ -1650,7 +1496,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 44,
+			uint Id = 40,
 		},
 		Named = 
 		{
@@ -1686,19 +1532,12 @@ Level =
 			float Speed = 1,
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "549e1a985bf3e563:Pluto_Lighting",
 		LinkId = 
 		{
-			uint Id = 45,
-		},
-		Named = 
-		{
-			string Name = "flickerTorch",
-		},
-		Archetyped = 
-		{
-			string Name = "4faa6050b86884ec:DefaultArchetype",
+			uint Id = 41,
 		},
 		Transform = 
 		{
@@ -1706,26 +1545,16 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Light = 
+		Named = 
 		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = false,
-			LightType LightType = Point,
-			Vec4 Color = [1, 1, 1, 1],
-			float Intensity = 2.47,
-			float Range = 20,
-			float Falloff = 1,
-			float Angle = 45,
-			float Size = 20,
+			string Name = "plutoLighting",
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 46,
+			uint Id = 42,
 		},
 		Named = 
 		{
@@ -1781,12 +1610,19 @@ Level =
 			Vec3 AngularVelocity = [0, 0, 0],
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "546451358f6468ef:Level_Generator",
 		LinkId = 
 		{
-			uint Id = 47,
+			uint Id = 43,
+		},
+		Named = 
+		{
+			string Name = "LevelGenerator",
+		},
+		Archetyped = 
+		{
+			string Name = "546451358f6468ef:Level_Generator",
 		},
 		Transform = 
 		{
@@ -1794,9 +1630,21 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Named = 
+		Model = 
 		{
-			string Name = "LevelGenerator",
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "546441068a020187:dev_LevelGenerator",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		NavigationEvents = 
+		{
+		},
+		LevelGenerator = 
+		{
 		},
 	},
 	ArchetypeInstance = 
@@ -1804,7 +1652,7 @@ Level =
 		string Name = "54645e3dc3ce41f3:planet_Sun",
 		LinkId = 
 		{
-			uint Id = 48,
+			uint Id = 44,
 		},
 		Transform = 
 		{
@@ -1822,7 +1670,7 @@ Level =
 		string Name = "546cc041552d39d4:Plane_Porthole",
 		LinkId = 
 		{
-			uint Id = 49,
+			uint Id = 45,
 		},
 		Transform = 
 		{
@@ -1839,7 +1687,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 50,
+			uint Id = 46,
 		},
 		Named = 
 		{
@@ -1895,7 +1743,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 51,
+					uint Id = 47,
 				},
 				Named = 
 				{
@@ -1952,7 +1800,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 52,
+					uint Id = 48,
 				},
 				Named = 
 				{
@@ -2011,7 +1859,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 53,
+			uint Id = 49,
 		},
 		Named = 
 		{
@@ -2067,7 +1915,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 54,
+					uint Id = 50,
 				},
 				Named = 
 				{
@@ -2124,7 +1972,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 55,
+					uint Id = 51,
 				},
 				Named = 
 				{
