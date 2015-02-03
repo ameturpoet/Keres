@@ -38,7 +38,7 @@ class Interactable : ZilchComponent
                     this.Owner.Interactable_Gate.Toggle();
                     this.Owner.Interactable_Gate.Locked = false;
                     player.PlayerControl_Move.TextLog.HUDElement_TextLog.AddLine(String.Concatenate("Door opened with the ", player.Inventory.GetItemName(this.Owner.Interactable_Gate.Key)));
-                    player.Inventory.DeleteItem(this.Owner.Interactable_Gate.Key);
+                    //player.Inventory.DeleteItem(this.Owner.Interactable_Gate.Key);
                 }
                 else
                 {
