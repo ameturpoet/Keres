@@ -1,0 +1,40 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "flickerTorch",
+	},
+	Archetyped = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-1.83212, 4.74106, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Light = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		LightType LightType = Point,
+		Vec4 Color = [0.9925, 1, 0.625, 1],
+		float Intensity = 0.53,
+		float Range = 3,
+		float Falloff = 1,
+		float Angle = 45,
+		float Size = 20,
+	},
+	LightEffect_Flicker = 
+	{
+		float Range = 1,
+		float Speed = 1,
+	},
+},

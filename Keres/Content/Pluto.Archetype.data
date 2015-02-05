@@ -14,8 +14,8 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [15.9847, 41.7695, -1.50496],
-		Vec3 Scale = [0.3, 0.3, 0.3],
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Model = 
@@ -24,11 +24,8 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
-		string MaterialName = "546d94b56b7de6b3:Mat_Pluto",
+		string MaterialName = "546eaa26c7015017:Material__25",
 		string MeshName = "546d945262a248a4:Pluto",
 		Vec4 Color = [1, 1, 1, 1],
-	},
-	Planet_Rotate = 
-	{
 	},
 },

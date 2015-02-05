@@ -1,0 +1,10 @@
+Pre-Alpha 1.06
+2/2/2015
+-------------
+Changes
+---
++Added the protolevel
+
+---
+Bugfixes
+---

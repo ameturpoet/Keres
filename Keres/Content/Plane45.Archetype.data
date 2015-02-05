@@ -6,7 +6,7 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "Wall",
+		string Name = "Plane45",
 	},
 	Archetyped = 
 	{
