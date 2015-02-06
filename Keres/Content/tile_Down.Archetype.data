@@ -21,9 +21,9 @@ Cog =
 	Tile_Replace3D = 
 	{
 		Enum Type = Tile,
-		string MainProp = "541a9554d969de2c:Plane",
+		string MainProp = "54b553c13657d63a:Plane_Flat",
 		string FloorProp = "5469260c6b8cec37:PlaneFloor",
-		string CeilingProp = "541a9554d969de2c:Plane",
+		string CeilingProp = "54b553c13657d63a:Plane_Flat",
 		bool JustProp = false,
 		bool FloorCeiling = false,
 		bool Up = false,

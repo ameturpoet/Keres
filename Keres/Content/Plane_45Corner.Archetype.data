@@ -10,13 +10,13 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "54b553a94a3d820a:Plane_Window",
+		string Name = "541a9fa8e2873d14:Plane45",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-0.5, 5.5, 0],
+		Vec3 Translation = [6.34678, 9.21261, 0.383775],
 		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [-3.09086e-008, -0.707107, -0.707107, -3.09086e-008],
+		Quat Rotation = [0, 0, 0, 1],
 	},
 	Model = 
 	{
@@ -24,8 +24,8 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
-		string MaterialName = "540260c6159f9173:Material__2",
-		string MeshName = "546cc2d0921cf846:Plane_Window",
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
+		string MeshName = "541a9fa8e28becf9:Plane45",
 		Vec4 Color = [1, 1, 1, 1],
 	},
 	MeshCollider = 
@@ -36,9 +36,29 @@ Cog =
 		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 		Vec3 Offset = [0, 0, 0],
-		string PhysicsMeshName = "541a9554d9923ab3:Plane",
+		string PhysicsMeshName = "541a9fa8e28bed00:Plane45",
 		bool DrawEdges = true,
 		bool DrawFaces = false,
 		bool DrawFaceNormals = false,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Plane002",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.09278e-008, 0.25, 0.25],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [1.54543e-008, -0.707107, 1.54543e-008, 0.707107],
+			},
+		},
 	},
 },

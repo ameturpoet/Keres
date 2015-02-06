@@ -10,13 +10,13 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "54b553a94a3d820a:Plane_Window",
+		string Name = "541a9554d969de2c:Plane",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-0.5, 5.5, 0],
+		Vec3 Translation = [3.98703, 8.91407, 0.432012],
 		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [-3.09086e-008, -0.707107, -0.707107, -3.09086e-008],
+		Quat Rotation = [0, 0, 0, 1],
 	},
 	Model = 
 	{
@@ -24,8 +24,8 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
-		string MaterialName = "540260c6159f9173:Material__2",
-		string MeshName = "546cc2d0921cf846:Plane_Window",
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
+		string MeshName = "541a9554d9923aae:Plane",
 		Vec4 Color = [1, 1, 1, 1],
 	},
 	MeshCollider = 
