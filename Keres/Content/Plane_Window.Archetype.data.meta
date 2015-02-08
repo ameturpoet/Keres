@@ -3,7 +3,7 @@ DataContent =
 	DataBuilder = 
 	{
 		string Name = "Plane_Window",
-		uint64 ResourceId = 54b553a94a3d820a,
+		uint64 ResourceId = 546cc2d092154022,
 		string LoaderType = "Cog",
 		uint Version = 0,
 		bool ShowInEditor = true,

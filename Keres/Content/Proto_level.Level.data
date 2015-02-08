@@ -90,7 +90,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [19.0333, -6.40296, 50.3136],
+			Vec3 Translation = [28.5595, -3.6973, 50.0648],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.0183244, 0.0078522, 0.000143915, 0.999801],
 		},
@@ -102,7 +102,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 44.9333,
+			float Size = 33.2874,
 		},
 		EditorCameraController = 
 		{
@@ -110,7 +110,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0.0366519,
 			float HorizontalAngle = -0.0157072,
-			Vec3 LookTarget = [18.2485, -8.23514, 0.353397],
+			Vec3 LookTarget = [27.7747, -5.52948, 0.104531],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -922,7 +922,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [12.5, 5.5, 0],
+			Vec3 Translation = [12.4847, 5.58961, 0],
 			Vec3 Scale = [1, 0.452265, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1290,12 +1290,19 @@ Level =
 			float Thickness = 1,
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		LinkId = 
 		{
 			uint Id = 31,
+		},
+		Named = 
+		{
+			string Name = "enemy",
+		},
+		Archetyped = 
+		{
+			string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		},
 		Transform = 
 		{
@@ -1303,9 +1310,46 @@ Level =
 			Vec3 Scale = [0.1, 0.1, 0.1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Named = 
+		Model = 
 		{
-			string Name = "enemy",
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "5403b42c4e36be37:Mat_Pearlstone",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		EnemyAI = 
+		{
+			int AttackDamage = 50,
+			float MaxStunTime = 2.5,
+			float Speed = 2,
+			float SightDistance = 9,
+			float AttentionSpanTime = 1e+009,
+			float AttackCooldown = 0.3,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 4],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
 		},
 	},
 },

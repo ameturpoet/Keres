@@ -90,9 +90,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.232245, 2.5959, 0.275495],
+			Vec3 Translation = [-3.47862, 5.63063, 9.62794],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.00369285, -0.708942, 0.0037122, 0.705247],
+			Quat Rotation = [0.00261806, 0.00524265, -1.37257e-005, 0.999983],
 		},
 		Camera = 
 		{
@@ -102,15 +102,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 4.45108,
+			float Size = 14.7781,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 9.13421,
-			float VerticalAngle = -0.0104724,
-			float HorizontalAngle = 7.85921,
-			Vec3 LookTarget = [9.36583, 2.69155, 0.323232],
+			float VerticalAngle = -0.00523619,
+			float HorizontalAngle = 6.2727,
+			Vec3 LookTarget = [-3.57439, 5.67846, 0.494355],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -194,7 +194,6 @@ Level =
 			Enum MoveRight = D,
 			Enum MoveLeft = A,
 			Enum Activate = Space,
-			Enum Sprint = Shift,
 			Enum RadarPing = Q,
 		},
 		NavigationEvents = 
@@ -203,7 +202,6 @@ Level =
 		PlayerControl_Move = 
 		{
 			float Speed = 3,
-			float SprintMultiplier = 1.3,
 			float LookSensitivity = 6,
 			CogPath Weapon = "Camera/Taser",
 		},
@@ -445,7 +443,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.684785, 1.60266, -10],
+			Vec3 Translation = [0.855525, -15.0083, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1166,11 +1164,29 @@ Level =
 			float Speed = 1,
 		},
 	},
+	ArchetypeInstance = 
+	{
+		string Name = "546cc041552d39d4:Plane_Porthole",
+		LinkId = 
+		{
+			uint Id = 30,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.5, 5.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [-3.09086e-008, 0.707107, 0.707107, -3.09086e-008],
+		},
+		Named = 
+		{
+			string Name = "Wall",
+		},
+	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 30,
+			uint Id = 31,
 		},
 		Named = 
 		{
@@ -1206,11 +1222,29 @@ Level =
 			float Speed = 1,
 		},
 	},
+	ArchetypeInstance = 
+	{
+		string Name = "546cc041552d39d4:Plane_Porthole",
+		LinkId = 
+		{
+			uint Id = 32,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-5.5, 5.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [-3.09086e-008, 0.707107, 0.707107, -3.09086e-008],
+		},
+		Named = 
+		{
+			string Name = "Wall",
+		},
+	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 31,
+			uint Id = 33,
 		},
 		Named = 
 		{
@@ -1250,7 +1284,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 32,
+			uint Id = 34,
 		},
 		Named = 
 		{
@@ -1288,10 +1322,28 @@ Level =
 	},
 	ArchetypeInstance = 
 	{
+		string Name = "546cc041552d39d4:Plane_Porthole",
+		LinkId = 
+		{
+			uint Id = 35,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6.5, 5.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [-3.09086e-008, 0.707107, 0.707107, -3.09086e-008],
+		},
+		Named = 
+		{
+			string Name = "Wall",
+		},
+	},
+	ArchetypeInstance = 
+	{
 		string Name = "549e1a6db7a10449:Skybox",
 		LinkId = 
 		{
-			uint Id = 33,
+			uint Id = 36,
 		},
 		Transform = 
 		{
@@ -1308,7 +1360,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 34,
+			uint Id = 37,
 		},
 		Named = 
 		{
@@ -1346,10 +1398,10 @@ Level =
 	},
 	ArchetypeInstance = 
 	{
-		string Name = "54b5514d89d60dac:Planet_Pluto",
+		string Name = "546d945262be4643:Pluto",
 		LinkId = 
 		{
-			uint Id = 35,
+			uint Id = 38,
 		},
 		Transform = 
 		{
@@ -1366,7 +1418,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 36,
+			uint Id = 39,
 		},
 		Named = 
 		{
@@ -1406,7 +1458,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 37,
+			uint Id = 40,
 		},
 		Named = 
 		{
@@ -1447,7 +1499,7 @@ Level =
 		string Name = "549e1a985bf3e563:Pluto_Lighting",
 		LinkId = 
 		{
-			uint Id = 38,
+			uint Id = 41,
 		},
 		Transform = 
 		{
@@ -1460,12 +1512,19 @@ Level =
 			string Name = "plutoLighting",
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		LinkId = 
 		{
-			uint Id = 39,
+			uint Id = 42,
+		},
+		Named = 
+		{
+			string Name = "enemy",
+		},
+		Archetyped = 
+		{
+			string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		},
 		Transform = 
 		{
@@ -1473,16 +1532,53 @@ Level =
 			Vec3 Scale = [0.1, 0.1, 0.1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Named = 
+		Model = 
 		{
-			string Name = "enemy",
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "5403b42c4e36be37:Mat_Pearlstone",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		EnemyAI = 
+		{
+			int AttackDamage = 50,
+			float MaxStunTime = 2.5,
+			float Speed = 1.7,
+			float SightDistance = 5,
+			float AttentionSpanTime = 3,
+			float AttackCooldown = 0.3,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [2.5, 2.5, 4],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 40,
+			uint Id = 43,
 		},
 		Named = 
 		{
@@ -1520,7 +1616,7 @@ Level =
 		string Name = "54645e3dc3ce41f3:planet_Sun",
 		LinkId = 
 		{
-			uint Id = 41,
+			uint Id = 44,
 		},
 		Transform = 
 		{
@@ -1533,11 +1629,29 @@ Level =
 			string Name = "sun",
 		},
 	},
+	ArchetypeInstance = 
+	{
+		string Name = "546cc041552d39d4:Plane_Porthole",
+		LinkId = 
+		{
+			uint Id = 45,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.5, -2.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Named = 
+		{
+			string Name = "Wall",
+		},
+	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 42,
+			uint Id = 46,
 		},
 		Named = 
 		{
@@ -1593,7 +1707,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 43,
+					uint Id = 47,
 				},
 				Named = 
 				{
@@ -1650,7 +1764,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 44,
+					uint Id = 48,
 				},
 				Named = 
 				{
@@ -1709,7 +1823,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 45,
+			uint Id = 49,
 		},
 		Named = 
 		{
@@ -1765,7 +1879,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 46,
+					uint Id = 50,
 				},
 				Named = 
 				{
@@ -1822,7 +1936,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 47,
+					uint Id = 51,
 				},
 				Named = 
 				{
@@ -1875,78 +1989,6 @@ Level =
 				{
 				},
 			},
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "54b553a94a3d820a:Plane_Window",
-		LinkId = 
-		{
-			uint Id = 48,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-0.5, 5.5, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-3.09086e-008, -0.707107, -0.707107, -3.09086e-008],
-		},
-		Named = 
-		{
-			string Name = "Wall",
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "54b553a94a3d820a:Plane_Window",
-		LinkId = 
-		{
-			uint Id = 49,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-5.5, 5.5, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-3.09086e-008, -0.707107, -0.707107, -3.09086e-008],
-		},
-		Named = 
-		{
-			string Name = "Wall",
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "54b553a94a3d820a:Plane_Window",
-		LinkId = 
-		{
-			uint Id = 50,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-6.5, 5.5, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-3.09086e-008, -0.707107, -0.707107, -3.09086e-008],
-		},
-		Named = 
-		{
-			string Name = "Wall",
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "54b553a94a3d820a:Plane_Window",
-		LinkId = 
-		{
-			uint Id = 51,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0.5, -2.5, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.707107, 0, 0, 0.707107],
-		},
-		Named = 
-		{
-			string Name = "Wall",
 		},
 	},
 },
