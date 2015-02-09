@@ -1,0 +1,14 @@
+Pre-Alpha 1.06
+2/2/2015
+-------------
+Changes
+---
++Added footstep sounds, only play every once in a while due to length of sound file
++Added light and sound to shooting an enemy, sound uses footstep sound but quieter as a placeholder, light is currently invisible
++Added oxygen and oxygen tank scripts, oxygen tank is currently a bluish sphere archetype under the name test tank as a placeholder
++Added death screen with the words "you died" and "press [Space] to return to main menu"
++Death by Keres or running out of oxygen now sends you to the death screen instead of main menu
+
+---
+Bugfixes
+---

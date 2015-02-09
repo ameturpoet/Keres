@@ -4,6 +4,8 @@ class ProjectileScript : ZilchComponent
     var Speed : Real = 1.0;
     [Property]
     var Damage : Integer = 35;
+    [Property]
+    var EnemyStunFlash : Archetype = null;
     var Direction : Real3 = Real3(0, 0, 0);
     var DeleteNext : Boolean = false;
     
@@ -17,6 +19,10 @@ class ProjectileScript : ZilchComponent
     {
         if (event.OtherObject.Name == "enemy")
         {
+            //Stun the enemy and create a blue flash? and noise at the point of impact
+            this.Owner.Space.CreateAtPosition(this.EnemyStunFlash, this.Owner.Transform.Translation);
+            event.OtherObject.SoundEmitter.PlayCue(SoundCue.Find("HitSound"));
+            //Console.WriteLine("Flashed");
             event.OtherObject.EnemyAI.Stun();
         }
         this.DeleteNext = true;

@@ -28,6 +28,7 @@ class PlayerControl_Move : ZilchComponent
     var OldPosition : Real3 = Real3(0, 0, 0);
     var MovementTracker : Real3 = Real3(0, 0, 0);
     var Sprinting : Real = 0.0;
+    var BreathingHeavy : Boolean = false;
     
     function Initialize(init : CogInitializer)
     {
@@ -66,6 +67,7 @@ class PlayerControl_Move : ZilchComponent
                 this.Sprinting = 1.0;
             }
             //INSERT CODE FOR OXYGEN DEPLETION HERE
+            this.BreathingHeavy = true;
         }
         else if (!Zero.Keyboard.KeyIsDown(this.Owner.Controller.Sprint))
         {
@@ -73,6 +75,7 @@ class PlayerControl_Move : ZilchComponent
             {
                 this.Sprinting = 0.0;
             }
+            this.BreathingHeavy = false;
         }
     }
     

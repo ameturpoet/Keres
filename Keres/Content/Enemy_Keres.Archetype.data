@@ -30,18 +30,22 @@ Cog =
 	},
 	EnemyAI = 
 	{
+		int AttackDamage = 50,
+		float MaxStunTime = 2.5,
 		float Speed = 1.7,
 		float SightDistance = 5,
+		float AttentionSpanTime = 3,
+		float AttackCooldown = 0.3,
 	},
 	BoxCollider = 
 	{
 		bool Ghost = false,
 		bool SendsMessages = true,
 		bool Seamless = true,
-		string MaterialName = "549b32dd4f6c5252:EnemyMaterial",
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 		Vec3 Offset = [0, 0, 0],
-		Vec3 Size = [0.5, 0.5, 4],
+		Vec3 Size = [2.5, 2.5, 4],
 	},
 	RigidBody = 
 	{
@@ -54,5 +58,14 @@ Cog =
 		bool Inherit2DMode = true,
 		Vec3 Velocity = [0, 0, 0],
 		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = true,
+		int ExtraPriority = 0,
+		string CueName = "54ffb77ae794dfe3:FootSteps",
+		float Volume = 1,
+		float Pitch = 1,
+		bool Positional = true,
 	},
 },

@@ -1,0 +1,39 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "HitIndecator",
+	},
+	Archetyped = 
+	{
+		string Name = "54ffbea58c79403e:EnemyHitIndecator",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Light = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		LightType LightType = Point,
+		Vec4 Color = [0.10505, 0.649018, 0.955, 1],
+		float Intensity = 5,
+		float Range = 5,
+		float Falloff = 1,
+		float Angle = 45,
+		float Size = 20,
+	},
+	LightEffect_DimtoDeath = 
+	{
+		float Lifetime = 0.085,
+	},
+},
