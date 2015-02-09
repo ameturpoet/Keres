@@ -75,9 +75,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-36.3857, -4.07096, 15.9592],
+			Vec3 Translation = [-1.12929, 0.446205, 31.714],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0304784, -0.444379, -0.0151297, 0.895193],
+			Quat Rotation = [3.12458e-007, -9.58782e-007, 3.04813e-013, 1],
 		},
 		Camera = 
 		{
@@ -87,15 +87,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 8.96338,
+			float Size = 22.0463,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = ZPlane,
 			float LookDistance = 33.5159,
-			float VerticalAngle = 0.0680673,
-			float HorizontalAngle = 0.921536,
-			Vec3 LookTarget = [-9.75102, -6.35054, -4.25751],
+			float VerticalAngle = -6.24917e-007,
+			float HorizontalAngle = 1.88407e-006,
+			Vec3 LookTarget = [-1.12923, 0.446226, -1.80186],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -572,7 +572,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, 0, 3.58969],
+					Vec3 Translation = [0, 0, -20],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -676,7 +676,7 @@ Level =
 		},
 		Sprite = 
 		{
-			bool Visible = true,
+			bool Visible = false,
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = false,
 			bool CastShadows = false,
@@ -692,6 +692,26 @@ Level =
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			TextPositionMode Position = Centered,
+			string FontName = "4e7bac697bec55c5:Verdana",
+			uint FontSize = 100,
+			string Text = "swag",
+			bool OnTop = false,
+			Vec2 Size = [0, 0],
+			TextAlign Align = Left,
+			float PixelsPerUnit = 64,
+			bool Smoothing = true,
 		},
 	},
 	Cog = 

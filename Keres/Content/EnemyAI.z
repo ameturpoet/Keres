@@ -145,12 +145,14 @@ class EnemyAI : ZilchComponent
             //Gets the distance from the enemy to the tile
             var temp = Math.Distance(this.Owner.Transform.Translation, this.TargetTile.Transform.Translation * Real3(1, 1, 0));
             
+            Console.WriteLine(temp);
+            
             //Sets the velocity to 0, necessary for certain situations that would otherwise make the
             //enemy run straight into a wall
             this.Owner.RigidBody.Velocity *= 0;
             
             //If the length is greater than the distance the enemy will move during this frame, set the enemy's velocity
-            if (temp > deltaTime * this.Speed)
+            if (temp > 0.04)
             {
                 this.Owner.RigidBody.Velocity = this.Speed * this.ToTargetVector;
             }

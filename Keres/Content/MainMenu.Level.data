@@ -386,7 +386,7 @@ Level =
 		},
 		MenuButton = 
 		{
-			string Target = "Level",
+			string Target = "LevelTemplateCopy1",
 			bool LoadTargetAsLevel = true,
 		},
 	},

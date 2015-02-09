@@ -116,6 +116,14 @@ class PlayerControl_Move : ZilchComponent
     function UpdateHUD()
     {
         this.HUDspace.FindObjectByName("HUD_Radar").Transform.SetEulerAnglesXYZ(0, 0, -1 * this.Owner.Transform.EulerAngles.Z);
+        
+        var sr = StringBuilder();
+        
+        sr.WriteLine(this.Owner.Oxygen.Oxygen);
+        
+        
+        
+        this.HUDspace.FindObjectByName("HUD_Resources").SpriteText.Text = sr.ToString();
     }
     
     //Updates weapon stuff
