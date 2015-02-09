@@ -10,11 +10,11 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "4faa6050b86884ec:DefaultArchetype",
+		string Name = "549e0d668f0d5948:PlayerInventory",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0.855525, -15.0083, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -27,5 +27,14 @@ Cog =
 		string MaterialName = "4de020863e85bb61:DefaultMaterial",
 		string MeshName = "4de0354322b345ae:Cube",
 		Vec4 Color = [1, 1, 1, 1],
+	},
+	SaveLoader = 
+	{
+		string PlayerLevel = "",
+		Vec3 PlayerLocation = [0, 0, 1337],
+		int PlayerLife = 0,
+		int PlayerEnergy = 0,
+		int PlayerOxygen = 0,
+		Vec3 PlayerRotation = [0, 0, 0],
 	},
 },

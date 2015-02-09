@@ -172,6 +172,12 @@ class EnemyAI : ZilchComponent
     //Uses rayscanning to check for direct line-of-sight to the player, setting the enemy state as a result
     function CheckForPlayer(deltaTime : Real)
     {
+        if (this.Owner.DebugEnemyState != null)
+        {
+            
+        }
+        else
+        {
         //Initialize the ray to cast
         this.ToPlayerRay.Start = this.Owner.Transform.Translation;
         this.ToPlayerRay.Direction = Math.Normalize(this.Player.Transform.Translation - this.Owner.Transform.Translation);
@@ -233,6 +239,7 @@ class EnemyAI : ZilchComponent
                     this.Owner.RigidBody.Velocity *= 0;
                 }
             }
+        }
         }
     }
     

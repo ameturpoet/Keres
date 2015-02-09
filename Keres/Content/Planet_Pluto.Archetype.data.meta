@@ -2,8 +2,8 @@ DataContent =
 {
 	DataBuilder = 
 	{
-		string Name = "Plane_Window",
-		uint64 ResourceId = 54b553a94a3d820a,
+		string Name = "Planet_Pluto",
+		uint64 ResourceId = 54b5514d89d60dac,
 		string LoaderType = "Cog",
 		uint Version = 0,
 		bool ShowInEditor = true,

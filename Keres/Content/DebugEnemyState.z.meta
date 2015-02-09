@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "DebugEnemyState",
+		uint64 ResourceId = 54762c602926fe1e,
+	},
+},

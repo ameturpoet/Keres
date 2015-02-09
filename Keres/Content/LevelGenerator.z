@@ -1,25 +1,53 @@
-enum LevelState { Generating, Painting, Connecting, Ready, Done }
+enum LevelState { Loading, Generating, Painting, Connecting, Ready, Done }
 
 
 class LevelGenerator : ZilchComponent
 {
     [Dependency]
     var NavigationEvents : NavigationEvents = null;
-    var CurrentState : LevelState = LevelState.Generating;
+    var CurrentState : LevelState = LevelState.Loading;
     var LoadingText : Cog = null;
+    
+    var DataCog : Cog = null;
     
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.LoadingText = this.GameSession.FindSpaceByName("HUDSpace").FindObjectByName("LoadingText");
+        
+        this.DataCog = Zero.ObjectStore.RestoreOrArchetype("PlayerData", "PlayerInventory", this.Space);
     }
 
     //Controls the current state of level generation, ensuring that everything occurs in the right order
     //
     function OnLogicUpdate(event : UpdateEvent)
     {
-        //Starts with terrain generation
-        if (this.CurrentState == LevelState.Generating)
+        //Data loading
+        if (this.CurrentState == LevelState.Loading)
+        {
+            if (this.DataCog.Name != "invPlayer")
+            {
+                Console.WriteLine("Loading data");
+                if (this.DataCog.SaveLoader.PlayerLevel.Name == this.Owner.Space.CurrentLevel.Name)
+                {
+                    this.DataCog.SaveLoader.SetPlayer();
+                }
+                this.DataCog.Name = "invPlayer";
+                this.Space.FindObjectByName("Player").Inventory.InventoryObject = this.DataCog;
+                this.CurrentState = LevelState.Generating;
+            }
+            else
+            {
+                this.DataCog = this.Owner.Space.FindObjectByName("invPlayer");
+                Console.WriteLine("No file");
+                this.CurrentState = LevelState.Generating;
+                this.Space.FindObjectByName("Player").Inventory.InventoryObject = this.DataCog;
+            }
+            
+            this.DataCog.Transform.Translation += Real3(0, 0, -50);
+        }
+        //Terrain generation
+        else if (this.CurrentState == LevelState.Generating)
         {
             if (this.Owner.Space.FindObjectByName("tile_Up") != null)
             {

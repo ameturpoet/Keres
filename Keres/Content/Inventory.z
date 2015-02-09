@@ -1,7 +1,6 @@
 class Inventory : ZilchComponent
 {
-    [Property]
-    var InventoryObject : CogPath = null;
+    var InventoryObject : Cog = null;
     
     function Initialize(init : CogInitializer)
     {
@@ -10,7 +9,7 @@ class Inventory : ZilchComponent
 
     function HasItem(id : String): Boolean
     {
-        var result = this.InventoryObject.Cog.FindChildByName(id);
+        var result = this.InventoryObject.FindChildByName(id);
         
         if (result != null)
         {
@@ -24,7 +23,7 @@ class Inventory : ZilchComponent
     
     function GetItemName(id : String): String
     {
-        var result = this.InventoryObject.Cog.FindChildByName(id);
+        var result = this.InventoryObject.FindChildByName(id);
         
         if (result != null)
         {
@@ -38,19 +37,19 @@ class Inventory : ZilchComponent
     
     function AddItem(itemArchetype : Archetype)
     {
-        var newItem = this.InventoryObject.Cog.Space.CreateAtPosition(itemArchetype, this.InventoryObject.Cog.Transform.Translation);
-        newItem.AttachTo(this.InventoryObject.Cog);
+        var newItem = this.InventoryObject.Space.CreateAtPosition(itemArchetype, this.InventoryObject.Transform.Translation);
+        newItem.AttachTo(this.InventoryObject);
     }
     
     function PickUpItem(item : Cog)
     {
-        item.Transform.Translation = this.InventoryObject.Cog.Transform.Translation;
-        item.AttachTo(this.InventoryObject.Cog);
+        item.Transform.Translation = this.InventoryObject.Transform.Translation;
+        item.AttachTo(this.InventoryObject);
     }
     
     function DeleteItem(id : String)
     {
-        var result = this.InventoryObject.Cog.FindChildByName(id);
+        var result = this.InventoryObject.FindChildByName(id);
         
         if (result != null)
         {

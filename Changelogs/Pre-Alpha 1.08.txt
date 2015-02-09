@@ -1,0 +1,12 @@
+Pre-Alpha 1.08
+2/9/2015
+-------------
+Changes
+---
++Added enemy debug state
++Added saving & loading
+
+---
+Bugfixes
+---
++Weird GitHub loading thing doesn't happen anymore

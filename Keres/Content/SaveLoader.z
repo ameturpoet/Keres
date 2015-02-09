@@ -1,0 +1,61 @@
+class SaveLoader : ZilchComponent
+{
+    [Property]
+    var PlayerLevel : Level = null;
+    [Property]
+    var PlayerLocation : Real3 = Real3(0, 0, 1337);
+    [Property]
+    var PlayerLife : Integer = 0;
+    [Property]
+    var PlayerEnergy : Integer = 0;
+    [Property]
+    var PlayerOxygen : Integer = 0;
+    [Property]
+    var PlayerRotation : Real3 = Real3(0, 0, 0);
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connetct
+    }
+
+    function SetPlayer()
+    {
+        var player = this.Owner.Space.FindObjectByName("Player");
+        
+        player.PlayerStats.Life = this.PlayerLife;
+        player.PlayerStats.Energy = this.PlayerEnergy;
+        player.PlayerStats.Oxygen = this.PlayerOxygen;
+        
+        Console.WriteLine(player.PlayerStats.Life);
+        
+        player.Transform.Translation = this.PlayerLocation;
+        player.Transform.SetEulerAnglesXYZ(this.PlayerRotation.X, this.PlayerRotation.Y, this.PlayerRotation.Z);
+        
+        this.Owner.Name = "invPlayer";
+    }
+    
+    function SavePlayerData()
+    {
+        var player = this.Owner.Space.FindObjectByName("Player");
+        
+        this.PlayerLevel = this.Owner.Space.CurrentLevel;
+        this.PlayerLocation = player.Transform.Translation;
+        
+        this.PlayerRotation = Real3(0, 0, 0);
+        
+        this.PlayerRotation.X = player.Transform.EulerAngles.X;
+        this.PlayerRotation.Y = player.Transform.EulerAngles.Y;
+        this.PlayerRotation.Z = player.Transform.EulerAngles.Z;
+        
+        this.PlayerLife = player.PlayerStats.Life;
+        this.PlayerEnergy = player.PlayerStats.Energy;
+        this.PlayerOxygen = player.PlayerStats.Oxygen;
+        
+        this.Owner.Name = "PLAYERDATA";
+        
+        Zero.ObjectStore.Store("PlayerData", this.Owner);
+        
+        this.Owner.Name = "invPlayer";
+    }
+}
