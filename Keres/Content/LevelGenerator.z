@@ -8,14 +8,39 @@ class LevelGenerator : ZilchComponent
     var CurrentState : LevelState = LevelState.Loading;
     var LoadingText : Cog = null;
     
-    var DataCog : Cog = null;
+    var PlayerInventory : Cog = null;
+    var LevelGeometry : Cog = null;
+    var LevelObjects : Cog = null;
     
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.LoadingText = this.GameSession.FindSpaceByName("HUDSpace").FindObjectByName("LoadingText");
         
-        this.DataCog = Zero.ObjectStore.RestoreOrArchetype("PlayerData", "PlayerInventory", this.Space);
+        //Creates the names to save and load to/from
+        var stringWriter = StringBuilder();
+        
+        stringWriter.Write(this.Owner.Space.CurrentLevel.Name);
+        stringWriter.Write("Geometry");
+        
+        var levelGeometryName = stringWriter.ToString();
+        
+        stringWriter = StringBuilder();
+        stringWriter.Write(this.Owner.Space.CurrentLevel.Name);
+        stringWriter.Write("Objects");
+        
+        var levelObjectsName = stringWriter.ToString();
+        
+        //Attempts to load the player's inventory, as well as the current geometry and state of the current level
+        this.PlayerInventory = Zero.ObjectStore.RestoreOrArchetype("PlayerData", "LoadingFailed", this.Space);
+        
+        //The inventory is global across the entire game, but the current level's state is unique per-level
+        //Saving the levelgeometry lets us skip re-generating every level
+        //this.LevelGeometry = Zero.ObjectStore.RestoreOrArchetype(levelGeometryName, "LoadingFailed", this.Space);
+        
+        //Saving the levelobjects lets us return to previous areas or load saves in the middle of levels without items
+        //that have already been taken respawning
+        this.LevelObjects = Zero.ObjectStore.RestoreOrArchetype(levelObjectsName, "LoadingFailed", this.Space);
     }
 
     //Controls the current state of level generation, ensuring that everything occurs in the right order
@@ -25,26 +50,76 @@ class LevelGenerator : ZilchComponent
         //Data loading
         if (this.CurrentState == LevelState.Loading)
         {
-            if (this.DataCog.Name != "invPlayer")
+            //Loads the player's inventory
+            if (this.PlayerInventory.Name != "FailedLoading")
             {
-                Console.WriteLine("Loading data");
-                if (this.DataCog.SaveLoader.PlayerLevel.Name == this.Owner.Space.CurrentLevel.Name)
+                this.Owner.Space.FindObjectByName("Player").Inventory.InventoryObject = this.PlayerInventory;
+                var temp = this.Owner.Space.FindAllObjectsByName("PlayerInventory");
+                
+                foreach (var t in temp)
                 {
-                    this.DataCog.SaveLoader.SetPlayer();
+                    if (t != this.PlayerInventory)
+                    {
+                        t.Destroy();
+                        Console.WriteLine("Killed default inventory");
+                    }
                 }
-                this.DataCog.Name = "invPlayer";
-                this.Space.FindObjectByName("Player").Inventory.InventoryObject = this.DataCog;
-                this.CurrentState = LevelState.Generating;
+                
+                this.PlayerInventory.PlayerStatus.SetPlayerStatus();
+                
+                Console.WriteLine("Inventory loaded");
             }
             else
             {
-                this.DataCog = this.Owner.Space.FindObjectByName("invPlayer");
-                Console.WriteLine("No file");
-                this.CurrentState = LevelState.Generating;
-                this.Space.FindObjectByName("Player").Inventory.InventoryObject = this.DataCog;
+                this.PlayerInventory.Destroy();
+                this.Owner.Space.FindObjectByName("Player").Inventory.InventoryObject = this.Owner.Space.FindObjectByName("PlayerInventory");
+                Console.WriteLine("No Inventory loaded");
             }
             
-            this.DataCog.Transform.Translation += Real3(0, 0, -50);
+            this.PlayerInventory.Transform.Translation += Real3(0, 0, -50);
+            
+            //Checks to see if the level's objects were loaded successfully
+            if (this.LevelObjects.Name != "FailedLoading")
+            {
+                var temp = this.Owner.Space.FindAllObjectsByName("LevelObjects");
+                
+                foreach (var t in temp)
+                {
+                    if (t != this.LevelObjects)
+                    {
+                        t.Destroy();
+                        Console.WriteLine("Killed default objects");
+                    }
+                }
+                
+                Console.WriteLine("Objects loaded");
+            }
+            else
+            {
+                this.LevelObjects.Destroy();
+                Console.WriteLine("No Objects loaded");
+            }
+            
+            /*
+            //Checks to see if the level's geometry was loaded successfully
+            if (this.LevelGeometry.Name != "FailedLoading")
+            {
+                this.LevelGeometry.Name = "temp";
+                this.Owner.Space.FindObjectByName("TileMap").Destroy();
+                this.Owner.Space.FindObjectByName("MaterialMap").Destroy();
+                this.LevelGeometry.Name = "LevelGeometry";
+                this.CurrentState = LevelState.Ready;
+                Console.WriteLine("Geometry loaded");
+            }
+            else
+            {
+                this.LevelGeometry.Destroy();
+                this.CurrentState = LevelState.Generating;
+                Console.WriteLine("No Geometry loaded");
+            }*/
+            
+            
+            this.CurrentState = LevelState.Generating;
         }
         //Terrain generation
         else if (this.CurrentState == LevelState.Generating)
@@ -102,6 +177,8 @@ class LevelGenerator : ZilchComponent
         {
             this.LoadingText.SpriteText.Text = "Done";
         }
+        
+        this.Owner.Space.FindObjectByName("Player").PlayerControl_Move.UpdateO2();
     }
     
     function SendGeneratingEvent()
@@ -134,11 +211,16 @@ class LevelGenerator : ZilchComponent
                     
         connectionEvent.PlayerLocation = this.Space.FindObjectByName("Player").Transform.Translation;
 
-        this.Owner.Space.DispatchEvent("ConnectTiles", connectionEvent);
+        //this.Owner.Space.DispatchEvent("ConnectTiles", connectionEvent);
         
-        if (this.LoadingText != null)
+        timeout(10)
         {
-            this.LoadingText.SpriteText.Text = "Connecting tiles...";
+            this.Owner.Space.DispatchEvent("ConnectTiles", connectionEvent);
+            
+            if (this.LoadingText != null)
+            {
+                this.LoadingText.SpriteText.Text = "Connecting tiles...";
+            }
         }
     }
 }

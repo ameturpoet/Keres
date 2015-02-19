@@ -1,0 +1,43 @@
+class Soundbox_Player : ZilchComponent
+{
+    [Property]
+    var Footsteps : SoundCue = null;
+    [Property]
+    var Damaged : SoundCue = null;
+    [Property]
+    var PickupKey : SoundCue = null;
+    [Property]
+    var PickupTank : SoundCue = null;
+    [Property]
+    var ShootTaser : SoundCue = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function PlayGunshot()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.ShootTaser);
+    }
+
+    function PlayFootstep()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.Footsteps);
+    }
+    
+    function PlayHit()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.Damaged);
+    }
+    
+    function PlayPickupKey()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.PickupKey);
+    }
+    
+    function PlayPickupOxyTank()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.PickupTank);
+    }
+}

@@ -21,7 +21,7 @@ class ProjectileScript : ZilchComponent
         {
             //Stun the enemy and create a blue flash? and noise at the point of impact
             this.Owner.Space.CreateAtPosition(this.EnemyStunFlash, this.Owner.Transform.Translation);
-            event.OtherObject.SoundEmitter.PlayCue(SoundCue.Find("HitSound"));
+            event.OtherObject.Soundbox_Keres.PlayStun();
             //Console.WriteLine("Flashed");
             event.OtherObject.EnemyAI.Stun();
         }

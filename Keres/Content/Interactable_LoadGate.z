@@ -1,0 +1,62 @@
+class Interactable_LoadGate : ZilchComponent
+{
+    [Dependency]
+    var Interactable_Gate : Interactable_Gate = null;
+    [Property]
+    var LoadLevel : Level = null;
+    [Property]
+    var TargetNodeName : String = null;
+    [Property]
+    var Enabled : Boolean = false;
+    var BlackoutOpacity : Real = 0.0;
+    var BlackoutScreen : Cog = null;
+    var HudSPACE : Space = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.HudSPACE = this.GameSession.FindSpaceByName("HUDSpace");
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Enabled)
+        {
+            if (this.BlackoutOpacity < 1.0)
+            {
+                this.BlackoutOpacity += event.Dt;
+            }
+            else
+            {
+                this.BlackoutOpacity = 1.0;
+            }
+            if (this.BlackoutScreen != null)
+            {
+                this.BlackoutScreen.Sprite.Color = Real4(0.0, 0.0, 0.0, this.BlackoutOpacity);
+            }
+            if (this.BlackoutOpacity >= 1.0)
+            {
+                this.Space.FindObjectByName("PlayerInventory").PlayerStatus.PlayerSpawnNode = this.TargetNodeName;
+                this.Enabled = false;
+                this.Owner.Interactable_Gate.CurrentOpenTime = 0.0;
+                this.Owner.Interactable_Gate.State = 2;
+                this.Owner.Interactable_Gate.UpdateSubObjects();
+                this.Space.FindObjectByName("FileManager").SaveManager.SavePlayerData();
+                this.Space.FindObjectByName("FileManager").SaveManager.SaveLevelState();
+                this.Space.LoadLevel(this.LoadLevel);
+            }
+        }
+        else
+        {
+            if (this.BlackoutScreen != null)
+            {
+                
+            }
+            else
+            {
+                this.BlackoutScreen = this.HudSPACE.FindObjectByName("BlackOverlay");
+                Console.WriteLine(this.BlackoutScreen);
+            }
+        }
+    }
+}

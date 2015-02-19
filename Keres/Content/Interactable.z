@@ -8,7 +8,7 @@ class Interactable : ZilchComponent
     [Property]
     var ShowControl : Boolean = true;
     [Property]
-    var Control : Keys = Keys.A;
+    var Control : Keys = Keys.Space;
     
     function Initialize(init : CogInitializer)
     {
@@ -37,6 +37,7 @@ class Interactable : ZilchComponent
                 {
                     this.Owner.Interactable_Gate.Toggle();
                     this.Owner.Interactable_Gate.Locked = false;
+                    this.Owner.Soundbox_Door.PlayUnlock();
                     player.PlayerControl_Move.TextLog.HUDElement_TextLog.AddLine(String.Concatenate("Door opened with the ", player.Inventory.GetItemName(this.Owner.Interactable_Gate.Key)));
                     //player.Inventory.DeleteItem(this.Owner.Interactable_Gate.Key);
                 }
@@ -56,7 +57,23 @@ class Interactable : ZilchComponent
         {
             var player = this.Owner.Space.FindObjectByName("Player");
             player.Inventory.PickUpItem(this.Owner);
-            player.PlayerControl_Move.TextLog.HUDElement_TextLog.AddLine(String.Concatenate("Picked up a ", this.Owner.Item.Name));
+            if (this.Owner.Item_Key != null)
+            {
+                player.Soundbox_Player.PlayPickupKey();
+            }
+            else if (this.Owner.Item_OxygenTank != null)
+            {
+                player.PlayerControl_Move.UpdateO2();
+                player.Soundbox_Player.PlayPickupOxyTank();
+            }
+            if (this.Owner.Item.NameStartsWithVowel)
+            {
+                player.PlayerControl_Move.TextLog.HUDElement_TextLog.AddLine(String.Concatenate("Picked up an ", this.Owner.Item.Name));
+            }
+            else
+            {
+                player.PlayerControl_Move.TextLog.HUDElement_TextLog.AddLine(String.Concatenate("Picked up a ", this.Owner.Item.Name));
+            }
         }
     }
 }

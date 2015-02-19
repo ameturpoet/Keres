@@ -16,11 +16,14 @@ class PlayerControl_Move : ZilchComponent
     var NavigationEvents : NavigationEvents = null;
     [Dependency]
     var PlayerStats : PlayerStats = null;
+    [Dependency]
+    var SoundBox : Soundbox_Player = null;
     
     var Disabled : Boolean = false;
     var Moving : Boolean = false;
     var CameraOffset : Real3 = Real3(0, 0, 0);
     var HeadBobCounter : Real = 0.0;
+    var FootstepCounter : Real = 0.0;
     var HighlightedObject : Cog = null;
     var HUDspace : Space = null;
     var Radar : Cog = null;
@@ -67,7 +70,6 @@ class PlayerControl_Move : ZilchComponent
                 this.Sprinting = 1.0;
             }
             //INSERT CODE FOR OXYGEN DEPLETION HERE
-            this.BreathingHeavy = true;
         }
         else if (!Zero.Keyboard.KeyIsDown(this.Owner.Controller.Sprint))
         {
@@ -75,7 +77,6 @@ class PlayerControl_Move : ZilchComponent
             {
                 this.Sprinting = 0.0;
             }
-            this.BreathingHeavy = false;
         }
     }
     
@@ -116,14 +117,27 @@ class PlayerControl_Move : ZilchComponent
     function UpdateHUD()
     {
         this.HUDspace.FindObjectByName("HUD_Radar").Transform.SetEulerAnglesXYZ(0, 0, -1 * this.Owner.Transform.EulerAngles.Z);
+        var sr = StringBuilder();
+        
+        sr.WriteLine(this.Owner.PlayerStats.Oxygen as Integer);
+        
+        
+        
+        this.HUDspace.FindObjectByName("HUD_Oxygen").SpriteText.Text = sr.ToString();
+    }
+    
+    //Just updates the oxygen tank count
+    //
+    function UpdateO2()
+    {
+        var counter = this.HUDspace.FindObjectByName("HUD_OxygenCount");
         
         var sr = StringBuilder();
         
-        sr.WriteLine(this.Owner.Oxygen.Oxygen);
+        sr.Write("Tank x");
+        sr.Write(this.Owner.Inventory.GetItemCount("OxygenTank"));
         
-        
-        
-        this.HUDspace.FindObjectByName("HUD_Resources").SpriteText.Text = sr.ToString();
+        counter.SpriteText.Text = sr.ToString();
     }
     
     //Updates weapon stuff
@@ -230,10 +244,18 @@ class PlayerControl_Move : ZilchComponent
             if (this.Sprinting == 1.0)
             {
                 this.HeadBobCounter += deltaTime * 8 * this.SprintMultiplier;
+                this.FootstepCounter -= deltaTime * this.SprintMultiplier;
             }
             else
             {
                 this.HeadBobCounter += deltaTime * 8;
+                this.FootstepCounter -= deltaTime;
+            }
+            
+            if (this.FootstepCounter <= 0.0)
+            {
+                this.SoundBox.PlayFootstep();
+                this.FootstepCounter = 0.4;
             }
             
             if (this.HeadBobCounter >= Math.Pi * 2)
@@ -253,6 +275,10 @@ class PlayerControl_Move : ZilchComponent
             if (this.HeadBobCounter > 0)
             {
                 this.HeadBobCounter = 0;
+            }
+            if (this.FootstepCounter > 0.0)
+            {
+                this.FootstepCounter = 0.0;
             }
             
             var length = Math.Length(this.CameraOffset);
@@ -303,6 +329,15 @@ class PlayerControl_Move : ZilchComponent
             var forward = Real3(Math.Cos(directionAngle), Math.Sin(directionAngle), 0);
             var right = Real3(Math.Cos(this.Owner.Transform.EulerAngles.Z), Math.Sin(this.Owner.Transform.EulerAngles.Z), 0);
             
+            if (this.Sprinting != 0.0)
+            {
+                this.BreathingHeavy = true;
+            }
+            else
+            {
+                this.BreathingHeavy = false;
+            }
+            
             //Because 'forward' varies based on which direction the player is facing, 
             //we have to calculate relative forward and right and add them to the player's position
             //based on the keys that were pressed
@@ -332,6 +367,7 @@ class PlayerControl_Move : ZilchComponent
         else
         {
             this.HeadBob(deltaTime, false);
+            this.BreathingHeavy = false;
         }
     }
     

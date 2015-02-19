@@ -72,6 +72,7 @@ class Tile_Replace3D : ZilchComponent
                 floor.NavigationPoint.FortyFiveCorner = true;
                 floor.Name = "Floor45";
             }
+            floor.NavigationPoint.Touched = true;
             var ceiling = this.Owner.Space.CreateAtPosition(this.CeilingProp, this.Owner.Transform.Translation + Real3(0, 0, 1));
             ceiling.Transform.SetEulerAnglesXYZ(0, 0, 0);
             ceiling.AttachTo(geometryParent);

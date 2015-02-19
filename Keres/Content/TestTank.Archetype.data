@@ -6,7 +6,7 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "Test Tank",
+		string Name = "OxygenTank",
 	},
 	Archetyped = 
 	{
@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-0.0372308, 2.01923, -0.05],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -34,7 +34,7 @@ Cog =
 		bool Asleep = false,
 		bool Kinematic = false,
 		bool RotationLocked = false,
-		bool Mode2D = true,
+		bool Mode2D = false,
 		bool AllowSleep = true,
 		bool Inherit2DMode = true,
 		Vec3 Velocity = [0, 0, 0],

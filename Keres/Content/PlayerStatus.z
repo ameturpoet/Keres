@@ -1,0 +1,64 @@
+class PlayerStatus : ZilchComponent
+{
+    [Property]
+    var PlayerLevel : Level = null;
+    [Property]
+    var PlayerLocation : Real3 = Real3(0, 0, 1337);
+    [Property]
+    var PlayerLife : Integer = 0;
+    [Property]
+    var PlayerEnergy : Integer = 0;
+    [Property]
+    var PlayerOxygen : Real = 0.0;
+    [Property]
+    var PlayerRotation : Real3 = Real3(0, 0, 0);
+    [Property]
+    var PlayerSpawnNode : String = "NONE";
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        
+    }
+
+    function SetPlayerStatus()
+    {
+        var player = this.Owner.Space.FindObjectByName("Player");
+        
+        player.PlayerStats.Life = this.PlayerLife;
+        player.PlayerStats.Energy = this.PlayerEnergy;
+        player.PlayerStats.Oxygen = this.PlayerOxygen;
+        
+        if (this.Owner.Space.CurrentLevel.Name == this.PlayerLevel.Name)
+        {
+            player.Transform.Translation = this.PlayerLocation;
+            player.Transform.SetEulerAnglesXYZ(this.PlayerRotation.X, this.PlayerRotation.Y, this.PlayerRotation.Z);
+        }
+        else if (this.PlayerSpawnNode != "NONE")
+        {
+            player.Transform.Translation = this.Owner.Space.FindObjectByName(this.PlayerSpawnNode).Transform.Translation;
+            player.Transform.SetEulerAnglesXYZ(0, 0, this.Owner.Space.FindObjectByName(this.PlayerSpawnNode).Transform.EulerAngles.Z);
+            
+            this.PlayerSpawnNode = "NONE";
+            this.Owner.Space.FindObjectByName("FileManager").SaveManager.SavePlayerData();
+        }
+    }
+    
+    function GetPlayerData()
+    {
+        var player = this.Owner.Space.FindObjectByName("Player");
+        
+        this.PlayerLevel = this.Owner.Space.CurrentLevel;
+        this.PlayerLocation = player.Transform.Translation;
+        
+        this.PlayerRotation = Real3(0, 0, 0);
+        
+        this.PlayerRotation.X = player.Transform.EulerAngles.X;
+        this.PlayerRotation.Y = player.Transform.EulerAngles.Y;
+        this.PlayerRotation.Z = player.Transform.EulerAngles.Z;
+        
+        this.PlayerLife = player.PlayerStats.Life;
+        this.PlayerEnergy = player.PlayerStats.Energy;
+        this.PlayerOxygen = player.PlayerStats.Oxygen;
+    }
+}

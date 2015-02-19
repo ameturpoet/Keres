@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Interactable_LoadGate",
+		uint64 ResourceId = 549811428fbb0c13,
+	},
+},

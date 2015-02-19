@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Lever_Interact",
+		uint64 ResourceId = 54f87dfdd15e3ed9,
+	},
+},

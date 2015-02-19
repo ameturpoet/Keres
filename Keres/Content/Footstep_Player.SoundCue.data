@@ -1,0 +1,26 @@
+SoundCue = 
+{
+	SoundPlayMode PlayMode = Single,
+	float Volume = 1,
+	float VolumeVariation = 0,
+	float Pitch = 0,
+	float PitchVariation = 0,
+	float MinDistance = 10,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	bool LinearRollOff = false,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "5477f3be601f51a3:Footstep_Player_1",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "5477f3be600a898b:Footstep_Player_2",
+			float Weight = 1,
+		},
+	],
+	string RolloffCurveName = "",
+},

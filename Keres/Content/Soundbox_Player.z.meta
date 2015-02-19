@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Soundbox_Player",
+		uint64 ResourceId = 5477f3054df92a17,
+	},
+},

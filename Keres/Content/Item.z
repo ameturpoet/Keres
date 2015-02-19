@@ -3,9 +3,11 @@ class Item : ZilchComponent
     [Property]
     var Name : String = "Epic Swag";
     [Property]
-    var Value : Integer = 0;
+    var NameStartsWithVowel : Boolean = false;
     [Property]
-    var QuestItem : Boolean = false;
+    var Count : Integer = 0;
+    [Property]
+    var Stacks : Boolean = false;
     
     function Initialize(init : CogInitializer)
     {

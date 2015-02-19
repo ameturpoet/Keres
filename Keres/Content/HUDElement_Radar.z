@@ -55,4 +55,16 @@ class HUDElement_Radar : ZilchComponent
             newBlip.AttachTo(this.Owner);
         }
     }
+    
+    //Adds a permanent blip to the radar using the relative position from the player to the object
+    //Used for stuff like doors that you want to always appear on the radar
+    //
+    function AddPermaBlip(relativePosition : Real3)
+    {
+        var blipLocation = (relativePosition / this.RadarDistance) * this.Owner.Sprite.Size.X / 2;
+        blipLocation.Z = 0.5;
+        var newBlip = this.Owner.Space.CreateAtPosition(this.BlipArchetype, blipLocation);
+        newBlip.RemoveComponentByName("Effect_FadeToDelete");
+        newBlip.AttachTo(this.Owner);
+    }
 }

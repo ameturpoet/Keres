@@ -10,12 +10,12 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "4faa6050b86884ec:DefaultArchetype",
+		string Name = "549a26d38a762daa:Door_SplitMiddle",
 	},
 	Transform = 
 	{
 		Vec3 Translation = [-3.5, 2.5, 0],
-		Vec3 Scale = [1, 0.452265, 1],
+		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0.707107, 0.707107],
 	},
 	Model = 
@@ -49,8 +49,23 @@ Cog =
 	{
 		bool PlayerCantOpen = false,
 		bool Locked = false,
-		string Key = "",
-		float OpenTime = 1,
+		string Key = "TestKey",
+		float OpenTime = 0.3,
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = false,
+		int ExtraPriority = 0,
+		string CueName = "4e1bd44008b4dc2a:DefaultCue",
+		float Volume = 1,
+		float Pitch = 1,
+		bool Positional = true,
+	},
+	Soundbox_Door = 
+	{
+		string Open = "5477f3b8607636ab:Door_Open",
+		string Close = "5477f3b8604c1ffd:Door_Close",
+		string Unlock = "5477f3b8607bbff1:Door_Unlock",
 	},
 	Hierarchy = 
 	{
@@ -83,13 +98,6 @@ Cog =
 				string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
 				string MeshName = "4de0354322b345ae:Cube",
 				Vec4 Color = [1, 1, 1, 0],
-			},
-			Interactable = 
-			{
-				bool ShowTooltip = true,
-				string Tooltip = "Electric Door",
-				bool ShowControl = true,
-				Enum Control = A,
 			},
 			BoxCollider = 
 			{
@@ -140,13 +148,6 @@ Cog =
 				string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
 				string MeshName = "4de0354322b345ae:Cube",
 				Vec4 Color = [1, 1, 1, 0],
-			},
-			Interactable = 
-			{
-				bool ShowTooltip = true,
-				string Tooltip = "Electric Door",
-				bool ShowControl = true,
-				Enum Control = A,
 			},
 			BoxCollider = 
 			{

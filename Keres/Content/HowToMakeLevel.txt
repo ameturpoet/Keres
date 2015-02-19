@@ -52,6 +52,22 @@ Note 2: There's totally a template level that you don't need to do aaaaaaaany of
     3: Drag the Pluto_Lighting archetype into the level and position near Pluto for the best effect
     4: Drag the planet_Sun archetype*** into the level and position it for best effect, typically on the opposite end of the level from Pluto
 
+---
+5. Interactables and File I/O
+---
+    By default, objects like doors and keys will respawn every time the level starts. Because we're probably gonna have players be able to save mid-level and load later,
+    we don't want this. However, the game is set up to save and load a Cog called 'LevelObjects' located in each level, so we want to have everything that will be saved
+    (mostly just items, doors, and enemies) connected to the LevelObjects so that they're all saved and loaded at the right location. Doors will remain open and unlocked
+    if they were opened or unlocked, and items will remain in the player's inventory and not appear on the ground. Glorious.
+
+    1: If the level doesn't already have one, drag a copy of the LevelObjects archetype into the level
+    2: Select the Parenting tool
+    3: Set every thing you want saved (doors, items, enemies, etc) as a child of the LevelObjects cog in the level
+    4: The game will now save and load the state of each thing accurately
+    NOTE: If the game already has save data from that level and you add a new thing to it in the editor, the new thing will not appear.
+          This is because the new thing does not exist in the save data that already existed. All you need to do is delete the old data and your new thing should
+          appear.
+
 *Yes, the word Palette is misspelled. Don't question it.
 
 **Pluto is planet. Don't let those crazy scientists tell you otherwise

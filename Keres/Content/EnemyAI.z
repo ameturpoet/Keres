@@ -26,6 +26,9 @@ class EnemyAI : ZilchComponent
     var AttentionSpanTime : Real = 3.0; //Max amount of time it takes to lose interest and become idle
     [Property]
     var AttackCooldown : Real = 0.3; //The cooldown between attacks for the enemy
+    [Dependency]
+    var Soundbox : Soundbox_Keres = null;
+    var FootstepCounter : Real = 0.0;
     var CurrentCooldown : Real = 0.0;
     
     function Initialize(init : CogInitializer)
@@ -48,10 +51,11 @@ class EnemyAI : ZilchComponent
     //Attacks the player upon collision
     function AttackPlayer(event : CollisionEvent)
     {
-        if (event.OtherObject.Name == "Player" && this.CurrentCooldown <= 0.0)
+        if (event.OtherObject.Name == "Player" && this.CurrentCooldown <= 0.0 && this.State != EnemyState.Stunned)
         {
             event.OtherObject.PlayerStats.Life -= this.AttackDamage;
             this.CurrentCooldown = this.AttackCooldown;
+            event.OtherObject.Soundbox_Player.PlayHit();
             Console.WriteLine("Attacked");
         }
     }
@@ -73,6 +77,11 @@ class EnemyAI : ZilchComponent
                 //Console.WriteLine("Aware");
                 this.MoveByGrid(event.Dt);
                 this.CheckForPlayer(event.Dt);
+                if (this.FootstepCounter <= 0.0)
+                {
+                    this.FootstepCounter = 1.4;
+                    this.Soundbox.PlayFootstep();
+                }
             }
             //If the enemy is aggroed, it moves directly towards the player and checks for line-of-sight to the player
             //If line-of-sight is lost, then the player is behind a wall or something, so it reverts back to the grid-based movement
@@ -81,6 +90,11 @@ class EnemyAI : ZilchComponent
                 //Console.WriteLine("Aggoed");
                 this.MoveTowardsPlayer(event.Dt);
                 this.CheckForPlayer(event.Dt);
+                if (this.FootstepCounter <= 0.0)
+                {
+                    this.FootstepCounter = 1.4;
+                    this.Soundbox.PlayFootstep();
+                }
             }
             //If the enemy is stunned, it doesn't do anything until the stun cooldown is over, at which point it returns to Aware
             else if (this.State == EnemyState.Stunned)
@@ -111,6 +125,7 @@ class EnemyAI : ZilchComponent
         this.State = EnemyState.Stunned;
         this.StunTime = this.MaxStunTime;
         Console.WriteLine("Stunned");
+        this.Owner.RigidBody.Static = true;
         this.Owner.RigidBody.Velocity *= 0;
     }
     
@@ -120,6 +135,7 @@ class EnemyAI : ZilchComponent
         if (this.StunTime <= 0.0)
         {
             this.State = EnemyState.Aware;
+            this.Owner.RigidBody.Static = false;
         }
         this.StunTime -= deltaTime;
     }
@@ -134,6 +150,7 @@ class EnemyAI : ZilchComponent
     function MoveTowardsPlayer(deltaTime : Real)
     {
         this.Owner.RigidBody.Velocity = this.Speed * (this.Player.Transform.Translation - this.Owner.Transform.Translation);
+        this.FootstepCounter -= deltaTime;
     }
     
     //Moves along a grid towards the player
@@ -169,6 +186,8 @@ class EnemyAI : ZilchComponent
             //Find the next tile to move to, oddly enough
             this.GetNextTile();
         }
+        
+        this.FootstepCounter -= deltaTime;
     }
     
     //Uses rayscanning to check for direct line-of-sight to the player, setting the enemy state as a result

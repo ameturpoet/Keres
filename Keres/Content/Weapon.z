@@ -32,6 +32,7 @@ class Weapon : ZilchComponent
     function Fire(impactLocation : Real3)
     {
         this.Owner.Space.CreateAtPosition(this.Projectile, impactLocation);
+        this.Owner.Space.FindObjectByName("Player").Soundbox_Player.PlayGunshot();
         var ribbon = this.Owner.Space.CreateAtPosition(this.RibbonObject, impactLocation);
         ribbon.RibbonParticle.Start = this.ProjectileNode.Cog.Transform.WorldTranslation;
         ribbon.RibbonParticle.End = impactLocation;

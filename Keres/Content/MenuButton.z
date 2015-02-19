@@ -20,9 +20,23 @@ class MenuButton : ZilchComponent
         }
         else
         {
-            if (this.Target == "Quit")
+            if (this.Target == "Play")
+            {
+                var fileManager = this.Owner.Space.FindObjectByName("FileManager");
+                var level = fileManager.SaveManager.GetCurrentLevel();
+                
+                if (level.Name != this.Owner.Space.CurrentLevel.Name)
+                {
+                    this.Space.LoadLevel(level);
+                }
+            }
+            else if (this.Target == "Quit")
             {
                 this.GameSession.Quit();
+            }
+            else if (this.Target == "NewGame")
+            {
+                Zero.ObjectStore.ClearStore();
             }
         }
     }

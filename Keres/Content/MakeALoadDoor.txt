@@ -1,0 +1,19 @@
+HOW TO MAKE A LOAD DOOR
+
+---
+1. The Door
+---
+    The LoadDoor loads a new area when opened.
+    
+    1. Drag the Door_Load archetype into the level and position as needed
+    2. In the Interactable_LoadGate script, change the LoadLevel property to the level you want to go to
+    3. Go to the level you specified in part 2 and create a new object, it can be the default archetype or whatever it doesn't really matter
+    4. Name your object something unique
+    5. Rotate your object around the Z-Axis to face in the direction you want the player facing when they enter the door
+        0 = facing up
+        90 = facing left
+        180 = facing down
+        270 or -90 = facing right
+    6. Go back to the door in the other level
+    7. Set the TargetNodeName property in the Interactable_LoadGate script to the unique name you gave your object in step 4
+    8. To make a 2-way door, just create a second LoadDoor on where the node you made is and have it lead to a node in front of the first door

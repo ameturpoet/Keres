@@ -5,6 +5,9 @@ class NavigationPoint : ZilchComponent
     [Property]
     var FortyFiveCorner : Boolean = false;
     var Weight : Integer = 0;
+    [Property]
+    var Touched : Boolean = false;
+    [Serialized]
     var NearPoints : Array[Cog] = null;
     var Done : Boolean = true;
     

@@ -45,7 +45,7 @@ class LoadScreenElement : ZilchComponent
             this.Alpha -= event.Dt;
             if (this.Alpha <= 0.0)
             {
-                this.Owner.Destroy();
+                this.FadeOut = false;
             }
         }
     }

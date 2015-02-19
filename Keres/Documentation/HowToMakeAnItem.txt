@@ -1,0 +1,21 @@
+HOW TO MAKE AN ITEM
+
+Note: It is probably easier to create a copy of an existing item and modify that than it is to create a new one from scratch
+
+---
+1. Required Scripts
+---
+    1: Attach an Interactable Script and adjust properties for best effect
+        +ShowTooltip shows the Tooltip string if True
+        +Tooltip is the string to show, should be something like "Pick up Red Key"
+        +ShowControl shows the Control if True
+    2: Attach an Item Script and adjust propertie for best effect
+        +Name is the item's name, this is the name that will be used when displaying text, NOT the editor name
+        +Value is how much the item is worth. Currently unused, but we may use it for a scoring system if we feel like it
+        +QuestItem literally does nothing. I should probably get rid of this
+    3: Attach an Item_ Script (such as Item_Key, Item_OxyTank, etc)
+        The exact Item_ Script you attach determines how it is handled by the inventory
+        
+When the item is picked up by the player, it is moved to the location of the Inventory object that the player is connected to
+and set as its child.
+The player's 'inventory' is actually the list of objects attached to the Inventory object.

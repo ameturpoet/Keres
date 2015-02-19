@@ -90,9 +90,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-4.51385, -6.23553, 33.2428],
+			Vec3 Translation = [1.3868, 2.4558, 45.582],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0287658, -0.044473, -0.0012811, 0.998596],
+			Quat Rotation = [0.0026182, 0.0026177, -6.85367e-006, 0.999993],
 		},
 		Camera = 
 		{
@@ -102,15 +102,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 30.1194,
+			float Size = 10.0259,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = ZPlane,
 			float LookDistance = 50,
-			float VerticalAngle = 0.0575966,
-			float HorizontalAngle = 0.0890123,
-			Vec3 LookTarget = [-0.0764772, -9.11377, -16.4767],
+			float VerticalAngle = -0.00523643,
+			float HorizontalAngle = -0.00523547,
+			Vec3 LookTarget = [1.12503, 2.71762, -4.4166],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -248,13 +248,15 @@ Level =
 		},
 		Inventory = 
 		{
-			CogPath InventoryObject = ":/invPlayer",
 		},
 		PlayerStats = 
 		{
 			int Life = 100,
 			int Energy = 100,
-			int Oxygen = 100,
+			float Oxygen = 100,
+			float MaxOxygen = 100,
+			float HeavyBreathingRate = 2,
+			int OxygenTanks = 1,
 			float RadarCooldown = 2,
 		},
 		Controller = 
@@ -264,7 +266,9 @@ Level =
 			Enum MoveRight = D,
 			Enum MoveLeft = A,
 			Enum Activate = Space,
+			Enum Sprint = Shift,
 			Enum RadarPing = Q,
+			Enum RefillOxygen = R,
 		},
 		NavigationEvents = 
 		{
@@ -272,8 +276,31 @@ Level =
 		PlayerControl_Move = 
 		{
 			float Speed = 3,
+			float SprintMultiplier = 1.3,
 			float LookSensitivity = 6,
 			CogPath Weapon = "Camera/Taser",
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "4e1bd44008b4dc2a:DefaultCue",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = true,
+		},
+		Soundbox_Player = 
+		{
+			string Footsteps = "5477f3b860914d57:Footstep_Player",
+			string Damaged = "5477f3bb60835088:Impact_Player",
+			string PickupKey = "5477f3bb608ce335:Pickup_Item",
+			string PickupTank = "5477f3bb60b7c191:Pickup_OxygenTank",
+			string ShootTaser = "5477f3b86067aa3d:Fire_Taser",
+		},
+		Oxygen = 
+		{
+			int MaxOxygen = 100,
+			float HeavyBreathingRate = 2,
 		},
 		Hierarchy = 
 		{
@@ -542,28 +569,10 @@ Level =
 	},
 	ArchetypeInstance = 
 	{
-		string Name = "546d945262be4643:Pluto",
-		LinkId = 
-		{
-			uint Id = 15,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [34.6888, 36.357, -0.823853],
-			Vec3 Scale = [0.3, 0.3, 0.3],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Named = 
-		{
-			string Name = "Pluto",
-		},
-	},
-	ArchetypeInstance = 
-	{
 		string Name = "549e1a985bf3e563:Pluto_Lighting",
 		LinkId = 
 		{
-			uint Id = 16,
+			uint Id = 15,
 		},
 		Transform = 
 		{
@@ -581,7 +590,7 @@ Level =
 		string Name = "54645e3dc3ce41f3:planet_Sun",
 		LinkId = 
 		{
-			uint Id = 17,
+			uint Id = 16,
 		},
 		Transform = 
 		{
@@ -599,7 +608,7 @@ Level =
 		string Name = "549e0d668f0d5948:PlayerInventory",
 		LinkId = 
 		{
-			uint Id = 18,
+			uint Id = 17,
 		},
 		Transform = 
 		{
@@ -610,6 +619,130 @@ Level =
 		Named = 
 		{
 			string Name = "invPlayer",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 18,
+		},
+		Named = 
+		{
+			string Name = "FileManager",
+		},
+		Archetyped = 
+		{
+			string Name = "54b503d0a4096bde:FileManager",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [1.81093, 7.77144, -4.39717],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "54b4e930931dc1cf:dev_FileManager",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		SaveManager = 
+		{
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 19,
+		},
+		Named = 
+		{
+			string Name = "PlayerInventory",
+		},
+		Archetyped = 
+		{
+			string Name = "549e0d668f0d5948:PlayerInventory",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, -50],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "54b4e90191df3d65:dev_PlayerInventory",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		PlayerStatus = 
+		{
+			string PlayerLevel = "",
+			Vec3 PlayerLocation = [0, 0, 1337],
+			int PlayerLife = 0,
+			int PlayerEnergy = 0,
+			float PlayerOxygen = 0,
+			Vec3 PlayerRotation = [0, 0, 0],
+			string PlayerSpawnNode = "NONE",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 20,
+		},
+		Named = 
+		{
+			string Name = "LevelObjects",
+		},
+		Archetyped = 
+		{
+			string Name = "54b5148d0529aa49:LevelObjects",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "54b4e9139d292396:dev_LevelObjects",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54b5514d89d60dac:Planet_Pluto",
+		LinkId = 
+		{
+			uint Id = 21,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [38.3715, 37.2971, 0],
+			Vec3 Scale = [0.3, 0.3, 0.3],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Pluto",
 		},
 	},
 },

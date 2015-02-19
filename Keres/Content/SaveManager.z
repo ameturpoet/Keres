@@ -1,0 +1,55 @@
+class SaveManager : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function SaveLevelState()
+    {
+        var levelObjects = this.Owner.Space.FindObjectByName("LevelObjects");
+        var levelGeometry = this.Owner.Space.FindObjectByName("LevelGeometry");
+        var stringWriter = StringBuilder();
+        
+        stringWriter.Write(this.Owner.Space.CurrentLevel.Name);
+        stringWriter.Write("Geometry");
+        
+        var levelGeometryName = stringWriter.ToString();
+        
+        stringWriter = StringBuilder();
+        stringWriter.Write(this.Owner.Space.CurrentLevel.Name);
+        stringWriter.Write("Objects");
+        
+        var levelObjectsName = stringWriter.ToString();
+        
+        Zero.ObjectStore.Erase(levelGeometryName);
+        Zero.ObjectStore.Erase(levelObjectsName);
+        
+        Zero.ObjectStore.Store(levelGeometryName, this.Space.FindObjectByName("LevelGeometry"));
+        Zero.ObjectStore.Store(levelObjectsName, this.Space.FindObjectByName("LevelObjects"));
+    }
+    
+    function SavePlayerData()
+    {
+        var playerInventory = this.Space.FindObjectByName("PlayerInventory");
+        
+        playerInventory.PlayerStatus.GetPlayerData();
+        
+        Zero.ObjectStore.Erase("PlayerData");
+        
+        Zero.ObjectStore.Store("PlayerData", this.Space.FindObjectByName("PlayerInventory"));
+    }
+    
+    function GetCurrentLevel() : Level
+    {
+        var playerData = Zero.ObjectStore.RestoreOrArchetype("PlayerData", "LoadingFailed", this.Owner.Space);
+        if (playerData.Name != "FailedLoading")
+        {
+            return playerData.PlayerStatus.PlayerLevel;
+        }
+        else
+        {
+            return this.Owner.Space.CurrentLevel;
+        }
+    }
+}

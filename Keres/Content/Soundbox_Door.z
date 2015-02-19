@@ -1,0 +1,29 @@
+class Soundbox_Door : ZilchComponent
+{
+    [Property]
+    var Open : SoundCue = null;
+    [Property]
+    var Close : SoundCue = null;
+    [Property]
+    var Unlock : SoundCue = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function PlayUnlock()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.Unlock);
+    }
+
+    function PlayOpen()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.Open);
+    }
+    
+    function PlayClose()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.Close);
+    }
+}

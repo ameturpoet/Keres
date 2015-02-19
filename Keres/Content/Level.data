@@ -90,9 +90,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-5.57219, -1.19361, 1.94316],
+			Vec3 Translation = [-1.48903, -0.0994628, 1.87571],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.00261806, 0.00524265, -1.37257e-005, 0.999983],
+			Quat Rotation = [0.00523606, -0.00261244, 1.36793e-005, 0.999983],
 		},
 		Camera = 
 		{
@@ -102,15 +102,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 24.3649,
+			float Size = 12.0993,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 9.13421,
-			float VerticalAngle = -0.00523619,
-			float HorizontalAngle = 6.2727,
-			Vec3 LookTarget = [-5.66796, -1.14578, -7.19042],
+			float VerticalAngle = -0.0104722,
+			float HorizontalAngle = 6.28841,
+			Vec3 LookTarget = [-1.44131, -0.00380931, -7.25787],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -183,7 +183,10 @@ Level =
 		{
 			int Life = 100,
 			int Energy = 100,
-			int Oxygen = 100,
+			float Oxygen = 100,
+			float MaxOxygen = 100,
+			float HeavyBreathingRate = 2,
+			int OxygenTanks = 1,
 			float RadarCooldown = 2,
 		},
 		Controller = 
@@ -206,6 +209,28 @@ Level =
 			float SprintMultiplier = 1.3,
 			float LookSensitivity = 6,
 			CogPath Weapon = "Camera/Taser",
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "4e1bd44008b4dc2a:DefaultCue",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = true,
+		},
+		Soundbox_Player = 
+		{
+			string Footsteps = "5477f3b860914d57:Footstep_Player",
+			string Damaged = "5477f3bb60835088:Impact_Player",
+			string PickupKey = "5477f3bb608ce335:Pickup_Item",
+			string PickupTank = "5477f3bb60b7c191:Pickup_OxygenTank",
+			string ShootTaser = "5477f3b86067aa3d:Fire_Taser",
+		},
+		Oxygen = 
+		{
+			int MaxOxygen = 100,
+			float HeavyBreathingRate = 2,
 		},
 		Hierarchy = 
 		{
@@ -418,201 +443,11 @@ Level =
 			},
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "549e0a49834032ed:Item_Key",
 		LinkId = 
 		{
 			uint Id = 10,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [8.33492, 2.5731, -0.5],
-			Vec3 Scale = [0.1, 0.4, 0.1],
-			Quat Rotation = [0, 0, -0.555729, 0.831364],
-		},
-		Named = 
-		{
-			string Name = "TestLevelKey",
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 11,
-		},
-		Named = 
-		{
-			string Name = "gate1",
-		},
-		Archetyped = 
-		{
-			string Name = "549a26d38a762daa:Door_SplitMiddle",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-3.5, 2.5, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0.707107, 0.707107],
-		},
-		Model = 
-		{
-			bool Visible = false,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "5405f4023f587018:Mat_Gold",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 0],
-		},
-		Interactable = 
-		{
-			bool ShowTooltip = true,
-			string Tooltip = "Electric Door",
-			bool ShowControl = true,
-			Enum Control = A,
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "549a2343895c37e6:InteractButNotCollide",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.2, 0.5],
-		},
-		Interactable_Gate = 
-		{
-			bool PlayerCantOpen = false,
-			bool Locked = false,
-			string Key = "",
-			float OpenTime = 0.18,
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 12,
-				},
-				Named = 
-				{
-					string Name = "doorPiece",
-				},
-				Archetyped = 
-				{
-					string Name = "4faa6050b86884ec:DefaultArchetype",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0.25, 0, 0],
-					Vec3 Scale = [0.5, 0.15, 1],
-					Quat Rotation = [0, 0, 5.68434e-014, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 1, 1, 0],
-				},
-				Interactable = 
-				{
-					bool ShowTooltip = true,
-					string Tooltip = "Electric Door",
-					bool ShowControl = true,
-					Enum Control = A,
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-				GatePiece = 
-				{
-					Enum TypeOfDoor = MoveRight,
-					float OpenDistance = 0.48,
-					float OpenAngle = 90,
-				},
-				Hierarchy = 
-				{
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 13,
-				},
-				Named = 
-				{
-					string Name = "doorPiece",
-				},
-				Archetyped = 
-				{
-					string Name = "4faa6050b86884ec:DefaultArchetype",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-0.25, 0, 0],
-					Vec3 Scale = [0.5, 0.15, 1],
-					Quat Rotation = [0, 0, 5.68434e-014, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 1, 1, 0],
-				},
-				Interactable = 
-				{
-					bool ShowTooltip = true,
-					string Tooltip = "Electric Door",
-					bool ShowControl = true,
-					Enum Control = A,
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-				GatePiece = 
-				{
-					Enum TypeOfDoor = MoveLeft,
-					float OpenDistance = 0.48,
-					float OpenAngle = 90,
-				},
-				Hierarchy = 
-				{
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 14,
 		},
 		Named = 
 		{
@@ -647,7 +482,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 15,
+			uint Id = 11,
 		},
 		Named = 
 		{
@@ -682,7 +517,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 16,
+			uint Id = 12,
 		},
 		Named = 
 		{
@@ -709,7 +544,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 17,
+			uint Id = 13,
 		},
 		Named = 
 		{
@@ -749,7 +584,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 18,
+			uint Id = 14,
 		},
 		Named = 
 		{
@@ -789,7 +624,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 19,
+			uint Id = 15,
 		},
 		Named = 
 		{
@@ -829,7 +664,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 20,
+			uint Id = 16,
 		},
 		Named = 
 		{
@@ -860,7 +695,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 21,
+			uint Id = 17,
 		},
 		Named = 
 		{
@@ -900,7 +735,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 22,
+			uint Id = 18,
 		},
 		Named = 
 		{
@@ -941,7 +776,7 @@ Level =
 		string Name = "54d5e159b4d2587c:light_MuzzleFlareTest",
 		LinkId = 
 		{
-			uint Id = 23,
+			uint Id = 19,
 		},
 		Transform = 
 		{
@@ -958,7 +793,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 24,
+			uint Id = 20,
 		},
 		Archetyped = 
 		{
@@ -1008,7 +843,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 25,
+			uint Id = 21,
 		},
 		Archetyped = 
 		{
@@ -1059,7 +894,7 @@ Level =
 		string Name = "549e1e47fdc7d5a4:Activator_PushButton",
 		LinkId = 
 		{
-			uint Id = 26,
+			uint Id = 22,
 		},
 		Transform = 
 		{
@@ -1072,7 +907,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 27,
+			uint Id = 23,
 		},
 		Named = 
 		{
@@ -1112,7 +947,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 28,
+			uint Id = 24,
 		},
 		Named = 
 		{
@@ -1152,7 +987,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 29,
+			uint Id = 25,
 		},
 		Named = 
 		{
@@ -1192,7 +1027,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 30,
+			uint Id = 26,
 		},
 		Named = 
 		{
@@ -1232,7 +1067,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 31,
+			uint Id = 27,
 		},
 		Named = 
 		{
@@ -1273,7 +1108,7 @@ Level =
 		string Name = "549e1a6db7a10449:Skybox",
 		LinkId = 
 		{
-			uint Id = 32,
+			uint Id = 28,
 		},
 		Transform = 
 		{
@@ -1290,7 +1125,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 33,
+			uint Id = 29,
 		},
 		Named = 
 		{
@@ -1330,7 +1165,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 34,
+			uint Id = 30,
 		},
 		Named = 
 		{
@@ -1370,7 +1205,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 35,
+			uint Id = 31,
 		},
 		Named = 
 		{
@@ -1411,7 +1246,7 @@ Level =
 		string Name = "549e1a985bf3e563:Pluto_Lighting",
 		LinkId = 
 		{
-			uint Id = 36,
+			uint Id = 32,
 		},
 		Transform = 
 		{
@@ -1424,85 +1259,29 @@ Level =
 			string Name = "plutoLighting",
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		LinkId = 
 		{
-			uint Id = 37,
+			uint Id = 33,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [9.67103, 7.05252, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0, 0, 0, 1],
 		},
 		Named = 
 		{
 			string Name = "enemy",
-		},
-		Archetyped = 
-		{
-			string Name = "5499dbe25aa98c1a:Enemy_Keres",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [9.67103, 3.36129, 0],
-			Vec3 Scale = [0.1, 0.1, 0.1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "5403b42c4e36be37:Mat_Pearlstone",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 1],
-		},
-		EnemyAI = 
-		{
-			int AttackDamage = 50,
-			float MaxStunTime = 2.5,
-			float Speed = 1.7,
-			float SightDistance = 5,
-			float AttentionSpanTime = 3,
-			float AttackCooldown = 0.3,
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [2.5, 2.5, 4],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = true,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		SoundEmitter = 
-		{
-			bool StartPlaying = true,
-			int ExtraPriority = 0,
-			string CueName = "54ffb77ae794dfe3:FootSteps",
-			float Volume = 1,
-			float Pitch = 1,
-			bool Positional = true,
-		},
-		DebugEnemyState = 
-		{
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 38,
+			uint Id = 34,
 		},
 		Named = 
 		{
@@ -1540,7 +1319,7 @@ Level =
 		string Name = "54645e3dc3ce41f3:planet_Sun",
 		LinkId = 
 		{
-			uint Id = 39,
+			uint Id = 35,
 		},
 		Transform = 
 		{
@@ -1553,356 +1332,12 @@ Level =
 			string Name = "sun",
 		},
 	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 40,
-		},
-		Named = 
-		{
-			string Name = "gate2",
-		},
-		Archetyped = 
-		{
-			string Name = "549a26d38a762daa:Door_SplitMiddle",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-6.5, 1.5, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			bool Visible = false,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "5405f4023f587018:Mat_Gold",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 0],
-		},
-		Interactable = 
-		{
-			bool ShowTooltip = true,
-			string Tooltip = "Electric Door",
-			bool ShowControl = true,
-			Enum Control = A,
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "549a2343895c37e6:InteractButNotCollide",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.2, 0.5],
-		},
-		Interactable_Gate = 
-		{
-			bool PlayerCantOpen = false,
-			bool Locked = true,
-			string Key = "TestLevelKey",
-			float OpenTime = 0.18,
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 41,
-				},
-				Named = 
-				{
-					string Name = "doorPiece",
-				},
-				Archetyped = 
-				{
-					string Name = "4faa6050b86884ec:DefaultArchetype",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0.25, 0, 0],
-					Vec3 Scale = [0.5, 0.15, 1],
-					Quat Rotation = [0, 0, 5.68434e-014, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 1, 1, 0],
-				},
-				Interactable = 
-				{
-					bool ShowTooltip = true,
-					string Tooltip = "Electric Door",
-					bool ShowControl = true,
-					Enum Control = A,
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-				GatePiece = 
-				{
-					Enum TypeOfDoor = MoveRight,
-					float OpenDistance = 0.48,
-					float OpenAngle = 90,
-				},
-				Hierarchy = 
-				{
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 42,
-				},
-				Named = 
-				{
-					string Name = "doorPiece",
-				},
-				Archetyped = 
-				{
-					string Name = "4faa6050b86884ec:DefaultArchetype",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-0.25, 0, 0],
-					Vec3 Scale = [0.5, 0.15, 1],
-					Quat Rotation = [0, 0, 5.68434e-014, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 1, 1, 0],
-				},
-				Interactable = 
-				{
-					bool ShowTooltip = true,
-					string Tooltip = "Electric Door",
-					bool ShowControl = true,
-					Enum Control = A,
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-				GatePiece = 
-				{
-					Enum TypeOfDoor = MoveLeft,
-					float OpenDistance = 0.48,
-					float OpenAngle = 90,
-				},
-				Hierarchy = 
-				{
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 43,
-		},
-		Named = 
-		{
-			string Name = "gate2",
-		},
-		Archetyped = 
-		{
-			string Name = "549a26d38a762daa:Door_SplitMiddle",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-20, 1.5, 0],
-			Vec3 Scale = [2, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			bool Visible = false,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "5405f4023f587018:Mat_Gold",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 0],
-		},
-		Interactable = 
-		{
-			bool ShowTooltip = true,
-			string Tooltip = "Electric Door",
-			bool ShowControl = true,
-			Enum Control = A,
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "549a2343895c37e6:InteractButNotCollide",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.2, 0.5],
-		},
-		Interactable_Gate = 
-		{
-			bool PlayerCantOpen = false,
-			bool Locked = false,
-			string Key = "",
-			float OpenTime = 2.5,
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 44,
-				},
-				Named = 
-				{
-					string Name = "doorPiece",
-				},
-				Archetyped = 
-				{
-					string Name = "4faa6050b86884ec:DefaultArchetype",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0.25, 0, 0],
-					Vec3 Scale = [0.5, 0.15, 1],
-					Quat Rotation = [0, 0, 5.68434e-014, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 1, 1, 0],
-				},
-				Interactable = 
-				{
-					bool ShowTooltip = true,
-					string Tooltip = "Electric Door",
-					bool ShowControl = true,
-					Enum Control = A,
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-				GatePiece = 
-				{
-					Enum TypeOfDoor = MoveRight,
-					float OpenDistance = 0.48,
-					float OpenAngle = 90,
-				},
-				Hierarchy = 
-				{
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 45,
-				},
-				Named = 
-				{
-					string Name = "doorPiece",
-				},
-				Archetyped = 
-				{
-					string Name = "4faa6050b86884ec:DefaultArchetype",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-0.25, 0, 0],
-					Vec3 Scale = [0.5, 0.15, 1],
-					Quat Rotation = [0, 0, 5.68434e-014, 1],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 1, 1, 0],
-				},
-				Interactable = 
-				{
-					bool ShowTooltip = true,
-					string Tooltip = "Electric Door",
-					bool ShowControl = true,
-					Enum Control = A,
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-				GatePiece = 
-				{
-					Enum TypeOfDoor = MoveLeft,
-					float OpenDistance = 0.48,
-					float OpenAngle = 90,
-				},
-				Hierarchy = 
-				{
-				},
-			},
-		},
-	},
 	ArchetypeInstance = 
 	{
 		string Name = "54ff9bbff14f09fe:TestTank",
 		LinkId = 
 		{
-			uint Id = 46,
+			uint Id = 36,
 		},
 		Transform = 
 		{
@@ -1919,7 +1354,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 47,
+			uint Id = 37,
 		},
 		Named = 
 		{
@@ -1963,7 +1398,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 48,
+			uint Id = 38,
 		},
 		Named = 
 		{
@@ -2007,7 +1442,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 49,
+			uint Id = 39,
 		},
 		Named = 
 		{
@@ -2052,7 +1487,7 @@ Level =
 		string Name = "54b5514d89d60dac:Planet_Pluto",
 		LinkId = 
 		{
-			uint Id = 50,
+			uint Id = 40,
 		},
 		Transform = 
 		{
@@ -2069,7 +1504,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 51,
+			uint Id = 41,
 		},
 		Named = 
 		{
@@ -2107,6 +1542,631 @@ Level =
 			bool DrawEdges = true,
 			bool DrawFaces = false,
 			bool DrawFaceNormals = false,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 42,
+		},
+		Named = 
+		{
+			string Name = "LevelObjects",
+		},
+		Archetyped = 
+		{
+			string Name = "54b5148d0529aa49:LevelObjects",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-3.46786, -2.86391, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 43,
+				},
+				Named = 
+				{
+					string Name = "gate2",
+				},
+				Archetyped = 
+				{
+					string Name = "549a26d38a762daa:Door_SplitMiddle",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-16.5321, 4.29668, 0],
+					Vec3 Scale = [2, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5405f4023f587018:Mat_Gold",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 0],
+				},
+				Interactable = 
+				{
+					bool ShowTooltip = true,
+					string Tooltip = "Electric Door",
+					bool ShowControl = true,
+					Enum Control = A,
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "549a2343895c37e6:InteractButNotCollide",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				Interactable_Gate = 
+				{
+					bool PlayerCantOpen = false,
+					bool Locked = false,
+					string Key = "TestKey",
+					float OpenTime = 0.3,
+					float CurrentOpenTime = 0,
+					int State = 2,
+				},
+				SoundEmitter = 
+				{
+					bool StartPlaying = false,
+					int ExtraPriority = 0,
+					string CueName = "4e1bd44008b4dc2a:DefaultCue",
+					float Volume = 1,
+					float Pitch = 1,
+					bool Positional = true,
+				},
+				Soundbox_Door = 
+				{
+					string Open = "5477f3b8607636ab:Door_Open",
+					string Close = "5477f3b8604c1ffd:Door_Close",
+					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 44,
+						},
+						Named = 
+						{
+							string Name = "doorPiece",
+						},
+						Archetyped = 
+						{
+							string Name = "4faa6050b86884ec:DefaultArchetype",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0.25, 0, 0],
+							Vec3 Scale = [0.5, 0.3, 1],
+							Quat Rotation = [0, 0, 5.68434e-014, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [1, 1, 1, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.5, 0.5],
+						},
+						GatePiece = 
+						{
+							Enum TypeOfDoor = MoveRight,
+							float OpenDistance = 0.48,
+							float OpenAngle = 90,
+							bool Initialized = false,
+							Vec3 StartingLocation = [0, 0, 0],
+						},
+						Hierarchy = 
+						{
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 45,
+						},
+						Named = 
+						{
+							string Name = "doorPiece",
+						},
+						Archetyped = 
+						{
+							string Name = "4faa6050b86884ec:DefaultArchetype",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-0.25, 0, 0],
+							Vec3 Scale = [0.5, 0.3, 1],
+							Quat Rotation = [0, 0, 5.68434e-014, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [1, 1, 1, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.5, 0.5],
+						},
+						GatePiece = 
+						{
+							Enum TypeOfDoor = MoveLeft,
+							float OpenDistance = 0.48,
+							float OpenAngle = 90,
+							bool Initialized = false,
+							Vec3 StartingLocation = [0, 0, 0],
+						},
+						Hierarchy = 
+						{
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 46,
+				},
+				Named = 
+				{
+					string Name = "gate2",
+				},
+				Archetyped = 
+				{
+					string Name = "549a26d38a762daa:Door_SplitMiddle",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-3.03214, 4.36391, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5405f4023f587018:Mat_Gold",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 0],
+				},
+				Interactable = 
+				{
+					bool ShowTooltip = true,
+					string Tooltip = "Electric Door",
+					bool ShowControl = true,
+					Enum Control = A,
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "549a2343895c37e6:InteractButNotCollide",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				Interactable_Gate = 
+				{
+					bool PlayerCantOpen = false,
+					bool Locked = true,
+					string Key = "TestLevelKey",
+					float OpenTime = 0.3,
+					float CurrentOpenTime = 0,
+					int State = 2,
+				},
+				SoundEmitter = 
+				{
+					bool StartPlaying = false,
+					int ExtraPriority = 0,
+					string CueName = "4e1bd44008b4dc2a:DefaultCue",
+					float Volume = 1,
+					float Pitch = 1,
+					bool Positional = true,
+				},
+				Soundbox_Door = 
+				{
+					string Open = "5477f3b8607636ab:Door_Open",
+					string Close = "5477f3b8604c1ffd:Door_Close",
+					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 47,
+						},
+						Named = 
+						{
+							string Name = "doorPiece",
+						},
+						Archetyped = 
+						{
+							string Name = "4faa6050b86884ec:DefaultArchetype",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0.25, 0, 0],
+							Vec3 Scale = [0.5, 0.3, 1],
+							Quat Rotation = [0, 0, 5.68434e-014, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [1, 1, 1, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.5, 0.5],
+						},
+						GatePiece = 
+						{
+							Enum TypeOfDoor = MoveRight,
+							float OpenDistance = 0.48,
+							float OpenAngle = 90,
+							bool Initialized = false,
+							Vec3 StartingLocation = [0, 0, 0],
+						},
+						Hierarchy = 
+						{
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 48,
+						},
+						Named = 
+						{
+							string Name = "doorPiece",
+						},
+						Archetyped = 
+						{
+							string Name = "4faa6050b86884ec:DefaultArchetype",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-0.25, 0, 0],
+							Vec3 Scale = [0.5, 0.3, 1],
+							Quat Rotation = [0, 0, 5.68434e-014, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [1, 1, 1, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.5, 0.5],
+						},
+						GatePiece = 
+						{
+							Enum TypeOfDoor = MoveLeft,
+							float OpenDistance = 0.48,
+							float OpenAngle = 90,
+							bool Initialized = false,
+							Vec3 StartingLocation = [0, 0, 0],
+						},
+						Hierarchy = 
+						{
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 49,
+				},
+				Named = 
+				{
+					string Name = "gate1",
+				},
+				Archetyped = 
+				{
+					string Name = "549a26d38a762daa:Door_SplitMiddle",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.013918, 5.36391, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0.707107, 0.707107],
+				},
+				Model = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5405f4023f587018:Mat_Gold",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 0],
+				},
+				Interactable = 
+				{
+					bool ShowTooltip = true,
+					string Tooltip = "Electric Door",
+					bool ShowControl = true,
+					Enum Control = A,
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "549a2343895c37e6:InteractButNotCollide",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				Interactable_Gate = 
+				{
+					bool PlayerCantOpen = false,
+					bool Locked = false,
+					string Key = "TestKey",
+					float OpenTime = 0.3,
+					float CurrentOpenTime = 0,
+					int State = 2,
+				},
+				SoundEmitter = 
+				{
+					bool StartPlaying = false,
+					int ExtraPriority = 0,
+					string CueName = "4e1bd44008b4dc2a:DefaultCue",
+					float Volume = 1,
+					float Pitch = 1,
+					bool Positional = true,
+				},
+				Soundbox_Door = 
+				{
+					string Open = "5477f3b8607636ab:Door_Open",
+					string Close = "5477f3b8604c1ffd:Door_Close",
+					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 50,
+						},
+						Named = 
+						{
+							string Name = "doorPiece",
+						},
+						Archetyped = 
+						{
+							string Name = "4faa6050b86884ec:DefaultArchetype",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0.25, 0, 0],
+							Vec3 Scale = [0.5, 0.3, 1],
+							Quat Rotation = [0, 0, 5.68434e-014, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [1, 1, 1, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.5, 0.5],
+						},
+						GatePiece = 
+						{
+							Enum TypeOfDoor = MoveRight,
+							float OpenDistance = 0.48,
+							float OpenAngle = 90,
+							bool Initialized = false,
+							Vec3 StartingLocation = [0, 0, 0],
+						},
+						Hierarchy = 
+						{
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 51,
+						},
+						Named = 
+						{
+							string Name = "doorPiece",
+						},
+						Archetyped = 
+						{
+							string Name = "4faa6050b86884ec:DefaultArchetype",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [-0.25, 0, 0],
+							Vec3 Scale = [0.5, 0.3, 1],
+							Quat Rotation = [0, 0, 5.68434e-014, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [1, 1, 1, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.5, 0.5],
+						},
+						GatePiece = 
+						{
+							Enum TypeOfDoor = MoveLeft,
+							float OpenDistance = 0.48,
+							float OpenAngle = 90,
+							bool Initialized = false,
+							Vec3 StartingLocation = [0, 0, 0],
+						},
+						Hierarchy = 
+						{
+						},
+					},
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "549e0a49834032ed:Item_Key",
+				LinkId = 
+				{
+					uint Id = 52,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [3.99998, 6.48194, -0.5],
+					Vec3 Scale = [0.1, 0.4, 0.1],
+					Quat Rotation = [0, 0, -0.555729, 0.831363],
+				},
+				Named = 
+				{
+					string Name = "TestLevelKey",
+				},
+			},
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "549e0d668f0d5948:PlayerInventory",
+		LinkId = 
+		{
+			uint Id = 53,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, -50],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "PlayerInventory",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54b503d0a4096bde:FileManager",
+		LinkId = 
+		{
+			uint Id = 54,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-3.79557, -0.530404, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "FileManager",
 		},
 	},
 },

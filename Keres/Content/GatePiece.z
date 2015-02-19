@@ -8,11 +8,28 @@ class GatePiece : ZilchComponent
     var OpenDistance : Real = 1.0;
     [Property]
     var OpenAngle : Real = 90.0;
+    [Property]
+    var Initialized : Boolean = false;
+    [Property]
     var StartingLocation : Real3 = Real3(0, 0, 0);
     
     function Initialize(init : CogInitializer)
     {
-        this.StartingLocation = this.Owner.Transform.Translation;
+        if (!this.Initialized)
+        {
+            this.StartingLocation = this.Owner.Transform.Translation;
+            this.Initialized = true;
+        }
+    }
+    
+    function SetToOpen()
+    {
+        this.SetOpenPosition(1.0);
+    }
+    
+    function SetToClosed()
+    {
+        this.SetOpenPosition(0.0);
     }
 
     //Sets the position of the door based on the current level of open-ness

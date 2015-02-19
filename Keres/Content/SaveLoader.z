@@ -9,14 +9,14 @@ class SaveLoader : ZilchComponent
     [Property]
     var PlayerEnergy : Integer = 0;
     [Property]
-    var PlayerOxygen : Integer = 0;
+    var PlayerOxygen : Real = 0.0;
     [Property]
     var PlayerRotation : Real3 = Real3(0, 0, 0);
     
     
     function Initialize(init : CogInitializer)
     {
-        //Zero.Connetct
+        
     }
 
     function SetPlayer()

@@ -7,7 +7,6 @@ class Oxygen : ZilchComponent
     var HeavyBreathingRate : Real = 2;
     
     var Oxygen : Real = 1;
-    var Tanks : Integer = 0;
     
     function Initialize(init : CogInitializer)
     {
@@ -19,27 +18,29 @@ class Oxygen : ZilchComponent
     {
         if(this.Owner.PlayerControl_Move.BreathingHeavy)
         {
-            this.Oxygen -= (event.Dt * this.HeavyBreathingRate);
+            this.Owner.PlayerStats.Oxygen -= (event.Dt * this.HeavyBreathingRate);
             //While sprinting, increase the depletion of oxygen by the heavy breathing rate
         }
         else
         {
-            this.Oxygen -= event.Dt;
+            this.Owner.PlayerStats.Oxygen -= event.Dt;
             //Otherwise, decrease oxygen at a rate of one unit per second
         }
         
-        if(this.Oxygen <= 0)
+        if(this.Owner.PlayerStats.Oxygen <= 0)
         {
-            this.Owner.PlayerControl_Move.Disabled = true;
+            this.Owner.PlayerStats.Life = 0;
             this.Space.LoadLevel(Level.Find("DeathScreen"));
             //If the player runs out of oxygen, load the death screen
         }
         
-        if (Zero.Keyboard.KeyIsDown(this.Owner.Controller.RefillOxygen))
+        if (Zero.Keyboard.KeyIsPressed(this.Owner.Controller.RefillOxygen))
         {
-            if(this.Tanks > 0)
+            if(this.Owner.Inventory.HasItem("OxygenTank"))
             {
-                this.Oxygen = this.MaxOxygen;
+                this.Owner.PlayerStats.Oxygen = this.MaxOxygen;
+                this.Owner.Inventory.DeleteItem("OxygenTank");
+                this.Owner.PlayerControl_Move.UpdateO2();
             }
             else
             {

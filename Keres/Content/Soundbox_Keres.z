@@ -1,0 +1,18 @@
+class Soundbox_Keres : ZilchComponent
+{
+    [Property]
+    var Stunned : SoundCue = null;
+    [Property]
+    var Footstep : SoundCue = null;
+    
+    
+    function PlayFootstep()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.Footstep);
+    }
+    
+    function PlayStun()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.Stunned);
+    }
+}

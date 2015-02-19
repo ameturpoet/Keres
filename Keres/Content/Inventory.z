@@ -35,6 +35,20 @@ class Inventory : ZilchComponent
         }
     }
     
+    function GetItemCount(id : String) : Integer
+    {
+        var items = this.InventoryObject.FindAllChildrenByName(id);
+        var result = 0;
+        
+        foreach (var item in items)
+        {
+            result += 1;
+        }
+        
+        return result;
+        
+    }
+    
     function AddItem(itemArchetype : Archetype)
     {
         var newItem = this.InventoryObject.Space.CreateAtPosition(itemArchetype, this.InventoryObject.Transform.Translation);
@@ -49,11 +63,16 @@ class Inventory : ZilchComponent
     
     function DeleteItem(id : String)
     {
-        var result = this.InventoryObject.FindChildByName(id);
+        var result = this.InventoryObject.FindAllChildrenByName(id);
+        var tempDid = false;
         
-        if (result != null)
+        foreach (var item in result)
         {
-            result.Destroy();
+            if (!tempDid)
+            {
+                tempDid = true;
+                item.Destroy();
+            }
         }
     }
 }

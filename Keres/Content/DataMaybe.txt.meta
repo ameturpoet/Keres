@@ -1,0 +1,8 @@
+TextContent = 
+{
+	TextBuilder = 
+	{
+		string Name = "DataMaybe",
+		uint64 ResourceId = 54981babe94911ec,
+	},
+},

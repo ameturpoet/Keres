@@ -1,0 +1,8 @@
+TextContent = 
+{
+	TextBuilder = 
+	{
+		string Name = "MakeALoadDoor",
+		uint64 ResourceId = 544b892464b7b338,
+	},
+},

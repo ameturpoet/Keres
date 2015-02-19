@@ -5,7 +5,13 @@ class PlayerStats : ZilchComponent
     [Property]
     var Energy : Integer = 100;
     [Property]
-    var Oxygen : Integer = 100;
+    var Oxygen : Real = 100.0;
+    [Property]
+    var MaxOxygen : Real = 100.0;
+    [Property]
+    var HeavyBreathingRate : Real = 2.0;
+    [Property]
+    var OxygenTanks : Integer = 1;
     [Property]
     var RadarCooldown : Real = 2.0;
     var CooldownTimer : Real = 0.0;

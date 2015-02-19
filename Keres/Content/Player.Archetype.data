@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-0.931329, 4.2072, 0.00585747],
+		Vec3 Translation = [-0.516134, -6.49641, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -54,14 +54,16 @@ Cog =
 	},
 	Inventory = 
 	{
-		CogPath InventoryObject = ":/invPlayer",
 	},
 	PlayerStats = 
 	{
 		int Life = 100,
 		int Energy = 100,
-		int Oxygen = 100,
-		float RadarCooldown = 2,
+		float Oxygen = 100,
+		float MaxOxygen = 100,
+		float HeavyBreathingRate = 2,
+		int OxygenTanks = 1,
+		float RadarCooldown = 0,
 	},
 	Controller = 
 	{
@@ -84,10 +86,22 @@ Cog =
 		float LookSensitivity = 6,
 		CogPath Weapon = "Camera/Taser",
 	},
-	Oxygen = 
+	SoundEmitter = 
 	{
-		int MaxOxygen = 100,
-		float HeavyBreathingRate = 2,
+		bool StartPlaying = false,
+		int ExtraPriority = 0,
+		string CueName = "5477f3b860914d57:Footstep_Player",
+		float Volume = 1,
+		float Pitch = 1,
+		bool Positional = true,
+	},
+	Soundbox_Player = 
+	{
+		string Footsteps = "5477f3b860914d57:Footstep_Player",
+		string Damaged = "5477f3bb60835088:Impact_Player",
+		string PickupKey = "5477f3bb608ce335:Pickup_Item",
+		string PickupTank = "5477f3bb60b7c191:Pickup_OxygenTank",
+		string ShootTaser = "5477f3b86067aa3d:Fire_Taser",
 	},
 	Hierarchy = 
 	{
@@ -103,9 +117,9 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [2.38419e-007, 0, 0],
+				Vec3 Translation = [0, 0, 0],
 				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0.707107, -6.88377e-008, -6.88377e-008, 0.707107],
+				Quat Rotation = [0.707107, 0, 0, 0.707107],
 			},
 			Camera = 
 			{
@@ -115,7 +129,7 @@ Cog =
 				float FieldOfView = 45,
 				float NearPlane = 0.001,
 				float FarPlane = 200,
-				float Size = 40,
+				float Size = 20,
 			},
 			Microphone = 
 			{
@@ -139,9 +153,9 @@ Cog =
 					},
 					Transform = 
 					{
-						Vec3 Translation = [0.0259838, -0.024826, -0.053596],
+						Vec3 Translation = [0.0259838, -0.0248261, -0.0535955],
 						Vec3 Scale = [0.25, 0.25, 0.250001],
-						Quat Rotation = [0.516585, -0.482847, 0.482846, 0.516584],
+						Quat Rotation = [0.516585, -0.482847, 0.482846, 0.516583],
 					},
 					Weapon = 
 					{

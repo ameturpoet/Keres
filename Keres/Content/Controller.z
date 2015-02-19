@@ -26,7 +26,8 @@ class Controller : ZilchComponent
     {
         if (Zero.Keyboard.KeyIsPressed(Keys.P))
         {
-            this.Owner.Inventory.InventoryObject.SaveLoader.SavePlayerData();
+            this.Space.FindObjectByName("FileManager").SaveManager.SavePlayerData();
+            this.Space.FindObjectByName("FileManager").SaveManager.SaveLevelState();
         }
     }
 }
