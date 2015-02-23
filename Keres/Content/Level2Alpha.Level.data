@@ -90,9 +90,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [9.16273, -5.82463, 51.0975],
+			Vec3 Translation = [32.1918, -21.8285, 51.4961],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.00261801, -0.0104715, 2.7416e-005, 0.999942],
+			Quat Rotation = [0.00261801, -0.0104715, 2.74161e-005, 0.999942],
 		},
 		Camera = 
 		{
@@ -102,7 +102,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 36.3483,
+			float Size = 29.7595,
 		},
 		EditorCameraController = 
 		{
@@ -110,7 +110,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = -0.00523631,
 			float HorizontalAngle = 0.0209434,
-			Vec3 LookTarget = [10.2098, -5.56282, 1.10918],
+			Vec3 LookTarget = [33.2389, -21.5667, 1.50774],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -1395,6 +1395,78 @@ Level =
 		Named = 
 		{
 			string Name = "Activator_Lever",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "549a26d38a762daa:Door_SplitMiddle",
+		LinkId = 
+		{
+			uint Id = 44,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [17.4878, -37.5217, 0.44006],
+			Vec3 Scale = [1, 0.452265, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "gate4",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "549a26d38a762daa:Door_SplitMiddle",
+		LinkId = 
+		{
+			uint Id = 45,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [17.5282, -34.5458, 0.456291],
+			Vec3 Scale = [1, 0.452265, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "gate4",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "549a26d38a762daa:Door_SplitMiddle",
+		LinkId = 
+		{
+			uint Id = 46,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [24.7467, -43.4865, -0.0442815],
+			Vec3 Scale = [1, 0.452265, 1],
+			Quat Rotation = [0, 0, -0.707107, 0.707107],
+		},
+		Named = 
+		{
+			string Name = "RedGate",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "549a26d38a762daa:Door_SplitMiddle",
+		LinkId = 
+		{
+			uint Id = 47,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [31.4869, -21.1933, 0.282474],
+			Vec3 Scale = [1, 0.452265, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "gate5",
 		},
 	},
 },
