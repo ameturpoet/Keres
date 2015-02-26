@@ -5,6 +5,8 @@ class PlayerStats : ZilchComponent
     [Property]
     var Energy : Integer = 100;
     [Property]
+    var Batteries : Integer = 5;
+    [Property]
     var Oxygen : Real = 100.0;
     [Property]
     var MaxOxygen : Real = 100.0;
@@ -14,6 +16,8 @@ class PlayerStats : ZilchComponent
     var OxygenTanks : Integer = 1;
     [Property]
     var RadarCooldown : Real = 2.0;
+    [Property]
+    var DebugMode : Boolean = false;
     var CooldownTimer : Real = 0.0;
     
     function Initialize(init : CogInitializer)

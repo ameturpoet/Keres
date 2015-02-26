@@ -35,5 +35,9 @@ class ProjectileScript : ZilchComponent
         {
             this.Owner.Destroy();
         }
+        else
+        {
+            this.DeleteNext = true;
+        }
     }
 }

@@ -1,0 +1,62 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Battery",
+	},
+	Archetyped = 
+	{
+		string Name = "54bfc269cc1ca11f:Item_Battery",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-5.53216, -13.0838, 0.299995],
+		Vec3 Scale = [0.1, 0.4, 0.1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "5405d5b5fb8f9704:Mat_Brick",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	Interactable = 
+	{
+		bool ShowTooltip = true,
+		string Tooltip = "Pick up Energy Cell",
+		bool ShowControl = true,
+		Enum Control = Space,
+	},
+	Item = 
+	{
+		string Name = "Energy Cell",
+		bool NameStartsWithVowel = true,
+		int Count = 0,
+		bool Stacks = false,
+		string InventoryIcon = "54bfce3c86527f91:ItemIcon_TestKey",
+	},
+	Item_Battery = 
+	{
+	},
+	Hierarchy = 
+	{
+	},
+},

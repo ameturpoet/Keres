@@ -75,9 +75,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-5.2719, -2.59901, 31.7468],
+			Vec3 Translation = [-14.7406, -7.67719, 34.9853],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [5.58795e-007, -2.34133e-006, 1.31118e-012, 1],
+			Quat Rotation = [5.10815e-007, -0.00785678, 4.01349e-009, 0.999969],
 		},
 		Camera = 
 		{
@@ -87,15 +87,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 19.9483,
+			float Size = 18.05,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = ZPlane,
 			float LookDistance = 33.5159,
-			float VerticalAngle = -1.11759e-006,
-			float HorizontalAngle = 4.67245e-006,
-			Vec3 LookTarget = [-5.27174, -2.59897, -1.76913],
+			float VerticalAngle = -1.02166e-006,
+			float HorizontalAngle = 0.0157137,
+			Vec3 LookTarget = [-14.214, -7.67716, 1.4735],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -485,13 +485,13 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [0.35, 0.35, 0.25],
+					Vec3 Translation = [0, 0, 0.02],
+					Vec3 Scale = [0.25, 0.25, 0.25],
 					Quat Rotation = [0, 0, 0, 1],
 				},
 				Sprite = 
 				{
-					bool Visible = false,
+					bool Visible = true,
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = false,
 					bool CastShadows = false,
@@ -509,13 +509,53 @@ Level =
 					uint StartFrame = 0,
 				},
 			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 13,
+				},
+				Named = 
+				{
+					string Name = "GridLines",
+				},
+				Archetyped = 
+				{
+					string Name = "5491fd3173299584:HUD_RadarBlip",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0.01],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "54bfbe5a9ea45e12:HUD_RadarLines",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool OnTop = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 13,
+			uint Id = 14,
 		},
 		Named = 
 		{
@@ -560,7 +600,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 14,
+					uint Id = 15,
 				},
 				Named = 
 				{
@@ -572,7 +612,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, 0, 4],
+					Vec3 Translation = [0, 0, 3],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -602,13 +642,93 @@ Level =
 				{
 				},
 			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 16,
+				},
+				Named = 
+				{
+					string Name = "MaskOverlay",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [0.32, 0.64, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "54bfc7fe6fc011ac:HUD_GasMaskOverlay",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool OnTop = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 17,
+				},
+				Named = 
+				{
+					string Name = "MaskVisorOverlay",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, -0.1],
+					Vec3 Scale = [0.32, 0.64, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 0.15],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "54bfc7fe6fbab40e:HUD_GasMaskTransparency",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool OnTop = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 15,
+			uint Id = 18,
 		},
 		Named = 
 		{
@@ -651,7 +771,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 16,
+			uint Id = 19,
 		},
 		Named = 
 		{
@@ -718,7 +838,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 17,
+			uint Id = 20,
 		},
 		Named = 
 		{
@@ -776,7 +896,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 18,
+			uint Id = 21,
 		},
 		Named = 
 		{
@@ -837,7 +957,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 19,
+			uint Id = 22,
 		},
 		Named = 
 		{
@@ -852,11 +972,6 @@ Level =
 			Vec3 Translation = [-15.5017, -4.55251, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
-		},
-		HUDElement_TextLog = 
-		{
-			string TextArchetype = "5491d189af392430:HUD_TextlogText",
-			int MaxLines = 5,
 		},
 		HUDElement = 
 		{
@@ -884,6 +999,145 @@ Level =
 			TextAlign Align = Left,
 			float PixelsPerUnit = 64,
 			bool Smoothing = true,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 23,
+		},
+		Named = 
+		{
+			string Name = "HUD_AmmoCurrent",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [7.26686, -8.71119, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		HUDElement = 
+		{
+			bool Anchor_Top = false,
+			bool Anchor_Bottom = true,
+			bool Anchor_Left = false,
+			bool Anchor_Right = true,
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			TextPositionMode Position = UpperLeft,
+			string FontName = "4e7bac697bec55c5:Verdana",
+			uint FontSize = 60,
+			string Text = "Reloading...",
+			bool OnTop = false,
+			Vec2 Size = [6, 2],
+			TextAlign Align = Right,
+			float PixelsPerUnit = 64,
+			bool Smoothing = true,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 24,
+		},
+		Named = 
+		{
+			string Name = "HUD_AmmoStock",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [13.4195, -8.98225, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		HUDElement = 
+		{
+			bool Anchor_Top = false,
+			bool Anchor_Bottom = true,
+			bool Anchor_Left = false,
+			bool Anchor_Right = true,
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			TextPositionMode Position = UpperLeft,
+			string FontName = "4e7bac697bec55c5:Verdana",
+			uint FontSize = 45,
+			string Text = "/ 32",
+			bool OnTop = false,
+			Vec2 Size = [0, 0],
+			TextAlign Align = Left,
+			float PixelsPerUnit = 64,
+			bool Smoothing = true,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 25,
+		},
+		Named = 
+		{
+			string Name = "HUD_ItemLog",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [12.11, -8.32758, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		HUDElement_TextLog = 
+		{
+			string TextArchetype = "54bfc9863d3757dd:HUD_KeyLogItem",
+			int MaxLines = 15,
+		},
+		HUDElement = 
+		{
+			bool Anchor_Top = false,
+			bool Anchor_Bottom = true,
+			bool Anchor_Left = false,
+			bool Anchor_Right = true,
 		},
 	},
 },

@@ -1,6 +1,7 @@
 class HUDElement_TextLine : ZilchComponent
 {
     var LineNumber : Integer = 1;
+    var LineHeight : Real3 = Real3(0, 0, 0);
     
     function Initialize(init : CogInitializer)
     {
@@ -16,6 +17,18 @@ class HUDElement_TextLine : ZilchComponent
         {
             this.Owner.Destroy();
         }
-        this.Owner.Transform.Translation += Real3(0, this.Owner.SpriteText.MeasureText().Y + 0.05, 0);
+        this.LineHeight = Real3(0, this.Owner.SpriteText.MeasureText().Y + 0.05, 0);
+        this.Owner.Transform.Translation += this.LineHeight;
+    }
+    
+    function IncrementLineItem()
+    {
+        this.LineHeight = Real3(0, this.Owner.Sprite.Size.Y * this.Owner.Transform.Scale.Y + 0.05, 0);
+        this.Owner.Transform.Translation += this.LineHeight;
+    }
+    
+    function DecrementLineItem()
+    {
+        this.Owner.Transform.Translation -= this.LineHeight;
     }
 }

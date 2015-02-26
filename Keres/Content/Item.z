@@ -8,6 +8,8 @@ class Item : ZilchComponent
     var Count : Integer = 0;
     [Property]
     var Stacks : Boolean = false;
+    [Property]
+    var InventoryIcon : SpriteSource = null;
     
     function Initialize(init : CogInitializer)
     {

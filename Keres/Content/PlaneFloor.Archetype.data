@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [16.5228, 10.7582, 3.12853],
+		Vec3 Translation = [7.50233, -0.705349, 1.00302],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -44,6 +44,7 @@ Cog =
 	NavigationPoint = 
 	{
 		bool FortyFiveCorner = false,
+		bool Touched = false,
 	},
 	NavigationEvents = 
 	{

@@ -53,7 +53,8 @@ class LevelGenerator : ZilchComponent
             //Loads the player's inventory
             if (this.PlayerInventory.Name != "FailedLoading")
             {
-                this.Owner.Space.FindObjectByName("Player").Inventory.InventoryObject = this.PlayerInventory;
+                var player = this.Owner.Space.FindObjectByName("Player");
+                player.Inventory.InventoryObject = this.PlayerInventory;
                 var temp = this.Owner.Space.FindAllObjectsByName("PlayerInventory");
                 
                 foreach (var t in temp)
@@ -178,7 +179,11 @@ class LevelGenerator : ZilchComponent
             this.LoadingText.SpriteText.Text = "Done";
         }
         
-        this.Owner.Space.FindObjectByName("Player").PlayerControl_Move.UpdateO2();
+        var player = this.Owner.Space.FindObjectByName("Player");
+        player.PlayerControl_Move.UpdateO2();
+        player.PlayerControl_Move.SetHUDPointers();
+        player.Inventory.LoadItemIcons();
+        
     }
     
     function SendGeneratingEvent()

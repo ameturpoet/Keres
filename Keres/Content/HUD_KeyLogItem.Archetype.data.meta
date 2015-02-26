@@ -2,8 +2,8 @@ DataContent =
 {
 	DataBuilder = 
 	{
-		string Name = "TestTank",
-		uint64 ResourceId = 54ff9bbff14f09fe,
+		string Name = "HUD_KeyLogItem",
+		uint64 ResourceId = 54bfc9863d3757dd,
 		string LoaderType = "Cog",
 		uint Version = 0,
 		bool ShowInEditor = true,

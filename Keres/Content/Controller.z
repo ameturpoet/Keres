@@ -13,9 +13,11 @@ class Controller : ZilchComponent
     [Property]
     var Sprint : Keys = Keys.Shift;
     [Property]
-    var RadarPing : Keys = Keys.F;
+    var RadarPing : Keys = Keys.Q;
     [Property]
     var RefillOxygen : Keys = Keys.R;
+    [Property]
+    var Reload : Keys = Keys.F;
     
     function Initialize(init : CogInitializer)
     {

@@ -6,7 +6,8 @@ class Inventory : ZilchComponent
     {
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
-
+    
+    //Gets whether or not the player currently has an item whose name matches the input
     function HasItem(id : String): Boolean
     {
         var result = this.InventoryObject.FindChildByName(id);
@@ -21,6 +22,7 @@ class Inventory : ZilchComponent
         }
     }
     
+    //Gets the Item name (not the ID) of the item with the given name
     function GetItemName(id : String): String
     {
         var result = this.InventoryObject.FindChildByName(id);
@@ -35,6 +37,13 @@ class Inventory : ZilchComponent
         }
     }
     
+    //Gets a pointer to an item in the player's inventory by name
+    function GetItemReference(id: String) : Cog
+    {
+        return this.InventoryObject.FindChildByName(id);
+    }
+    
+    //Gets the number of items of a given name in the player's inventory
     function GetItemCount(id : String) : Integer
     {
         var items = this.InventoryObject.FindAllChildrenByName(id);
@@ -49,18 +58,51 @@ class Inventory : ZilchComponent
         
     }
     
+    //Adds a copy of an archetype to the player's inventory
     function AddItem(itemArchetype : Archetype)
     {
         var newItem = this.InventoryObject.Space.CreateAtPosition(itemArchetype, this.InventoryObject.Transform.Translation);
         newItem.AttachTo(this.InventoryObject);
     }
     
+    //Adds an existing item in the level to the player's inventory
     function PickUpItem(item : Cog)
     {
-        item.Transform.Translation = this.InventoryObject.Transform.Translation;
-        item.AttachTo(this.InventoryObject);
+        if (item.Item_Battery != null)
+        {
+            this.Owner.PlayerStats.Batteries += 1;
+            item.Destroy();
+        }
+        else
+        {
+            item.Transform.Translation = this.InventoryObject.Transform.Translation;
+            item.AttachTo(this.InventoryObject);
+            if (item.Item_OxygenTank != null)
+            {
+                
+            }
+            else
+            {
+                this.Owner.PlayerControl_Move.ItemLog.HUDElement_TextLog.AddLineItem(item.Item.InventoryIcon, item.Item.Name, item.Name);
+            }
+        }
     }
     
+    //Adds all items in the inventory to the HUD item log
+    //Only used when loading existing save data
+    function LoadItemIcons()
+    {
+        var items = this.InventoryObject.Children;
+        foreach (var item in items)
+        {
+            if (item.Item_Key != null)
+            {
+                this.Owner.PlayerControl_Move.ItemLog.HUDElement_TextLog.AddLineItem(item.Item.InventoryIcon, item.Item.Name, item.Name);
+            }
+        }
+    }
+    
+    //Deletes an item from the player's inventory by name
     function DeleteItem(id : String)
     {
         var result = this.InventoryObject.FindAllChildrenByName(id);

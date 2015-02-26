@@ -1,0 +1,23 @@
+class ParticleAutoShutdown : ZilchComponent
+{
+    [Property]
+    var LifeTime : Real = 0.01;
+    var CurrentLife : Real = 0.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Owner.SpriteParticleSystem.Visible)
+        {
+            this.CurrentLife -= event.Dt;
+            if (this.CurrentLife <= 0)
+            {
+                this.Owner.SpriteParticleSystem.Visible = false;
+            }
+        }
+    }
+}

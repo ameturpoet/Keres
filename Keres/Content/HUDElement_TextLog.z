@@ -27,4 +27,47 @@ class HUDElement_TextLog : ZilchComponent
         newText.AttachTo(this.Owner);
         newText.SpriteText.Text = lineText;
     }
+    
+    function AddLineItem(icon : SpriteSource, itemName : String, itemID : String)
+    {
+        var lines = this.Owner.Children;
+        
+        foreach (var li in lines)
+        {
+            li.HUDElement_TextLine.IncrementLineItem();
+        }
+        
+        var textLocation = Real3(0, 0, 0);
+        textLocation.Z = 0.5;
+        var newText = this.Owner.Space.CreateAtPosition(this.TextArchetype, textLocation);
+        newText.AttachTo(this.Owner);
+        newText.Name = itemID;
+        newText.HUD_ItemDisplay.SetProperties(icon, itemName);
+    }
+    
+    function ClearLine(name : String)
+    {
+        var lines = this.Owner.Children;
+        
+        foreach (var li in lines)
+        {
+            if (li.Name == name)
+            {
+                li.Destroy();
+                break;
+            }
+        }
+        
+        this.RecalcLines();
+    }
+    
+    function RecalcLines()
+    {
+        var lines = this.Owner.Children;
+        foreach (var li in lines)
+        {
+            li.HUDElement_TextLine.LineNumber -= 1;
+            li.HUDElement_TextLine.DecrementLineItem();
+        }
+    }
 }

@@ -1,0 +1,18 @@
+Pre-Alpha 1.10
+2/25/2015
+-------------
+Changes
+---
++Added HUD elements for ammo and inventory items
++Limited taser range
++Replaced taser laser with zappies
++Taser can be reloaded
++Taser plays animations when firing and reloading
++Made skybox octagonal
++Made floor numbers invisible (can be changed back easily)
++Added battery item
++Keys can now be used multiple times if the property 'OneUse' is unchecked on the Item_Key script
+
+---
+Bugfixes
+---

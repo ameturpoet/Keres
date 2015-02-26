@@ -21,9 +21,18 @@ class Interactable_Gate : ZilchComponent
     //2-Closed
     //3-Closing
     
+    var SubParts : Array[Cog] = null;
+    
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.Update);
+        this.SubParts = Array[Cog]();
+        
+        var children = this.Owner.FindAllChildrenByName("doorPiece");
+        foreach (var child in children)
+        {
+            this.SubParts.Add(child);
+        }
     }
     
     function Toggle()
@@ -48,9 +57,7 @@ class Interactable_Gate : ZilchComponent
     
     function UpdateSubObjects()
     {
-        var pieces = this.Owner.FindAllChildrenByName("doorPiece");
-        
-        foreach (var pi in pieces)
+        foreach (var pi in this.SubParts)
         {
             pi.GatePiece.SetOpenPosition(this.CurrentOpenTime / this.OpenTime);
         }
@@ -58,9 +65,7 @@ class Interactable_Gate : ZilchComponent
     
     function SetOpen()
     {
-        var pieces = this.Owner.FindAllChildrenByName("doorPiece");
-        
-        foreach (var pi in pieces)
+        foreach (var pi in this.SubParts)
         {
             pi.GatePiece.SetToOpen();
         }
@@ -68,9 +73,7 @@ class Interactable_Gate : ZilchComponent
     
     function SetClosed()
     {
-        var pieces = this.Owner.FindAllChildrenByName("doorPiece");
-        
-        foreach (var pi in pieces)
+        foreach (var pi in this.SubParts)
         {
             pi.GatePiece.SetToClosed();
         }

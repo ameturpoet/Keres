@@ -10,17 +10,17 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "5469260c6b8cec37:PlaneFloor",
+		string Name = "5499e414e1e44e80:Text",
 	},
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, -0.656552],
 		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0, 0, 0, 1],
+		Quat Rotation = [1, -4.37114e-008, 4.37114e-008, 1.91069e-015],
 	},
 	SpriteText = 
 	{
-		bool Visible = true,
+		bool Visible = false,
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
 		bool CastShadows = false,

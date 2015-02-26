@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "ParticleAutoShutdown",
+		uint64 ResourceId = 54405131f6831f15,
+	},
+},

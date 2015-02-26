@@ -9,6 +9,8 @@ class PlayerStatus : ZilchComponent
     [Property]
     var PlayerEnergy : Integer = 0;
     [Property]
+    var PlayerBatteries : Integer = 0;
+    [Property]
     var PlayerOxygen : Real = 0.0;
     [Property]
     var PlayerRotation : Real3 = Real3(0, 0, 0);
@@ -28,6 +30,7 @@ class PlayerStatus : ZilchComponent
         player.PlayerStats.Life = this.PlayerLife;
         player.PlayerStats.Energy = this.PlayerEnergy;
         player.PlayerStats.Oxygen = this.PlayerOxygen;
+        player.PlayerStats.Batteries = this.PlayerBatteries;
         
         if (this.Owner.Space.CurrentLevel.Name == this.PlayerLevel.Name)
         {
@@ -59,6 +62,7 @@ class PlayerStatus : ZilchComponent
         
         this.PlayerLife = player.PlayerStats.Life;
         this.PlayerEnergy = player.PlayerStats.Energy;
+        this.PlayerBatteries = player.PlayerStats.Batteries;
         this.PlayerOxygen = player.PlayerStats.Oxygen;
     }
 }

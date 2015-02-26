@@ -57,6 +57,10 @@ Level =
 		{
 			string HUDLevel = "5405bf9da2baec93:HUDLevel",
 		},
+		Level_SetMouseState = 
+		{
+			Enum MouseState = Trapped,
+		},
 		DeferredRenderer = 
 		{
 			Vec4 ClearColor = [0, 0, 0, 1],
@@ -73,10 +77,6 @@ Level =
 			bool Glow = true,
 			float GlowThreshold = 1,
 		},
-		Level_SetMouseState = 
-		{
-			Enum MouseState = Trapped,
-		},
 	},
 	Cog = 
 	{
@@ -90,9 +90,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [32.1918, -21.8285, 51.4961],
+			Vec3 Translation = [7.10941, -3.46801, 51.003],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.00261801, -0.0104715, 2.74161e-005, 0.999942],
+			Quat Rotation = [-2.60304e-007, -6.61087e-008, -2.12045e-014, 1],
 		},
 		Camera = 
 		{
@@ -102,15 +102,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 29.7595,
+			float Size = 8.96338,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = ZPlane,
 			float LookDistance = 50,
-			float VerticalAngle = -0.00523631,
-			float HorizontalAngle = 0.0209434,
-			Vec3 LookTarget = [33.2389, -21.5667, 1.50774],
+			float VerticalAngle = 5.20609e-007,
+			float HorizontalAngle = 1.01514e-007,
+			Vec3 LookTarget = [7.10942, -3.46803, 1.00302],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -218,11 +218,13 @@ Level =
 		{
 			int Life = 100,
 			int Energy = 100,
+			int Batteries = 100,
 			float Oxygen = 100,
 			float MaxOxygen = 100,
 			float HeavyBreathingRate = 2,
 			int OxygenTanks = 1,
 			float RadarCooldown = 0,
+			bool DebugMode = false,
 		},
 		Controller = 
 		{
@@ -234,6 +236,7 @@ Level =
 			Enum Sprint = Shift,
 			Enum RadarPing = Q,
 			Enum RefillOxygen = R,
+			Enum Reload = F,
 		},
 		NavigationEvents = 
 		{
@@ -266,6 +269,9 @@ Level =
 			string PickupKey = "5477f3bb608ce335:Pickup_Item",
 			string PickupTank = "5477f3bb60b7c191:Pickup_OxygenTank",
 			string ShootTaser = "5477f3b86067aa3d:Fire_Taser",
+			string TaserReload1 = "5440a9a07eb01355:TaserLoad_0Swing",
+			string TaserReload2 = "5440a8f95db4c6af:TaserLoad_1Out",
+			string TaserReload3 = "5440a8eb591c454e:TaserLoad_2In",
 		},
 		Hierarchy = 
 		{
@@ -319,14 +325,17 @@ Level =
 						{
 							Vec3 Translation = [0.0259838, -0.0248261, -0.0535955],
 							Vec3 Scale = [0.25, 0.25, 0.250001],
-							Quat Rotation = [0.516585, -0.482847, 0.482846, 0.516583],
+							Quat Rotation = [0.499959, -0.499959, 0.500041, 0.500041],
 						},
 						Weapon = 
 						{
 							string Projectile = "541bb3f68b66bc61:projectile_Bullet",
 							string RibbonObject = "541bbd020465b0f4:ribbon_TestBeam",
 							CogPath ProjectileNode = "ProjectileNode",
-							int EnergyUse = 5,
+							int EnergyUse = 100,
+							float Range = 3,
+							float TimeToReload = 1,
+							string AmmoString = "",
 						},
 						Hierarchy = 
 						{
@@ -413,6 +422,58 @@ Level =
 									string MaterialName = "4de020863e85bb61:DefaultMaterial",
 									string MeshName = "4de0354322b345ae:Cube",
 									Vec4 Color = [1, 1, 1, 1],
+								},
+								SpriteParticleSystem = 
+								{
+									bool Visible = false,
+									bool VisibilityCulling = true,
+									bool VisibilityEvents = false,
+									bool CastShadows = false,
+									SystemChildMode ChildMode = Independent,
+									SystemSpace SystemSpace = WorldSpace,
+									uint DrawOrder = 0,
+									float WarmUpTime = 0,
+									ParticleGeometry GeometryMode = Beam,
+									ParticleRenderMode RenderMode = Additive,
+									ParticleSortMode SortMode = Youngest,
+									ParticleAnimation ParticleAnimation = Single,
+									string Texture = "5440b820b8ef0557:ZapBeam",
+									Vec4 Tint = [1, 1, 1, 1],
+									float VelocityScale = 1,
+									float LengthScale = 1,
+									float MaxParticleSize = 100,
+									Vec3 SystemSize = [4, 4, 4],
+								},
+								LightningParticleEmitter = 
+								{
+									uint MinBranches = 1,
+									uint MaxBranches = 2,
+									float BranchProbabilityExponent = 0.1,
+									float DurationPerStrike = 0.2,
+									uint MinDepth = 1,
+									uint MaxDepth = 3,
+									float MinSegmentLength = 0.3,
+									float MaxSegmentLength = 1.5,
+									float MinRandomOffset = 0.1,
+									float MaxRandomOffset = 0.2,
+									float BeginSize = 0.1,
+									float EndSize = 0.1,
+									float HackOffsetPercentage = 0.3,
+									Vec3 TargetPosition = [10, 0, 0],
+									TargetSpace TargetSpace = WorldSpace,
+								},
+								LinearParticleAnimator = 
+								{
+									Vec3 Force = [0, 0, 0],
+									Vec3 RandomForce = [0, 0, 0],
+									float Torque = 0,
+									float Growth = 0,
+									float Dampening = 0,
+									Vec3 Twist = [0, 0, 0],
+								},
+								ParticleAutoShutdown = 
+								{
+									float LifeTime = 0.075,
 								},
 							},
 							Cog = 
@@ -697,29 +758,11 @@ Level =
 			float MeshThickness = 1.2,
 		},
 	},
-	ArchetypeInstance = 
-	{
-		string Name = "549e0a49834032ed:Item_Key",
-		LinkId = 
-		{
-			uint Id = 19,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [9.97084, -25.9436, -0.0576668],
-			Vec3 Scale = [0.1, 0.4, 0.1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Named = 
-		{
-			string Name = "RedKey",
-		},
-	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 20,
+			uint Id = 19,
 		},
 		Named = 
 		{
@@ -759,7 +802,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 21,
+			uint Id = 20,
 		},
 		Named = 
 		{
@@ -799,7 +842,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 22,
+			uint Id = 21,
 		},
 		Named = 
 		{
@@ -840,7 +883,7 @@ Level =
 		string Name = "549e0d668f0d5948:PlayerInventory",
 		LinkId = 
 		{
-			uint Id = 23,
+			uint Id = 22,
 		},
 		Transform = 
 		{
@@ -858,7 +901,7 @@ Level =
 		string Name = "54b503d0a4096bde:FileManager",
 		LinkId = 
 		{
-			uint Id = 24,
+			uint Id = 23,
 		},
 		Transform = 
 		{
@@ -875,7 +918,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 25,
+			uint Id = 24,
 		},
 		Named = 
 		{
@@ -907,7 +950,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 26,
+					uint Id = 25,
 				},
 				Named = 
 				{
@@ -980,7 +1023,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 27,
+							uint Id = 26,
 						},
 						Named = 
 						{
@@ -1032,7 +1075,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 28,
+							uint Id = 27,
 						},
 						Named = 
 						{
@@ -1086,7 +1129,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 29,
+					uint Id = 28,
 				},
 				Named = 
 				{
@@ -1135,9 +1178,11 @@ Level =
 					bool NameStartsWithVowel = false,
 					int Count = 0,
 					bool Stacks = false,
+					string InventoryIcon = "54bfce3c86527f91:ItemIcon_TestKey",
 				},
 				Item_Key = 
 				{
+					bool OneUse = true,
 				},
 				Hierarchy = 
 				{
@@ -1148,7 +1193,7 @@ Level =
 				string Name = "549a26d38a762daa:Door_SplitMiddle",
 				LinkId = 
 				{
-					uint Id = 30,
+					uint Id = 29,
 				},
 				Transform = 
 				{
@@ -1166,7 +1211,7 @@ Level =
 				string Name = "549a26d38a762daa:Door_SplitMiddle",
 				LinkId = 
 				{
-					uint Id = 31,
+					uint Id = 30,
 				},
 				Transform = 
 				{
@@ -1184,7 +1229,7 @@ Level =
 				string Name = "549a26d38a762daa:Door_SplitMiddle",
 				LinkId = 
 				{
-					uint Id = 32,
+					uint Id = 31,
 				},
 				Transform = 
 				{
@@ -1202,7 +1247,7 @@ Level =
 				string Name = "549a26d38a762daa:Door_SplitMiddle",
 				LinkId = 
 				{
-					uint Id = 33,
+					uint Id = 32,
 				},
 				Transform = 
 				{
@@ -1220,7 +1265,7 @@ Level =
 				string Name = "549a26d38a762daa:Door_SplitMiddle",
 				LinkId = 
 				{
-					uint Id = 34,
+					uint Id = 33,
 				},
 				Transform = 
 				{
@@ -1238,7 +1283,7 @@ Level =
 				string Name = "549a26d38a762daa:Door_SplitMiddle",
 				LinkId = 
 				{
-					uint Id = 35,
+					uint Id = 34,
 				},
 				Transform = 
 				{
@@ -1256,7 +1301,7 @@ Level =
 				string Name = "549a26d38a762daa:Door_SplitMiddle",
 				LinkId = 
 				{
-					uint Id = 36,
+					uint Id = 35,
 				},
 				Transform = 
 				{
@@ -1274,7 +1319,7 @@ Level =
 				string Name = "54b4efb11bfb540e:Item_OxyTank",
 				LinkId = 
 				{
-					uint Id = 37,
+					uint Id = 36,
 				},
 				Transform = 
 				{
@@ -1292,7 +1337,7 @@ Level =
 				string Name = "54b4efb11bfb540e:Item_OxyTank",
 				LinkId = 
 				{
-					uint Id = 38,
+					uint Id = 37,
 				},
 				Transform = 
 				{
@@ -1310,7 +1355,7 @@ Level =
 				string Name = "54b4efb11bfb540e:Item_OxyTank",
 				LinkId = 
 				{
-					uint Id = 39,
+					uint Id = 38,
 				},
 				Transform = 
 				{
@@ -1328,7 +1373,7 @@ Level =
 				string Name = "54b4efb11bfb540e:Item_OxyTank",
 				LinkId = 
 				{
-					uint Id = 40,
+					uint Id = 39,
 				},
 				Transform = 
 				{
@@ -1346,7 +1391,7 @@ Level =
 				string Name = "54b4efb11bfb540e:Item_OxyTank",
 				LinkId = 
 				{
-					uint Id = 41,
+					uint Id = 40,
 				},
 				Transform = 
 				{
@@ -1359,6 +1404,105 @@ Level =
 					string Name = "OxygenTank",
 				},
 			},
+			ArchetypeInstance = 
+			{
+				string Name = "549e0a49834032ed:Item_Key",
+				LinkId = 
+				{
+					uint Id = 41,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [6.20812, -33.7046, 0.139953],
+					Vec3 Scale = [0.1, 0.4, 0.1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Named = 
+				{
+					string Name = "RedKey",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "54bfc269cc1ca11f:Item_Battery",
+				LinkId = 
+				{
+					uint Id = 42,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-5.53216, -13.0838, 0.299995],
+					Vec3 Scale = [0.1, 0.4, 0.1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Named = 
+				{
+					string Name = "Battery",
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 43,
+				},
+				Named = 
+				{
+					string Name = "YellowKey2",
+				},
+				Archetyped = 
+				{
+					string Name = "549e0a49834032ed:Item_Key",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-3.72926, -13.0838, 0.299995],
+					Vec3 Scale = [0.1, 0.4, 0.1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "5405f4023f587018:Mat_Gold",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				Interactable = 
+				{
+					bool ShowTooltip = true,
+					string Tooltip = "Pick up Thing",
+					bool ShowControl = true,
+					Enum Control = Space,
+				},
+				Item = 
+				{
+					string Name = "Swag",
+					bool NameStartsWithVowel = false,
+					int Count = 0,
+					bool Stacks = false,
+					string InventoryIcon = "54bfce3c86527f91:ItemIcon_TestKey",
+				},
+				Item_Key = 
+				{
+					bool OneUse = true,
+				},
+				Hierarchy = 
+				{
+				},
+			},
 		},
 	},
 	ArchetypeInstance = 
@@ -1366,7 +1510,7 @@ Level =
 		string Name = "54b5514d89d60dac:Planet_Pluto",
 		LinkId = 
 		{
-			uint Id = 42,
+			uint Id = 44,
 		},
 		Transform = 
 		{
@@ -1384,7 +1528,7 @@ Level =
 		string Name = "544b824664dc34ac:Activator_Lever",
 		LinkId = 
 		{
-			uint Id = 43,
+			uint Id = 45,
 		},
 		Transform = 
 		{
@@ -1402,7 +1546,7 @@ Level =
 		string Name = "549a26d38a762daa:Door_SplitMiddle",
 		LinkId = 
 		{
-			uint Id = 44,
+			uint Id = 46,
 		},
 		Transform = 
 		{
@@ -1420,7 +1564,7 @@ Level =
 		string Name = "549a26d38a762daa:Door_SplitMiddle",
 		LinkId = 
 		{
-			uint Id = 45,
+			uint Id = 47,
 		},
 		Transform = 
 		{
@@ -1438,7 +1582,7 @@ Level =
 		string Name = "549a26d38a762daa:Door_SplitMiddle",
 		LinkId = 
 		{
-			uint Id = 46,
+			uint Id = 48,
 		},
 		Transform = 
 		{
@@ -1456,7 +1600,7 @@ Level =
 		string Name = "549a26d38a762daa:Door_SplitMiddle",
 		LinkId = 
 		{
-			uint Id = 47,
+			uint Id = 49,
 		},
 		Transform = 
 		{

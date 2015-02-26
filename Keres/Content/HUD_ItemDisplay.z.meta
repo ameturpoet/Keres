@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "HUD_ItemDisplay",
+		uint64 ResourceId = 54bfce4789df19a9,
+	},
+},

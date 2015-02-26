@@ -8,34 +8,199 @@ class Weapon : ZilchComponent
     var ProjectileNode : CogPath = null;
     [Property]
     var EnergyUse : Integer = 5;
+    [Property]
+    var Range : Real = 3.0;
+    [Property]
+    var TimeToReload : Real = 1.0;
+    [Property]
+    var AmmoString : String = null;
     
+    var ReloadTimer : Real = 0.0;
+    var Reloading : Boolean = false;
     var MouseState : Boolean = false;
     var OldMState : Boolean = false;
     var StartLocation : Real3 = Real3(0, 0, 0);
+    var BatteryStartLocation : Real3 = Real3(0, 0, 0);
+    var StartRotation : Quaternion = Quaternion(0, 0, 0, 0);
+    var RecoilOffset : Real3 = Real3(0, 0, 0);
+    var RecoilVelocity : Real = 0.0;
+    var RecoilTracker : Real = 0.0;
+    var RecenterSpeed : Real = 100;
+    var ReloadSpeedMultiplier : Real = 1.0;
+    var Battery : Cog = null;
+    var SoundTracker : Integer = 0;
+    var SoundPlayed : Integer = 0;
+    
     
     function Initialize(init : CogInitializer)
     {
         this.StartLocation = this.Owner.Transform.Translation;
+        this.StartRotation = this.Owner.Transform.Rotation;
+        this.ReloadSpeedMultiplier = Math.Pi / this.TimeToReload;
+        this.Battery = this.Owner.FindChildByName("Battery");
+        this.BatteryStartLocation = this.Battery.Transform.Translation;
     }
 
-    function UpdateGun(deltaTime : Real, impactLocation : Real3, playerStats : PlayerStats)
+    function UpdateGun(deltaTime : Real, impactLocation : Real3, playerStats : PlayerStats, controller : Controller)
     {
         this.MouseState = Zero.Mouse.IsButtonDown(MouseButtons.Left);
-        if (playerStats.Energy >= this.EnergyUse && (this.MouseState != this.OldMState && this.MouseState))
+        
+        if (this.Reloading)
         {
-            this.Fire(impactLocation);
-            playerStats.Energy -= this.EnergyUse;
+            this.Reload(deltaTime, playerStats);
         }
+        else
+        {
+            this.Recoil(deltaTime, playerStats);
+            if (playerStats.Energy >= this.EnergyUse && (this.MouseState != this.OldMState && this.MouseState) && this.RecoilTracker >= -0.25)
+            //if (playerStats.Energy >= this.EnergyUse && Zero.Mouse.IsButtonDown(MouseButtons.Left) && this.RecoilTracker >= -0.25)
+            {
+                this.Fire(impactLocation);
+                playerStats.Energy -= this.EnergyUse;
+            }
+            if (playerStats.Batteries > 0 && Zero.Keyboard.KeyIsPressed(controller.Reload))
+            {
+                this.Reloading = true;
+                this.ReloadTimer = this.TimeToReload;
+                //Console.WriteLine("Started reloading");
+            }
+        }
+        
+        this.MakeAmmoString(deltaTime, playerStats);
+        
         this.OldMState = this.MouseState;
     }
     
     function Fire(impactLocation : Real3)
     {
-        this.Owner.Space.CreateAtPosition(this.Projectile, impactLocation);
+        this.RecoilVelocity = -5;
+        if (this.RecoilTracker == 0.0)
+        {
+            this.RecoilTracker = -0.0001;
+        }
+        
+        var bullet = this.Owner.Space.CreateAtPosition(this.Projectile, impactLocation);
+        if (Math.Distance(bullet.Transform.Translation, this.ProjectileNode.Cog.Transform.WorldTranslation) > this.Range)
+        {
+            var diffVector = this.Range * Math.Normalize(bullet.Transform.Translation - this.ProjectileNode.Cog.Transform.WorldTranslation);
+            bullet.Transform.Translation = this.ProjectileNode.Cog.Transform.WorldTranslation + diffVector;
+        }
+        this.ProjectileNode.Cog.LightningParticleEmitter.TargetPosition = bullet.Transform.Translation;
+        this.ProjectileNode.Cog.SpriteParticleSystem.Visible = true;
+        this.ProjectileNode.Cog.ParticleAutoShutdown.CurrentLife = this.ProjectileNode.Cog.ParticleAutoShutdown.LifeTime;
         this.Owner.Space.FindObjectByName("Player").Soundbox_Player.PlayGunshot();
-        var ribbon = this.Owner.Space.CreateAtPosition(this.RibbonObject, impactLocation);
+        /*var ribbon = this.Owner.Space.CreateAtPosition(this.RibbonObject, impactLocation);
         ribbon.RibbonParticle.Start = this.ProjectileNode.Cog.Transform.WorldTranslation;
         ribbon.RibbonParticle.End = impactLocation;
-        ribbon.RibbonParticle.CalculateScale();
+        ribbon.RibbonParticle.CalculateScale();*/
+    }
+    
+    function Recoil(deltaTime : Real, playerStats : PlayerStats)
+    {
+        //this.RecoilOffset.Y += this.RecoilVelocity * deltaTime;
+        if (this.RecoilTracker < 0)
+        {
+            this.Owner.Transform.RotateAnglesLocal(Real3(0, this.RecoilVelocity * deltaTime, 0));
+            this.RecoilTracker += this.RecoilVelocity * deltaTime;
+            Console.WriteLine(this.RecoilTracker);
+            this.RecoilVelocity += this.RecenterSpeed * deltaTime;
+            if (this.RecoilTracker >= 0)
+            {
+                this.RecoilTracker = 0;
+                this.Owner.Transform.Rotation = this.StartRotation;
+                if (playerStats.Energy <= 0 && playerStats.Batteries > 0)
+                {
+                    this.Reloading = true;
+                    this.ReloadTimer = this.TimeToReload;
+                }
+            }
+        }
+    }
+    
+    function Reload(deltaTime : Real, playerStats : PlayerStats)
+    {
+        if (this.ReloadTimer <= 0.0)
+        {
+            playerStats.Batteries -= 1;
+            playerStats.Energy = 100;
+            this.Owner.Transform.Rotation = this.StartRotation;
+            this.Battery.Transform.Translation = this.BatteryStartLocation;
+            this.Reloading = false;
+            this.SoundTracker = 0;
+            this.SoundPlayed = 0;
+        }
+        else
+        {
+            this.ReloadTimer -= deltaTime;
+            this.ReloadAnimation(deltaTime);
+        }
+    }
+    
+    //Sets the ammo string to the appropriate value
+    //Delegated to the Weapon script to avoid other scripts having to reference this one
+    function MakeAmmoString(deltaTime : Real, playerStats : PlayerStats)
+    {
+        var sr = StringBuilder();
+        
+        //If the player is reloading, the ammo text will read "Reloading..."
+        //The number of dots at the end will be based on the progress towards reloading
+        if (this.Reloading)
+        {
+            //sr.Write("Reloading");
+            
+            var completion = this.ReloadTimer / this.TimeToReload;
+            
+            if (completion <= 0.25)
+            {
+                sr.Write("...");
+            }
+            else if (completion <= 0.5)
+            {
+                sr.Write("..");
+            }
+            else if (completion <= 0.75)
+            {
+                sr.Write(".");
+            }
+            
+            this.AmmoString = sr.ToString();
+        }
+        else
+        {
+            sr.Write(playerStats.Energy);
+            sr.Write("%");
+            this.AmmoString = sr.ToString();
+        }
+    }
+    
+    function ReloadAnimation(deltaTime : Real)
+    {
+        var completion = 1.0 - (this.ReloadTimer / this.TimeToReload);
+        
+        if (completion <= 0.1)
+        {
+            this.Owner.Transform.RotateAnglesLocal(Real3(0, 1.3889 * deltaTime * this.ReloadSpeedMultiplier, 0));
+            this.SoundTracker = 1;
+        }
+        else if (completion <= 0.25)
+        {
+            this.Owner.Transform.RotateAnglesLocal(Real3(0, -2.963 * deltaTime * this.ReloadSpeedMultiplier, 0));
+            this.Battery.Transform.Translation += Real3(1, 0, 0) * deltaTime;
+            this.SoundTracker = 2;
+        }
+        else if (completion <= 0.32) {}
+        else if (completion <= 0.52)
+        {
+            this.Owner.Transform.RotateAnglesLocal(Real3(0, 2.5 * deltaTime * this.ReloadSpeedMultiplier, 0));
+        }
+        else if (completion <= 0.7) 
+        {
+            this.Battery.Transform.Translation -= Real3(0.82, 0, 0) * deltaTime;
+            this.SoundTracker = 3;
+        }
+        else if (completion < 1.0)
+        {
+            this.Owner.Transform.RotateAnglesLocal(Real3(0, -0.6 * deltaTime * this.ReloadSpeedMultiplier, 0));
+        }
     }
 }

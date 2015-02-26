@@ -10,6 +10,12 @@ class Soundbox_Player : ZilchComponent
     var PickupTank : SoundCue = null;
     [Property]
     var ShootTaser : SoundCue = null;
+    [Property]
+    var TaserReload1 : SoundCue = null;
+    [Property]
+    var TaserReload2 : SoundCue = null;
+    [Property]
+    var TaserReload3 : SoundCue = null;
     
     function Initialize(init : CogInitializer)
     {
@@ -39,5 +45,22 @@ class Soundbox_Player : ZilchComponent
     function PlayPickupOxyTank()
     {
         this.Owner.SoundEmitter.PlayCue(this.PickupTank);
+    }
+    
+    //Plays the indicated step in the reload sound (1=Click, 2=Battery Out, 3=Battery In)
+    function PlayReload(step : Integer)
+    {
+        if (step == 1)
+        {
+            this.Owner.SoundEmitter.PlayCue(this.TaserReload1);
+        }
+        else if (step == 2)
+        {
+            this.Owner.SoundEmitter.PlayCue(this.TaserReload2);
+        }
+        else if (step == 3)
+        {
+            this.Owner.SoundEmitter.PlayCue(this.TaserReload3);
+        }
     }
 }

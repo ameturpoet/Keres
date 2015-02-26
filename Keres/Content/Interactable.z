@@ -39,7 +39,12 @@ class Interactable : ZilchComponent
                     this.Owner.Interactable_Gate.Locked = false;
                     this.Owner.Soundbox_Door.PlayUnlock();
                     player.PlayerControl_Move.TextLog.HUDElement_TextLog.AddLine(String.Concatenate("Door opened with the ", player.Inventory.GetItemName(this.Owner.Interactable_Gate.Key)));
-                    //player.Inventory.DeleteItem(this.Owner.Interactable_Gate.Key);
+                    
+                    if (player.Inventory.GetItemReference(this.Owner.Interactable_Gate.Key).Item_Key.OneUse)
+                    {
+                        player.Inventory.DeleteItem(this.Owner.Interactable_Gate.Key);
+                        player.PlayerControl_Move.ItemLog.HUDElement_TextLog.ClearLine(this.Owner.Interactable_Gate.Key);
+                    }
                 }
                 else
                 {
@@ -57,6 +62,8 @@ class Interactable : ZilchComponent
         {
             var player = this.Owner.Space.FindObjectByName("Player");
             player.Inventory.PickUpItem(this.Owner);
+            
+            //Handles behaviour based on the type of item
             if (this.Owner.Item_Key != null)
             {
                 player.Soundbox_Player.PlayPickupKey();
@@ -66,6 +73,11 @@ class Interactable : ZilchComponent
                 player.PlayerControl_Move.UpdateO2();
                 player.Soundbox_Player.PlayPickupOxyTank();
             }
+            else if (this.Owner.Item_Battery != null)
+            {
+                player.Soundbox_Player.PlayPickupKey();
+            }
+            
             if (this.Owner.Item.NameStartsWithVowel)
             {
                 player.PlayerControl_Move.TextLog.HUDElement_TextLog.AddLine(String.Concatenate("Picked up an ", this.Owner.Item.Name));

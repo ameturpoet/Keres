@@ -28,10 +28,12 @@ class PlayerControl_Move : ZilchComponent
     var HUDspace : Space = null;
     var Radar : Cog = null;
     var TextLog : Cog = null;
+    var ItemLog : Cog = null;
     var OldPosition : Real3 = Real3(0, 0, 0);
     var MovementTracker : Real3 = Real3(0, 0, 0);
     var Sprinting : Real = 0.0;
     var BreathingHeavy : Boolean = false;
+    var DebugMode : Boolean = false;
     
     function Initialize(init : CogInitializer)
     {
@@ -109,21 +111,41 @@ class PlayerControl_Move : ZilchComponent
         {
             this.Radar = this.HUDspace.FindObjectByName("HUD_Radar");
             this.TextLog = this.HUDspace.FindObjectByName("HUD_TextLog");
+            this.ItemLog = this.HUDspace.FindObjectByName("HUD_ItemLog");
         }
+    }
+    
+    function SetHUDPointers()
+    {
+        this.Radar = this.HUDspace.FindObjectByName("HUD_Radar");
+        this.TextLog = this.HUDspace.FindObjectByName("HUD_TextLog");
+        this.ItemLog = this.HUDspace.FindObjectByName("HUD_ItemLog");
     }
     
     //Updates all elements of the player's HUD
     //
     function UpdateHUD()
     {
+        //Updates radar
         this.HUDspace.FindObjectByName("HUD_Radar").Transform.SetEulerAnglesXYZ(0, 0, -1 * this.Owner.Transform.EulerAngles.Z);
+        
+        //Then the current oxygen
         var sr = StringBuilder();
         
         sr.WriteLine(this.Owner.PlayerStats.Oxygen as Integer);
         
-        
-        
         this.HUDspace.FindObjectByName("HUD_Oxygen").SpriteText.Text = sr.ToString();
+        
+        //Then the player's ammo
+        this.HUDspace.FindObjectByName("HUD_AmmoCurrent").SpriteText.Text = this.Weapon.Cog.Weapon.AmmoString;
+        
+        //Then the player's ammo reserve
+        sr = StringBuilder();
+        
+        sr.Write("/ ");
+        sr.Write(this.Owner.PlayerStats.Batteries);
+        
+        this.HUDspace.FindObjectByName("HUD_AmmoStock").SpriteText.Text = sr.ToString();
     }
     
     //Just updates the oxygen tank count
@@ -147,7 +169,12 @@ class PlayerControl_Move : ZilchComponent
     {
         if (this.Weapon.Cog != null)
         {
-            this.Weapon.Cog.Weapon.UpdateGun(deltaTime, impactPoint, this.PlayerStats);
+            this.Weapon.Cog.Weapon.UpdateGun(deltaTime, impactPoint, this.PlayerStats, this.Controller);
+            if (this.Weapon.Cog.Weapon.SoundTracker != this.Weapon.Cog.Weapon.SoundPlayed)
+            {
+                this.Owner.Soundbox_Player.PlayReload(this.Weapon.Cog.Weapon.SoundTracker);
+                this.Weapon.Cog.Weapon.SoundPlayed = this.Weapon.Cog.Weapon.SoundTracker;
+            }
         }
     }
     
