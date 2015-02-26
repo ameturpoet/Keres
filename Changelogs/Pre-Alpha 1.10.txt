@@ -16,3 +16,5 @@ Changes
 ---
 Bugfixes
 ---
++Keres can now pathfind around 45* corners
++Opening and closing doors no longer causes lag on large levels

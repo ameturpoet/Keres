@@ -90,7 +90,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [1.60967, 2.09341, 4.07465],
+			Vec3 Translation = [-7.09917, 2.56465, 5.4074],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [8.26487e-008, 0.0758547, -6.2874e-009, 0.997119],
 		},
@@ -110,7 +110,7 @@ Level =
 			float LookDistance = 9.13421,
 			float VerticalAngle = -1.65775e-007,
 			float HorizontalAngle = 6.13133,
-			Vec3 LookTarget = [0.227918, 2.09341, -4.95444],
+			Vec3 LookTarget = [-8.48092, 2.56466, -3.6217],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -2138,7 +2138,6 @@ Level =
 					bool Locked = false,
 					string Key = "TestKey",
 					float OpenTime = 0.3,
-					float CurrentOpenTime = 0,
 					int State = 2,
 				},
 				SoundEmitter = 
@@ -2206,6 +2205,18 @@ Level =
 							bool Initialized = false,
 							Vec3 StartingLocation = [0, 0, 0],
 						},
+						RigidBody = 
+						{
+							bool Static = true,
+							bool Asleep = false,
+							bool Kinematic = false,
+							bool RotationLocked = false,
+							bool Mode2D = true,
+							bool AllowSleep = true,
+							bool Inherit2DMode = true,
+							Vec3 Velocity = [0, 0, 0],
+							Vec3 AngularVelocity = [0, 0, 0],
+						},
 						Hierarchy = 
 						{
 						},
@@ -2257,6 +2268,18 @@ Level =
 							float OpenAngle = 90,
 							bool Initialized = false,
 							Vec3 StartingLocation = [0, 0, 0],
+						},
+						RigidBody = 
+						{
+							bool Static = true,
+							bool Asleep = false,
+							bool Kinematic = false,
+							bool RotationLocked = false,
+							bool Mode2D = true,
+							bool AllowSleep = true,
+							bool Inherit2DMode = true,
+							Vec3 Velocity = [0, 0, 0],
+							Vec3 AngularVelocity = [0, 0, 0],
 						},
 						Hierarchy = 
 						{
@@ -2317,7 +2340,6 @@ Level =
 					bool Locked = true,
 					string Key = "TestLevelKey",
 					float OpenTime = 0.3,
-					float CurrentOpenTime = 0,
 					int State = 2,
 				},
 				SoundEmitter = 
@@ -2385,6 +2407,18 @@ Level =
 							bool Initialized = false,
 							Vec3 StartingLocation = [0, 0, 0],
 						},
+						RigidBody = 
+						{
+							bool Static = true,
+							bool Asleep = false,
+							bool Kinematic = false,
+							bool RotationLocked = false,
+							bool Mode2D = true,
+							bool AllowSleep = true,
+							bool Inherit2DMode = true,
+							Vec3 Velocity = [0, 0, 0],
+							Vec3 AngularVelocity = [0, 0, 0],
+						},
 						Hierarchy = 
 						{
 						},
@@ -2436,6 +2470,18 @@ Level =
 							float OpenAngle = 90,
 							bool Initialized = false,
 							Vec3 StartingLocation = [0, 0, 0],
+						},
+						RigidBody = 
+						{
+							bool Static = true,
+							bool Asleep = false,
+							bool Kinematic = false,
+							bool RotationLocked = false,
+							bool Mode2D = true,
+							bool AllowSleep = true,
+							bool Inherit2DMode = true,
+							Vec3 Velocity = [0, 0, 0],
+							Vec3 AngularVelocity = [0, 0, 0],
 						},
 						Hierarchy = 
 						{
@@ -2496,7 +2542,6 @@ Level =
 					bool Locked = false,
 					string Key = "TestKey",
 					float OpenTime = 0.3,
-					float CurrentOpenTime = 0,
 					int State = 2,
 				},
 				SoundEmitter = 
@@ -2564,6 +2609,18 @@ Level =
 							bool Initialized = false,
 							Vec3 StartingLocation = [0, 0, 0],
 						},
+						RigidBody = 
+						{
+							bool Static = true,
+							bool Asleep = false,
+							bool Kinematic = false,
+							bool RotationLocked = false,
+							bool Mode2D = true,
+							bool AllowSleep = true,
+							bool Inherit2DMode = true,
+							Vec3 Velocity = [0, 0, 0],
+							Vec3 AngularVelocity = [0, 0, 0],
+						},
 						Hierarchy = 
 						{
 						},
@@ -2615,6 +2672,18 @@ Level =
 							float OpenAngle = 90,
 							bool Initialized = false,
 							Vec3 StartingLocation = [0, 0, 0],
+						},
+						RigidBody = 
+						{
+							bool Static = true,
+							bool Asleep = false,
+							bool Kinematic = false,
+							bool RotationLocked = false,
+							bool Mode2D = true,
+							bool AllowSleep = true,
+							bool Inherit2DMode = true,
+							Vec3 Velocity = [0, 0, 0],
+							Vec3 AngularVelocity = [0, 0, 0],
 						},
 						Hierarchy = 
 						{

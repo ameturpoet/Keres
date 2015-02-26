@@ -10,7 +10,6 @@ class Interactable_Gate : ZilchComponent
     var Key : String = "";
     [Property]
     var OpenTime : Real = 1.0;
-    [Property]
     var CurrentOpenTime : Real = 0.0;
     
     [Property]

@@ -149,7 +149,7 @@ class EnemyAI : ZilchComponent
     //Moves directly towards the player
     function MoveTowardsPlayer(deltaTime : Real)
     {
-        this.Owner.RigidBody.Velocity = this.Speed * (this.Player.Transform.Translation - this.Owner.Transform.Translation);
+        this.Owner.RigidBody.Velocity = this.Speed * Math.Normalize(this.Player.Transform.Translation - this.Owner.Transform.Translation);
         this.FootstepCounter -= deltaTime;
     }
     
@@ -160,9 +160,7 @@ class EnemyAI : ZilchComponent
         if (this.TargetTile != null)
         {
             //Gets the distance from the enemy to the tile
-            var temp = Math.Distance(this.Owner.Transform.Translation, this.TargetTile.Transform.Translation * Real3(1, 1, 0));
-            
-            Console.WriteLine(temp);
+            var temp = Math.Distance(this.Owner.Transform.Translation, this.TargetTile.Transform.WorldTranslation * Real3(1, 1, 0));
             
             //Sets the velocity to 0, necessary for certain situations that would otherwise make the
             //enemy run straight into a wall
@@ -285,7 +283,7 @@ class EnemyAI : ZilchComponent
         //If a tile was found (always gonna happen), set the movement vector towards it
         if (this.TargetTile != null)
         {
-            this.ToTargetVector = Math.Normalize((this.TargetTile.Transform.Translation - this.Owner.Transform.Translation) * Real3(1, 1, 0));
+            this.ToTargetVector = Math.Normalize((this.TargetTile.Transform.WorldTranslation - this.Owner.Transform.Translation) * Real3(1, 1, 0));
         }
         
     }
@@ -299,7 +297,7 @@ class EnemyAI : ZilchComponent
         //Scans through each tile and finds the closest one
         foreach (var ti in tiles)
         {
-            var tempLocation = ti.Transform.Translation - this.Owner.Transform.Translation;
+            var tempLocation = ti.Transform.WorldTranslation - this.Owner.Transform.WorldTranslation;
             var distance = Math.Pow(tempLocation.X, 2) + Math.Pow(tempLocation.Y, 2);
             
             if (!ti.NavigationPoint.FortyFiveCorner && (currentDistance < 0 || distance < currentDistance))

@@ -102,7 +102,6 @@ class Weapon : ZilchComponent
         {
             this.Owner.Transform.RotateAnglesLocal(Real3(0, this.RecoilVelocity * deltaTime, 0));
             this.RecoilTracker += this.RecoilVelocity * deltaTime;
-            Console.WriteLine(this.RecoilTracker);
             this.RecoilVelocity += this.RecenterSpeed * deltaTime;
             if (this.RecoilTracker >= 0)
             {

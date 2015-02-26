@@ -66,13 +66,38 @@ class Tile_Replace3D : ZilchComponent
             var floor = this.Owner.Space.CreateAtPosition(this.FloorProp, this.Owner.Transform.Translation + Real3(0, 0, -1));
             floor.Transform.SetEulerAnglesXYZ(Math.Pi, 0, 0);
             floor.AttachTo(geometryParent);
-            floor.Name = "Floor";
             if (this.FortyFiveCorner)
             {
-                floor.NavigationPoint.FortyFiveCorner = true;
+                var pathPointer = floor.FindChildByName("Floor");
                 floor.Name = "Floor45";
+                
+                if (this.Up)
+                {
+                    if (this.Right)
+                    {
+                        pathPointer.Transform.Translation = Real3(-0.36, 0.36, 0);
+                    }
+                    else
+                    {
+                        pathPointer.Transform.Translation = Real3(0.36, 0.36, 0);
+                    }
+                }
+                else
+                {
+                    if (this.Right)
+                    {
+                        pathPointer.Transform.Translation = Real3(-0.36, -0.36, 0);
+                    }
+                    else
+                    {
+                        pathPointer.Transform.Translation = Real3(0.36, -0.36, 0);
+                    }
+                }
             }
-            floor.NavigationPoint.Touched = true;
+            else
+            {
+                floor.Name = "Floor";
+            }
             var ceiling = this.Owner.Space.CreateAtPosition(this.CeilingProp, this.Owner.Transform.Translation + Real3(0, 0, 1));
             ceiling.Transform.SetEulerAnglesXYZ(0, 0, 0);
             ceiling.AttachTo(geometryParent);

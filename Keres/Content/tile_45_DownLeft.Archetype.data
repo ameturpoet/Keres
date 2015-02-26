@@ -22,7 +22,7 @@ Cog =
 	{
 		Enum Type = Tile,
 		string MainProp = "54b553f033630fad:Plane_45Corner",
-		string FloorProp = "5469260c6b8cec37:PlaneFloor",
+		string FloorProp = "5441b32ed95ca888:PlaneFloor45",
 		string CeilingProp = "54b553c13657d63a:Plane_Flat",
 		bool JustProp = false,
 		bool FloorCeiling = true,

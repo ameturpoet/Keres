@@ -14,9 +14,9 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-3.5, 2.5, 0],
+		Vec3 Translation = [35.548, 13.6343, 1.11735],
 		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0, 0, 0.707107, 0.707107],
+		Quat Rotation = [0, 0, 0, 1],
 	},
 	Model = 
 	{
@@ -51,6 +51,7 @@ Cog =
 		bool Locked = false,
 		string Key = "TestKey",
 		float OpenTime = 0.3,
+		int State = 2,
 	},
 	SoundEmitter = 
 	{
@@ -114,6 +115,20 @@ Cog =
 				Enum TypeOfDoor = MoveRight,
 				float OpenDistance = 0.48,
 				float OpenAngle = 90,
+				bool Initialized = false,
+				Vec3 StartingLocation = [0, 0, 0],
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
 			},
 			Hierarchy = 
 			{
@@ -164,6 +179,20 @@ Cog =
 				Enum TypeOfDoor = MoveLeft,
 				float OpenDistance = 0.48,
 				float OpenAngle = 90,
+				bool Initialized = false,
+				Vec3 StartingLocation = [0, 0, 0],
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
 			},
 			Hierarchy = 
 			{

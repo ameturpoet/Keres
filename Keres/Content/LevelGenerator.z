@@ -218,7 +218,7 @@ class LevelGenerator : ZilchComponent
 
         //this.Owner.Space.DispatchEvent("ConnectTiles", connectionEvent);
         
-        timeout(10)
+        timeout(15)
         {
             this.Owner.Space.DispatchEvent("ConnectTiles", connectionEvent);
             

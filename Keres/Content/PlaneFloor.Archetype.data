@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [7.50233, -0.705349, 1.00302],
+		Vec3 Translation = [32.0485, 8.42137, 1.09903],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -51,12 +51,19 @@ Cog =
 	},
 	Hierarchy = 
 	{
-		ArchetypeInstance = 
+		Cog = 
 		{
-			string Name = "5499e414e1e44e80:Text",
 			LinkId = 
 			{
 				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "FloorText",
+			},
+			Archetyped = 
+			{
+				string Name = "5499e414e1e44e80:Text",
 			},
 			Transform = 
 			{
@@ -64,9 +71,25 @@ Cog =
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [1, -4.37114e-008, 4.37114e-008, 1.91069e-015],
 			},
-			Named = 
+			SpriteText = 
 			{
-				string Name = "FloorText",
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ViewPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				TextPositionMode Position = Centered,
+				string FontName = "4e7bac697bec55c5:Verdana",
+				uint FontSize = 16,
+				string Text = "Floor",
+				bool OnTop = true,
+				Vec2 Size = [0, 0],
+				TextAlign Align = Left,
+				float PixelsPerUnit = 64,
+				bool Smoothing = true,
 			},
 		},
 	},

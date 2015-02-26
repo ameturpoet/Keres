@@ -29,6 +29,10 @@ class MenuButton : ZilchComponent
                 {
                     this.Space.LoadLevel(level);
                 }
+                else
+                {
+                    this.Space.LoadLevel(this.Owner.StartingLevel.StartingLevel);
+                }
             }
             else if (this.Target == "Quit")
             {

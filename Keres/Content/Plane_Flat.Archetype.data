@@ -10,17 +10,17 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "541a9554d969de2c:Plane",
+		string Name = "54b553c13657d63a:Plane_Flat",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [3.98703, 8.91407, 0.432012],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Model = 
 	{
-		bool Visible = true,
+		bool Visible = false,
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
