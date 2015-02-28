@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Interactable_Alarm",
+		uint64 ResourceId = 54311b2a537f92f8,
+	},
+},

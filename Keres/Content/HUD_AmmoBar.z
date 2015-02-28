@@ -1,0 +1,28 @@
+class HUD_AmmoBar : ZilchComponent
+{
+    [Property]
+    var FullSprite : SpriteSource = null;
+    [Property]
+    var EmptySprite : SpriteSource = null;
+    var BarFill : Cog = null;
+    var Graphic : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.BarFill = this.Owner.FindChildByName("HUD_AmmoFill");
+        this.Graphic = this.Owner.FindChildByName("HUD_AmmoBar");
+    }
+
+    function SetFill(level : Real)
+    {
+        this.BarFill.Transform.Scale = Real3(level * 3, 3, 3);
+        if (level <= 0.0)
+        {
+            this.Graphic.Sprite.SpriteSource = this.EmptySprite;
+        }
+        else if (this.Graphic.Sprite.SpriteSource.Name != this.FullSprite.Name)
+        {
+            this.Graphic.Sprite.SpriteSource = this.FullSprite;
+        }
+    }
+}

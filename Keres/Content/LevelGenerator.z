@@ -180,7 +180,7 @@ class LevelGenerator : ZilchComponent
         }
         
         var player = this.Owner.Space.FindObjectByName("Player");
-        player.PlayerControl_Move.UpdateO2();
+        player.PlayerControl_Move.UpdateO2(0);
         player.PlayerControl_Move.SetHUDPointers();
         player.Inventory.LoadItemIcons();
         
@@ -218,7 +218,7 @@ class LevelGenerator : ZilchComponent
 
         //this.Owner.Space.DispatchEvent("ConnectTiles", connectionEvent);
         
-        timeout(15)
+        timeout(60)
         {
             this.Owner.Space.DispatchEvent("ConnectTiles", connectionEvent);
             

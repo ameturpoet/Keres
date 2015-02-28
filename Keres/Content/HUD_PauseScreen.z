@@ -1,0 +1,46 @@
+class HUD_PauseScreen : ZilchComponent
+{
+    var Enabled : Boolean = false;
+    var Stopped : Boolean = true;
+    var StartLocation : Real3 = Real3(0, 0, 0);
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.StartLocation = this.Owner.Transform.Translation;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Enabled && !this.Stopped)
+        {
+            var toCenter = this.Owner.Transform.Translation * -1;
+            this.Owner.Transform.Translation += toCenter * 0.75;
+            if (Math.Length(toCenter) <= 0.1)
+            {
+                this.Owner.Transform.Translation = Real3(0, 0, 0);
+                this.Stopped = true;
+            }
+        }
+        else if (!this.Enabled && !this.Stopped)
+        {
+            this.Owner.Transform.Translation = this.StartLocation;
+            this.Stopped = true;
+        }
+    }
+    
+    function OpenMenu()
+    {
+        this.Enabled = true;
+        this.Stopped = false;
+    }
+    
+    function CloseMenu()
+    {
+        this.Enabled = false;
+        this.Stopped = false;
+        this.Owner.Space.FindObjectByName("BlackOverlay").LoadScreenElement.Disappear();
+        this.Owner.Transform.Translation = this.StartLocation;
+        this.Space.FindObjectByName("GameSpacePointer").GameSpacePointer.GameSpace.TimeSpace.TogglePause();
+        Zero.Mouse.ToggleTrapped();
+    }
+}

@@ -14,6 +14,6 @@ class Activator_PushButton : ZilchComponent
 
     function Activate()
     {
-        this.ActivationTarget.Cog.Interactable.Activate();
+        this.ActivationTarget.Cog.Interactable.Activate(false);
     }
 }

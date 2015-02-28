@@ -67,7 +67,6 @@ class NavigationPoint : ZilchComponent
     {
         if (!this.Done && !this.FortyFiveCorner)
         {
-            this.CheckForNearEnemy();
             
             foreach (var ti in this.NearPoints)
             {
@@ -92,19 +91,6 @@ class NavigationPoint : ZilchComponent
                 }
             }
             this.Done = true;
-        }
-    }
-    
-    function CheckForNearEnemy()
-    {
-        var enemy = this.Owner.Space.FindObjectByName("enemy");
-        if (Math.Distance(this.Owner.Transform.Translation, enemy.Transform.Translation) <= 1.0)
-        {
-            this.NearEnemy = true;
-        }
-        else
-        {
-            this.NearEnemy = false;
         }
     }
     

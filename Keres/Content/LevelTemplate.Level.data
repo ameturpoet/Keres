@@ -90,7 +90,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-47.4732, 91.6436, 135.3],
+			Vec3 Translation = [-47.432, 91.9379, 135.116],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.274962, -0.162626, -0.0472471, 0.946423],
 		},
@@ -110,7 +110,7 @@ Level =
 			float LookDistance = 166.006,
 			float VerticalAngle = 0.565487,
 			float HorizontalAngle = 0.34034,
-			Vec3 LookTarget = [-0.685538, 2.69307, 3.17608],
+			Vec3 LookTarget = [-0.644389, 2.98739, 2.99251],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -272,6 +272,8 @@ Level =
 			Enum RadarPing = Q,
 			Enum RefillOxygen = R,
 			Enum Reload = F,
+			Enum Pause = Control,
+			Enum ToggleDebug = Zero,
 		},
 		NavigationEvents = 
 		{
@@ -492,15 +494,15 @@ Level =
 								{
 									uint MinBranches = 1,
 									uint MaxBranches = 2,
-									float BranchProbabilityExponent = 0.1,
+									float BranchProbabilityExponent = 0.05,
 									float DurationPerStrike = 0.2,
 									uint MinDepth = 1,
 									uint MaxDepth = 2,
-									float MinSegmentLength = 1,
+									float MinSegmentLength = 0.1,
 									float MaxSegmentLength = 1.5,
 									float MinRandomOffset = 0.1,
 									float MaxRandomOffset = 0.3,
-									float BeginSize = 0.1,
+									float BeginSize = 0.07,
 									float EndSize = 0.1,
 									float HackOffsetPercentage = 0.3,
 									Vec3 TargetPosition = [1, 0, 0],

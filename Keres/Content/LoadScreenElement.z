@@ -16,6 +16,22 @@ class LoadScreenElement : ZilchComponent
     {
         this.FadeOut = true;
     }
+    
+    //Makes the black overlay appear with the specified opacity
+    function Appear(visibility : Real)
+    {
+        var temp = Real4(0, 0, 0, visibility);
+        this.Owner.Sprite.Color = temp;
+        this.Owner.Sprite.Visible = true;
+    }
+    
+    //Makes the black overlay disappear
+    function Disappear()
+    {
+        var temp = Real4(0, 0, 0, 0);
+        this.Owner.Sprite.Color = temp;
+        this.Owner.Sprite.Visible = true;
+    }
 
     function OnLogicUpdate(event : UpdateEvent)
     {

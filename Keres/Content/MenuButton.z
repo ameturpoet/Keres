@@ -7,12 +7,19 @@ class MenuButton : ZilchComponent
     var LoadTargetAsLevel : Boolean = false;
     //If LoadTargetAsLevel is true, the button will try to load a level whose name is the value of Target
     
+    var Highlighted : Boolean = false;
+    var Clicked : Boolean = false;
+    
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Owner, Events.MouseUp, this.DoTarget);
+        Zero.Connect(this.Owner, Events.MouseEnter, this.OnMouseEnter);
+        Zero.Connect(this.Owner, Events.MouseExit, this.OnMouseExit);
+        Zero.Connect(this.Owner, Events.LeftMouseDown, this.OnMouseClick);
+        Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnMouseRelease);
     }
 
-    function DoTarget(event : MouseEvent)
+    //Performs different functions based on the button's purpose
+    function DoTarget()
     {
         if (this.LoadTargetAsLevel)
         {
@@ -22,26 +29,109 @@ class MenuButton : ZilchComponent
         {
             if (this.Target == "Play")
             {
-                var fileManager = this.Owner.Space.FindObjectByName("FileManager");
-                var level = fileManager.SaveManager.GetCurrentLevel();
-                
-                if (level.Name != this.Owner.Space.CurrentLevel.Name)
-                {
-                    this.Space.LoadLevel(level);
-                }
-                else
-                {
-                    this.Space.LoadLevel(this.Owner.StartingLevel.StartingLevel);
-                }
+                this.PlayButton();
+            }
+            else if (this.Target == "Resume")
+            {
+                this.ResumeGame();
             }
             else if (this.Target == "Quit")
             {
-                this.GameSession.Quit();
+                this.QuitButton();
             }
             else if (this.Target == "NewGame")
             {
-                Zero.ObjectStore.ClearStore();
+                this.NewGame();
             }
+        }
+    }
+    
+    function ResumeGame()
+    {
+        this.Owner.Parent.HUD_PauseScreen.CloseMenu();
+    }
+    
+    //Begins playing the game
+    function PlayButton()
+    {
+        var fileManager = this.Owner.Space.FindObjectByName("FileManager");
+        var level = fileManager.SaveManager.GetCurrentLevel();
+        
+        if (level.Name != this.Owner.Space.CurrentLevel.Name)
+        {
+            this.Space.LoadLevel(level);
+        }
+        else
+        {
+            this.Space.LoadLevel(this.Owner.StartingLevel.StartingLevel);
+        }
+    }
+    
+    //Exits the game
+    function QuitButton()
+    {
+        this.GameSession.Quit();
+    }
+    
+    //Starts a new game, clearing all saved data in the ObjectStore
+    function NewGame()
+    {
+        Zero.ObjectStore.ClearStore();
+    }
+    
+    //------------------------------------
+    //PUT BUTTON FUNCTIONS ABOVE ONLY FOR CONVENIENCE
+    //------------------------------------
+    
+    //Sets the correct sprite based on mouse input
+    function SetCorrectSprite()
+    {
+        if (this.Highlighted)
+        {
+            if (this.Clicked)
+            {
+                this.Owner.Sprite.CurrentFrame = 2;
+            }
+            else
+            {
+                this.Owner.Sprite.CurrentFrame = 1;
+            }
+        }
+        else
+        {
+            this.Owner.Sprite.CurrentFrame = 0;
+        }
+    }
+    
+    function OnMouseEnter(event : MouseEvent)
+    {
+        this.Highlighted = true;
+        this.SetCorrectSprite();
+    }
+    
+    function OnMouseExit(event : MouseEvent)
+    {
+        this.Highlighted = false;
+        this.Clicked = false;
+        this.SetCorrectSprite();
+    }
+    
+    function OnMouseClick(event : MouseEvent)
+    {
+        if (this.Highlighted)
+        {
+            this.Clicked = true;
+            this.SetCorrectSprite();
+        }
+    }
+    
+    function OnMouseRelease(event : MouseEvent)
+    {
+        if (this.Clicked && this.Highlighted)
+        {
+            this.Clicked = false;
+            this.SetCorrectSprite();
+            this.DoTarget();
         }
     }
 }

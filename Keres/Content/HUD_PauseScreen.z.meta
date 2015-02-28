@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "HUD_PauseScreen",
+		uint64 ResourceId = 544fb1caacdfe26f,
+	},
+},

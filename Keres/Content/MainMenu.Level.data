@@ -90,9 +90,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.918249, -1.10765, 53.9609],
+			Vec3 Translation = [0.0677923, -1.97879, 52.3435],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-7.52045e-007, -1.19161e-006, -9.12944e-013, 1],
+			Quat Rotation = [-8.4238e-007, -1.08637e-006, -9.22187e-013, 1],
 		},
 		Camera = 
 		{
@@ -102,15 +102,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 30.1193,
+			float Size = 27.2531,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = ZPlane,
 			float LookDistance = 50,
-			float VerticalAngle = 1.50409e-006,
-			float HorizontalAngle = 2.33855e-006,
-			Vec3 LookTarget = [-0.918132, -1.10773, 3.96091],
+			float VerticalAngle = 1.68476e-006,
+			float HorizontalAngle = 2.15601e-006,
+			Vec3 LookTarget = [0.0679001, -1.97888, 2.34347],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -214,7 +214,7 @@ Level =
 		},
 		Sprite = 
 		{
-			bool Visible = true,
+			bool Visible = false,
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = false,
 			bool CastShadows = false,
@@ -244,7 +244,7 @@ Level =
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = false,
 			bool CastShadows = false,
-			Vec4 Color = [0, 0, 0, 1],
+			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -320,7 +320,7 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [-12.5217, 2.12327, 4.76451],
-			Vec3 Scale = [3, 1, 1],
+			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -333,12 +333,12 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "541a8e91d7b5c749:0000",
+			string SpriteSource = "544fbcc6ad2dfc41:HUD_TempMenuButton",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
 			bool OnTop = false,
-			bool AnimationActive = true,
+			bool AnimationActive = false,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
 		},
@@ -361,7 +361,7 @@ Level =
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 			TextPositionMode Position = Centered,
 			string FontName = "4e7bac697bec55c5:Verdana",
-			uint FontSize = 16,
+			uint FontSize = 36,
 			string Text = "PLAY",
 			bool OnTop = false,
 			Vec2 Size = [0, 0],
@@ -411,7 +411,7 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [-12.5217, 0.35707, 4.76451],
-			Vec3 Scale = [3, 1, 1],
+			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -424,12 +424,12 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "541a8e91d7b5c749:0000",
+			string SpriteSource = "544fbcc6ad2dfc41:HUD_TempMenuButton",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
 			bool OnTop = false,
-			bool AnimationActive = true,
+			bool AnimationActive = false,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
 		},
@@ -452,7 +452,7 @@ Level =
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 			TextPositionMode Position = Centered,
 			string FontName = "4e7bac697bec55c5:Verdana",
-			uint FontSize = 16,
+			uint FontSize = 36,
 			string Text = "QUIT",
 			bool OnTop = false,
 			Vec2 Size = [0, 0],
@@ -577,7 +577,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "menuButton",
+			string Name = "gameVersion",
 		},
 		Archetyped = 
 		{
@@ -635,7 +635,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "menuButton",
+			string Name = "copyright",
 		},
 		Archetyped = 
 		{
@@ -643,7 +643,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-15.75, -9.27771, 4.76451],
+			Vec3 Translation = [-15.75, -9.27771, 20],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -668,7 +668,7 @@ Level =
 			string FontName = "4e7bac697bec55c5:Verdana",
 			uint FontSize = 32,
 			string Text = "All content © 2015 DigiPen (USA) Corporation, all rights reserved",
-			bool OnTop = false,
+			bool OnTop = true,
 			Vec2 Size = [0, 0],
 			TextAlign Align = Center,
 			float PixelsPerUnit = 64,
@@ -701,8 +701,8 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-12.5217, -1.12999, 4.76451],
-			Vec3 Scale = [3, 1, 1],
+			Vec3 Translation = [-12.5217, -1.50537, 4.76451],
+			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -715,12 +715,12 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "541a8e91d7b5c749:0000",
+			string SpriteSource = "544fbcc6ad2dfc41:HUD_TempMenuButton",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
 			bool OnTop = false,
-			bool AnimationActive = true,
+			bool AnimationActive = false,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
 		},
@@ -743,8 +743,8 @@ Level =
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 			TextPositionMode Position = Centered,
 			string FontName = "4e7bac697bec55c5:Verdana",
-			uint FontSize = 10,
-			string Text = "NEW GAME",
+			uint FontSize = 36,
+			string Text = "CLEAR SAVE DATA",
 			bool OnTop = false,
 			Vec2 Size = [0, 0],
 			TextAlign Align = Left,

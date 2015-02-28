@@ -40,7 +40,7 @@ class Oxygen : ZilchComponent
             {
                 this.Owner.PlayerStats.Oxygen = this.MaxOxygen;
                 this.Owner.Inventory.DeleteItem("OxygenTank");
-                this.Owner.PlayerControl_Move.UpdateO2();
+                this.Owner.PlayerControl_Move.UpdateO2(-1);
             }
             else
             {

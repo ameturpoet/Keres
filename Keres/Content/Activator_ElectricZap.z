@@ -16,7 +16,7 @@ class Activator_ElectricZap : ZilchComponent
     {
         if (event.OtherObject.Name == "Zap")
         {
-            this.ActivationTarget.Cog.Interactable.Activate();
+            this.ActivationTarget.Cog.Interactable.Activate(false);
         }
     }
 }

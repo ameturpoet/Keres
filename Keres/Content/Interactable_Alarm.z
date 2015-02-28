@@ -1,0 +1,80 @@
+class Interactable_Alarm : ZilchComponent
+{
+    [Dependency]
+    var SoundEmitter : SoundEmitter = null;
+    [Dependency]
+    var Interactable : Interactable = null;
+    [Property]
+    var ManuallyActivated : Boolean = false;
+    [Property]
+    var ShutsOff : Boolean = true;
+    [Property]
+    var RingTime : Real = 6.0;
+    var RingInterval : Real = 0.0;
+    var DistractionInterval : Real = 0.0;
+    var CurrentlyActive : Boolean = false;
+    
+    
+    var MaxDistractionInterval : Real = 0.3;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    //Activates the alarm, playing a loud noise
+    function Activate()
+    {
+        this.SendDistraction();
+        this.RingInterval = this.RingTime;
+        this.SoundEmitter.Play();
+        this.CurrentlyActive = true;
+        if (this.Owner.Light != null)
+        {
+            this.Owner.Light.Visible = true;
+        }
+    }
+    
+    //Attempts to distract all enemies in the level, sending them towards the alarm if
+    //they're not actively aware of the player
+    function SendDistraction()
+    {
+        var enemies = this.Owner.Space.FindAllObjectsByName("enemy");
+        
+        foreach (var enemy in enemies)
+        {
+            enemy.EnemyAI.Distract(this.Owner.Transform.Translation * Real3(1, 1, 0));
+        }
+        
+        this.DistractionInterval = this.MaxDistractionInterval;
+        
+        Console.WriteLine("Sent distraction");
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.CurrentlyActive)
+        {
+            if (this.DistractionInterval <= 0)
+            {
+                this.SendDistraction();
+            }
+            this.DistractionInterval -= event.Dt;
+            
+            if (this.ShutsOff)
+            {
+                if (this.RingInterval <= 0)
+                {
+                    Console.WriteLine("Shut off");
+                    this.CurrentlyActive = false;
+                    this.SoundEmitter.Stop();
+                    if (this.Owner.Light != null)
+                    {
+                        this.Owner.Light.Visible = false;
+                    }
+                }
+                this.RingInterval -= event.Dt;
+            }
+        }
+    }
+}

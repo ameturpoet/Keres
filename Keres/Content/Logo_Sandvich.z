@@ -6,6 +6,7 @@ class Logo_Sandvich : ZilchComponent
     var DisplayTime : Real = 2.0;
     var DeleteNow : Boolean = false;
     var Timer : Real = 1.0;
+    var DontShow : Boolean = false;
     
     function Initialize(init : CogInitializer)
     {
@@ -26,6 +27,14 @@ class Logo_Sandvich : ZilchComponent
         }
         else if (this.DeleteNow)
         {
+            if (!this.DontShow)
+            {
+                this.DontShow = true;
+            }
+            else
+            {
+                this.Space.FindObjectByName("SandvichText").SpriteText.Visible = true;
+            }
             if (this.Timer >= this.DisplayTime)
             {
                 this.Space.LoadLevel(Level.Find("MainMenu"));

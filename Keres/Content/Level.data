@@ -90,9 +90,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-7.09917, 2.56465, 5.4074],
+			Vec3 Translation = [2.48824, 2.45991, 5.51201],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [8.26487e-008, 0.0758547, -6.2874e-009, 0.997119],
+			Quat Rotation = [0.00261807, 7.50122e-006, -1.95322e-008, 0.999997],
 		},
 		Camera = 
 		{
@@ -102,15 +102,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 14.9569,
+			float Size = 8.20852,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 9.13421,
-			float VerticalAngle = -1.65775e-007,
-			float HorizontalAngle = 6.13133,
-			Vec3 LookTarget = [-8.48092, 2.56466, -3.6217],
+			float VerticalAngle = -0.00523615,
+			float HorizontalAngle = 6.28317,
+			Vec3 LookTarget = [2.4881, 2.50774, -3.62208],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -202,6 +202,8 @@ Level =
 			Enum RadarPing = Q,
 			Enum RefillOxygen = R,
 			Enum Reload = F,
+			Enum Pause = Control,
+			Enum ToggleDebug = Zero,
 		},
 		NavigationEvents = 
 		{
@@ -534,7 +536,7 @@ Level =
 		TileMap = 
 		{
 			string SourceName = "54e5c0d97379555b:Level_TileMap01",
-			string PaletteName = "541aaf73f838e64f:TextureMapPallette",
+			string PaletteName = "541a8eb12d86f4ed:LevelDesignPallette",
 			float UnitsPerTile = 1,
 			float MeshThickness = 1.2,
 		},
@@ -897,7 +899,6 @@ Level =
 			bool ShowTooltip = true,
 			string Tooltip = "Door Control",
 			bool ShowControl = false,
-			Enum Control = Space,
 		},
 	},
 	Cog = 
@@ -947,28 +948,13 @@ Level =
 			bool ShowTooltip = true,
 			string Tooltip = "Door Control",
 			bool ShowControl = false,
-			Enum Control = Space,
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "549e1e47fdc7d5a4:Activator_PushButton",
-		LinkId = 
-		{
-			uint Id = 22,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-2.98943, 3.50301, 0.05],
-			Vec3 Scale = [0.5, 0.25, 0.25],
-			Quat Rotation = [0, 0, 0.707107, 0.707107],
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 23,
+			uint Id = 22,
 		},
 		Named = 
 		{
@@ -1008,7 +994,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 24,
+			uint Id = 23,
 		},
 		Named = 
 		{
@@ -1048,7 +1034,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 25,
+			uint Id = 24,
 		},
 		Named = 
 		{
@@ -1088,7 +1074,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 26,
+			uint Id = 25,
 		},
 		Named = 
 		{
@@ -1128,7 +1114,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 27,
+			uint Id = 26,
 		},
 		Named = 
 		{
@@ -1168,7 +1154,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 28,
+			uint Id = 27,
 		},
 		Named = 
 		{
@@ -1200,7 +1186,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 29,
+					uint Id = 28,
 				},
 				Archetyped = 
 				{
@@ -1211,6 +1197,33 @@ Level =
 					Vec3 Translation = [0, 0, -12.4264],
 					Vec3 Scale = [24.8528, 24.8528, 60],
 					Quat Rotation = [-0.5, -0.5, 0.5, -0.5],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "546f39d69d23c76f:Mat_Stars",
+					string MeshName = "541a9554d9923aae:Plane",
+					Vec4 Color = [1, 1, 1, 1],
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 29,
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, -12.4264],
+					Vec3 Scale = [24.8528, 24.8528, 60],
+					Quat Rotation = [-0.707107, 0, 0.707107, 0],
 				},
 				Model = 
 				{
@@ -1237,7 +1250,7 @@ Level =
 				{
 					Vec3 Translation = [0, 0, -12.4264],
 					Vec3 Scale = [24.8528, 24.8528, 60],
-					Quat Rotation = [-0.707107, 0, 0.707107, 0],
+					Quat Rotation = [0, 0.707107, 0, 0.707107],
 				},
 				Model = 
 				{
@@ -1264,7 +1277,7 @@ Level =
 				{
 					Vec3 Translation = [0, 0, -12.4264],
 					Vec3 Scale = [24.8528, 24.8528, 60],
-					Quat Rotation = [0, 0.707107, 0, 0.707107],
+					Quat Rotation = [-0.5, 0.5, 0.5, 0.5],
 				},
 				Model = 
 				{
@@ -1291,7 +1304,7 @@ Level =
 				{
 					Vec3 Translation = [0, 0, -12.4264],
 					Vec3 Scale = [24.8528, 24.8528, 60],
-					Quat Rotation = [-0.5, 0.5, 0.5, 0.5],
+					Quat Rotation = [0.270598, 0.653282, -0.270598, 0.653282],
 				},
 				Model = 
 				{
@@ -1318,7 +1331,7 @@ Level =
 				{
 					Vec3 Translation = [0, 0, -12.4264],
 					Vec3 Scale = [24.8528, 24.8528, 60],
-					Quat Rotation = [0.270598, 0.653282, -0.270598, 0.653282],
+					Quat Rotation = [0.653282, 0.270598, -0.653282, 0.270598],
 				},
 				Model = 
 				{
@@ -1345,7 +1358,7 @@ Level =
 				{
 					Vec3 Translation = [0, 0, -12.4264],
 					Vec3 Scale = [24.8528, 24.8528, 60],
-					Quat Rotation = [0.653282, 0.270598, -0.653282, 0.270598],
+					Quat Rotation = [0.653282, -0.270598, -0.653282, -0.270598],
 				},
 				Model = 
 				{
@@ -1372,33 +1385,6 @@ Level =
 				{
 					Vec3 Translation = [0, 0, -12.4264],
 					Vec3 Scale = [24.8528, 24.8528, 60],
-					Quat Rotation = [0.653282, -0.270598, -0.653282, -0.270598],
-				},
-				Model = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = true,
-					string MaterialName = "546f39d69d23c76f:Mat_Stars",
-					string MeshName = "541a9554d9923aae:Plane",
-					Vec4 Color = [1, 1, 1, 1],
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 36,
-				},
-				Archetyped = 
-				{
-					string Name = "4faa6050b86884ec:DefaultArchetype",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, -12.4264],
-					Vec3 Scale = [24.8528, 24.8528, 60],
 					Quat Rotation = [-0.270598, 0.653282, 0.270598, 0.653282],
 				},
 				Model = 
@@ -1416,7 +1402,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 37,
+					uint Id = 36,
 				},
 				Archetyped = 
 				{
@@ -1443,7 +1429,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 38,
+					uint Id = 37,
 				},
 				Archetyped = 
 				{
@@ -1470,7 +1456,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 39,
+					uint Id = 38,
 				},
 				Archetyped = 
 				{
@@ -1497,7 +1483,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 40,
+					uint Id = 39,
 				},
 				Archetyped = 
 				{
@@ -1524,7 +1510,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 41,
+					uint Id = 40,
 				},
 				Archetyped = 
 				{
@@ -1551,7 +1537,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 42,
+					uint Id = 41,
 				},
 				Archetyped = 
 				{
@@ -1578,7 +1564,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 43,
+					uint Id = 42,
 				},
 				Archetyped = 
 				{
@@ -1605,7 +1591,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 44,
+					uint Id = 43,
 				},
 				Archetyped = 
 				{
@@ -1634,7 +1620,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 45,
+			uint Id = 44,
 		},
 		Named = 
 		{
@@ -1674,7 +1660,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 46,
+			uint Id = 45,
 		},
 		Named = 
 		{
@@ -1714,7 +1700,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 47,
+			uint Id = 46,
 		},
 		Named = 
 		{
@@ -1755,7 +1741,7 @@ Level =
 		string Name = "549e1a985bf3e563:Pluto_Lighting",
 		LinkId = 
 		{
-			uint Id = 48,
+			uint Id = 47,
 		},
 		Transform = 
 		{
@@ -1773,11 +1759,11 @@ Level =
 		string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		LinkId = 
 		{
-			uint Id = 49,
+			uint Id = 48,
 		},
 		Transform = 
 		{
-			Vec3 Translation = [9.67103, 7.05252, 0],
+			Vec3 Translation = [9.67103, 4.04207, 0],
 			Vec3 Scale = [0.1, 0.1, 0.1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1790,7 +1776,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 50,
+			uint Id = 49,
 		},
 		Named = 
 		{
@@ -1828,7 +1814,7 @@ Level =
 		string Name = "54645e3dc3ce41f3:planet_Sun",
 		LinkId = 
 		{
-			uint Id = 51,
+			uint Id = 50,
 		},
 		Transform = 
 		{
@@ -1846,7 +1832,7 @@ Level =
 		string Name = "4faa6050b86884ec:DefaultArchetype",
 		LinkId = 
 		{
-			uint Id = 52,
+			uint Id = 51,
 		},
 		Transform = 
 		{
@@ -1859,144 +1845,12 @@ Level =
 			string Name = "Test Tank",
 		},
 	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 53,
-		},
-		Named = 
-		{
-			string Name = "Wall",
-		},
-		Archetyped = 
-		{
-			string Name = "54b553a94a3d820a:Plane_Window",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-0.5, 5.5, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-3.09086e-008, -0.707107, -0.707107, -3.09086e-008],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "540260c6159f9173:Material__2",
-			string MeshName = "546cc2d0921cf846:Plane_Window",
-			Vec4 Color = [1, 1, 1, 1],
-		},
-		MeshCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			string PhysicsMeshName = "541a9554d9923ab3:Plane",
-			bool DrawEdges = true,
-			bool DrawFaces = false,
-			bool DrawFaceNormals = false,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 54,
-		},
-		Named = 
-		{
-			string Name = "Wall",
-		},
-		Archetyped = 
-		{
-			string Name = "54b553a94a3d820a:Plane_Window",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-5.5, 5.5, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-3.09086e-008, -0.707107, -0.707107, -3.09086e-008],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "540260c6159f9173:Material__2",
-			string MeshName = "546cc2d0921cf846:Plane_Window",
-			Vec4 Color = [1, 1, 1, 1],
-		},
-		MeshCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			string PhysicsMeshName = "541a9554d9923ab3:Plane",
-			bool DrawEdges = true,
-			bool DrawFaces = false,
-			bool DrawFaceNormals = false,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 55,
-		},
-		Named = 
-		{
-			string Name = "Wall",
-		},
-		Archetyped = 
-		{
-			string Name = "54b553a94a3d820a:Plane_Window",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-6.5, 5.5, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-3.09086e-008, -0.707107, -0.707107, -3.09086e-008],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "540260c6159f9173:Material__2",
-			string MeshName = "546cc2d0921cf846:Plane_Window",
-			Vec4 Color = [1, 1, 1, 1],
-		},
-		MeshCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			string PhysicsMeshName = "541a9554d9923ab3:Plane",
-			bool DrawEdges = true,
-			bool DrawFaces = false,
-			bool DrawFaceNormals = false,
-		},
-	},
 	ArchetypeInstance = 
 	{
 		string Name = "54b5514d89d60dac:Planet_Pluto",
 		LinkId = 
 		{
-			uint Id = 56,
+			uint Id = 52,
 		},
 		Transform = 
 		{
@@ -2013,51 +1867,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 57,
-		},
-		Named = 
-		{
-			string Name = "Wall",
-		},
-		Archetyped = 
-		{
-			string Name = "54b553a94a3d820a:Plane_Window",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0.5, -2.5, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.707107, 0, 0, 0.707107],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "540260c6159f9173:Material__2",
-			string MeshName = "546cc2d0921cf846:Plane_Window",
-			Vec4 Color = [1, 1, 1, 1],
-		},
-		MeshCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			string PhysicsMeshName = "541a9554d9923ab3:Plane",
-			bool DrawEdges = true,
-			bool DrawFaces = false,
-			bool DrawFaceNormals = false,
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 58,
+			uint Id = 53,
 		},
 		Named = 
 		{
@@ -2089,7 +1899,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 59,
+					uint Id = 54,
 				},
 				Named = 
 				{
@@ -2120,7 +1930,6 @@ Level =
 					bool ShowTooltip = true,
 					string Tooltip = "Electric Door",
 					bool ShowControl = true,
-					Enum Control = A,
 				},
 				BoxCollider = 
 				{
@@ -2161,7 +1970,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 60,
+							uint Id = 55,
 						},
 						Named = 
 						{
@@ -2225,7 +2034,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 61,
+							uint Id = 56,
 						},
 						Named = 
 						{
@@ -2291,7 +2100,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 62,
+					uint Id = 57,
 				},
 				Named = 
 				{
@@ -2322,7 +2131,6 @@ Level =
 					bool ShowTooltip = true,
 					string Tooltip = "Electric Door",
 					bool ShowControl = true,
-					Enum Control = A,
 				},
 				BoxCollider = 
 				{
@@ -2363,7 +2171,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 63,
+							uint Id = 58,
 						},
 						Named = 
 						{
@@ -2427,7 +2235,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 64,
+							uint Id = 59,
 						},
 						Named = 
 						{
@@ -2493,7 +2301,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 65,
+					uint Id = 60,
 				},
 				Named = 
 				{
@@ -2524,7 +2332,6 @@ Level =
 					bool ShowTooltip = true,
 					string Tooltip = "Electric Door",
 					bool ShowControl = true,
-					Enum Control = A,
 				},
 				BoxCollider = 
 				{
@@ -2565,7 +2372,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 66,
+							uint Id = 61,
 						},
 						Named = 
 						{
@@ -2629,7 +2436,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 67,
+							uint Id = 62,
 						},
 						Named = 
 						{
@@ -2696,7 +2503,7 @@ Level =
 				string Name = "549e0a49834032ed:Item_Key",
 				LinkId = 
 				{
-					uint Id = 68,
+					uint Id = 63,
 				},
 				Transform = 
 				{
@@ -2716,7 +2523,7 @@ Level =
 		string Name = "549e0d668f0d5948:PlayerInventory",
 		LinkId = 
 		{
-			uint Id = 69,
+			uint Id = 64,
 		},
 		Transform = 
 		{
@@ -2734,7 +2541,7 @@ Level =
 		string Name = "54b503d0a4096bde:FileManager",
 		LinkId = 
 		{
-			uint Id = 70,
+			uint Id = 65,
 		},
 		Transform = 
 		{
@@ -2745,6 +2552,20 @@ Level =
 		Named = 
 		{
 			string Name = "FileManager",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "549e1e47fdc7d5a4:Activator_PushButton",
+		LinkId = 
+		{
+			uint Id = 66,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-2.98943, 3.50301, 0.05],
+			Vec3 Scale = [0.5, 0.25, 0.25],
+			Quat Rotation = [0, 0, 0.707107, 0.707107],
 		},
 	},
 },

@@ -7,8 +7,6 @@ class Interactable : ZilchComponent
     
     [Property]
     var ShowControl : Boolean = true;
-    [Property]
-    var Control : Keys = Keys.Space;
     
     function Initialize(init : CogInitializer)
     {
@@ -20,13 +18,14 @@ class Interactable : ZilchComponent
 
     //Actives the interactable object, resulting in different outcomes based on what scripts are attached to it
     //E.g., an Interactable_Gate will open, an Item will be added to the player's inventory, etc.
-    //
-    function Activate()
+    //The parameter is whether it's being manually activated (by the player) or automatically activated
+    //(by an activator object)
+    function Activate(manual : Boolean)
     {
         //GATE
         if (this.Owner.Interactable_Gate != null)
         {
-            if (this.Owner.Interactable_Gate.Key == "" || !this.Owner.Interactable_Gate.Locked)
+            if (!manual || this.Owner.Interactable_Gate.Key == "" || !this.Owner.Interactable_Gate.Locked)
             {
                 this.Owner.Interactable_Gate.Toggle();
             }
@@ -70,7 +69,7 @@ class Interactable : ZilchComponent
             }
             else if (this.Owner.Item_OxygenTank != null)
             {
-                player.PlayerControl_Move.UpdateO2();
+                player.PlayerControl_Move.UpdateO2(0);
                 player.Soundbox_Player.PlayPickupOxyTank();
             }
             else if (this.Owner.Item_Battery != null)
@@ -85,6 +84,14 @@ class Interactable : ZilchComponent
             else
             {
                 player.PlayerControl_Move.TextLog.HUDElement_TextLog.AddLine(String.Concatenate("Picked up a ", this.Owner.Item.Name));
+            }
+        }
+        //ALARM
+        else if (this.Owner.Interactable_Alarm != null)
+        {
+            if (!manual || this.Owner.Interactable_Alarm.ManuallyActivated)
+            {
+                this.Owner.Interactable_Alarm.Activate();
             }
         }
     }

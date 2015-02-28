@@ -18,6 +18,10 @@ class Controller : ZilchComponent
     var RefillOxygen : Keys = Keys.R;
     [Property]
     var Reload : Keys = Keys.F;
+    [Property]
+    var Pause : Keys = Keys.Control;
+    [Property]
+    var ToggleDebug : Keys = Keys.Zero;
     
     function Initialize(init : CogInitializer)
     {
@@ -30,6 +34,14 @@ class Controller : ZilchComponent
         {
             this.Space.FindObjectByName("FileManager").SaveManager.SavePlayerData();
             this.Space.FindObjectByName("FileManager").SaveManager.SaveLevelState();
+        }
+        if (Zero.Keyboard.KeyIsPressed(this.Pause))
+        {
+            this.Space.TimeSpace.TogglePause();
+            this.Owner.PlayerControl_Move.HUDspace.FindObjectByName("BlackOverlay").LoadScreenElement.Appear(0.75);
+            //this.Owner.PlayerControl_Move.HUDspace.FindObjectByName("HUD_PauseMenu").HUD_PauseScreen.OpenMenu();
+            this.Owner.PlayerControl_Move.HUDspace.FindObjectByName("HUD_PauseMenu").Transform.Translation = Real3(0, 0, 5);
+            Zero.Mouse.ToggleTrapped();
         }
     }
 }

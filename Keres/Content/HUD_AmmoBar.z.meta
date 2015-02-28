@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "HUD_AmmoBar",
+		uint64 ResourceId = 545fe5a01505c469,
+	},
+},

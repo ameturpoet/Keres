@@ -1,4 +1,4 @@
-enum EnemyState { Idle, Aware, Aggroed, Stunned }
+enum EnemyState { Idle, Aware, Aggroed, Stunned, Distracted }
 
 class EnemyAI : ZilchComponent
 {
@@ -15,6 +15,9 @@ class EnemyAI : ZilchComponent
     var State : EnemyState = EnemyState.Idle;
     var Player : Cog = null;
     var PlayerSightCooldown : Real = 0.0;
+    var SeesPlayer : Boolean = false;
+    var LevelGeometry : Cog = null;
+    var DistractingLocation : Real3 = Real3(0, 0, 0);
     var StunTime : Real = 0.0;
     [Property]
     var MaxStunTime : Real = 2.5; //The amount of time the enemy will be stunned for
@@ -29,6 +32,7 @@ class EnemyAI : ZilchComponent
     [Dependency]
     var Soundbox : Soundbox_Keres = null;
     var FootstepCounter : Real = 0.0;
+    var PathingCounter : Real = 0.0;
     var CurrentCooldown : Real = 0.0;
     
     function Initialize(init : CogInitializer)
@@ -39,6 +43,7 @@ class EnemyAI : ZilchComponent
         Zero.Connect(this.Owner, Events.CollisionStarted, this.AttackPlayer);
         Zero.Connect(this.Owner, Events.CollisionPersisted, this.AttackPlayer);
         this.Player = this.Owner.Space.FindObjectByName("Player");
+        this.LevelGeometry = this.Owner.Space.FindObjectByName("LevelGeometry");
         this.RayFilter.CollisionGroup = CollisionGroup.Find("LineofSightRayGroup");
     }
     
@@ -46,6 +51,32 @@ class EnemyAI : ZilchComponent
     function Enable(event : ReadyEvent)
     {
         this.Disabled = false;
+    }
+    
+    //Recalculates the path to the target (usually the player, but could be something like an alarm)
+    function UpdatePathingGrid()
+    {
+        if (this.State != EnemyState.Distracted)
+        {
+            this.LevelGeometry.NavigationController.UpdateWeights(this.Player.Transform.Translation);
+        }
+        else
+        {
+            this.LevelGeometry.NavigationController.UpdateWeights(this.DistractingLocation);
+        }
+        this.GetCurrentTile();
+        this.GetNextTile();
+    }
+    
+    //Attempts to distract the enemy, won't work if they have direct line-of-sight to the player
+    function Distract(locationOfDistraction : Real3)
+    {
+        if (!this.SeesPlayer)
+        {
+            this.State = EnemyState.Distracted;
+            this.DistractingLocation = locationOfDistraction;
+            this.UpdatePathingGrid();
+        }
     }
     
     //Attacks the player upon collision
@@ -71,8 +102,8 @@ class EnemyAI : ZilchComponent
                 this.CurrentCooldown -= event.Dt;
             }
             
-            //If the enemy's state is Aware, it moves along the grid and checks for line-of-sight to the player
-            if (this.State == EnemyState.Aware)
+            //If the enemy's state is Aware or Distracted, it moves along the grid and checks for line-of-sight to the player
+            if (this.State == EnemyState.Aware || this.State == EnemyState.Distracted)
             {
                 //Console.WriteLine("Aware");
                 this.MoveByGrid(event.Dt);
@@ -81,6 +112,11 @@ class EnemyAI : ZilchComponent
                 {
                     this.FootstepCounter = 1.4;
                     this.Soundbox.PlayFootstep();
+                }
+                if (this.PathingCounter <= 0.0)
+                {
+                    this.PathingCounter = 0.3;
+                    this.UpdatePathingGrid();
                 }
             }
             //If the enemy is aggroed, it moves directly towards the player and checks for line-of-sight to the player
@@ -186,6 +222,7 @@ class EnemyAI : ZilchComponent
         }
         
         this.FootstepCounter -= deltaTime;
+        this.PathingCounter -= deltaTime;
     }
     
     //Uses rayscanning to check for direct line-of-sight to the player, setting the enemy state as a result
@@ -207,6 +244,8 @@ class EnemyAI : ZilchComponent
         //If the player was hit by the ray
         if (detectPlayer.ObjectHit != null && detectPlayer.ObjectHit.Name == "Player")
         {
+            this.SeesPlayer = true;
+            
             //If the player is within sight distance, immediately begin aggroing and head straight towards him
             if (Math.Distance(this.Player.Transform.Translation, this.Owner.Transform.Translation) <= this.SightDistance)
             {
@@ -236,6 +275,7 @@ class EnemyAI : ZilchComponent
         {
             if (this.State != EnemyState.Aware)
             {
+                this.SeesPlayer = false;
                 this.State = EnemyState.Aware;
                 Console.WriteLine("Aware");
                 this.PlayerSightCooldown = this.AttentionSpanTime;
@@ -246,8 +286,9 @@ class EnemyAI : ZilchComponent
         //If the player isn't hit by the ray, meaning that the enemy doesn't have direct line-of-sight
         else
         {
-            if (this.State != EnemyState.Idle)
+            if (this.State != EnemyState.Idle && this.State != EnemyState.Distracted)
             {
+                this.SeesPlayer = false;
                 //Counts down the attention span timer
                 this.PlayerSightCooldown -= deltaTime;
                 //If the player has been out of sight for the length of the enemy's attention span, the enemy resumes being idle
@@ -265,7 +306,7 @@ class EnemyAI : ZilchComponent
     //Changes the tile the enemy will moves to if the pathing grid is updates
     function UpdateTilePath(event : PathingUpdateEvent)
     {
-        this.GetNextTile();
+        //this.GetNextTile();
     }
     
     //Gets the next tile to go to in the pathing grid

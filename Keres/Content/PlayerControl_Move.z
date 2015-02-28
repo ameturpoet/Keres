@@ -57,8 +57,26 @@ class PlayerControl_Move : ZilchComponent
             this.RadarPing();
             this.UpdateHUD();
             
+            this.UpdateDebug();
+            
             //Old position is used mostly for moving blips around on the radar
             this.OldPosition = this.Owner.Transform.Translation;
+        }
+    }
+    
+    //Updates Debug mode status
+    function UpdateDebug()
+    {
+        if (Zero.Keyboard.KeyIsPressed(this.Controller.ToggleDebug))
+        {
+            Console.WriteLine(this.DebugMode);
+            this.DebugMode = !this.DebugMode;
+            
+            var tiles = this.Owner.Space.FindAllObjectsByName("Floor");
+            foreach (var tile in tiles)
+            {
+                tile.FindChildByName("FloorText").SpriteText.Visible = this.DebugMode;
+            }
         }
     }
     
@@ -120,6 +138,7 @@ class PlayerControl_Move : ZilchComponent
         this.Radar = this.HUDspace.FindObjectByName("HUD_Radar");
         this.TextLog = this.HUDspace.FindObjectByName("HUD_TextLog");
         this.ItemLog = this.HUDspace.FindObjectByName("HUD_ItemLog");
+        this.HUDspace.FindObjectByName("GameSpacePointer").GameSpacePointer.GameSpace = this.Owner.Space;
     }
     
     //Updates all elements of the player's HUD
@@ -137,7 +156,7 @@ class PlayerControl_Move : ZilchComponent
         this.HUDspace.FindObjectByName("HUD_Oxygen").SpriteText.Text = sr.ToString();
         
         //Then the player's ammo
-        this.HUDspace.FindObjectByName("HUD_AmmoCurrent").SpriteText.Text = this.Weapon.Cog.Weapon.AmmoString;
+        this.HUDspace.FindObjectByName("HUD_AmmoCurrent").HUD_AmmoBar.SetFill(this.PlayerStats.Energy / 100.0);
         
         //Then the player's ammo reserve
         sr = StringBuilder();
@@ -150,14 +169,14 @@ class PlayerControl_Move : ZilchComponent
     
     //Just updates the oxygen tank count
     //
-    function UpdateO2()
+    function UpdateO2(offset : Integer)
     {
         var counter = this.HUDspace.FindObjectByName("HUD_OxygenCount");
         
         var sr = StringBuilder();
         
         sr.Write("Tank x");
-        sr.Write(this.Owner.Inventory.GetItemCount("OxygenTank"));
+        sr.Write((this.Owner.Inventory.GetItemCount("OxygenTank") + offset));
         
         counter.SpriteText.Text = sr.ToString();
     }
@@ -237,7 +256,7 @@ class PlayerControl_Move : ZilchComponent
                     var key = this.HUDspace.FindObjectByName("InfoKey");
                     var builder = new StringBuilder();
                     builder.Write("[");
-                    builder.Write(this.HighlightedObject.Interactable.Control);
+                    builder.Write(this.Owner.Controller.Activate);
                     builder.Write("]");
                     key.SpriteText.Text = builder.ToString();
                     key.SpriteText.Visible = true;
@@ -246,7 +265,7 @@ class PlayerControl_Move : ZilchComponent
             
             if (Zero.Keyboard.KeyIsPressed(this.Controller.Activate))
             {
-                this.HighlightedObject.Interactable.Activate();
+                this.HighlightedObject.Interactable.Activate(true);
             }
         }
         else
@@ -374,7 +393,7 @@ class PlayerControl_Move : ZilchComponent
             
             this.Owner.RigidBody.Velocity = tempRight + tempForward;
             
-            
+            /*
             //Adds to the current movement tracker, which just keeps track of how much distance was covered
             this.MovementTracker += tempRight * deltaTime;
             this.MovementTracker += tempForward * deltaTime;
@@ -387,6 +406,7 @@ class PlayerControl_Move : ZilchComponent
                 this.MovementTracker = Real3(0, 0, 0);
                 this.LevelGeometry.NavigationController.UpdateWeights(this.Owner.Transform.Translation);
             }
+            */
             
             //Also calls the HeadBob function
             this.HeadBob(deltaTime, true);
@@ -404,7 +424,7 @@ class PlayerControl_Move : ZilchComponent
     //
     function OnMouseMove(event : MouseEvent)
     {
-        if (!this.Disabled)
+        if (!this.Disabled && !this.Owner.Space.TimeSpace.Paused)
         {
             var deltaAngle = Real3(event.Movement.Y * 0.85, 0, event.Movement.X);
             deltaAngle /= 100 * (11 - this.LookSensitivity);

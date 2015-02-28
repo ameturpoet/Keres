@@ -26,16 +26,15 @@ class NavigationController : ZilchComponent
     
     
     //Begins the recalculation of the pathing weights for the floor tiles
-    //
-    function UpdateWeights(playerLocation : Real3)
+    //starting from the designated location
+    function UpdateWeights(startLocation : Real3)
     {
         var startingTile : Cog = null;
         var currentDistance = -1337.0;
-        
         //Calculates the starting location and resets the weights of all tiles
         foreach (var ti in this.AllTiles)
         {
-            var tempLocation = ti.Transform.Translation - playerLocation;
+            var tempLocation = ti.Transform.Translation - startLocation;
             var distance = Math.Pow(tempLocation.X, 2) + Math.Pow(tempLocation.Y, 2);
             
             ti.NavigationPoint.Weight = 0;

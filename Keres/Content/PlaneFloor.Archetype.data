@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [32.0485, 8.42137, 1.09903],
+		Vec3 Translation = [42.9207, 0.00979458, 1.15596],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -73,7 +73,7 @@ Cog =
 			},
 			SpriteText = 
 			{
-				bool Visible = true,
+				bool Visible = false,
 				bool VisibilityCulling = true,
 				bool VisibilityEvents = false,
 				bool CastShadows = false,
