@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "TileArray2D",
+		uint64 ResourceId = 5451f50bf1ff86cb,
+	},
+},

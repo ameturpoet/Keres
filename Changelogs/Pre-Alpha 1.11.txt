@@ -1,0 +1,10 @@
+Pre-Alpha 1.11
+3/10/2015
+-------------
+Changes
+---
+
+---
+Bugfixes
+---
++Massive load times have been eliminated

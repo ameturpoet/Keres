@@ -10,7 +10,7 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "4faa6050b86884ec:DefaultArchetype",
+		string Name = "549e21b7e0952dfd:LevelGeometry",
 	},
 	Transform = 
 	{
@@ -22,6 +22,9 @@ Cog =
 	{
 	},
 	NavigationEvents = 
+	{
+	},
+	TileArray2D = 
 	{
 	},
 },

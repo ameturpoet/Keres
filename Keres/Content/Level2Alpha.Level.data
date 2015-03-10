@@ -90,7 +90,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.01928, -5.95337, 50.9266],
+			Vec3 Translation = [2.1166, -6.93831, 50.943],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-2.56579e-007, -0.00261807, -6.71749e-010, 0.999997],
 		},
@@ -102,7 +102,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 2.00002,
+			float Size = 18.0502,
 		},
 		EditorCameraController = 
 		{
@@ -110,7 +110,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 5.13159e-007,
 			float HorizontalAngle = 0.00523609,
-			Vec3 LookTarget = [-0.757475, -5.95339, 0.92726],
+			Vec3 LookTarget = [2.37841, -6.93833, 0.943681],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -237,6 +237,7 @@ Level =
 			Enum RadarPing = Q,
 			Enum RefillOxygen = R,
 			Enum Reload = F,
+			Enum Pause = Control,
 			Enum ToggleDebug = Zero,
 		},
 		NavigationEvents = 

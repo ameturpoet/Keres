@@ -53,21 +53,6 @@ class EnemyAI : ZilchComponent
         this.Disabled = false;
     }
     
-    //Recalculates the path to the target (usually the player, but could be something like an alarm)
-    function UpdatePathingGrid()
-    {
-        if (this.State != EnemyState.Distracted)
-        {
-            this.LevelGeometry.NavigationController.UpdateWeights(this.Player.Transform.Translation);
-        }
-        else
-        {
-            this.LevelGeometry.NavigationController.UpdateWeights(this.DistractingLocation);
-        }
-        this.GetCurrentTile();
-        this.GetNextTile();
-    }
-    
     //Attempts to distract the enemy, won't work if they have direct line-of-sight to the player
     function Distract(locationOfDistraction : Real3)
     {
@@ -75,7 +60,6 @@ class EnemyAI : ZilchComponent
         {
             this.State = EnemyState.Distracted;
             this.DistractingLocation = locationOfDistraction;
-            this.UpdatePathingGrid();
         }
     }
     
@@ -112,11 +96,6 @@ class EnemyAI : ZilchComponent
                 {
                     this.FootstepCounter = 1.4;
                     this.Soundbox.PlayFootstep();
-                }
-                if (this.PathingCounter <= 0.0)
-                {
-                    this.PathingCounter = 0.3;
-                    this.UpdatePathingGrid();
                 }
             }
             //If the enemy is aggroed, it moves directly towards the player and checks for line-of-sight to the player
@@ -172,6 +151,8 @@ class EnemyAI : ZilchComponent
         {
             this.State = EnemyState.Aware;
             this.Owner.RigidBody.Static = false;
+            this.GetCurrentTile();
+            this.GetNextTile();
         }
         this.StunTime -= deltaTime;
     }

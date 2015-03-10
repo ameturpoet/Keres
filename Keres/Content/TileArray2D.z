@@ -1,0 +1,158 @@
+class TileArray2D : ZilchComponent
+{
+    var MinX : Real = 0;
+    var MinY : Real = 0;
+    var MaxX : Real = 0;
+    var MaxY : Real = 0;
+    var Width : Real = 0;
+    var Height : Real = 0;
+    var Count : Real = 0;
+    
+    var TileArray : Array[Cog] = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.TileArray = new Array[Cog]();
+    }
+
+    //Initializes the list with 'empty' values
+    //(The values are actually pointers to this script's owner)
+    function InitializeEmptyList(allTiles : Array[Cog])
+    {
+        foreach (var tile in allTiles)
+        {
+            //Gets the sign of both the X and Y coordinates
+            var sign = Real2(Math.Abs(tile.Transform.WorldTranslation.X) / tile.Transform.WorldTranslation.X, Math.Abs(tile.Transform.WorldTranslation.Y) / tile.Transform.WorldTranslation.Y);
+            var temp = tile.Transform.WorldTranslation;
+            temp.X += sign.X;
+            temp.Y += sign.Y;
+            
+            //Check for X minimum and maximum
+            if (temp.X < this.MinX)
+            {
+                this.MinX = temp.X;
+            }
+            else if (temp.X > this.MaxX)
+            {
+                this.MaxX = temp.X;
+            }
+            
+            //Check for Y minimum and maximum
+            if (temp.Y< this.MinY)
+            {
+                this.MinY = temp.Y;
+            }
+            else if (temp.Y > this.MaxY)
+            {
+                this.MaxY = temp.Y;
+            }
+        }
+        
+        //Derives width and height from min/max X and Y
+        this.Width = this.MaxX - this.MinX - 1;
+        this.Height = this.MaxY - this.MinY - 1;
+        
+        Console.WriteLine(this.Width);
+        Console.WriteLine(this.Height);
+        Console.WriteLine(this.MinY);
+        Console.WriteLine(this.MaxY);
+        
+        //Creates an empty array
+        for (var i = 0; i < this.Width * this.Height; i += 1)
+        {
+            this.TileArray.Add(this.Owner);
+        }
+        
+        this.Count = this.TileArray.Count;
+    }
+    
+    function CoordToIndex(tileCoordinates : Real3) : Real
+    {
+        var temp = tileCoordinates;
+        temp.X -= this.MinX;
+        
+        temp.Y -= this.MaxY;
+        temp.Y *= -1;
+        
+        var index = (temp.X - 1) + this.Width * (temp.Y - 1);
+        
+        if (index == 0)
+        {
+            Console.WriteLine("zero");
+        }
+        
+        return index;
+    }
+    
+    function GetTileAt(tileCoordinates : Real3) : Cog
+    {
+        var index = this.CoordToIndex(tileCoordinates);
+        var passedCheck = true;
+        if (index as Integer != index)
+        {
+            passedCheck = false;
+        }
+        else if (index < 0 || index >= this.Count)
+        {
+            passedCheck = false;
+        }
+        
+        if (passedCheck)
+        {
+            return this.TileArray.Get(index as Integer);
+        }
+        else
+        {
+            return this.Owner;
+        }
+    }
+    
+    //Inserts each tiles in the input array into the 2D array based on its coordinates
+    //E.g.:
+    //Old: 
+    //OOOO
+    //OOOO
+    //*Insert 2 tiles at (-1, 1) and (2, -1)
+    //New: 
+    //OXOO
+    //OOOX
+    function PopulateList(allTiles : Array[Cog])
+    {
+        Console.WriteLine(this.TileArray.Count);
+        foreach (var tile in allTiles)
+        {
+            var index = this.CoordToIndex(tile.Transform.WorldTranslation);
+            var integerIndex = index as Integer;
+            
+            if (integerIndex == index)
+            {
+                this.TileArray.Set(integerIndex, tile);
+            }
+            else if (tile.Parent != null)
+            {
+                index = this.CoordToIndex(tile.Parent.Transform.WorldTranslation);
+                integerIndex = index as Integer;
+                this.TileArray.Set(integerIndex, tile);
+            }
+        }
+        
+        var counter = 0;
+        foreach (var tile in this.TileArray)
+        {
+            if (counter >= this.Width)
+            {
+                Console.WriteLine("");
+                counter = 0;
+            }
+            if (tile.Name == "LevelGeometry")
+            {
+                Console.Write(" ");
+            }
+            else if (tile.Name == "Floor")
+            {
+                Console.Write("X");
+            }
+            counter += 1;
+        }
+    }
+}

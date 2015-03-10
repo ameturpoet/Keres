@@ -90,7 +90,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.48824, 2.45991, 5.51201],
+			Vec3 Translation = [-9.06978, 2.5773, 5.51279],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.00261807, 7.50122e-006, -1.95322e-008, 0.999997],
 		},
@@ -102,7 +102,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 8.20852,
+			float Size = 16.5299,
 		},
 		EditorCameraController = 
 		{
@@ -110,7 +110,7 @@ Level =
 			float LookDistance = 9.13421,
 			float VerticalAngle = -0.00523615,
 			float HorizontalAngle = 6.28317,
-			Vec3 LookTarget = [2.4881, 2.50774, -3.62208],
+			Vec3 LookTarget = [-9.06992, 2.62513, -3.62129],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -600,6 +600,9 @@ Level =
 		{
 		},
 		NavigationEvents = 
+		{
+		},
+		TileArray2D = 
 		{
 		},
 	},

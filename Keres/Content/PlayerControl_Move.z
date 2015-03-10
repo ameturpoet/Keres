@@ -393,7 +393,7 @@ class PlayerControl_Move : ZilchComponent
             
             this.Owner.RigidBody.Velocity = tempRight + tempForward;
             
-            /*
+            
             //Adds to the current movement tracker, which just keeps track of how much distance was covered
             this.MovementTracker += tempRight * deltaTime;
             this.MovementTracker += tempForward * deltaTime;
@@ -406,7 +406,7 @@ class PlayerControl_Move : ZilchComponent
                 this.MovementTracker = Real3(0, 0, 0);
                 this.LevelGeometry.NavigationController.UpdateWeights(this.Owner.Transform.Translation);
             }
-            */
+            
             
             //Also calls the HeadBob function
             this.HeadBob(deltaTime, true);

@@ -90,7 +90,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.0677923, -1.97879, 52.3435],
+			Vec3 Translation = [0.0677923, -1.9788, 52.3435],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-8.4238e-007, -1.08637e-006, -9.22187e-013, 1],
 		},
@@ -102,7 +102,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 27.2531,
+			float Size = 24.6596,
 		},
 		EditorCameraController = 
 		{
@@ -609,7 +609,7 @@ Level =
 			TextPositionMode Position = UpperLeft,
 			string FontName = "4e7bac697bec55c5:Verdana",
 			uint FontSize = 32,
-			string Text = "Pre-Alpha 1.10",
+			string Text = "Pre-Alpha 1.11",
 			bool OnTop = false,
 			Vec2 Size = [0, 0],
 			TextAlign Align = Center,
