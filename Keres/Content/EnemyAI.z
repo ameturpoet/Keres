@@ -32,7 +32,7 @@ class EnemyAI : ZilchComponent
     [Dependency]
     var Soundbox : Soundbox_Keres = null;
     var FootstepCounter : Real = 0.0;
-    var PathingCounter : Real = 0.0;
+    var BangTimeCooldown : Real = 0.0;
     var CurrentCooldown : Real = 0.0;
     
     function Initialize(init : CogInitializer)
@@ -40,7 +40,7 @@ class EnemyAI : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Space, "PathingChanged", this.UpdateTilePath);
         Zero.Connect(this.Space, "ReadyToPlay", this.Enable);
-        Zero.Connect(this.Owner, Events.CollisionStarted, this.AttackPlayer);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.StartCollide);
         Zero.Connect(this.Owner, Events.CollisionPersisted, this.AttackPlayer);
         this.Player = this.Owner.Space.FindObjectByName("Player");
         this.LevelGeometry = this.Owner.Space.FindObjectByName("LevelGeometry");
@@ -60,6 +60,23 @@ class EnemyAI : ZilchComponent
         {
             this.State = EnemyState.Distracted;
             this.DistractingLocation = locationOfDistraction;
+        }
+    }
+    
+    function StartCollide(event : CollisionEvent)
+    {
+        if (event.OtherObject.Name == "Player" && this.CurrentCooldown <= 0.0 && this.State != EnemyState.Stunned)
+        {
+            event.OtherObject.PlayerStats.Life -= this.AttackDamage;
+            this.CurrentCooldown = this.AttackCooldown;
+            event.OtherObject.Soundbox_Player.PlayHit();
+            Console.WriteLine("Attacked");
+        }
+        else if (event.OtherObject.GatePiece != null && this.BangTimeCooldown <= 0.0)
+        {
+            this.Owner.Soundbox_Keres.PlayDoorBang();
+            this.BangTimeCooldown = 0.6;
+            Console.WriteLine("Doorbang");
         }
     }
     
@@ -84,6 +101,11 @@ class EnemyAI : ZilchComponent
             if (this.CurrentCooldown > 0.0)
             {
                 this.CurrentCooldown -= event.Dt;
+            }
+            
+            if (this.BangTimeCooldown > 0.0)
+            {
+                this.BangTimeCooldown -= event.Dt;
             }
             
             //If the enemy's state is Aware or Distracted, it moves along the grid and checks for line-of-sight to the player
@@ -203,7 +225,6 @@ class EnemyAI : ZilchComponent
         }
         
         this.FootstepCounter -= deltaTime;
-        this.PathingCounter -= deltaTime;
     }
     
     //Uses rayscanning to check for direct line-of-sight to the player, setting the enemy state as a result

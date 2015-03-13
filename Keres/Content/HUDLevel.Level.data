@@ -75,7 +75,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-7.16593, -8.18083, 36.4961],
+			Vec3 Translation = [0.510338, -4.49278, 36.4962],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [4.52157e-007, -2.86217e-006, 1.30351e-012, 1],
 		},
@@ -87,7 +87,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 9.0718,
+			float Size = 40.6569,
 		},
 		EditorCameraController = 
 		{
@@ -95,7 +95,7 @@ Level =
 			float LookDistance = 33.5159,
 			float VerticalAngle = -9.04314e-007,
 			float HorizontalAngle = 5.68293e-006,
-			Vec3 LookTarget = [-7.16574, -8.1808, 2.98023],
+			Vec3 LookTarget = [0.510528, -4.49275, 2.98028],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -310,6 +310,7 @@ Level =
 		HUDElement_Radar = 
 		{
 			string BlipArchetype = "5491fd3173299584:HUD_RadarBlip",
+			string PingArchetype = "553c16f480c246f1:HUD_RadarPing",
 			float RadarDistance = 10,
 		},
 		HUDElement = 

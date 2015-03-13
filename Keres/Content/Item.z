@@ -15,7 +15,7 @@ class Item : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
-        if (!this.FallToGround)
+        if (this.FallToGround)
         {
             this.Owner.Transform.Translation *= Real3(1, 1, 0);
             this.Owner.Transform.Translation += Real3(0, 0, -0.5);

@@ -1,0 +1,26 @@
+class HUD_RadarPing : ZilchComponent
+{
+    var Alpha : Real = 1.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.Owner.Transform.Scale = Real3(0.01, 0.01, 0.01);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Owner.Transform.Scale += Real3(1.0, 1.0, 0.0) * event.Dt * 2;
+        this.Alpha -= event.Dt * 2;
+        if (this.Owner.Transform.Scale.X > 0.48)
+        {
+            this.Owner.Transform.Scale = Real3(0.48, 0.48, 1);
+        }
+        if (this.Alpha < 0.0)
+        {
+            this.Alpha = 0.0;
+            this.Owner.Destroy();
+        }
+        this.Owner.Sprite.Color = Real4(1.0, 1.0, 1.0, this.Alpha);
+    }
+}

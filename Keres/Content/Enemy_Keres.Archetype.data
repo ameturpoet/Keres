@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [8.52183, 3.50301, -0.0352325],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [0.1, 0.1, 0.1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -24,7 +24,7 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
-		string MaterialName = "5403b42c4e36be37:Mat_Pearlstone",
+		string MaterialName = "4faa78123470162f:FallbackMaterial",
 		string MeshName = "4de0354322b345ae:Cube",
 		Vec4 Color = [1, 1, 1, 1],
 	},
@@ -53,7 +53,7 @@ Cog =
 		bool Asleep = false,
 		bool Kinematic = false,
 		bool RotationLocked = true,
-		bool Mode2D = true,
+		bool Mode2D = false,
 		bool AllowSleep = true,
 		bool Inherit2DMode = true,
 		Vec3 Velocity = [0, 0, 0],
@@ -72,5 +72,7 @@ Cog =
 	{
 		string Stunned = "5477f3bb6085e37d:Impact_Taser",
 		string Footstep = "5477f3b8606e5574:Footstep_Keres",
+		string BangOnDoor = "",
+		string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
 	},
 },

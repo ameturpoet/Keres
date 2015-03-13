@@ -3,6 +3,8 @@ class HUDElement_Radar : ZilchComponent
     [Property]
     var BlipArchetype : Archetype = null;
     [Property]
+    var PingArchetype : Archetype = null;
+    [Property]
     var RadarDistance : Real = 5.0;
     
     /*
@@ -54,6 +56,12 @@ class HUDElement_Radar : ZilchComponent
             var newBlip = this.Owner.Space.CreateAtPosition(this.BlipArchetype, blipLocation);
             newBlip.AttachTo(this.Owner);
         }
+    }
+    
+    function AddPing()
+    {
+        var ping = this.Owner.Space.CreateAtPosition(this.PingArchetype, Real3(0, 0, -0.01));
+        ping.AttachTo(this.Owner);
     }
     
     //Adds a permanent blip to the radar using the relative position from the player to the object
