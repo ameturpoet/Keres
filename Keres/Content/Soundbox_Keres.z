@@ -4,6 +4,10 @@ class Soundbox_Keres : ZilchComponent
     var Stunned : SoundCue = null;
     [Property]
     var Footstep : SoundCue = null;
+    [Property]
+    var BangOnDoor : SoundCue = null;
+    [Property]
+    var BecomeAware : SoundCue = null;
     
     
     function PlayFootstep()
@@ -14,5 +18,15 @@ class Soundbox_Keres : ZilchComponent
     function PlayStun()
     {
         this.Owner.SoundEmitter.PlayCue(this.Stunned);
+    }
+    
+    function PlayAware()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.BecomeAware);
+    }
+    
+    function PlayDoorBang()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.BangOnDoor);
     }
 }

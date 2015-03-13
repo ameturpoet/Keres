@@ -52,8 +52,8 @@ class Weapon : ZilchComponent
         else
         {
             this.Recoil(deltaTime, playerStats);
-            if (playerStats.Energy >= this.EnergyUse && (this.MouseState != this.OldMState && this.MouseState) && this.RecoilTracker >= -0.25)
-            //if (playerStats.Energy >= this.EnergyUse && Zero.Mouse.IsButtonDown(MouseButtons.Left) && this.RecoilTracker >= -0.25)
+            //if (playerStats.Energy >= this.EnergyUse && (this.MouseState != this.OldMState && this.MouseState) && this.RecoilTracker >= -0.25)
+            if (playerStats.Energy >= this.EnergyUse && Zero.Mouse.IsButtonDown(MouseButtons.Left) && this.RecoilTracker >= -0.25)
             {
                 this.Fire(impactLocation);
                 playerStats.Energy -= this.EnergyUse;

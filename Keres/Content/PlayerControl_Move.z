@@ -108,12 +108,12 @@ class PlayerControl_Move : ZilchComponent
         if (this.Radar != null && this.TextLog != null)
         {
             this.Radar.HUDElement_Radar.UpdateBlips(this.Owner.Transform.Translation - this.OldPosition);
-            
             //If the radar key is pressed, loop through all enemies and send their relative positions to the radar
             //The radar determines whether or not the enemies are within range
             if (this.PlayerStats.CooldownTimer <= 0.0 && Zero.Keyboard.KeyIsPressed(this.Controller.RadarPing))
             {
                 this.PlayerStats.CooldownTimer = this.PlayerStats.RadarCooldown;
+                this.Radar.HUDElement_Radar.AddPing();
                 
                 var enemies = this.Owner.Space.FindAllObjectsByName("enemy");
                 
