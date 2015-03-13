@@ -6,9 +6,12 @@ class MenuButton : ZilchComponent
     [Property]
     var LoadTargetAsLevel : Boolean = false;
     //If LoadTargetAsLevel is true, the button will try to load a level whose name is the value of Target
+    [Property]
+    var Disabled : Boolean = false;
     
     var Highlighted : Boolean = false;
     var Clicked : Boolean = false;
+    var GameSpace : Space = null;
     
     function Initialize(init : CogInitializer)
     {
@@ -16,6 +19,28 @@ class MenuButton : ZilchComponent
         Zero.Connect(this.Owner, Events.MouseExit, this.OnMouseExit);
         Zero.Connect(this.Owner, Events.LeftMouseDown, this.OnMouseClick);
         Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnMouseRelease);
+        this.GameSpace = this.GameSession.FindSpaceByName("Main");
+        if (this.Target == "Play")
+        {
+            var fileManager = this.Owner.Space.FindObjectByName("FileManager");
+            var level = fileManager.SaveManager.GetCurrentLevel();
+            var text = this.Owner.Space.FindObjectByName("continueLevelText");
+            
+            text.SpriteText.Text = level.Name;
+            
+            if (level.Name == this.Owner.Space.CurrentLevel.Name)
+            {
+                this.ToggleEnabled();
+                this.SetCorrectSprite();
+                text.SpriteText.Visible = false;
+            }
+        }
+    }
+    
+    function ToggleEnabled()
+    {
+        this.Owner.Reactive.Active = !this.Owner.Reactive.Active;
+        this.Disabled = !this.Disabled;
     }
 
     //Performs different functions based on the button's purpose
@@ -23,7 +48,7 @@ class MenuButton : ZilchComponent
     {
         if (this.LoadTargetAsLevel)
         {
-            this.Space.LoadLevel(Level.Find(this.Target));
+            this.GameSpace.LoadLevel(Level.Find(this.Target));
         }
         else
         {
@@ -39,9 +64,54 @@ class MenuButton : ZilchComponent
             {
                 this.QuitButton();
             }
+            else if (this.Target == "ToMenu")
+            {
+                this.QuitToMenuButton();
+            }
             else if (this.Target == "NewGame")
             {
                 this.NewGame();
+            }
+            else if (this.Target == "ClearData")
+            {
+                this.ClearData();
+            }
+            else if (this.Target == "DialogYes")
+            {
+                this.DialogButtonYes();
+            }
+            else if (this.Target == "DialogNo")
+            {
+                this.DialogButtonNo();
+            }
+        }
+    }
+    
+    //Performs different function based on the button's purpose. Used for functions that require confirmation
+    function DoConfirmedTarget(targetType : String)
+    {
+        if (this.LoadTargetAsLevel)
+        {
+            this.GameSpace.LoadLevel(Level.Find(this.Target));
+        }
+        else
+        {
+            Console.WriteLine(targetType);
+            if (targetType == "Quit")
+            {
+                this.QuitButtonQuit();
+            }
+            else if (targetType == "NewGame")
+            {
+                this.NewGameDelete();
+            }
+            else if (targetType == "ToMenu")
+            {
+                this.QuitToMenuQuit();
+            }
+            else if (targetType == "ClearData")
+            {
+                this.ClearDataDelete();
             }
         }
     }
@@ -59,47 +129,143 @@ class MenuButton : ZilchComponent
         
         if (level.Name != this.Owner.Space.CurrentLevel.Name)
         {
-            this.Space.LoadLevel(level);
+            this.GameSpace.LoadLevel(level);
         }
         else
         {
-            this.Space.LoadLevel(this.Owner.StartingLevel.StartingLevel);
+            this.GameSpace.LoadLevel(this.Owner.StartingLevel.StartingLevel);
         }
     }
     
-    //Exits the game
+    //Prompts the user to exit the game
+    function QuitToMenuButton()
+    {
+        var sr = new StringBuilder();
+        sr.WriteLine("Return to menu?");
+        sr.WriteLine("Any unsaved progress will be lost.");
+        this.ShowDialog(sr.ToString());
+    }
+    
+    //Prompts the user to exit the game
+    function QuitToMenuQuit()
+    {
+        this.Owner.Parent.HUD_PauseScreen.CloseMenu();
+        this.GameSession.FindSpaceByName("HUDSpace").Destroy();
+        this.GameSpace.LoadLevel(Level.Find("MainMenu"));
+    }
+    
+    //Prompts the user to exit the game
     function QuitButton()
     {
+        var sr = new StringBuilder();
+        sr.WriteLine("Quit game?");
+        this.ShowDialog(sr.ToString());
+    }
+    
+    function QuitButtonQuit()
+    {
         this.GameSession.Quit();
+    }
+    
+    //Confirm's the user's choice on a dialog box
+    function DialogButtonYes()
+    {
+        this.Owner.Parent.HUD_ConfirmDialogScript.Confirm();
+    }
+    
+    //Cancel's the user's choice on a dialog box
+    function DialogButtonNo()
+    {
+        this.Owner.Parent.HUD_ConfirmDialogScript.Cancel();
+    }
+    
+    //Clears saved data
+    function ClearData()
+    {
+        var sr = new StringBuilder();
+        sr.WriteLine("Delete saved data?");
+        sr.WriteLine("This cannot be reversed.");
+        this.ShowDialog(sr.ToString());
+        
+    }
+    
+    function ClearDataDelete()
+    {
+        Zero.ObjectStore.ClearStore();
     }
     
     //Starts a new game, clearing all saved data in the ObjectStore
     function NewGame()
     {
+        var fileManager = this.Owner.Space.FindObjectByName("FileManager");
+        var level = fileManager.SaveManager.GetCurrentLevel();
+        
+        if (level.Name == this.Owner.Space.CurrentLevel.Name)
+        {
+            this.GameSpace.LoadLevel(this.Owner.StartingLevel.StartingLevel);
+        }
+        else
+        {
+            var sr = new StringBuilder();
+            sr.WriteLine("Starting a new game will delete all saved data.");
+            sr.WriteLine("Delete saved data?");
+            sr.WriteLine("This cannot be reversed.");
+            this.ShowDialog(sr.ToString());
+        }
+    }
+    
+    function NewGameDelete()
+    {
         Zero.ObjectStore.ClearStore();
+        var fileManager = this.Owner.Space.FindObjectByName("FileManager");
+        var level = fileManager.SaveManager.GetCurrentLevel();
+        
+        if (level.Name != this.Owner.Space.CurrentLevel.Name)
+        {
+            this.GameSpace.LoadLevel(level);
+        }
+        else
+        {
+            this.GameSpace.LoadLevel(this.Owner.StartingLevel.StartingLevel);
+        }
     }
     
     //------------------------------------
     //PUT BUTTON FUNCTIONS ABOVE ONLY FOR CONVENIENCE
     //------------------------------------
     
+    function ShowDialog(dialogText : String)
+    {
+        var confirmDialog = this.Owner.Space.FindObjectByName("ConfirmMenu");
+        confirmDialog.HUD_ConfirmDialogScript.ToggleVisible();
+        confirmDialog.HUD_ConfirmDialogScript.ParentObject = this.Owner;
+        confirmDialog.HUD_ConfirmDialogScript.SetText(dialogText);
+    }
+    
     //Sets the correct sprite based on mouse input
     function SetCorrectSprite()
     {
-        if (this.Highlighted)
+        if (!this.Disabled)
         {
-            if (this.Clicked)
+            if (this.Highlighted)
             {
-                this.Owner.Sprite.CurrentFrame = 2;
+                if (this.Clicked)
+                {
+                    this.Owner.Sprite.CurrentFrame = 2;
+                }
+                else
+                {
+                    this.Owner.Sprite.CurrentFrame = 1;
+                }
             }
             else
             {
-                this.Owner.Sprite.CurrentFrame = 1;
+                this.Owner.Sprite.CurrentFrame = 0;
             }
         }
         else
         {
-            this.Owner.Sprite.CurrentFrame = 0;
+            this.Owner.Sprite.CurrentFrame = 2;
         }
     }
     

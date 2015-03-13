@@ -77,6 +77,9 @@ Level =
 		{
 			Enum MouseState = Trapped,
 		},
+		GameStateManager = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -90,7 +93,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-9.06978, 2.5773, 5.51279],
+			Vec3 Translation = [-2.43524, 4.83518, 5.52452],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.00261807, 7.50122e-006, -1.95322e-008, 0.999997],
 		},
@@ -102,7 +105,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 16.5299,
+			float Size = 14.9569,
 		},
 		EditorCameraController = 
 		{
@@ -110,7 +113,7 @@ Level =
 			float LookDistance = 9.13421,
 			float VerticalAngle = -0.00523615,
 			float HorizontalAngle = 6.28317,
-			Vec3 LookTarget = [-9.06992, 2.62513, -3.62129],
+			Vec3 LookTarget = [-2.43538, 4.88301, -3.60957],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -148,7 +151,7 @@ Level =
 			bool VisibilityCulling = false,
 			bool VisibilityEvents = false,
 			bool CastShadows = true,
-			string MaterialName = "5403b42c4e36be37:Mat_Pearlstone",
+			string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
 		},
@@ -202,7 +205,7 @@ Level =
 			Enum RadarPing = Q,
 			Enum RefillOxygen = R,
 			Enum Reload = F,
-			Enum Pause = Control,
+			Enum Pause = Escape,
 			Enum ToggleDebug = Zero,
 		},
 		NavigationEvents = 
@@ -1924,7 +1927,7 @@ Level =
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = false,
 					bool CastShadows = true,
-					string MaterialName = "5405f4023f587018:Mat_Gold",
+					string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 0],
 				},
@@ -1995,7 +1998,7 @@ Level =
 							bool VisibilityCulling = true,
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
-							string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
 							string MeshName = "4de0354322b345ae:Cube",
 							Vec4 Color = [1, 1, 1, 0],
 						},
@@ -2059,7 +2062,7 @@ Level =
 							bool VisibilityCulling = true,
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
-							string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
 							string MeshName = "4de0354322b345ae:Cube",
 							Vec4 Color = [1, 1, 1, 0],
 						},
@@ -2196,7 +2199,7 @@ Level =
 							bool VisibilityCulling = true,
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
-							string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
 							string MeshName = "4de0354322b345ae:Cube",
 							Vec4 Color = [1, 1, 1, 0],
 						},
@@ -2260,7 +2263,7 @@ Level =
 							bool VisibilityCulling = true,
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
-							string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
 							string MeshName = "4de0354322b345ae:Cube",
 							Vec4 Color = [1, 1, 1, 0],
 						},
@@ -2397,7 +2400,7 @@ Level =
 							bool VisibilityCulling = true,
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
-							string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
 							string MeshName = "4de0354322b345ae:Cube",
 							Vec4 Color = [1, 1, 1, 0],
 						},
@@ -2461,7 +2464,7 @@ Level =
 							bool VisibilityCulling = true,
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
-							string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
 							string MeshName = "4de0354322b345ae:Cube",
 							Vec4 Color = [1, 1, 1, 0],
 						},
@@ -2569,6 +2572,33 @@ Level =
 			Vec3 Translation = [-2.98943, 3.50301, 0.05],
 			Vec3 Scale = [0.5, 0.25, 0.25],
 			Quat Rotation = [0, 0, 0.707107, 0.707107],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 67,
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.290597, 2.14497, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "553c0360e5111e6b:Mat_Crate",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
 		},
 	},
 },

@@ -75,7 +75,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.76494, -7.8001, 36.4961],
+			Vec3 Translation = [-7.16593, -8.18083, 36.4961],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [4.52157e-007, -2.86217e-006, 1.30351e-012, 1],
 		},
@@ -87,7 +87,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 18.05,
+			float Size = 9.0718,
 		},
 		EditorCameraController = 
 		{
@@ -95,7 +95,7 @@ Level =
 			float LookDistance = 33.5159,
 			float VerticalAngle = -9.04314e-007,
 			float HorizontalAngle = 5.68293e-006,
-			Vec3 LookTarget = [-1.76475, -7.80007, 2.98025],
+			Vec3 LookTarget = [-7.16574, -8.1808, 2.98023],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -833,6 +833,9 @@ Level =
 			float PixelsPerUnit = 64,
 			bool Smoothing = true,
 		},
+		HUD_OxygenText = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -1304,7 +1307,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-11.5592, -8.65786, 0],
+			Vec3 Translation = [-10.7763, -9.26679, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1317,25 +1320,6 @@ Level =
 		},
 		Sprite = 
 		{
-			bool Visible = false,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5274db4c2e7c11f9:Circle",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool OnTop = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-		SpriteText = 
-		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = false,
@@ -1344,15 +1328,14 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			TextPositionMode Position = UpperLeft,
-			string FontName = "4e7bac697bec55c5:Verdana",
-			uint FontSize = 60,
-			string Text = "O2:",
+			string SpriteSource = "553c102bcc639623:O2Icon",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
 			bool OnTop = false,
-			Vec2 Size = [0, 0],
-			TextAlign Align = Left,
-			float PixelsPerUnit = 64,
-			bool Smoothing = true,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
 		},
 	},
 	Cog = 
@@ -1484,6 +1467,7 @@ Level =
 				{
 					string Target = "Resume",
 					bool LoadTargetAsLevel = false,
+					bool Disabled = false,
 				},
 				StartingLevel = 
 				{
@@ -1566,8 +1550,9 @@ Level =
 				},
 				MenuButton = 
 				{
-					string Target = "MainMenu",
-					bool LoadTargetAsLevel = true,
+					string Target = "ToMenu",
+					bool LoadTargetAsLevel = false,
+					bool Disabled = false,
 				},
 				StartingLevel = 
 				{
@@ -1652,6 +1637,7 @@ Level =
 				{
 					string Target = "Quit",
 					bool LoadTargetAsLevel = false,
+					bool Disabled = false,
 				},
 				StartingLevel = 
 				{
@@ -1682,6 +1668,24 @@ Level =
 		},
 		GameSpacePointer = 
 		{
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55c2fd63e354d704:HUD_ConfirmDialog",
+		LinkId = 
+		{
+			uint Id = 36,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 64, 10],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "ConfirmMenu",
 		},
 	},
 },

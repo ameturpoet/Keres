@@ -153,7 +153,17 @@ class PlayerControl_Move : ZilchComponent
         
         sr.WriteLine(this.Owner.PlayerStats.Oxygen as Integer);
         
-        this.HUDspace.FindObjectByName("HUD_Oxygen").SpriteText.Text = sr.ToString();
+        var oxygenText = this.HUDspace.FindObjectByName("HUD_Oxygen");
+        oxygenText.SpriteText.Text = sr.ToString();
+        
+        if (this.Owner.PlayerStats.Oxygen <= 30.0)
+        {
+            oxygenText.HUD_OxygenText.Danger = true;
+        }
+        else
+        {
+            oxygenText.HUD_OxygenText.Danger = false;
+        }
         
         //Then the player's ammo
         this.HUDspace.FindObjectByName("HUD_AmmoCurrent").HUD_AmmoBar.SetFill(this.PlayerStats.Energy / 100.0);

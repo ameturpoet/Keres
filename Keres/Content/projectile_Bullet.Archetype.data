@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
+		Vec3 Translation = [35.4455, -7.46427, 1.00001],
 		Vec3 Scale = [0.2, 0.2, 0.2],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -42,7 +42,7 @@ Cog =
 	{
 		float Speed = 0,
 		int Damage = 35,
-		string EnemyStunFlash = "",
+		string EnemyStunFlash = "55c2f1a2a9e7489c:light_KeresStun",
 	},
 	RigidBody = 
 	{
@@ -50,7 +50,7 @@ Cog =
 		bool Asleep = false,
 		bool Kinematic = true,
 		bool RotationLocked = false,
-		bool Mode2D = false,
+		bool Mode2D = true,
 		bool AllowSleep = true,
 		bool Inherit2DMode = true,
 		Vec3 Velocity = [0, 0, 0],

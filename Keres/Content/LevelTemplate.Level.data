@@ -77,6 +77,9 @@ Level =
 		{
 			Enum MouseState = Trapped,
 		},
+		GameStateManager = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -90,9 +93,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-47.432, 91.9379, 135.116],
+			Vec3 Translation = [0.869022, -1.73832, 165.995],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.274962, -0.162626, -0.0472471, 0.946423],
+			Quat Rotation = [0.00523577, 0.00261755, -1.37051e-005, 0.999983],
 		},
 		Camera = 
 		{
@@ -102,15 +105,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 8.20851,
+			float Size = 12.2457,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = ZPlane,
 			float LookDistance = 166.006,
-			float VerticalAngle = 0.565487,
-			float HorizontalAngle = 0.34034,
-			Vec3 LookTarget = [-0.644389, 2.98739, 2.99251],
+			float VerticalAngle = -0.0104716,
+			float HorizontalAngle = -0.00523519,
+			Vec3 LookTarget = [0, 0, 0],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -272,7 +275,7 @@ Level =
 			Enum RadarPing = Q,
 			Enum RefillOxygen = R,
 			Enum Reload = F,
-			Enum Pause = Control,
+			Enum Pause = Escape,
 			Enum ToggleDebug = Zero,
 		},
 		NavigationEvents = 

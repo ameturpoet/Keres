@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-0.516134, -6.49641, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -24,7 +24,7 @@ Cog =
 		bool VisibilityCulling = false,
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
-		string MaterialName = "5403b42c4e36be37:Mat_Pearlstone",
+		string MaterialName = "553c0360e5111e6b:Mat_Crate",
 		string MeshName = "4de0354322b345ae:Cube",
 		Vec4 Color = [1, 1, 1, 1],
 	},
@@ -34,7 +34,7 @@ Cog =
 		bool Asleep = false,
 		bool Kinematic = false,
 		bool RotationLocked = true,
-		bool Mode2D = true,
+		bool Mode2D = false,
 		bool AllowSleep = true,
 		bool Inherit2DMode = true,
 		Vec3 Velocity = [0, 0, 0],
@@ -59,11 +59,13 @@ Cog =
 	{
 		int Life = 100,
 		int Energy = 100,
+		int Batteries = 5,
 		float Oxygen = 100,
 		float MaxOxygen = 100,
 		float HeavyBreathingRate = 2,
 		int OxygenTanks = 1,
 		float RadarCooldown = 0,
+		bool DebugMode = false,
 	},
 	Controller = 
 	{
@@ -75,6 +77,9 @@ Cog =
 		Enum Sprint = Shift,
 		Enum RadarPing = Q,
 		Enum RefillOxygen = R,
+		Enum Reload = F,
+		Enum Pause = Control,
+		Enum ToggleDebug = Zero,
 	},
 	NavigationEvents = 
 	{
@@ -102,6 +107,9 @@ Cog =
 		string PickupKey = "5477f3bb608ce335:Pickup_Item",
 		string PickupTank = "5477f3bb60b7c191:Pickup_OxygenTank",
 		string ShootTaser = "5477f3b86067aa3d:Fire_Taser",
+		string TaserReload1 = "",
+		string TaserReload2 = "",
+		string TaserReload3 = "",
 	},
 	Hierarchy = 
 	{
@@ -163,6 +171,9 @@ Cog =
 						string RibbonObject = "541bbd020465b0f4:ribbon_TestBeam",
 						CogPath ProjectileNode = "ProjectileNode",
 						int EnergyUse = 5,
+						float Range = 3,
+						float TimeToReload = 1,
+						string AmmoString = "",
 					},
 					Hierarchy = 
 					{

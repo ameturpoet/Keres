@@ -24,7 +24,7 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
-		string MaterialName = "4de020863e85bb61:DefaultMaterial",
+		string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
 		string MeshName = "541a9554d9923aae:Plane",
 		Vec4 Color = [1, 1, 1, 1],
 	},
