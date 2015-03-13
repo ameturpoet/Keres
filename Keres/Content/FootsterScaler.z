@@ -1,0 +1,39 @@
+class FootsterScaler : ZilchComponent
+{
+    var Distance : Real = 0;
+    var YDist : Real = 0;
+    var XDist : Real = 0;
+    
+    
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var player = this.Space.FindObjectByName("Player");
+        
+        if(player != null)
+        {
+            this.YDist = this.Owner.Transform.Translation.Y - player.Transform.Translation.Y;
+            this.XDist = this.Owner.Transform.Translation.X - player.Transform.Translation.X;
+            
+            this.YDist = this.YDist * this.YDist;
+            this.XDist = this.XDist * this.XDist;
+            
+            this.Distance = Math.Sqrt(this.YDist + this.XDist);
+            
+            if(this.Distance > 25)
+            {
+                this.Owner.SoundEmitter.Volume = 0;
+            }
+            else
+            {
+                this.Owner.SoundEmitter.Volume = (1 / this.Distance);
+            }
+        }
+    }
+}

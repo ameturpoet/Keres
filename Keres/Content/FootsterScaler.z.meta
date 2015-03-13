@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "FootsterScaler",
+		uint64 ResourceId = 5524436c02175b10,
+	},
+},
