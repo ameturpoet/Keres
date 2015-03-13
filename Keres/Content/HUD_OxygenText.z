@@ -1,0 +1,34 @@
+class HUD_OxygenText : ZilchComponent
+{
+    var Danger : Boolean = false;
+    var OxygenLevel : Real = 100.0;
+    var BlinkTimer : Real = 0.0;
+    var BlinkFrequency : Real = 0.3;
+    var ColorToggle : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Danger)
+        {
+            this.BlinkTimer += event.Dt;
+            if (this.BlinkTimer >= this.BlinkFrequency)
+            {
+                this.ColorToggle = !this.ColorToggle;
+                this.BlinkTimer = 0.0;
+                if (this.ColorToggle)
+                {
+                    this.Owner.SpriteText.Color = Real4(1.0, 0.0, 0.0, 1.0);
+                }
+                else
+                {
+                    this.Owner.SpriteText.Color = Real4(1.0, 1.0, 1.0, 1.0);
+                }
+            }
+        }
+    }
+}

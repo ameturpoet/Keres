@@ -1,0 +1,23 @@
+Material = 
+{
+	Phong = 
+	{
+		float SpecularExponent = 40,
+		float SpecularScalar = 1,
+	},
+	NormalMapping = 
+	{
+		float Bumpiness = 2,
+		string NormalMapTexture = "553c00c30a6bdafb:door_N",
+		Vec2 NormalScroll = [0, 0],
+		Vec2 NormalTiling = [1, 1],
+		Vec2 NormalOffset = [0, 0],
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "553c00c30a7cef1f:red_door_d",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

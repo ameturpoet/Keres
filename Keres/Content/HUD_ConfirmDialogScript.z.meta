@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "HUD_ConfirmDialogScript",
+		uint64 ResourceId = 55c2fd14ed2edeef,
+	},
+},

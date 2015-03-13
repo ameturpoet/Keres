@@ -1,0 +1,12 @@
+Pre-Alpha 1.12
+3/13/2015
+-------------
+Changes
+---
++The escape key now pauses the game
++A confirmation dialog now pops up when the player tries to do anything risky, like quitting or deleting saved data
++Flashy oxygen text
+
+---
+Bugfixes
+---

@@ -1,0 +1,58 @@
+class HUD_ConfirmDialogScript : ZilchComponent
+{
+    var DialogText : Cog = null;
+    var ParentObject : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.DialogText = this.Owner.FindChildByName("dialogText");
+        this.ToggleVisible();
+        this.Owner.Transform.Translation *= Real3(0, 0, 1);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+    
+    function Confirm()
+    {
+        this.ParentObject.MenuButton.DoConfirmedTarget(this.ParentObject.MenuButton.Target);
+        this.ToggleVisible();
+    }
+    
+    function Cancel()
+    {
+        this.ToggleVisible();
+    }
+    
+    //Toggles the dialog's visibility
+    function ToggleVisible()
+    {
+        this.Owner.Sprite.Visible = !this.Owner.Sprite.Visible;
+        this.Owner.Reactive.Active = !this.Owner.Reactive.Active;
+        
+        var children = this.Owner.Children;
+        
+        foreach (var child in children)
+        {
+            if (child.Sprite != null)
+            {
+                child.Sprite.Visible = !child.Sprite.Visible;
+            }
+            if (child.SpriteText != null)
+            {
+                child.SpriteText.Visible = !child.SpriteText.Visible;
+            }
+            if (child.Reactive != null)
+            {
+                child.Reactive.Active = !child.Reactive.Active;
+            }
+        }
+    }
+    
+    function SetText(newString : String)
+    {
+        this.DialogText.SpriteText.Text = newString;
+    }
+}

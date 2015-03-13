@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	TextureBuilder = 
+	{
+		string Name = "red_door_d",
+		uint64 ResourceId = 553c00c30a7cef1f,
+		BuilderTextureType TextureType = Texture2D,
+		RgbUsage RgbUsage = Color,
+		AlphaUsage AlphaUsage = Transparency,
+		TextureCompression Compression = Compressed,
+		TextureWrapping Wrapping = Repeat,
+		TextureFilter Filter = Trilinear,
+		float Anisotropy = 1,
+		MipGeneration MipGeneration = All,
+		ImageFilter MipFilter = Box,
+		FixPowerOf2 FixPowerOf2 = Auto,
+		ImageFilter ResizeFilter = Box,
+		OutputTextureFormat Format = Updated,
+	},
+},

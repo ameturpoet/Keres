@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "HUD_ButtonConfirmDialog",
+		uint64 ResourceId = 55c2fc08198cd9ad,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 504,
+		uint FrameSizeY = 250,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833333,
+		float OriginX = 252,
+		float OriginY = 125,
+		float PixelsPerUnit = 64,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},
