@@ -161,6 +161,7 @@ class EnemyAI : ZilchComponent
     {
         this.State = EnemyState.Stunned;
         this.StunTime = this.MaxStunTime;
+        this.Owner.SoundEmitter.Stop();
         Console.WriteLine("Stunned");
         this.Owner.RigidBody.Static = true;
         this.Owner.RigidBody.Velocity *= 0;

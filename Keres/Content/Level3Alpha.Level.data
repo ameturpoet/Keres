@@ -93,7 +93,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.265175, -5.065, 51],
+			Vec3 Translation = [4.24977, -10.4122, 51],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-2.60304e-007, -6.61087e-008, -2.12045e-014, 1],
 		},
@@ -105,7 +105,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 6.00833,
+			float Size = 36.3482,
 		},
 		EditorCameraController = 
 		{
@@ -113,7 +113,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 5.20609e-007,
 			float HorizontalAngle = 1.01514e-007,
-			Vec3 LookTarget = [-0.26517, -5.06503, 1],
+			Vec3 LookTarget = [4.24978, -10.4122, 1],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -176,7 +176,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.516134, -5.43184, 0],
+			Vec3 Translation = [21.1434, -21.3653, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1356,7 +1356,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-4.23536, -24.3305, 0],
+					Vec3 Translation = [-4.2655, -24.3305, 0],
 					Vec3 Scale = [1, 0.452265, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -3606,6 +3606,9 @@ Level =
 			string BangOnDoor = "",
 			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
 		},
+		FootsterScaler = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -3684,6 +3687,9 @@ Level =
 			string BangOnDoor = "",
 			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
 		},
+		FootsterScaler = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -3761,6 +3767,9 @@ Level =
 			string Footstep = "5477f3b8606e5574:Footstep_Keres",
 			string BangOnDoor = "",
 			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
+		},
+		FootsterScaler = 
+		{
 		},
 	},
 	Cog = 

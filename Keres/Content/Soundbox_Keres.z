@@ -12,7 +12,10 @@ class Soundbox_Keres : ZilchComponent
     
     function PlayFootstep()
     {
-        this.Owner.SoundEmitter.PlayCue(this.Footstep);
+        if (!this.Owner.SoundEmitter.IsPlaying())
+        {
+            this.Owner.SoundEmitter.PlayCue(this.Footstep);
+        }
     }
     
     function PlayStun()

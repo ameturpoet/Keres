@@ -1,0 +1,74 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Lever",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Plane001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.1, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "553c2523ec6112a2:Material__2",
+				string MeshName = "544b802bd6734b09:Lever.Plane001",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "Box001",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [2.79397e-009, 0.233312, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "553c2523ec6112a2:Material__2",
+				string MeshName = "544b802bd6734b10:Lever.Box001",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+	},
+},

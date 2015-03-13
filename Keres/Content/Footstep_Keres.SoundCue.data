@@ -14,7 +14,7 @@ SoundCue =
 	Array Sounds = 
 	[
 		{
-			string SoundName = "553c21cfbaa59a2d:Footstep_Keres",
+			string SoundName = "553c2592d5eb2463:FootstepsMetalInterior2Short",
 			float Weight = 1,
 		},
 	],

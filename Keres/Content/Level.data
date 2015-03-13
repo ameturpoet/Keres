@@ -93,7 +93,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-2.43524, 4.83518, 5.52452],
+			Vec3 Translation = [8.86672, 4.02847, 5.52012],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.00261807, 7.50122e-006, -1.95322e-008, 0.999997],
 		},
@@ -105,7 +105,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 14.9569,
+			float Size = 9.07182,
 		},
 		EditorCameraController = 
 		{
@@ -113,7 +113,7 @@ Level =
 			float LookDistance = 9.13421,
 			float VerticalAngle = -0.00523615,
 			float HorizontalAngle = 6.28317,
-			Vec3 LookTarget = [-2.43538, 4.88301, -3.60957],
+			Vec3 LookTarget = [8.86658, 4.0763, -3.61396],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -1760,12 +1760,19 @@ Level =
 			string Name = "plutoLighting",
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		LinkId = 
 		{
 			uint Id = 48,
+		},
+		Named = 
+		{
+			string Name = "enemy",
+		},
+		Archetyped = 
+		{
+			string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		},
 		Transform = 
 		{
@@ -1773,9 +1780,65 @@ Level =
 			Vec3 Scale = [0.1, 0.1, 0.1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Named = 
+		Model = 
 		{
-			string Name = "enemy",
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4faa78123470162f:FallbackMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		EnemyAI = 
+		{
+			int AttackDamage = 50,
+			float MaxStunTime = 2.5,
+			float Speed = 1.7,
+			float SightDistance = 5,
+			float AttentionSpanTime = 99,
+			float AttackCooldown = 0.3,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [2.5, 2.5, 4],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "54ffb77ae794dfe3:FootSteps",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = true,
+		},
+		Soundbox_Keres = 
+		{
+			string Stunned = "5477f3bb6085e37d:Impact_Taser",
+			string Footstep = "5477f3b8606e5574:Footstep_Keres",
+			string BangOnDoor = "",
+			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
+		},
+		FootsterScaler = 
+		{
 		},
 	},
 	Cog = 

@@ -75,4 +75,7 @@ Cog =
 		string BangOnDoor = "",
 		string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
 	},
+	FootsterScaler = 
+	{
+	},
 },
