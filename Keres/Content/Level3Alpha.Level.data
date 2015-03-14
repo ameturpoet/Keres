@@ -93,7 +93,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [4.24977, -10.4122, 51],
+			Vec3 Translation = [-2.74488, -6.57201, 51],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-2.60304e-007, -6.61087e-008, -2.12045e-014, 1],
 		},
@@ -105,7 +105,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 36.3482,
+			float Size = 8.20852,
 		},
 		EditorCameraController = 
 		{
@@ -113,7 +113,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 5.20609e-007,
 			float HorizontalAngle = 1.01514e-007,
-			Vec3 LookTarget = [4.24978, -10.4122, 1],
+			Vec3 LookTarget = [-2.74487, -6.57204, 0.999996],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -176,7 +176,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [21.1434, -21.3653, 0],
+			Vec3 Translation = [-0.518034, -5.21101, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -221,7 +221,7 @@ Level =
 		{
 			int Life = 100,
 			int Energy = 100,
-			int Batteries = 100,
+			int Batteries = 5,
 			float Oxygen = 100,
 			float MaxOxygen = 100,
 			float HeavyBreathingRate = 2,
@@ -682,7 +682,7 @@ Level =
 		TileMap = 
 		{
 			string SourceName = "54d02ffb7fb30f65:Level3Alpha_TileMap01",
-			string PaletteName = "541aaf73f838e64f:TextureMapPallette",
+			string PaletteName = "541a8eb12d86f4ed:LevelDesignPallette",
 			float UnitsPerTile = 1,
 			float MeshThickness = 1.2,
 		},
@@ -3391,29 +3391,11 @@ Level =
 			string Name = "Pluto",
 		},
 	},
-	ArchetypeInstance = 
-	{
-		string Name = "544b824664dc34ac:Activator_Lever",
-		LinkId = 
-		{
-			uint Id = 67,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0.489799, -4.47377, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.653282, -0.270598, -0.270598, 0.653282],
-		},
-		Named = 
-		{
-			string Name = "Activator_Lever",
-		},
-	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 68,
+			uint Id = 67,
 		},
 		Named = 
 		{
@@ -3453,7 +3435,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 69,
+			uint Id = 68,
 		},
 		Named = 
 		{
@@ -3493,7 +3475,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 70,
+			uint Id = 69,
 		},
 		Named = 
 		{
@@ -3533,7 +3515,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 71,
+			uint Id = 70,
 		},
 		Named = 
 		{
@@ -3614,7 +3596,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 72,
+			uint Id = 71,
 		},
 		Named = 
 		{
@@ -3695,7 +3677,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 73,
+			uint Id = 72,
 		},
 		Named = 
 		{
@@ -3776,7 +3758,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 74,
+			uint Id = 73,
 		},
 		Named = 
 		{
@@ -3816,7 +3798,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 75,
+			uint Id = 74,
 		},
 		Named = 
 		{
@@ -3856,7 +3838,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 76,
+			uint Id = 75,
 		},
 		Named = 
 		{
@@ -3896,7 +3878,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 77,
+			uint Id = 76,
 		},
 		Named = 
 		{
@@ -3936,7 +3918,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 78,
+			uint Id = 77,
 		},
 		Named = 
 		{
@@ -4013,7 +3995,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 79,
+					uint Id = 78,
 				},
 				Named = 
 				{
@@ -4083,7 +4065,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 80,
+					uint Id = 79,
 				},
 				Named = 
 				{
@@ -4155,7 +4137,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 81,
+			uint Id = 80,
 		},
 		Named = 
 		{

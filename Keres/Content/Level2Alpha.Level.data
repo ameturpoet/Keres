@@ -93,7 +93,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [25.2129, -39.5695, 50.6699],
+			Vec3 Translation = [-1.31192, -5.10765, 50.6142],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.00523557, -0.00785387, 4.11213e-005, 0.999956],
 		},
@@ -105,7 +105,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 9.90615,
+			float Size = 6.64029,
 		},
 		EditorCameraController = 
 		{
@@ -113,7 +113,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = -0.0104715,
 			float HorizontalAngle = 0.0157081,
-			Vec3 LookTarget = [25.9983, -39.046, 0.678846],
+			Vec3 LookTarget = [-0.526588, -4.58408, 0.623081],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -221,7 +221,7 @@ Level =
 		{
 			int Life = 100,
 			int Energy = 100,
-			int Batteries = 100,
+			int Batteries = 5,
 			float Oxygen = 100,
 			float MaxOxygen = 100,
 			float HeavyBreathingRate = 2,
@@ -1110,7 +1110,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-0.250341, -5.33812, 0.299995],
+					Vec3 Translation = [-1.06001, -4.37382, 0.299995],
 					Vec3 Scale = [0.1, 0.4, 0.1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -3553,29 +3553,11 @@ Level =
 			string Name = "Pluto",
 		},
 	},
-	ArchetypeInstance = 
-	{
-		string Name = "544b824664dc34ac:Activator_Lever",
-		LinkId = 
-		{
-			uint Id = 69,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0.489799, -4.47377, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.653282, -0.270598, -0.270598, 0.653282],
-		},
-		Named = 
-		{
-			string Name = "Activator_Lever",
-		},
-	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 70,
+			uint Id = 69,
 		},
 		Named = 
 		{
@@ -3652,7 +3634,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 71,
+					uint Id = 70,
 				},
 				Named = 
 				{
@@ -3722,7 +3704,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 72,
+					uint Id = 71,
 				},
 				Named = 
 				{
@@ -3794,7 +3776,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 73,
+			uint Id = 72,
 		},
 		Named = 
 		{

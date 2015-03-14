@@ -41,7 +41,7 @@ class Controller : ZilchComponent
             this.Owner.PlayerControl_Move.HUDspace.FindObjectByName("BlackOverlay").LoadScreenElement.Appear(0.75);
             //this.Owner.PlayerControl_Move.HUDspace.FindObjectByName("HUD_PauseMenu").HUD_PauseScreen.OpenMenu();
             this.Owner.PlayerControl_Move.HUDspace.FindObjectByName("HUD_PauseMenu").Transform.Translation = Real3(0, 0, 5);
-            //Zero.Mouse.ToggleTrapped();
+            Zero.Mouse.ToggleTrapped();
         }
     }
 }

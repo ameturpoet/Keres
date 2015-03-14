@@ -34,6 +34,6 @@ Cog =
 	},
 	LightEffect_DimtoDeath = 
 	{
-		float Lifetime = 0.3,
+		float Lifetime = 2,
 	},
 },

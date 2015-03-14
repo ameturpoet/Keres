@@ -20,7 +20,7 @@ class EnemyAI : ZilchComponent
     var DistractingLocation : Real3 = Real3(0, 0, 0);
     var StunTime : Real = 0.0;
     [Property]
-    var MaxStunTime : Real = 2.5; //The amount of time the enemy will be stunned for
+    var MaxStunTime : Real = 3; //The amount of time the enemy will be stunned for
     [Property]
     var Speed : Real = 1.0; //Movement speed
     [Property]
