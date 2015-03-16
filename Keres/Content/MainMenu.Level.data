@@ -93,7 +93,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-7.56637, -3.95164, 52.3435],
+			Vec3 Translation = [2.00841, -0.245061, 52.3435],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-8.4238e-007, -1.08637e-006, -9.22187e-013, 1],
 		},
@@ -113,7 +113,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 1.68476e-006,
 			float HorizontalAngle = 2.15601e-006,
-			Vec3 LookTarget = [-7.56626, -3.95173, 2.34346],
+			Vec3 LookTarget = [2.00852, -0.245146, 2.34347],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -614,7 +614,7 @@ Level =
 			TextPositionMode Position = UpperLeft,
 			string FontName = "4e7bac697bec55c5:Verdana",
 			uint FontSize = 32,
-			string Text = "Pre-Alpha 1.11",
+			string Text = "Alpha 1.0",
 			bool OnTop = false,
 			Vec2 Size = [0, 0],
 			TextAlign Align = Center,
@@ -1157,7 +1157,7 @@ Level =
 		},
 		StartingLevel = 
 		{
-			string StartingLevel = "54c6ebb176a4e36f:Level2Alpha",
+			string StartingLevel = "5564a743e0a56797:Presentation_Level",
 		},
 	},
 	Cog = 

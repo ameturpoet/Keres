@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "PistonHead",
+		uint64 ResourceId = 55bbe268d4062a82,
+	},
+},

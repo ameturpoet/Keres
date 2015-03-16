@@ -1,0 +1,47 @@
+class PistonHead : ZilchComponent
+{
+    var TargetLocation : Real3 = Real3(0, 0, 0);
+    var Sticky : Boolean = false;
+    var StickyCollider : Cog = null;
+    var BlockConnected : Cog = null;
+    var BlockDistanceVector : Real3 = Real3(0, 0, 0);
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.TargetLocation = this.Owner.Transform.Translation;
+        this.Owner.Transform.Translation = Real3(0, 0, 0);
+    }
+    
+    function ConnectStickyEvents()
+    {
+        this.StickyCollider = this.Owner.FindChildByName("PistonStick");
+        Zero.Connect(this.StickyCollider, Events.CollisionStarted, this.StickyPistonStart);
+        Zero.Connect(this.StickyCollider, Events.CollisionEnded, this.StickyPistonEnd);
+    }
+
+    function StickyPistonStart(event : CollisionEvent)
+    {
+        if (event.OtherObject.Name == "PushBlock")
+        {
+            this.BlockConnected = event.OtherObject;
+            this.BlockDistanceVector = this.BlockConnected.Transform.Translation - this.Owner.Transform.WorldTranslation;
+        }
+    }
+    
+    function StickyPistonEnd(event : CollisionEvent)
+    {
+        if (event.OtherObject.Name == "PushBlock")
+        {
+            this.BlockConnected = null;
+        }
+    }
+
+    function SetOpenLevel(openLevel : Real)
+    {
+        this.Owner.Transform.Translation = this.TargetLocation * openLevel;
+        if (this.Sticky && this.BlockConnected != null)
+        {
+            this.BlockConnected.Transform.Translation = this.Owner.Transform.WorldTranslation + this.BlockDistanceVector;
+        }
+    }
+}

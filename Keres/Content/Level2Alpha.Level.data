@@ -93,7 +93,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.31192, -5.10765, 50.6142],
+			Vec3 Translation = [1.8374, -6.84723, 50.6454],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.00523557, -0.00785387, 4.11213e-005, 0.999956],
 		},
@@ -105,7 +105,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 6.64029,
+			float Size = 10.948,
 		},
 		EditorCameraController = 
 		{
@@ -113,7 +113,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = -0.0104715,
 			float HorizontalAngle = 0.0157081,
-			Vec3 LookTarget = [-0.526588, -4.58408, 0.623081],
+			Vec3 LookTarget = [2.62273, -6.32366, 0.654336],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -981,7 +981,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -991,7 +991,7 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c0351e80daf6c:Mat_YellowDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
 						},
 						BoxCollider = 
@@ -1002,7 +1002,7 @@ Level =
 							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
 							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						GatePiece = 
 						{
@@ -1045,7 +1045,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [-0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -1055,18 +1055,8 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c0351e80daf6c:Mat_YellowDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
 						},
 						GatePiece = 
 						{
@@ -1087,6 +1077,16 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						Hierarchy = 
 						{
@@ -1257,7 +1257,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -1267,7 +1267,7 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
 						},
 						BoxCollider = 
@@ -1278,7 +1278,7 @@ Level =
 							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
 							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						GatePiece = 
 						{
@@ -1321,7 +1321,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [-0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -1331,18 +1331,8 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
 						},
 						GatePiece = 
 						{
@@ -1363,6 +1353,16 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						Hierarchy = 
 						{
@@ -1396,7 +1396,7 @@ Level =
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = false,
 					bool CastShadows = true,
-					string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
+					string MaterialName = "5405f4023f587018:Mat_Gold",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 0],
 				},
@@ -1458,7 +1458,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -1468,7 +1468,7 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
 						},
 						BoxCollider = 
@@ -1479,7 +1479,7 @@ Level =
 							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
 							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						GatePiece = 
 						{
@@ -1522,7 +1522,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [-0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -1532,18 +1532,8 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
 						},
 						GatePiece = 
 						{
@@ -1564,6 +1554,16 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						Hierarchy = 
 						{
@@ -1597,7 +1597,7 @@ Level =
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = false,
 					bool CastShadows = true,
-					string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
+					string MaterialName = "5405f4023f587018:Mat_Gold",
 					string MeshName = "4de0354322b345ae:Cube",
 					Vec4 Color = [1, 1, 1, 0],
 				},
@@ -1659,7 +1659,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -1669,7 +1669,7 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
 						},
 						BoxCollider = 
@@ -1680,7 +1680,7 @@ Level =
 							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
 							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						GatePiece = 
 						{
@@ -1723,7 +1723,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [-0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -1733,18 +1733,8 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
 						},
 						GatePiece = 
 						{
@@ -1765,6 +1755,16 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						Hierarchy = 
 						{
@@ -1860,7 +1860,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -1870,7 +1870,7 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c0083f9587c45:Mat_RedDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
 						},
 						BoxCollider = 
@@ -1881,7 +1881,7 @@ Level =
 							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
 							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						GatePiece = 
 						{
@@ -1924,7 +1924,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [-0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -1934,18 +1934,8 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c0083f9587c45:Mat_RedDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
 						},
 						GatePiece = 
 						{
@@ -1966,6 +1956,16 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						Hierarchy = 
 						{
@@ -2061,7 +2061,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -2071,7 +2071,7 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c0083f9587c45:Mat_RedDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
 						},
 						BoxCollider = 
@@ -2082,7 +2082,7 @@ Level =
 							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
 							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						GatePiece = 
 						{
@@ -2125,7 +2125,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [-0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -2135,18 +2135,8 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c0083f9587c45:Mat_RedDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
 						},
 						GatePiece = 
 						{
@@ -2167,6 +2157,16 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						Hierarchy = 
 						{
@@ -2262,7 +2262,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -2272,7 +2272,7 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c0083f9587c45:Mat_RedDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
 						},
 						BoxCollider = 
@@ -2283,7 +2283,7 @@ Level =
 							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
 							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						GatePiece = 
 						{
@@ -2326,7 +2326,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [-0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -2336,18 +2336,8 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c0083f9587c45:Mat_RedDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
 						},
 						GatePiece = 
 						{
@@ -2368,6 +2358,16 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						Hierarchy = 
 						{
@@ -2463,7 +2463,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -2473,7 +2473,7 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
 						},
 						BoxCollider = 
@@ -2484,7 +2484,7 @@ Level =
 							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
 							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						GatePiece = 
 						{
@@ -2527,7 +2527,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [-0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -2537,18 +2537,8 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
 						},
 						GatePiece = 
 						{
@@ -2569,6 +2559,16 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						Hierarchy = 
 						{
@@ -2817,7 +2817,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -2827,7 +2827,7 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
 						},
 						BoxCollider = 
@@ -2838,7 +2838,7 @@ Level =
 							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
 							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						GatePiece = 
 						{
@@ -2881,7 +2881,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [-0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -2891,18 +2891,8 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
 						},
 						GatePiece = 
 						{
@@ -2923,6 +2913,16 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						Hierarchy = 
 						{
@@ -3018,7 +3018,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -3028,7 +3028,7 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
 						},
 						BoxCollider = 
@@ -3039,7 +3039,7 @@ Level =
 							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
 							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						GatePiece = 
 						{
@@ -3082,7 +3082,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [-0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -3092,18 +3092,8 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
 						},
 						GatePiece = 
 						{
@@ -3124,6 +3114,16 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						Hierarchy = 
 						{
@@ -3219,7 +3219,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -3229,7 +3229,7 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c0083f9587c45:Mat_RedDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
 						},
 						BoxCollider = 
@@ -3240,7 +3240,7 @@ Level =
 							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
 							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						GatePiece = 
 						{
@@ -3283,7 +3283,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [-0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -3293,18 +3293,8 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c0083f9587c45:Mat_RedDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
 						},
 						GatePiece = 
 						{
@@ -3325,6 +3315,16 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						Hierarchy = 
 						{
@@ -3420,7 +3420,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -3430,7 +3430,7 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
 						},
 						BoxCollider = 
@@ -3441,7 +3441,7 @@ Level =
 							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
 							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						GatePiece = 
 						{
@@ -3484,7 +3484,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [-0.25, 0, 0],
-							Vec3 Scale = [0.5, 0.3, 1],
+							Vec3 Scale = [0.5, 1, 1],
 							Quat Rotation = [0, 0, 5.68434e-014, 1],
 						},
 						Model = 
@@ -3494,18 +3494,8 @@ Level =
 							bool VisibilityEvents = false,
 							bool CastShadows = true,
 							string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
-							string MeshName = "4de0354322b345ae:Cube",
+							string MeshName = "55abc49f41ce2e5a:Door",
 							Vec4 Color = [1, 1, 1, 0],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = true,
-							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-							string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
 						},
 						GatePiece = 
 						{
@@ -3526,6 +3516,16 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.075, 0.5],
 						},
 						Hierarchy = 
 						{

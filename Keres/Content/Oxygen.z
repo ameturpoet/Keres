@@ -16,35 +16,39 @@ class Oxygen : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(this.Owner.PlayerControl_Move.BreathingHeavy)
+        if (!this.Owner.PlayerStats.DebugMode)
         {
-            this.Owner.PlayerStats.Oxygen -= (event.Dt * this.HeavyBreathingRate);
-            //While sprinting, increase the depletion of oxygen by the heavy breathing rate
-        }
-        else
-        {
-            this.Owner.PlayerStats.Oxygen -= event.Dt;
-            //Otherwise, decrease oxygen at a rate of one unit per second
-        }
-        
-        if(this.Owner.PlayerStats.Oxygen <= 0)
-        {
-            this.Owner.PlayerStats.Life = 0;
-            this.Space.LoadLevel(Level.Find("DeathScreen"));
-            //If the player runs out of oxygen, load the death screen
-        }
-        
-        if (Zero.Keyboard.KeyIsPressed(this.Owner.Controller.RefillOxygen))
-        {
-            if(this.Owner.Inventory.HasItem("OxygenTank"))
+            if(this.Owner.PlayerControl_Move.BreathingHeavy)
             {
-                this.Owner.PlayerStats.Oxygen = this.MaxOxygen;
-                this.Owner.Inventory.DeleteItem("OxygenTank");
-                this.Owner.PlayerControl_Move.UpdateO2(-1);
+                this.Owner.PlayerStats.Oxygen -= (event.Dt * this.HeavyBreathingRate);
+                //While sprinting, increase the depletion of oxygen by the heavy breathing rate
             }
             else
             {
-                //Out of oxygen tanks sound goes here
+                this.Owner.PlayerStats.Oxygen -= event.Dt;
+                //Otherwise, decrease oxygen at a rate of one unit per second
+            }
+            
+            if(this.Owner.PlayerStats.Oxygen <= 0 && !this.Owner.PlayerStats.Indestructable)
+            {
+                this.Owner.PlayerStats.Life = 0;
+                this.Owner.PlayerStats.Oxygen = 0.0;
+                this.Space.LoadLevel(Level.Find("DeathScreen"));
+                //If the player runs out of oxygen, load the death screen
+            }
+            
+            if (Zero.Keyboard.KeyIsPressed(this.Owner.Controller.RefillOxygen))
+            {
+                if(this.Owner.Inventory.HasItem("OxygenTank") || this.Owner.PlayerStats.Indestructable)
+                {
+                    this.Owner.PlayerStats.Oxygen = this.MaxOxygen;
+                    this.Owner.Inventory.DeleteItem("OxygenTank");
+                    this.Owner.PlayerControl_Move.UpdateO2(-1);
+                }
+                else
+                {
+                    //Out of oxygen tanks sound goes here
+                }
             }
         }
     }

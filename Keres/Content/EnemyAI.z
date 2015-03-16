@@ -85,7 +85,10 @@ class EnemyAI : ZilchComponent
     {
         if (event.OtherObject.Name == "Player" && this.CurrentCooldown <= 0.0 && this.State != EnemyState.Stunned)
         {
-            event.OtherObject.PlayerStats.Life -= this.AttackDamage;
+            if (!event.OtherObject.PlayerStats.DebugMode)
+            {
+                event.OtherObject.PlayerStats.Life -= this.AttackDamage;
+            }
             this.CurrentCooldown = this.AttackCooldown;
             event.OtherObject.Soundbox_Player.PlayHit();
             Console.WriteLine("Attacked");

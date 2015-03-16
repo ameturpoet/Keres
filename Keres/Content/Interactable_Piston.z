@@ -1,0 +1,141 @@
+class Interactable_Piston : ZilchComponent
+{
+    [Dependency]
+    var Interactable : Interactable = null;
+    [Property]
+    var PlayerCantUse : Boolean = true;
+    [Property]
+    var OpenTime : Real = 1.0;
+    [Property]
+    var NeckPiece : Archetype = null;
+    [Property]
+    var Sticky : Boolean = false;
+    var CurrentOpenTime : Real = 0.0;
+    var Distance : Real = 0.0;
+    var NeckPieces : Real = 0.0;
+    
+    var NeckPieceArray : Array[Cog] = null;
+    var BlockConnected : Cog = null;
+    var BlockDistanceVector : Real3 = Real3(0, 0, 0);
+    
+    [Property]
+    var State : Integer = 2;
+    //4 states:
+    //0-Open
+    //1-Opening
+    //2-Closed
+    //3-Closing
+    
+    var PistonHead : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.Update);
+        this.PistonHead = this.Owner.FindChildByName("PistonHead");
+        
+        if (this.Sticky)
+        {
+            this.PistonHead.PistonHead.Sticky = true;
+            this.PistonHead.PistonHead.ConnectStickyEvents();
+        }
+        this.Distance = Math.Length(this.PistonHead.Transform.Translation);
+        this.NeckPieceArray = new Array[Cog]();
+    }
+    
+    function Toggle()
+    {
+        if (this.State == 0 || this.State == 1)
+        {
+            this.State = 3;
+            this.Owner.SoundEmitter.Stop();
+            this.Owner.Soundbox_Door.PlayClose();
+        }
+        else if (this.State == 2 || this.State == 3)
+        {
+            this.State = 1;
+            this.Owner.SoundEmitter.Stop();
+            this.Owner.Soundbox_Door.PlayOpen();
+            if (this.Owner.Interactable_LoadGate != null)
+            {
+                this.Owner.Interactable_LoadGate.Enabled = true;
+            }
+        }
+    }
+    
+    function UpdateSubObjects()
+    {
+        this.PistonHead.PistonHead.SetOpenLevel(this.CurrentOpenTime / this.OpenTime);
+    }
+    
+    function SetOpen()
+    {
+        this.PistonHead.PistonHead.SetOpenLevel(1.0);
+    }
+    
+    function SetClosed()
+    {
+        this.PistonHead.PistonHead.SetOpenLevel(0.0);
+    }
+
+    function Update(event : UpdateEvent)
+    {
+        if (this.State == 1)
+        {
+            this.CurrentOpenTime += event.Dt;
+            if (this.CurrentOpenTime >= this.OpenTime)
+            {
+                this.State = 0;
+                this.CurrentOpenTime = this.OpenTime;
+            }
+            this.UpdateSubObjects();
+            this.UpdateNeck(this.CurrentOpenTime / this.OpenTime, true);
+        }
+        else if (this.State == 3)
+        {
+            this.CurrentOpenTime -= event.Dt;
+            if (this.CurrentOpenTime <= 0.0)
+            {
+                this.State = 2;
+                this.CurrentOpenTime = 0.0;
+            }
+            this.UpdateSubObjects();
+            this.UpdateNeck(this.CurrentOpenTime / this.OpenTime, false);
+            if (this.Sticky && this.BlockConnected != null)
+            {
+                this.BlockConnected.Transform.Translation = this.Owner.Transform.Translation + this.BlockDistanceVector;
+            }
+        }
+    }
+    
+    function UpdateNeck(openlevel : Real, opening : Boolean)
+    {
+        if (opening)
+        {
+            if (this.NeckPieces < openlevel * this.Distance)
+            {
+                var newPiece = this.Owner.Space.CreateAtPosition(this.NeckPiece, Real3(0, 0, 0));
+                newPiece.AttachTo(this.PistonHead);
+                var offsetVector = Real3(0.5 + 1 * this.NeckPieces, 0, 0);
+                offsetVector = Math.RotateVector(offsetVector, Real3(0, 0, 1), this.Owner.Transform.EulerAngles.Z);
+                newPiece.Transform.WorldTranslation -= offsetVector;
+                this.NeckPieces += 1.0;
+                this.NeckPieceArray.Add(newPiece);
+            }
+        }
+        else
+        {
+            if (this.NeckPieces - 1 > openlevel * this.Distance)
+            {
+                this.NeckPieceArray.Get(this.NeckPieceArray.LastIndex).Destroy();
+                this.NeckPieceArray.RemoveAt(this.NeckPieceArray.LastIndex);
+                this.NeckPieces -= 1.0;
+            }
+            else if (openlevel <= 0.0)
+            {
+                this.NeckPieces = 0.0;
+                this.NeckPieceArray.Get(0).Destroy();
+                this.NeckPieceArray.Clear();
+            }
+        }
+    }
+}

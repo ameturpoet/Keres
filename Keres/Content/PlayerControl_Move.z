@@ -33,7 +33,6 @@ class PlayerControl_Move : ZilchComponent
     var MovementTracker : Real3 = Real3(0, 0, 0);
     var Sprinting : Real = 0.0;
     var BreathingHeavy : Boolean = false;
-    var DebugMode : Boolean = false;
     
     function Initialize(init : CogInitializer)
     {
@@ -69,14 +68,25 @@ class PlayerControl_Move : ZilchComponent
     {
         if (Zero.Keyboard.KeyIsPressed(this.Controller.ToggleDebug))
         {
-            Console.WriteLine(this.DebugMode);
-            this.DebugMode = !this.DebugMode;
-            
-            var tiles = this.Owner.Space.FindAllObjectsByName("Floor");
-            foreach (var tile in tiles)
-            {
-                tile.FindChildByName("FloorText").SpriteText.Visible = this.DebugMode;
-            }
+            this.ToggleDebugStuff();
+        }
+        if (Zero.Keyboard.KeyIsPressed(Keys.One))
+        {
+            this.Owner.PlayerStats.Indestructable = !this.Owner.PlayerStats.Indestructable;
+        }
+    }
+    
+    function ToggleDebugStuff()
+    {
+        this.Owner.PlayerStats.DebugMode = !this.Owner.PlayerStats.DebugMode;
+        Console.WriteLine(this.Owner.PlayerStats.DebugMode);
+        
+        this.Owner.Collider.Ghost = !this.Owner.Collider.Ghost;
+        
+        var tiles = this.Owner.Space.FindAllObjectsByName("Floor");
+        foreach (var tile in tiles)
+        {
+            tile.FindChildByName("FloorText").SpriteText.Visible = this.Owner.PlayerStats.DebugMode;
         }
     }
     
@@ -158,11 +168,18 @@ class PlayerControl_Move : ZilchComponent
         
         if (this.Owner.PlayerStats.Oxygen <= 30.0)
         {
-            oxygenText.HUD_OxygenText.Danger = true;
+            if (!oxygenText.HUD_OxygenText.Danger)
+            {
+                oxygenText.HUD_OxygenText.Danger = true;
+            }
         }
         else
         {
-            oxygenText.HUD_OxygenText.Danger = false;
+            if (oxygenText.HUD_OxygenText.Danger)
+            {
+                oxygenText.HUD_OxygenText.Danger = false;
+                oxygenText.SpriteText.Color = Real4(1.0, 1.0, 1.0, 1.0);
+            }
         }
         
         //Then the player's ammo

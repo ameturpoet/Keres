@@ -52,11 +52,6 @@ class TileArray2D : ZilchComponent
         this.Width = this.MaxX - this.MinX - 1;
         this.Height = this.MaxY - this.MinY - 1;
         
-        Console.WriteLine(this.Width);
-        Console.WriteLine(this.Height);
-        Console.WriteLine(this.MinY);
-        Console.WriteLine(this.MaxY);
-        
         //Creates an empty array
         for (var i = 0; i < this.Width * this.Height; i += 1)
         {

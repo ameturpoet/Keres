@@ -56,7 +56,10 @@ class Weapon : ZilchComponent
             if (playerStats.Energy >= this.EnergyUse && Zero.Mouse.IsButtonDown(MouseButtons.Left) && this.RecoilTracker >= -0.25)
             {
                 this.Fire(impactLocation);
-                playerStats.Energy -= this.EnergyUse;
+                if (!playerStats.DebugMode)
+                {
+                    playerStats.Energy -= this.EnergyUse;
+                }
             }
             if (playerStats.Batteries > 0 && Zero.Keyboard.KeyIsPressed(controller.Reload))
             {
@@ -121,7 +124,10 @@ class Weapon : ZilchComponent
     {
         if (this.ReloadTimer <= 0.0)
         {
-            playerStats.Batteries -= 1;
+            if (!playerStats.DebugMode)
+            {
+                playerStats.Batteries -= 1;
+            }
             playerStats.Energy = 100;
             this.Owner.Transform.Rotation = this.StartRotation;
             this.Battery.Transform.Translation = this.BatteryStartLocation;

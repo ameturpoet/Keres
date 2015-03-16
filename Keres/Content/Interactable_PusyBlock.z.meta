@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Interactable_PusyBlock",
+		uint64 ResourceId = 55bbefda0ce9ed7d,
+	},
+},

@@ -1,0 +1,24 @@
+class Interactable_PusyBlock : ZilchComponent
+{
+    var OldPosition : Real3 = Real3(0, 0, 0);
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.OldPosition = this.Owner.Transform.Translation;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+        if (this.OldPosition != this.Owner.Transform.Translation)
+        {
+            if (Math.LengthSq(this.OldPosition - this.Owner.Transform.Translation) <= 0.0035)
+            {
+                this.Owner.Transform.Translation = this.OldPosition;
+                this.Owner.RigidBody.Velocity *= 0.0;
+            }
+        }
+        this.OldPosition = this.Owner.Transform.Translation;
+    }
+}

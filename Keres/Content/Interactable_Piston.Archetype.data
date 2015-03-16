@@ -6,7 +6,7 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "gate1",
+		string Name = "piston1",
 	},
 	Archetyped = 
 	{
@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [10.1665, 2.11655, 0.86124],
+		Vec3 Translation = [-2.99878, 1.49778, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -44,14 +44,6 @@ Cog =
 		Vec3 Offset = [0, 0, 0],
 		Vec3 Size = [0.5, 0.5, 0.5],
 	},
-	Interactable_Gate = 
-	{
-		bool PlayerCantOpen = false,
-		bool Locked = false,
-		string Key = "TestKey",
-		float OpenTime = 0.3,
-		int State = 2,
-	},
 	SoundEmitter = 
 	{
 		bool StartPlaying = false,
@@ -67,6 +59,14 @@ Cog =
 		string Close = "5477f3b8604c1ffd:Door_Close",
 		string Unlock = "5477f3b8607bbff1:Door_Unlock",
 	},
+	Interactable_Piston = 
+	{
+		bool PlayerCantUse = false,
+		float OpenTime = 1,
+		string NeckPiece = "55bbf4d95464e02a:PistonNeck",
+		bool Sticky = true,
+		int State = 2,
+	},
 	Hierarchy = 
 	{
 		Cog = 
@@ -77,7 +77,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "doorPiece",
+				string Name = "PistonHead",
 			},
 			Archetyped = 
 			{
@@ -85,8 +85,8 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, 0, 0],
-				Vec3 Scale = [0.5, 0.3, 1],
+				Vec3 Translation = [2.94933, -2.92748e-008, 0],
+				Vec3 Scale = [0.2, 0.7, 0.7],
 				Quat Rotation = [0, 0, 5.68434e-014, 1],
 			},
 			Model = 
@@ -109,19 +109,11 @@ Cog =
 				Vec3 Offset = [0, 0, 0],
 				Vec3 Size = [0.5, 0.5, 0.5],
 			},
-			GatePiece = 
-			{
-				Enum TypeOfDoor = MoveRight,
-				float OpenDistance = 3,
-				float OpenAngle = 90,
-				bool Initialized = false,
-				Vec3 StartingLocation = [0, 0, 0],
-			},
 			RigidBody = 
 			{
-				bool Static = true,
+				bool Static = false,
 				bool Asleep = false,
-				bool Kinematic = false,
+				bool Kinematic = true,
 				bool RotationLocked = false,
 				bool Mode2D = true,
 				bool AllowSleep = true,
@@ -129,72 +121,67 @@ Cog =
 				Vec3 Velocity = [0, 0, 0],
 				Vec3 AngularVelocity = [0, 0, 0],
 			},
-			Hierarchy = 
+			PistonHead = 
 			{
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 3,
-			},
-			Named = 
-			{
-				string Name = "justprop",
-			},
-			Archetyped = 
-			{
-				string Name = "4faa6050b86884ec:DefaultArchetype",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [-0.368336, 0, 0],
-				Vec3 Scale = [0.25, 1, 1],
-				Quat Rotation = [0, 0, 5.68434e-014, 1],
-			},
-			Model = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = false,
-				bool CastShadows = true,
-				string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
-				string MeshName = "4de0354322b345ae:Cube",
-				Vec4 Color = [1, 1, 1, 0],
-			},
-			BoxCollider = 
-			{
-				bool Ghost = false,
-				bool SendsMessages = true,
-				bool Seamless = true,
-				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-				string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
-				Vec3 Offset = [0, 0, 0],
-				Vec3 Size = [0.5, 0.5, 0.5],
-			},
-			GatePiece = 
-			{
-				Enum TypeOfDoor = MoveRight,
-				float OpenDistance = 0.48,
-				float OpenAngle = 90,
-				bool Initialized = false,
-				Vec3 StartingLocation = [0, 0, 0],
-			},
-			RigidBody = 
-			{
-				bool Static = true,
-				bool Asleep = false,
-				bool Kinematic = false,
-				bool RotationLocked = false,
-				bool Mode2D = true,
-				bool AllowSleep = true,
-				bool Inherit2DMode = true,
-				Vec3 Velocity = [0, 0, 0],
-				Vec3 AngularVelocity = [0, 0, 0],
 			},
 			Hierarchy = 
 			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Named = 
+					{
+						string Name = "PistonStick",
+					},
+					Archetyped = 
+					{
+						string Name = "4faa6050b86884ec:DefaultArchetype",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0.487773, 5.96046e-008, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, -1.95399e-014, 1],
+					},
+					Model = 
+					{
+						bool Visible = false,
+						bool VisibilityCulling = true,
+						bool VisibilityEvents = false,
+						bool CastShadows = true,
+						string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+						string MeshName = "4de0354322b345ae:Cube",
+						Vec4 Color = [1, 1, 1, 0],
+					},
+					BoxCollider = 
+					{
+						bool Ghost = true,
+						bool SendsMessages = true,
+						bool Seamless = true,
+						string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+						string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
+						Vec3 Offset = [0, 0, 0],
+						Vec3 Size = [0.5, 0.5, 0.5],
+					},
+					RigidBody = 
+					{
+						bool Static = false,
+						bool Asleep = false,
+						bool Kinematic = true,
+						bool RotationLocked = false,
+						bool Mode2D = true,
+						bool AllowSleep = true,
+						bool Inherit2DMode = true,
+						Vec3 Velocity = [0, 0, 0],
+						Vec3 AngularVelocity = [0, 0, 0],
+					},
+					Hierarchy = 
+					{
+					},
+				},
 			},
 		},
 	},

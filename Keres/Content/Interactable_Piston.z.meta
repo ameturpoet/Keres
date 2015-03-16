@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Interactable_Piston",
+		uint64 ResourceId = 55bbe4f102cb4877,
+	},
+},

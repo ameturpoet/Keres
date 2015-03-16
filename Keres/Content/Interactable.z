@@ -51,6 +51,14 @@ class Interactable : ZilchComponent
                 }
             }
         }
+        //PISTON
+        else if (this.Owner.Interactable_Piston != null)
+        {
+            if (!manual || !this.Owner.Interactable_Piston.PlayerCantUse)
+            {
+                this.Owner.Interactable_Piston.Toggle();
+            }
+        }
         //BUTTON
         else if (this.Owner.Activator_PushButton != null)
         {

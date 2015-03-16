@@ -93,9 +93,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.869022, -1.73832, 165.995],
+			Vec3 Translation = [0.869021, -1.73832, 165.995],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.00523577, 0.00261755, -1.37051e-005, 0.999983],
+			Quat Rotation = [0.00523576, 0.00261755, -1.3705e-005, 0.999983],
 		},
 		Camera = 
 		{
@@ -221,7 +221,7 @@ Level =
 			bool VisibilityCulling = false,
 			bool VisibilityEvents = false,
 			bool CastShadows = true,
-			string MaterialName = "5403b42c4e36be37:Mat_Pearlstone",
+			string MaterialName = "4faa78123470162f:FallbackMaterial",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
 		},
@@ -276,7 +276,7 @@ Level =
 			Enum RefillOxygen = R,
 			Enum Reload = F,
 			Enum Pause = Escape,
-			Enum ToggleDebug = Zero,
+			Enum ToggleDebug = Tilde,
 		},
 		NavigationEvents = 
 		{
@@ -372,7 +372,7 @@ Level =
 							string Projectile = "541bb3f68b66bc61:projectile_Bullet",
 							string RibbonObject = "541bbd020465b0f4:ribbon_TestBeam",
 							CogPath ProjectileNode = "ProjectileNode",
-							int EnergyUse = 1,
+							int EnergyUse = 100,
 							float Range = 3,
 							float TimeToReload = 1,
 							string AmmoString = "",

@@ -18,6 +18,7 @@ class PlayerStats : ZilchComponent
     var RadarCooldown : Real = 2.0;
     [Property]
     var DebugMode : Boolean = false;
+    var Indestructable : Boolean = false;
     var CooldownTimer : Real = 0.0;
     
     function Initialize(init : CogInitializer)
@@ -27,7 +28,7 @@ class PlayerStats : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if (this.Life <= 0)
+        if (this.Life <= 0 && !this.DebugMode && !this.Indestructable)
         {
             this.Owner.PlayerControl_Move.Disabled = true;
             this.Space.LoadLevel(Level.Find("DeathScreen"));
