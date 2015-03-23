@@ -93,7 +93,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.00841, -0.245061, 52.3435],
+			Vec3 Translation = [-6.91691, -2.28126, 52.3435],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-8.4238e-007, -1.08637e-006, -9.22187e-013, 1],
 		},
@@ -105,7 +105,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 16.53,
+			float Size = 13.5336,
 		},
 		EditorCameraController = 
 		{
@@ -113,7 +113,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 1.68476e-006,
 			float HorizontalAngle = 2.15601e-006,
-			Vec3 LookTarget = [2.00852, -0.245146, 2.34347],
+			Vec3 LookTarget = [-6.9168, -2.28135, 2.34345],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -323,7 +323,7 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [-12.5217, 2.61855, 4.76451],
-			Vec3 Scale = [1, 1, 1],
+			Vec3 Scale = [3, 3, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -336,7 +336,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "544fbcc6ad2dfc41:HUD_TempMenuButton",
+			string SpriteSource = "55be4092554166c4:HUD_ButtonContinue",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
@@ -352,26 +352,6 @@ Level =
 			bool Anchor_Left = true,
 			bool Anchor_Right = false,
 		},
-		SpriteText = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = false,
-			Vec4 Color = [0, 0, 0, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			TextPositionMode Position = Centered,
-			string FontName = "4e7bac697bec55c5:Verdana",
-			uint FontSize = 36,
-			string Text = "CONTINUE",
-			bool OnTop = false,
-			Vec2 Size = [0, 0],
-			TextAlign Align = Left,
-			float PixelsPerUnit = 64,
-			bool Smoothing = true,
-		},
 		Reactive = 
 		{
 			bool Active = true,
@@ -385,7 +365,7 @@ Level =
 			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
+			Vec3 Size = [0.78125, 0.5, 0.390625],
 		},
 		MenuButton = 
 		{
@@ -395,7 +375,7 @@ Level =
 		},
 		StartingLevel = 
 		{
-			string StartingLevel = "54c6ebb176a4e36f:Level2Alpha",
+			string StartingLevel = "54c6ebb176a4e36f:Bleh",
 		},
 	},
 	Cog = 
@@ -414,8 +394,8 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-12.5217, -2.77354, 4.76451],
-			Vec3 Scale = [1, 1, 1],
+			Vec3 Translation = [-12.5217, -4.79432, 4.76451],
+			Vec3 Scale = [3, 3, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -428,7 +408,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "544fbcc6ad2dfc41:HUD_TempMenuButton",
+			string SpriteSource = "55be407ca49fa169:HUD_ButtonQuit",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
@@ -444,26 +424,6 @@ Level =
 			bool Anchor_Left = true,
 			bool Anchor_Right = false,
 		},
-		SpriteText = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = false,
-			Vec4 Color = [0, 0, 0, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			TextPositionMode Position = Centered,
-			string FontName = "4e7bac697bec55c5:Verdana",
-			uint FontSize = 36,
-			string Text = "QUIT",
-			bool OnTop = false,
-			Vec2 Size = [0, 0],
-			TextAlign Align = Left,
-			float PixelsPerUnit = 64,
-			bool Smoothing = true,
-		},
 		BoxCollider = 
 		{
 			bool Ghost = false,
@@ -472,7 +432,7 @@ Level =
 			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
+			Vec3 Size = [0.78125, 0.5, 0.390625],
 		},
 		Reactive = 
 		{
@@ -706,8 +666,8 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-12.5217, -0.94759, 4.76451],
-			Vec3 Scale = [1, 1, 1],
+			Vec3 Translation = [-12.5217, -2.35657, 4.76451],
+			Vec3 Scale = [3, 3, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -720,7 +680,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "544fbcc6ad2dfc41:HUD_TempMenuButton",
+			string SpriteSource = "55be40b152a6d184:HUD_ButtonErase",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
@@ -736,26 +696,6 @@ Level =
 			bool Anchor_Left = true,
 			bool Anchor_Right = false,
 		},
-		SpriteText = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = false,
-			Vec4 Color = [0, 0, 0, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			TextPositionMode Position = Centered,
-			string FontName = "4e7bac697bec55c5:Verdana",
-			uint FontSize = 36,
-			string Text = "CLEAR SAVE DATA",
-			bool OnTop = false,
-			Vec2 Size = [0, 0],
-			TextAlign Align = Left,
-			float PixelsPerUnit = 64,
-			bool Smoothing = true,
-		},
 		Reactive = 
 		{
 			bool Active = true,
@@ -769,7 +709,7 @@ Level =
 			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
+			Vec3 Size = [0.78125, 0.5, 0.390625],
 		},
 		MenuButton = 
 		{
@@ -937,7 +877,7 @@ Level =
 				},
 				StartingLevel = 
 				{
-					string StartingLevel = "54c6ebb176a4e36f:Level2Alpha",
+					string StartingLevel = "54c6ebb176a4e36f:Bleh",
 				},
 			},
 			Cog = 
@@ -1022,7 +962,7 @@ Level =
 				},
 				StartingLevel = 
 				{
-					string StartingLevel = "54c6ebb176a4e36f:Level2Alpha",
+					string StartingLevel = "54c6ebb176a4e36f:Bleh",
 				},
 			},
 			Cog = 
@@ -1084,8 +1024,8 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-12.5217, 0.881889, 4.76451],
-			Vec3 Scale = [1, 1, 1],
+			Vec3 Translation = [-12.5217, 0.12178, 4.76451],
+			Vec3 Scale = [3, 3, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -1098,7 +1038,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "544fbcc6ad2dfc41:HUD_TempMenuButton",
+			string SpriteSource = "55be4092554166c4:HUD_ButtonContinue",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
@@ -1114,26 +1054,6 @@ Level =
 			bool Anchor_Left = true,
 			bool Anchor_Right = false,
 		},
-		SpriteText = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = false,
-			Vec4 Color = [0, 0, 0, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			TextPositionMode Position = Centered,
-			string FontName = "4e7bac697bec55c5:Verdana",
-			uint FontSize = 36,
-			string Text = "NEW GAME",
-			bool OnTop = false,
-			Vec2 Size = [0, 0],
-			TextAlign Align = Left,
-			float PixelsPerUnit = 64,
-			bool Smoothing = true,
-		},
 		Reactive = 
 		{
 			bool Active = true,
@@ -1147,7 +1067,7 @@ Level =
 			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
+			Vec3 Size = [0.78125, 0.5, 0.390625],
 		},
 		MenuButton = 
 		{
@@ -1157,7 +1077,7 @@ Level =
 		},
 		StartingLevel = 
 		{
-			string StartingLevel = "5564a743e0a56797:Presentation_Level",
+			string StartingLevel = "54c6ebb176a4e36f:Bleh",
 		},
 	},
 	Cog = 
@@ -1224,7 +1144,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-15.511, -3.99532, 2.34345],
+			Vec3 Translation = [-15.511, -5.51554, 20],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1248,6 +1168,13 @@ Level =
 			float PixelsPerUnit = 64,
 			bool Smoothing = true,
 		},
+		HUDElement = 
+		{
+			bool Anchor_Top = false,
+			bool Anchor_Bottom = true,
+			bool Anchor_Left = true,
+			bool Anchor_Right = false,
+		},
 	},
 	Cog = 
 	{
@@ -1265,7 +1192,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-15.5336, -4.6067, 2.34345],
+			Vec3 Translation = [-15.5336, -6.12692, 20],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1289,6 +1216,13 @@ Level =
 			float PixelsPerUnit = 64,
 			bool Smoothing = true,
 		},
+		HUDElement = 
+		{
+			bool Anchor_Top = false,
+			bool Anchor_Bottom = true,
+			bool Anchor_Left = true,
+			bool Anchor_Right = false,
+		},
 	},
 	Cog = 
 	{
@@ -1306,7 +1240,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-15.5336, -5.5351, 2.34345],
+			Vec3 Translation = [-15.5336, -7.05532, 20],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1330,6 +1264,13 @@ Level =
 			float PixelsPerUnit = 64,
 			bool Smoothing = true,
 		},
+		HUDElement = 
+		{
+			bool Anchor_Top = false,
+			bool Anchor_Bottom = true,
+			bool Anchor_Left = true,
+			bool Anchor_Right = false,
+		},
 	},
 	Cog = 
 	{
@@ -1347,7 +1288,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-15.5336, -6.4635, 2.34345],
+			Vec3 Translation = [-15.5336, -7.98372, 20],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1370,6 +1311,13 @@ Level =
 			TextAlign Align = Left,
 			float PixelsPerUnit = 64,
 			bool Smoothing = true,
+		},
+		HUDElement = 
+		{
+			bool Anchor_Top = false,
+			bool Anchor_Bottom = true,
+			bool Anchor_Left = true,
+			bool Anchor_Right = false,
 		},
 	},
 },

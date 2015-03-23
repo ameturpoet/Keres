@@ -26,6 +26,8 @@ class EnemyAI : ZilchComponent
     [Property]
     var SightDistance : Real = 5.0; //Minimum sight distance for becoming aggroed
     [Property]
+    var MaxSightDistance : Real = 20.0;
+    [Property]
     var AttentionSpanTime : Real = 3.0; //Max amount of time it takes to lose interest and become idle
     [Property]
     var AttackCooldown : Real = 0.3; //The cooldown between attacks for the enemy
@@ -45,6 +47,7 @@ class EnemyAI : ZilchComponent
         this.Player = this.Owner.Space.FindObjectByName("Player");
         this.LevelGeometry = this.Owner.Space.FindObjectByName("LevelGeometry");
         this.RayFilter.CollisionGroup = CollisionGroup.Find("LineofSightRayGroup");
+        this.Owner.Name = "enemy";
     }
     
     //Enables the enemy once the map has been generated
@@ -248,9 +251,14 @@ class EnemyAI : ZilchComponent
         var detectPlayer = this.Space.PhysicsSpace.CastRayFirstFiltered(this.ToPlayerRay, this.RayFilter);
         
         //If the player was hit by the ray
-        if (detectPlayer.ObjectHit != null && detectPlayer.ObjectHit.Name == "Player")
+        if (detectPlayer.ObjectHit != null && detectPlayer.ObjectHit.Name == "Player" && detectPlayer.Distance <= this.MaxSightDistance)
         {
             this.SeesPlayer = true;
+            
+            if (this.State == EnemyState.Idle)
+            {
+                this.Owner.Soundbox_Keres.PlayAware();
+            }
             
             //If the player is within sight distance, immediately begin aggroing and head straight towards him
             if (Math.Distance(this.Player.Transform.Translation, this.Owner.Transform.Translation) <= this.SightDistance)

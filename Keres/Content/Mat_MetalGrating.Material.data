@@ -1,0 +1,25 @@
+Material = 
+{
+	Lambert = 
+	{
+	},
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Alpha,
+	},
+	NormalMapping = 
+	{
+		float Bumpiness = 2,
+		string NormalMapTexture = "55be4ec1a1cf0e5e:Env_Grating_n",
+		Vec2 NormalScroll = [0, 0],
+		Vec2 NormalTiling = [1, 1],
+		Vec2 NormalOffset = [0, 0],
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "55be4ed6a6d3cefc:Env_Grating",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

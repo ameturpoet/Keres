@@ -32,7 +32,7 @@ class FootsterScaler : ZilchComponent
             }
             else
             {
-                this.Owner.SoundEmitter.Volume = (2 / this.Distance);
+                this.Owner.SoundEmitter.Volume = (10 / (this.Distance * this.Distance));
             }
         }
     }

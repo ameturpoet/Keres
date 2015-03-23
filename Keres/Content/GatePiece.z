@@ -31,18 +31,6 @@ class GatePiece : ZilchComponent
     {
         this.SetOpenPosition(0.0);
     }
-    /*
-    function SetVelocity(timeToOpen : Real)
-    {
-        if (this.TypeOfDoor == OpenType.MoveRight)
-        {
-            this.Owner.RigidBody.Velocity = Real3(this.OpenDistance / timeToOpen, 0, 0);
-        }
-        else if (this.TypeOfDoor == OpenType.MoveLeft)
-        {
-            this.Owner.RigidBody.Velocity = Real3(this.OpenDistance / timeToOpen * -1, 0, 0);
-        }
-    }*/
 
     //Sets the position of the door based on the current level of open-ness
     //For instance, if openLevel is 0.5 and the door is supposed to swing open by 90*, the door will be open by 45*

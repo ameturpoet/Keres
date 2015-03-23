@@ -14,18 +14,29 @@ class TileArray2D : ZilchComponent
     {
         this.TileArray = new Array[Cog]();
     }
+    
+    function ShiftIndex(index : Real, direction : Real2) : Real
+    {
+        var result = index;
+        result += direction.X as Integer;
+        result -= (direction.Y * this.Width) as Integer;
+        
+        return result;
+    }
 
     //Initializes the list with 'empty' values
     //(The values are actually pointers to this script's owner)
     function InitializeEmptyList(allTiles : Array[Cog])
     {
+        this.MaxY = allTiles.Get(0).Transform.Translation.Y;
+        this.MinY = allTiles.Get(0).Transform.Translation.Y;
+        this.MaxX = allTiles.Get(0).Transform.Translation.X;
+        this.MinX = allTiles.Get(0).Transform.Translation.X;
         foreach (var tile in allTiles)
         {
             //Gets the sign of both the X and Y coordinates
-            var sign = Real2(Math.Abs(tile.Transform.WorldTranslation.X) / tile.Transform.WorldTranslation.X, Math.Abs(tile.Transform.WorldTranslation.Y) / tile.Transform.WorldTranslation.Y);
             var temp = tile.Transform.WorldTranslation;
-            temp.X += sign.X;
-            temp.Y += sign.Y;
+            //Console.WriteLine(temp.Y);
             
             //Check for X minimum and maximum
             if (temp.X < this.MinX)
@@ -38,7 +49,7 @@ class TileArray2D : ZilchComponent
             }
             
             //Check for Y minimum and maximum
-            if (temp.Y< this.MinY)
+            if (temp.Y < this.MinY)
             {
                 this.MinY = temp.Y;
             }
@@ -49,8 +60,11 @@ class TileArray2D : ZilchComponent
         }
         
         //Derives width and height from min/max X and Y
-        this.Width = this.MaxX - this.MinX - 1;
-        this.Height = this.MaxY - this.MinY - 1;
+        this.Width = this.MaxX - this.MinX + 1;
+        this.Height = this.MaxY - this.MinY + 1;
+        
+        Console.WriteLine(this.Width);
+        Console.WriteLine(this.Height);
         
         //Creates an empty array
         for (var i = 0; i < this.Width * this.Height; i += 1)
@@ -61,7 +75,7 @@ class TileArray2D : ZilchComponent
         this.Count = this.TileArray.Count;
     }
     
-    function CoordToIndex(tileCoordinates : Real3) : Real
+    function CoordToIndex(tileCoordinates : Real3, tile : Cog) : Real
     {
         var temp = tileCoordinates;
         temp.X -= this.MinX;
@@ -69,7 +83,12 @@ class TileArray2D : ZilchComponent
         temp.Y -= this.MaxY;
         temp.Y *= -1;
         
-        var index = (temp.X - 1) + this.Width * (temp.Y - 1);
+        //Console.WriteLine(temp);
+        
+        tile.NavigationPoint.Index2D = Real2(temp.X, temp.Y);
+        
+        var index = temp.X + this.Width * temp.Y;
+        //Console.WriteLine(index);
         
         if (index == 0)
         {
@@ -79,22 +98,33 @@ class TileArray2D : ZilchComponent
         return index;
     }
     
-    function GetTileAt(tileCoordinates : Real3) : Cog
+    function CoordToIndex(tileCoordinates : Real2, offset : Real3) : Real
     {
-        var index = this.CoordToIndex(tileCoordinates);
-        var passedCheck = true;
-        if (index as Integer != index)
+        var temp = tileCoordinates;
+        
+        temp.X += offset.X;
+        temp.Y += offset.Y;
+        
+        var index = temp.X + this.Width * temp.Y;
+        
+        //Console.WriteLine("sweg");
+        //Console.WriteLine(index);
+        
+        if (temp.X >= this.Width || temp.X < 0 || temp.Y < 0 || temp.Y >= this.Height)
         {
-            passedCheck = false;
-        }
-        else if (index < 0 || index >= this.Count)
-        {
-            passedCheck = false;
+            index = -1;
         }
         
-        if (passedCheck)
+        return index;
+    } 
+    
+    function GetTileAt(index2D: Real2, offset : Real3) : Cog
+    {
+        var offsetIndex = this.CoordToIndex(index2D, offset);
+        
+        if (offsetIndex < this.Count && offsetIndex != -1)
         {
-            return this.TileArray.Get(index as Integer);
+            return this.TileArray.Get(offsetIndex as Integer);
         }
         else
         {
@@ -113,21 +143,35 @@ class TileArray2D : ZilchComponent
     //OOOX
     function PopulateList(allTiles : Array[Cog])
     {
-        Console.WriteLine(this.TileArray.Count);
+        //Console.WriteLine(this.TileArray.Count);
         foreach (var tile in allTiles)
         {
-            var index = this.CoordToIndex(tile.Transform.WorldTranslation);
-            var integerIndex = index as Integer;
-            
-            if (integerIndex == index)
+            //45-degree corner tiles are weird, so we have to check for them
+            if (tile.Parent.Name != "Floor45")
             {
-                this.TileArray.Set(integerIndex, tile);
+                var index = this.CoordToIndex(tile.Transform.WorldTranslation, tile);
+                tile.NavigationPoint.Index = index;
+                var integerIndex = index as Integer;
+                
+                //Console.WriteLine(integerIndex);
+                
+                if (integerIndex < this.Count)
+                {
+                    this.TileArray.Set(integerIndex, tile);
+                }
             }
-            else if (tile.Parent != null)
+            else
             {
-                index = this.CoordToIndex(tile.Parent.Transform.WorldTranslation);
-                integerIndex = index as Integer;
-                this.TileArray.Set(integerIndex, tile);
+                var index = this.CoordToIndex(tile.Parent.Transform.WorldTranslation, tile);
+                var integerIndex = index as Integer;
+                tile.NavigationPoint.Index = index;
+                
+                //Console.WriteLine(integerIndex);
+                
+                if (integerIndex < this.Count)
+                {
+                    this.TileArray.Set(integerIndex, tile);
+                }
             }
         }
         

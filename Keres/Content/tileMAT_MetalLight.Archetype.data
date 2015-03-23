@@ -1,0 +1,38 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "tile_Paint",
+	},
+	Archetyped = 
+	{
+		string Name = "55be4c8c145c1595:tileMAT_MetalLight",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Tile_Replace3D = 
+	{
+		Enum Type = TilePainter,
+		string MainProp = "55be4cf51cbb7a88:TilePainter_MetalLight",
+		string FloorProp = "55be4cf51cbb7a88:TilePainter_MetalLight",
+		string CeilingProp = "55be4cf51cbb7a88:TilePainter_MetalLight",
+		bool JustProp = true,
+		bool FloorCeiling = false,
+		bool Up = false,
+		bool Down = false,
+		bool Left = false,
+		bool Right = false,
+		bool FortyFiveCorner = false,
+	},
+	NavigationEvents = 
+	{
+	},
+},

@@ -1,0 +1,13 @@
+Pre-Alpha 1.13
+3/23/2015
+-------------
+Changes
+---
++Tilemap Pathing Fix
++Radar now regularly pings on its own
++Imported several new textures
+
+---
+Bugfixes
+---
++Gun can now shoot through open doors

@@ -1,0 +1,18 @@
+DataContent = 
+{
+	DataBuilder = 
+	{
+		string Name = "TilePainter_MetalLight",
+		uint64 ResourceId = 55be4cf51cbb7a88,
+		string LoaderType = "Cog",
+		uint Version = 0,
+		bool ShowInEditor = true,
+	},
+	ContentTags = 
+	{
+		Array Tags = 
+		[
+			"TilePainters",
+		],
+	},
+},

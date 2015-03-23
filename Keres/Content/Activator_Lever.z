@@ -1,0 +1,67 @@
+class Activator_Lever : ZilchComponent
+{
+    [Property]
+    var ActivationTarget : CogPath = null;
+    [Property]
+    var PlayerCanActivate : Boolean = true;
+    
+    var Active : Boolean = false;
+    var State : Boolean = false;
+    var CurrentLevel : Real = 0.0;
+    var MaxLevel : Real = 0.2;
+    var Lever : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.UpdateLever);
+        this.Lever = this.Owner.FindChildByName("Level_Handle");
+    }
+    
+    function UpdateLever(event : UpdateEvent)
+    {
+        if (this.Active)
+        {
+            if (this.State)
+            {
+                this.CurrentLevel += event.Dt;
+                this.SetLeverLevel(this.CurrentLevel);
+                
+                if (this.CurrentLevel >= this.MaxLevel)
+                {
+                    this.CurrentLevel = this.MaxLevel;
+                    this.Active = false;
+                }
+            }
+            else
+            {
+                this.CurrentLevel -= event.Dt;
+                
+                if (this.CurrentLevel <= 0.0)
+                {
+                    this.CurrentLevel = 0.0;
+                    this.Active = false;
+                }
+            }
+            this.SetLeverLevel(this.CurrentLevel / this.MaxLevel);
+        }
+    }
+    
+    function SetLeverLevel(level : Real)
+    {
+        var derp = Real3((-30 + 60 * level) * Math.Pi / 180, 0, 0);
+        this.Lever.Transform.EulerAngles = derp;
+    }
+
+    function Activate()
+    {
+        if (this.ActivationTarget.Cog != null)
+        {
+            this.ActivationTarget.Cog.Interactable.Activate(false);
+        }
+        this.State = !this.State;
+        if (!this.Active)
+        {
+            this.Active = true;
+        }
+    }
+}

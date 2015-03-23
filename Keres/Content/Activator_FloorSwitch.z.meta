@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Activator_FloorSwitch",
+		uint64 ResourceId = 5536bf2dc55932db,
+	},
+},

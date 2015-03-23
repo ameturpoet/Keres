@@ -11,11 +11,13 @@ class NavigationPoint : ZilchComponent
     [Serialized]
     var NearPoints : Array[Cog] = null;
     var Done : Boolean = true;
+    var Index : Real = 0.0;
+    var Index2D : Real2 = Real2(0, 0);
     
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, "ConnectTiles", this.SetNearbyPoints);
-        //Zero.Connect(this.Space, "Start45Corners", this.ForwardIfFortyFive);
+        Zero.Connect(this.Space, "Start45Corners", this.ForwardIfFortyFive);
         Zero.Connect(this.Space, Events.LogicUpdate, this.SetNearbyWeight);
         this.NearPoints = new Array[Cog]();
     }
@@ -39,30 +41,44 @@ class NavigationPoint : ZilchComponent
         
         var worldTranslation = this.Owner.Transform.WorldTranslation;
         
+        var sr = new StringBuilder();
+        
+        sr.WriteLine(this.Index2D);
+        
+        this.Owner.FindChildByName("FloorText").SpriteText.Text = sr.ToString();
+        
         if (this.Owner.Parent.Name != "LevelGeometry")
         {
             worldTranslation = this.Owner.Parent.Transform.WorldTranslation;
         }
         
-        var tempObject = geometry.TileArray2D.GetTileAt(worldTranslation + Real3(1, 0, 0));
+        
+        
+        var tempObject = geometry.TileArray2D.GetTileAt(this.Index2D, Real3(1, 0, 0));
+        //Console.WriteLine(tempObject.Name);
+        Console.Write("Connected ");
+        Console.WriteLine(this.Index);
         if (tempObject.Name == "Floor")
         {
             this.NearPoints.Add(tempObject);
         }
         
-        tempObject = geometry.TileArray2D.GetTileAt(worldTranslation + Real3(-1, 0, 0));
+        tempObject = geometry.TileArray2D.GetTileAt(this.Index2D, Real3(-1, 0, 0));
+        //Console.WriteLine(tempObject.Name);
         if (tempObject.Name == "Floor")
         {
             this.NearPoints.Add(tempObject);
         }
         
-        tempObject = geometry.TileArray2D.GetTileAt(worldTranslation + Real3(0, 1, 0));
+        tempObject = geometry.TileArray2D.GetTileAt(this.Index2D, Real3(0, 1, 0));
+        //Console.WriteLine(tempObject.Name);
         if (tempObject.Name == "Floor")
         {
             this.NearPoints.Add(tempObject);
         }
         
-        tempObject = geometry.TileArray2D.GetTileAt(worldTranslation + Real3(0, -1, 0));
+        tempObject = geometry.TileArray2D.GetTileAt(this.Index2D, Real3(0, -1, 0));
+        //Console.WriteLine(tempObject.Name);
         if (tempObject.Name == "Floor")
         {
             this.NearPoints.Add(tempObject);
@@ -81,6 +97,10 @@ class NavigationPoint : ZilchComponent
     //
     function SetNearbyWeight(event : UpdateEvent)
     {
+        //var st = new StringBuilder();
+        //st.WriteLine(this.Index);
+        //this.Owner.FindChildByName("FloorText").SpriteText.Text = st.ToString();
+        
         if (!this.Done && !this.FortyFiveCorner)
         {
             foreach (var ti in this.NearPoints)
@@ -91,7 +111,10 @@ class NavigationPoint : ZilchComponent
                     
                     var sr = new StringBuilder();
                     
-                    sr.WriteLine(this.Weight + 1);
+                    sr.Write(this.Weight + 1);
+                    sr.Write(":");
+                    sr.WriteLine(this.Index);
+                    
                     
                     ti.FindChildByName("FloorText").SpriteText.Text = sr.ToString();
                     

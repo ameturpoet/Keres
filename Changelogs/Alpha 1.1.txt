@@ -1,0 +1,13 @@
+Alpha 1.1
+3/20/2015
+-------------
+Changes
+---
++Added pistons, pushable blocks, and floor switches
++Merged level 4
++Merged level 2 revision
+
+---
+Bugfixes
+---
++Keres now rename themselves "enemy" when the game is loaded, so it doesn't matter what you name them in the editor now

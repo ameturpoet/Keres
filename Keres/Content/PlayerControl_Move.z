@@ -120,7 +120,7 @@ class PlayerControl_Move : ZilchComponent
             this.Radar.HUDElement_Radar.UpdateBlips(this.Owner.Transform.Translation - this.OldPosition);
             //If the radar key is pressed, loop through all enemies and send their relative positions to the radar
             //The radar determines whether or not the enemies are within range
-            if (this.PlayerStats.CooldownTimer <= 0.0 && Zero.Keyboard.KeyIsPressed(this.Controller.RadarPing))
+            if (this.PlayerStats.CooldownTimer <= 0.0)
             {
                 this.PlayerStats.CooldownTimer = this.PlayerStats.RadarCooldown;
                 this.Radar.HUDElement_Radar.AddPing();
@@ -258,6 +258,10 @@ class PlayerControl_Move : ZilchComponent
         {
             this.HighlightedObject = null;
         }
+        
+        //Re-casts the ray for weapon use
+        filter.CollisionGroup = CollisionGroup.Find("TileRayGunGroup");
+        result = this.Space.PhysicsSpace.CastRayFirstFiltered(ray, filter);
         
         this.WeaponStuff(deltaTime, result.WorldPosition);
     }
@@ -428,7 +432,7 @@ class PlayerControl_Move : ZilchComponent
             var length = Math.Pow(this.MovementTracker.X, 2) + Math.Pow(this.MovementTracker.Y, 2);
             
             //If the user has moved by at least 1 unit, the level pathing is recalculated
-            if (length >= 1.0 || length < 0.0)
+            if ((length >= 1.0 || length < 0.0) && !this.Owner.PlayerStats.DebugMode)
             {
                 this.MovementTracker = Real3(0, 0, 0);
                 this.LevelGeometry.NavigationController.UpdateWeights(this.Owner.Transform.Translation);

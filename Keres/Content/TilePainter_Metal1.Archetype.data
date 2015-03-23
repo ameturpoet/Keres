@@ -42,7 +42,7 @@ Cog =
 	{
 		string FloorMaterial = "54980e4e6468acfc:Mat_MetalFloor2",
 		string WallMaterial = "54980e5760c1cad2:Mat_MetalWall2",
-		string CeilingMaterial = "541bb6101aab3b3e:Mat_MetalFloor",
+		string CeilingMaterial = "55be4dd3d03744b8:Mat_CeilingMetal",
 	},
 	RigidBody = 
 	{

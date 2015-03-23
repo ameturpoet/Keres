@@ -75,7 +75,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.510338, -4.49278, 36.4962],
+			Vec3 Translation = [1.71045, -13.3881, 36.4962],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [4.52157e-007, -2.86217e-006, 1.30351e-012, 1],
 		},
@@ -87,7 +87,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 40.6569,
+			float Size = 13.5335,
 		},
 		EditorCameraController = 
 		{
@@ -95,7 +95,7 @@ Level =
 			float LookDistance = 33.5159,
 			float VerticalAngle = -9.04314e-007,
 			float HorizontalAngle = 5.68293e-006,
-			Vec3 LookTarget = [0.510528, -4.49275, 2.98028],
+			Vec3 LookTarget = [1.71064, -13.3881, 2.98027],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -281,7 +281,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-13.3762, -7.48528, 0],
+			Vec3 Translation = [13.2765, 7.14162, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -315,10 +315,10 @@ Level =
 		},
 		HUDElement = 
 		{
-			bool Anchor_Top = false,
-			bool Anchor_Bottom = true,
-			bool Anchor_Left = true,
-			bool Anchor_Right = false,
+			bool Anchor_Top = true,
+			bool Anchor_Bottom = false,
+			bool Anchor_Left = false,
+			bool Anchor_Right = true,
 		},
 		Hierarchy = 
 		{
@@ -741,7 +741,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-15.2819, -3.4955, 0],
+			Vec3 Translation = [-15.2819, -9.18237, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -784,14 +784,14 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-9.92741, -8.05519, 0],
+			Vec3 Translation = [-14.176, 10.1314, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		HUDElement = 
 		{
-			bool Anchor_Top = false,
-			bool Anchor_Bottom = true,
+			bool Anchor_Top = true,
+			bool Anchor_Bottom = false,
 			bool Anchor_Left = true,
 			bool Anchor_Right = false,
 		},
@@ -973,14 +973,14 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-15.5017, -4.55251, 0],
+			Vec3 Translation = [-15.5017, 7.97944, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		HUDElement = 
 		{
-			bool Anchor_Top = false,
-			bool Anchor_Bottom = true,
+			bool Anchor_Top = true,
+			bool Anchor_Bottom = false,
 			bool Anchor_Left = true,
 			bool Anchor_Right = false,
 		},
@@ -1021,16 +1021,16 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [11.4789, -10.1381, 0],
+			Vec3 Translation = [-12.9126, 4.47232, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		HUDElement = 
 		{
-			bool Anchor_Top = false,
-			bool Anchor_Bottom = true,
-			bool Anchor_Left = false,
-			bool Anchor_Right = true,
+			bool Anchor_Top = true,
+			bool Anchor_Bottom = false,
+			bool Anchor_Left = true,
+			bool Anchor_Right = false,
 		},
 		HUD_AmmoBar = 
 		{
@@ -1217,16 +1217,16 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [13.4195, -8.98225, 0],
+			Vec3 Translation = [-10.972, 5.62817, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		HUDElement = 
 		{
-			bool Anchor_Top = false,
-			bool Anchor_Bottom = true,
-			bool Anchor_Left = false,
-			bool Anchor_Right = true,
+			bool Anchor_Top = true,
+			bool Anchor_Bottom = false,
+			bool Anchor_Left = true,
+			bool Anchor_Right = false,
 		},
 		SpriteText = 
 		{
@@ -1265,7 +1265,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [12.11, -8.32758, 0],
+			Vec3 Translation = [12.11, -9.46014, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1308,14 +1308,14 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-10.7763, -9.26679, 0],
+			Vec3 Translation = [-15.0249, 8.91982, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		HUDElement = 
 		{
-			bool Anchor_Top = false,
-			bool Anchor_Bottom = true,
+			bool Anchor_Top = true,
+			bool Anchor_Bottom = false,
 			bool Anchor_Left = true,
 			bool Anchor_Right = false,
 		},
@@ -1407,7 +1407,7 @@ Level =
 				Transform = 
 				{
 					Vec3 Translation = [0, 1.25785, 0.1],
-					Vec3 Scale = [1, 1, 1],
+					Vec3 Scale = [2.5, 2.5, 2],
 					Quat Rotation = [0, 0, 0, 1],
 				},
 				Sprite = 
@@ -1420,7 +1420,7 @@ Level =
 					BlendMode BlendMode = Alpha,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "544fbcc6ad2dfc41:HUD_TempMenuButton",
+					string SpriteSource = "55be4092554166c4:HUD_ButtonContinue",
 					bool RenderMask = false,
 					bool FlipX = false,
 					bool FlipY = false,
@@ -1428,26 +1428,6 @@ Level =
 					bool AnimationActive = false,
 					float AnimationSpeed = 1,
 					uint StartFrame = 0,
-				},
-				SpriteText = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = false,
-					Vec4 Color = [0, 0, 0, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					TextPositionMode Position = Centered,
-					string FontName = "4e7bac697bec55c5:Verdana",
-					uint FontSize = 36,
-					string Text = "RESUME",
-					bool OnTop = false,
-					Vec2 Size = [0, 0],
-					TextAlign Align = Left,
-					float PixelsPerUnit = 64,
-					bool Smoothing = true,
 				},
 				Reactive = 
 				{
@@ -1462,7 +1442,7 @@ Level =
 					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
+					Vec3 Size = [0.78125, 0.390625, 0.390625],
 				},
 				MenuButton = 
 				{
@@ -1472,7 +1452,7 @@ Level =
 				},
 				StartingLevel = 
 				{
-					string StartingLevel = "54c6ebb176a4e36f:Level2Alpha",
+					string StartingLevel = "54c6ebb176a4e36f:Bleh",
 				},
 			},
 			Cog = 
@@ -1557,7 +1537,7 @@ Level =
 				},
 				StartingLevel = 
 				{
-					string StartingLevel = "54c6ebb176a4e36f:Level2Alpha",
+					string StartingLevel = "54c6ebb176a4e36f:Bleh",
 				},
 			},
 			Cog = 
@@ -1577,7 +1557,7 @@ Level =
 				Transform = 
 				{
 					Vec3 Translation = [0, -2.78487, 0.1],
-					Vec3 Scale = [1, 1, 1],
+					Vec3 Scale = [2.5, 2.5, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
 				Sprite = 
@@ -1590,7 +1570,7 @@ Level =
 					BlendMode BlendMode = Alpha,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "544fbcc6ad2dfc41:HUD_TempMenuButton",
+					string SpriteSource = "55be407ca49fa169:HUD_ButtonQuit",
 					bool RenderMask = false,
 					bool FlipX = false,
 					bool FlipY = false,
@@ -1598,26 +1578,6 @@ Level =
 					bool AnimationActive = false,
 					float AnimationSpeed = 1,
 					uint StartFrame = 0,
-				},
-				SpriteText = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = false,
-					Vec4 Color = [0, 0, 0, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					TextPositionMode Position = Centered,
-					string FontName = "4e7bac697bec55c5:Verdana",
-					uint FontSize = 36,
-					string Text = "EXIT GAME",
-					bool OnTop = false,
-					Vec2 Size = [0, 0],
-					TextAlign Align = Left,
-					float PixelsPerUnit = 64,
-					bool Smoothing = true,
 				},
 				Reactive = 
 				{
@@ -1632,7 +1592,7 @@ Level =
 					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
+					Vec3 Size = [0.78125, 0.5, 0.390625],
 				},
 				MenuButton = 
 				{
@@ -1642,7 +1602,7 @@ Level =
 				},
 				StartingLevel = 
 				{
-					string StartingLevel = "54c6ebb176a4e36f:Level2Alpha",
+					string StartingLevel = "54c6ebb176a4e36f:Bleh",
 				},
 			},
 		},

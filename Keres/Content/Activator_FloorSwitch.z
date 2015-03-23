@@ -1,0 +1,54 @@
+class Activator_FloorSwitch : ZilchComponent
+{
+    [Property]
+    var ActivationTarget : CogPath = null;
+    [Property]
+    var PlayerCanActivate : Boolean = true;
+    
+    var Active : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPush);
+        Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnd);
+    }
+    
+    function OnCollisionPush(event : CollisionEvent)
+    {
+        if (!this.Active)
+        {
+            if (this.PlayerCanActivate && event.OtherObject.Name == "Player")
+            {
+                this.Active = true;
+                this.Activate();
+            }
+            else if (event.OtherObject.Name != "Player")
+            {
+                this.Active = true;
+                this.Activate();
+            }
+        }
+    }
+    
+    function OnCollisionEnd(event : CollisionEvent)
+    {
+        if (!this.Owner.Collider.Contacts.IsNotEmpty)
+        {
+            if (this.PlayerCanActivate && event.OtherObject.Name == "Player")
+            {
+                this.Active = false;
+                this.Activate();
+            }
+            else if (event.OtherObject.Name != "Player")
+            {
+                this.Active = false;
+                this.Activate();
+            }
+        }
+    }
+
+    function Activate()
+    {
+        this.ActivationTarget.Cog.Interactable.Activate(false);
+    }
+}

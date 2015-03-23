@@ -462,5 +462,437 @@ Cog =
 				Vec4 Color = [1, 1, 1, 1],
 			},
 		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 18,
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 37.2792],
+				Vec3 Scale = [24.8528, 24.8528, 60],
+				Quat Rotation = [0, 0.707107, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "546f39d69d23c76f:Mat_Stars",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 19,
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 37.2792],
+				Vec3 Scale = [24.8528, 24.8528, 60],
+				Quat Rotation = [0.653282, -0.270598, -0.653282, -0.270598],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "546f39d69d23c76f:Mat_Stars",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 20,
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 37.2792],
+				Vec3 Scale = [24.8528, 24.8528, 60],
+				Quat Rotation = [-0.707107, 0, 0.707107, 0],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "546f39d69d23c76f:Mat_Stars",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 21,
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 37.2792],
+				Vec3 Scale = [24.8528, 24.8528, 60],
+				Quat Rotation = [-0.5, 0.5, 0.5, 0.5],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "546f39d69d23c76f:Mat_Stars",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 22,
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 37.2792],
+				Vec3 Scale = [24.8528, 24.8528, 60],
+				Quat Rotation = [-0.5, -0.5, 0.5, -0.5],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "546f39d69d23c76f:Mat_Stars",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 23,
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 37.2792],
+				Vec3 Scale = [24.8528, 24.8528, 60],
+				Quat Rotation = [-0.270598, 0.653282, 0.270598, 0.653282],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "546f39d69d23c76f:Mat_Stars",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 24,
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 37.2792],
+				Vec3 Scale = [24.8528, 24.8528, 60],
+				Quat Rotation = [0.653282, 0.270598, -0.653282, 0.270598],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "546f39d69d23c76f:Mat_Stars",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 25,
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 37.2792],
+				Vec3 Scale = [24.8528, 24.8528, 60],
+				Quat Rotation = [0.270598, 0.653282, -0.270598, 0.653282],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "546f39d69d23c76f:Mat_Stars",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 26,
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, -37.2792],
+				Vec3 Scale = [24.8528, 24.8528, 60],
+				Quat Rotation = [-0.270598, 0.653282, 0.270598, 0.653282],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "546f39d69d23c76f:Mat_Stars",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 27,
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, -37.2792],
+				Vec3 Scale = [24.8528, 24.8528, 60],
+				Quat Rotation = [-0.5, 0.5, 0.5, 0.5],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "546f39d69d23c76f:Mat_Stars",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 28,
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, -37.2792],
+				Vec3 Scale = [24.8528, 24.8528, 60],
+				Quat Rotation = [0.653282, -0.270598, -0.653282, -0.270598],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "546f39d69d23c76f:Mat_Stars",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 29,
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, -37.2792],
+				Vec3 Scale = [24.8528, 24.8528, 60],
+				Quat Rotation = [-0.5, -0.5, 0.5, -0.5],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "546f39d69d23c76f:Mat_Stars",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 30,
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, -37.2792],
+				Vec3 Scale = [24.8528, 24.8528, 60],
+				Quat Rotation = [-0.707107, 0, 0.707107, 0],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "546f39d69d23c76f:Mat_Stars",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 31,
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, -37.2792],
+				Vec3 Scale = [24.8528, 24.8528, 60],
+				Quat Rotation = [0.270598, 0.653282, -0.270598, 0.653282],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "546f39d69d23c76f:Mat_Stars",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 32,
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, -37.2792],
+				Vec3 Scale = [24.8528, 24.8528, 60],
+				Quat Rotation = [0.653282, 0.270598, -0.653282, 0.270598],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "546f39d69d23c76f:Mat_Stars",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 33,
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, -37.2792],
+				Vec3 Scale = [24.8528, 24.8528, 60],
+				Quat Rotation = [0, 0.707107, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "546f39d69d23c76f:Mat_Stars",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
 	},
 },

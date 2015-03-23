@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Activator_Lever",
+		uint64 ResourceId = 5536b0e8ad2c0de2,
+	},
+},
