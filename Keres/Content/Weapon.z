@@ -30,6 +30,7 @@ class Weapon : ZilchComponent
     var Battery : Cog = null;
     var SoundTracker : Integer = 0;
     var SoundPlayed : Integer = 0;
+    var Player : Cog = null;
     
     
     function Initialize(init : CogInitializer)
@@ -39,6 +40,7 @@ class Weapon : ZilchComponent
         this.ReloadSpeedMultiplier = Math.Pi / this.TimeToReload;
         this.Battery = this.Owner.FindChildByName("Battery");
         this.BatteryStartLocation = this.Battery.Transform.Translation;
+        this.Player = this.Owner.Space.FindObjectByName("Player");
     }
 
     function UpdateGun(deltaTime : Real, impactLocation : Real3, playerStats : PlayerStats, controller : Controller)
@@ -52,8 +54,8 @@ class Weapon : ZilchComponent
         else
         {
             this.Recoil(deltaTime, playerStats);
-            //if (playerStats.Energy >= this.EnergyUse && (this.MouseState != this.OldMState && this.MouseState) && this.RecoilTracker >= -0.25)
-            if (playerStats.Energy >= this.EnergyUse && Zero.Mouse.IsButtonDown(MouseButtons.Left) && this.RecoilTracker >= -0.25)
+            if (playerStats.Energy >= this.EnergyUse && (this.MouseState != this.OldMState && this.MouseState) && this.RecoilTracker >= -0.25)
+            //if (playerStats.Energy >= this.EnergyUse && Zero.Mouse.IsButtonDown(MouseButtons.Left) && this.RecoilTracker >= -0.25)
             {
                 this.Fire(impactLocation);
                 if (!playerStats.DebugMode)
@@ -93,10 +95,9 @@ class Weapon : ZilchComponent
         this.ProjectileNode.Cog.SpriteParticleSystem.Visible = true;
         this.ProjectileNode.Cog.ParticleAutoShutdown.CurrentLife = this.ProjectileNode.Cog.ParticleAutoShutdown.LifeTime;
         this.Owner.Space.FindObjectByName("Player").Soundbox_Player.PlayGunshot();
-        /*var ribbon = this.Owner.Space.CreateAtPosition(this.RibbonObject, impactLocation);
-        ribbon.RibbonParticle.Start = this.ProjectileNode.Cog.Transform.WorldTranslation;
-        ribbon.RibbonParticle.End = impactLocation;
-        ribbon.RibbonParticle.CalculateScale();*/
+        //bullet.RibbonParticle.Start = this.ProjectileNode.Cog.Transform.WorldTranslation;
+        //bullet.RibbonParticle.End = impactLocation;
+        //bullet.RibbonParticle.CalculateScale();
     }
     
     function Recoil(deltaTime : Real, playerStats : PlayerStats)

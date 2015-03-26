@@ -2,8 +2,6 @@ enum EnemyState { Idle, Aware, Aggroed, Stunned, Distracted }
 
 class EnemyAI : ZilchComponent
 {
-    [Dependency] 
-    var NavigationEvents : NavigationEvents = null;
     [Property]
     var AttackDamage : Integer = 50;
     var CurrentTile : Cog = null;
@@ -36,6 +34,7 @@ class EnemyAI : ZilchComponent
     var FootstepCounter : Real = 0.0;
     var BangTimeCooldown : Real = 0.0;
     var CurrentCooldown : Real = 0.0;
+    var ZappedEffect : Cog = null;
     
     function Initialize(init : CogInitializer)
     {
@@ -47,6 +46,7 @@ class EnemyAI : ZilchComponent
         this.Player = this.Owner.Space.FindObjectByName("Player");
         this.LevelGeometry = this.Owner.Space.FindObjectByName("LevelGeometry");
         this.RayFilter.CollisionGroup = CollisionGroup.Find("LineofSightRayGroup");
+        this.Owner.Transform.Translation *= Real3(1.0, 1.0, 0.0);
         this.Owner.Name = "enemy";
     }
     
@@ -68,18 +68,22 @@ class EnemyAI : ZilchComponent
     
     function StartCollide(event : CollisionEvent)
     {
-        if (event.OtherObject.Name == "Player" && this.CurrentCooldown <= 0.0 && this.State != EnemyState.Stunned)
+        if (!this.Disabled)
         {
-            event.OtherObject.PlayerStats.Life -= this.AttackDamage;
-            this.CurrentCooldown = this.AttackCooldown;
-            event.OtherObject.Soundbox_Player.PlayHit();
-            Console.WriteLine("Attacked");
-        }
-        else if (event.OtherObject.GatePiece != null && this.BangTimeCooldown <= 0.0)
-        {
-            this.Owner.Soundbox_Keres.PlayDoorBang();
-            this.BangTimeCooldown = 0.6;
-            Console.WriteLine("Doorbang");
+            if (event.OtherObject.Name == "Player" && this.CurrentCooldown <= 0.0 && this.State != EnemyState.Stunned)
+            {
+                event.OtherObject.PlayerStats.Life -= this.AttackDamage;
+                event.OtherObject.PlayerControl_Move.Knockback(this.Owner.Transform.Translation);
+                this.CurrentCooldown = this.AttackCooldown;
+                event.OtherObject.Soundbox_Player.PlayHit();
+                Console.WriteLine("Attacked");
+            }
+            else if (event.OtherObject.GatePiece != null && this.BangTimeCooldown <= 0.0)
+            {
+                this.Owner.Soundbox_Keres.PlayDoorBang();
+                this.BangTimeCooldown = 0.6;
+                Console.WriteLine("Doorbang");
+            }
         }
     }
     
@@ -101,13 +105,14 @@ class EnemyAI : ZilchComponent
     //Updates the enemy
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if (!this.Disabled)
+        //Decreases the attack cooldown if the enemy recently attacked
+        if (this.CurrentCooldown > 0.0)
         {
-            //Decreases the attack cooldown if the enemy recently attacked
-            if (this.CurrentCooldown > 0.0)
-            {
-                this.CurrentCooldown -= event.Dt;
-            }
+            this.CurrentCooldown -= event.Dt;
+        }
+        
+        if (!this.Disabled && this.CurrentCooldown <= 0.0)
+        {
             
             if (this.BangTimeCooldown > 0.0)
             {
@@ -163,8 +168,16 @@ class EnemyAI : ZilchComponent
     }
     
     //Stuns the enemy, holding it in place for a period of time
-    function Stun()
+    function Stun(stunEffect : Cog)
     {
+        if (this.ZappedEffect != null)
+        {
+            stunEffect.Destroy();
+        }
+        else
+        {
+            this.ZappedEffect = stunEffect;
+        }
         this.State = EnemyState.Stunned;
         this.StunTime = this.MaxStunTime;
         this.Owner.SoundEmitter.Stop();
@@ -179,6 +192,11 @@ class EnemyAI : ZilchComponent
         if (this.StunTime <= 0.0)
         {
             this.State = EnemyState.Aware;
+            if (this.ZappedEffect != null)
+            {
+                this.ZappedEffect.Destroy();
+                this.ZappedEffect = null;
+            }
             this.Owner.RigidBody.Static = false;
             this.GetCurrentTile();
             this.GetNextTile();

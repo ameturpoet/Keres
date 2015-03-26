@@ -1,20 +1,33 @@
 class LoadScreenElement : ZilchComponent
 {
     var Alpha : Real = 1.0;
+    var Speed : Real = 1.0;
     var FadeOut : Boolean = false;
+    var FadeIn : Boolean = false;
     
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        //var levelSpace = this.GameSession.FindSpaceByName("Main");
         
-        var levelSpace = this.GameSession.FindSpaceByName("Main");
-        
+        //Zero.Connect(levelSpace, "ReadyToPlay", this.BeginFading);
+    }
+    
+    function ConnectEvents(levelSpace : Space)
+    {
         Zero.Connect(levelSpace, "ReadyToPlay", this.BeginFading);
+        Console.WriteLine("swaaaaag");
     }
     
     function BeginFading(event : ReadyEvent)
     {
         this.FadeOut = true;
+    }
+    
+    function BeginFadeIn()
+    {
+        this.FadeIn = true;
+        this.FadeOut = false;
     }
     
     //Makes the black overlay appear with the specified opacity
@@ -58,10 +71,40 @@ class LoadScreenElement : ZilchComponent
                 }
             }
             
-            this.Alpha -= event.Dt;
+            this.Alpha -= event.Dt * this.Speed;
             if (this.Alpha <= 0.0)
             {
                 this.FadeOut = false;
+            }
+        }
+        else if (this.FadeIn)
+        {
+            var temp = Real4(0, 0, 0, 1.0);
+            
+            if (this.Owner.Sprite != null)
+            {
+                temp = this.Owner.Sprite.Color;
+                temp.W = this.Alpha;
+                this.Owner.Sprite.Color = temp;
+                
+                if (this.Owner.HUDElement != null)
+                {
+                    this.Owner.Sprite.Visible = false;
+                }
+            }
+            if (this.Owner.SpriteText != null)
+            {
+                if (this.Owner.HUDElement != null)
+                {
+                    this.Owner.SpriteText.Visible = false;
+                }
+            }
+            
+            this.Alpha += event.Dt * this.Speed;
+            if (this.Alpha >= 1.0)
+            {
+                Console.WriteLine("swag");
+                this.FadeIn = false;
             }
         }
     }

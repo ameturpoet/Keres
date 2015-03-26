@@ -75,9 +75,11 @@ Level =
 			bool Shadows = true,
 			bool AntiAliasing = false,
 			bool Refraction = true,
+			bool Reflections = true,
+			string ReflectionEnvironmentName = "4fab71e8bcb7a8ce:DefaultTexture",
 			bool GodRays = true,
 			bool RenderMasks = false,
-			bool Glow = false,
+			bool Glow = true,
 			float GlowThreshold = 1,
 		},
 	},
@@ -93,9 +95,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.60663, 0.880709, 36.8777],
+			Vec3 Translation = [1.40864, 5.31302, 10.5656],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.00523628, 0.0130921, -6.85603e-005, 0.999901],
+			Quat Rotation = [-0.0183241, 0.00261727, 4.79664e-005, 0.999829],
 		},
 		Camera = 
 		{
@@ -105,15 +107,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 10.0259,
+			float Size = 8.96337,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 9.13421,
-			float VerticalAngle = -0.0104735,
-			float HorizontalAngle = 6.257,
-			Vec3 LookTarget = [2.36749, 0.976374, 27.7471],
+			float VerticalAngle = 0.0366503,
+			float HorizontalAngle = 6.27795,
+			Vec3 LookTarget = [1.36085, 4.97832, 1.43761],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -141,7 +143,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.931329, 4.2072, 0.00585747],
+			Vec3 Translation = [0.601891, 2.79621, 0.00585747],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -176,7 +178,7 @@ Level =
 			string SerializedGroupName = "549a22ec72ed1e23:PlayerGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 0.23,
-			float Height = 0.6,
+			float Height = 0.9,
 			uint Direction = 2,
 		},
 		Inventory = 
@@ -240,7 +242,7 @@ Level =
 		},
 		Oxygen = 
 		{
-			int MaxOxygen = 100,
+			float MaxOxygen = 100,
 			float HeavyBreathingRate = 2,
 		},
 		Hierarchy = 
@@ -647,6 +649,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 1,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	Cog = 
@@ -687,6 +692,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 1,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	Cog = 
@@ -727,6 +735,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 1,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	Cog = 
@@ -798,6 +809,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 1,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	Cog = 
@@ -838,6 +852,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 1,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	ArchetypeInstance = 
@@ -994,6 +1011,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 1,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	Cog = 
@@ -1034,6 +1054,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 1,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	Cog = 
@@ -1074,6 +1097,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 1,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	Cog = 
@@ -1114,6 +1140,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 1,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	Cog = 
@@ -1154,6 +1183,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 1,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	Cog = 
@@ -2092,6 +2124,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 1,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	Cog = 
@@ -2132,6 +2167,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 1,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	Cog = 
@@ -2172,6 +2210,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 1,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	ArchetypeInstance = 
@@ -2208,7 +2249,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [9.67103, 4.04207, 0],
+			Vec3 Translation = [6.96553, 2.58948, 0],
 			Vec3 Scale = [0.1, 0.1, 0.1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2224,20 +2265,20 @@ Level =
 		},
 		EnemyAI = 
 		{
-			int AttackDamage = 50,
+			int AttackDamage = 100,
 			float MaxStunTime = 2.5,
 			float Speed = 1.7,
 			float SightDistance = 5,
 			float MaxSightDistance = 20,
 			float AttentionSpanTime = 99,
-			float AttackCooldown = 0.3,
+			float AttackCooldown = 0.7,
 		},
 		BoxCollider = 
 		{
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string MaterialName = "5405da44800eb0cf:ActorMaterial",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			Vec3 Size = [2.5, 2.5, 4],
@@ -3325,7 +3366,7 @@ Level =
 		},
 		Interactable_Piston = 
 		{
-			bool PlayerCantUse = false,
+			bool PlayerCantUse = true,
 			float OpenTime = 1,
 			string NeckPiece = "55bbf4d95464e02a:PistonNeck",
 			bool Sticky = true,
@@ -3598,6 +3639,738 @@ Level =
 					},
 				},
 			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 93,
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+		Archetyped = 
+		{
+			string Name = "55be51c116fda964:Interactable_Bottle",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5.12649, 2.75389, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "55be562f1f3f07af:Mat_Bottle",
+			string MeshName = "55be5603036d646f:Bottle",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "55be5305917adee2:RealObject",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0.07, 0],
+			Vec3 Size = [0.05, 0.075, 0.05],
+		},
+		Gravity3D = 
+		{
+			float Gravity = 20,
+			float Drag = 0.99,
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55c2f1a2a9e7489c:light_KeresStun",
+		LinkId = 
+		{
+			uint Id = 94,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.941259, -4.17495, 1.58653],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "muzzleflare",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "54b4efb11bfb540e:Item_OxyTank",
+		LinkId = 
+		{
+			uint Id = 95,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.526475, 3.47128, 0],
+			Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "OxygenTank",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 96,
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+		Archetyped = 
+		{
+			string Name = "55be51c116fda964:Interactable_Bottle",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.70806, 2.75389, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "55be562f1f3f07af:Mat_Bottle",
+			string MeshName = "55be5603036d646f:Bottle",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "55be5305917adee2:RealObject",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0.07, 0],
+			Vec3 Size = [0.05, 0.075, 0.05],
+		},
+		Gravity3D = 
+		{
+			float Gravity = 20,
+			float Drag = 0.99,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 97,
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+		Archetyped = 
+		{
+			string Name = "55be51c116fda964:Interactable_Bottle",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.70806, 2.43532, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "55be562f1f3f07af:Mat_Bottle",
+			string MeshName = "55be5603036d646f:Bottle",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "55be5305917adee2:RealObject",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0.07, 0],
+			Vec3 Size = [0.05, 0.075, 0.05],
+		},
+		Gravity3D = 
+		{
+			float Gravity = 20,
+			float Drag = 0.99,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 98,
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+		Archetyped = 
+		{
+			string Name = "55be51c116fda964:Interactable_Bottle",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5.3448, 2.43532, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "55be562f1f3f07af:Mat_Bottle",
+			string MeshName = "55be5603036d646f:Bottle",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "55be5305917adee2:RealObject",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0.07, 0],
+			Vec3 Size = [0.05, 0.075, 0.05],
+		},
+		Gravity3D = 
+		{
+			float Gravity = 20,
+			float Drag = 0.99,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 99,
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+		Archetyped = 
+		{
+			string Name = "55be51c116fda964:Interactable_Bottle",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5.74504, 2.27632, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "55be562f1f3f07af:Mat_Bottle",
+			string MeshName = "55be5603036d646f:Bottle",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "55be5305917adee2:RealObject",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0.07, 0],
+			Vec3 Size = [0.05, 0.075, 0.05],
+		},
+		Gravity3D = 
+		{
+			float Gravity = 20,
+			float Drag = 0.99,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 100,
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+		Archetyped = 
+		{
+			string Name = "55be51c116fda964:Interactable_Bottle",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [6.13618, 2.27357, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "55be562f1f3f07af:Mat_Bottle",
+			string MeshName = "55be5603036d646f:Bottle",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "55be5305917adee2:RealObject",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0.07, 0],
+			Vec3 Size = [0.05, 0.075, 0.05],
+		},
+		Gravity3D = 
+		{
+			float Gravity = 20,
+			float Drag = 0.99,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 101,
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+		Archetyped = 
+		{
+			string Name = "55be51c116fda964:Interactable_Bottle",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [6.3307, 2.70839, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "55be562f1f3f07af:Mat_Bottle",
+			string MeshName = "55be5603036d646f:Bottle",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "55be5305917adee2:RealObject",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0.07, 0],
+			Vec3 Size = [0.05, 0.075, 0.05],
+		},
+		Gravity3D = 
+		{
+			float Gravity = 20,
+			float Drag = 0.99,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 102,
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+		Archetyped = 
+		{
+			string Name = "55be51c116fda964:Interactable_Bottle",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5.78142, 2.75226, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "55be562f1f3f07af:Mat_Bottle",
+			string MeshName = "55be5603036d646f:Bottle",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "55be5305917adee2:RealObject",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0.07, 0],
+			Vec3 Size = [0.05, 0.075, 0.05],
+		},
+		Gravity3D = 
+		{
+			float Gravity = 20,
+			float Drag = 0.99,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 103,
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+		Archetyped = 
+		{
+			string Name = "55be51c116fda964:Interactable_Bottle",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5.40063, 2.24066, 0.00652409],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "55be562f1f3f07af:Mat_Bottle",
+			string MeshName = "55be5603036d646f:Bottle",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "55be5305917adee2:RealObject",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0.07, 0],
+			Vec3 Size = [0.05, 0.075, 0.05],
+		},
+		Gravity3D = 
+		{
+			float Gravity = 20,
+			float Drag = 0.99,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 104,
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+		Archetyped = 
+		{
+			string Name = "55be51c116fda964:Interactable_Bottle",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5.93266, 2.2158, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "55be562f1f3f07af:Mat_Bottle",
+			string MeshName = "55be5603036d646f:Bottle",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "55be5305917adee2:RealObject",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0.07, 0],
+			Vec3 Size = [0.05, 0.075, 0.05],
+		},
+		Gravity3D = 
+		{
+			float Gravity = 20,
+			float Drag = 0.99,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 105,
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+		Archetyped = 
+		{
+			string Name = "55be51c116fda964:Interactable_Bottle",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5.96279, 2.58097, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "55be562f1f3f07af:Mat_Bottle",
+			string MeshName = "55be5603036d646f:Bottle",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "55be5305917adee2:RealObject",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0.07, 0],
+			Vec3 Size = [0.05, 0.075, 0.05],
+		},
+		Gravity3D = 
+		{
+			float Gravity = 20,
+			float Drag = 0.99,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 106,
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+		Archetyped = 
+		{
+			string Name = "55be51c116fda964:Interactable_Bottle",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5.46304, 2.58097, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
+		},
+		Model = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "55be562f1f3f07af:Mat_Bottle",
+			string MeshName = "55be5603036d646f:Bottle",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "55be5305917adee2:RealObject",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0.07, 0],
+			Vec3 Size = [0.05, 0.075, 0.05],
+		},
+		Gravity3D = 
+		{
+			float Gravity = 20,
+			float Drag = 0.99,
 		},
 	},
 },

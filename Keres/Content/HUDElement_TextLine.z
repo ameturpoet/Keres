@@ -23,7 +23,7 @@ class HUDElement_TextLine : ZilchComponent
     
     function IncrementLineItem()
     {
-        this.LineHeight = Real3(0, this.Owner.Sprite.Size.Y * this.Owner.Transform.Scale.Y + 0.05, 0);
+        this.LineHeight = Real3(0, this.Owner.Sprite.SpriteSource.GetSize().X * this.Owner.Transform.Scale.Y + 0.05, 0);
         this.Owner.Transform.Translation += this.LineHeight;
     }
     

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "StunEffectScript",
+		uint64 ResourceId = 552c4c34fc54d6bd,
+	},
+},

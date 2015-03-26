@@ -69,6 +69,16 @@ class Interactable : ZilchComponent
         {
             this.Owner.Activator_PushButton.Activate();
         }
+        //MULTISWITCH
+        else if (this.Owner.Activator_Multiswitch != null)
+        {
+            this.Owner.Activator_Multiswitch.Activate();
+        }
+        //SUBSWITCH
+        else if (this.Owner.Activator_SubSwitch != null)
+        {
+            this.Owner.Activator_SubSwitch.Activate();
+        }
         //ITEM
         else if (this.Owner.Item != null)
         {

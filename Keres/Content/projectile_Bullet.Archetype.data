@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [35.4455, -7.46427, 1.00001],
+		Vec3 Translation = [3.71075, 6.37536, 1.45168],
 		Vec3 Scale = [0.2, 0.2, 0.2],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -25,24 +25,14 @@ Cog =
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
 		string MaterialName = "541bb26add47e2d3:Mat_Beam",
-		string MeshName = "4de0354322b376ae:Sphere",
+		string MeshName = "4de0354322b3572e:Cylinder",
 		Vec4 Color = [1, 1, 1, 1],
-	},
-	SphereCollider = 
-	{
-		bool Ghost = true,
-		bool SendsMessages = true,
-		bool Seamless = true,
-		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-		string SerializedGroupName = "541aa82f43c126ba:TileRayGroup",
-		Vec3 Offset = [0, 0, 0],
-		float Radius = 1,
 	},
 	ProjectileScript = 
 	{
 		float Speed = 0,
 		int Damage = 35,
-		string EnemyStunFlash = "55c2f1a2a9e7489c:light_KeresStun",
+		string EnemyStunFlash = "552c4ef1707dd64a:light_StunEffect",
 	},
 	RigidBody = 
 	{
@@ -55,5 +45,15 @@ Cog =
 		bool Inherit2DMode = true,
 		Vec3 Velocity = [0, 0, 0],
 		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	SphereCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 1,
 	},
 },

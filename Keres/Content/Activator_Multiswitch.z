@@ -1,0 +1,87 @@
+enum SwitchType { Combination, Permutation } 
+
+class Activator_Multiswitch : ZilchComponent
+{
+    [Property]
+    var CorrectSequence : String = ""; 
+    //The correct sequence of characters for this to activate. ONLY FOR PERMUTATION LOCKS
+    
+    [Property]
+    var LockType : SwitchType = SwitchType.Permutation; 
+    //This object's lock type
+    //Combination locks require all true switches to be true and all false switches to be false
+    //You don't have to push the buttons in any specific order for combination locks
+    //Permutation locks require the correct buttons to be pushed in the correct order
+    
+    var CurrentSequence : String = "";
+    [Property]
+    var ActivationTarget : CogPath = null;
+    var Disabled : Boolean = false;
+
+    //Updates the current sequence
+    //Called by subswitches
+    function UpdateSequence(subItemName : String)
+    {
+        if (!this.Disabled)
+        {
+            //Permutation Lock
+            if (this.LockType == SwitchType.Permutation)
+            {
+                //The length of the correct sequence is set, so if the length of the current sequence is longer than it,
+                //trim down the current sequence to
+                //E.g., the correct sequence is ABC, but the player entered CBB
+                //When the player hits the A button, the C will be trimmed off, the A will be added, and the new sequence
+                //will be BBA
+                if (this.CurrentSequence.ByteCount >= this.CorrectSequence.ByteCount)
+                {
+                    this.CurrentSequence = this.CurrentSequence.SubString(1, this.CorrectSequence.ByteCount - 1);
+                }
+                var sw = new StringBuilder();
+                
+                sw.Write(this.CurrentSequence);
+                sw.Write(subItemName);
+                
+                this.CurrentSequence = sw.ToString();
+                
+                //If the entered sequence matches the correct sequence, then the multiswitch activates its target
+                //Once its used, it turns off
+                if (this.CurrentSequence == this.CorrectSequence)
+                {
+                    this.ActivationTarget.Cog.Interactable.Activate(false);
+                    this.Disabled = true;
+                }
+            }
+            //Combination Lock
+            else if (this.LockType == SwitchType.Combination)
+            {
+                var correct = true;
+                
+                //Loops through all switches belonging to the master object
+                var children = this.Owner.Children;
+                foreach (var child in children)
+                {
+                    //If a switch's current value doesn't match its correct value, the combination
+                    //is incorrect and everything gets thrown out the window
+                    if (child.Activator_SubSwitch.CurrentValue != child.Activator_SubSwitch.CorrectValue)
+                    {
+                        correct = false;
+                    }
+                }
+                
+                if (correct)
+                {
+                    this.ActivationTarget.Cog.Interactable.Activate(false);
+                    this.Disabled = true;
+                }
+            }
+        }
+    }
+    
+    function Activate()
+    {
+        if (this.ActivationTarget.Cog != null)
+        {
+            this.ActivationTarget.Cog.Interactable.Activate(false);
+        }
+    }
+}

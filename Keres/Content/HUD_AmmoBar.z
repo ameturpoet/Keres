@@ -4,25 +4,78 @@ class HUD_AmmoBar : ZilchComponent
     var FullSprite : SpriteSource = null;
     [Property]
     var EmptySprite : SpriteSource = null;
+    [Property]
+    var Type : String = "";
     var BarFill : Cog = null;
     var Graphic : Cog = null;
+    var Danger : Boolean = false;
+    var DangerColor : Boolean = false;
+    var DangerCounter : Real = 0.0;
+    var Level : Real = 100;
     
     function Initialize(init : CogInitializer)
     {
         this.BarFill = this.Owner.FindChildByName("HUD_AmmoFill");
         this.Graphic = this.Owner.FindChildByName("HUD_AmmoBar");
+        if (this.Type == "Oxygen")
+        {
+            Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        }
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Level <= 20.0)
+        {
+            if (!this.Danger)
+            {
+                this.Danger = true;
+            }
+            if (this.DangerCounter <= 0.0)
+            {
+                this.DangerCounter = 0.35;
+                
+                if (!this.DangerColor)
+                {
+                    this.BarFill.Sprite.Color = Real4(1.0, 0.0, 0.0, 1.0);
+                    this.Graphic.Sprite.Color = Real4(1.0, 1.0, 1.0, 1.0);
+                    this.DangerColor = true;
+                }
+                else 
+                {
+                    this.BarFill.Sprite.Color = Real4(1.0, 1.0, 1.0, 1.0);
+                    this.Graphic.Sprite.Color = Real4(1.0, 0.0, 0.0, 1.0);
+                    this.DangerColor = false;
+                }
+            }
+            this.DangerCounter -= event.Dt;
+        }
+        else
+        {
+            if (this.Danger)
+            {
+                this.Danger = false;
+                this.DangerColor = false;
+                this.BarFill.Sprite.Color = Real4(1.0, 1.0, 1.0, 1.0);
+                this.Graphic.Sprite.Color = Real4(1.0, 1.0, 1.0, 1.0);
+            }
+        }
     }
 
     function SetFill(level : Real)
     {
         this.BarFill.Transform.Scale = Real3(level * 3, 3, 3);
-        if (level <= 0.0)
+        this.Level = level * 100.0;
+        if (this.Type == "Ammo")
         {
-            this.Graphic.Sprite.SpriteSource = this.EmptySprite;
-        }
-        else if (this.Graphic.Sprite.SpriteSource.Name != this.FullSprite.Name)
-        {
-            this.Graphic.Sprite.SpriteSource = this.FullSprite;
+            if (level <= 0.0)
+            {
+                this.Graphic.Sprite.SpriteSource = this.EmptySprite;
+            }
+            else if (this.Graphic.Sprite.SpriteSource.Name != this.FullSprite.Name)
+            {
+                this.Graphic.Sprite.SpriteSource = this.FullSprite;
+            }
         }
     }
 }

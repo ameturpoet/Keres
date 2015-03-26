@@ -1,0 +1,41 @@
+class Gravity3D : ZilchComponent
+{
+    [Property]
+    var Gravity : Real = 9.8;
+    [Property]
+    var Drag : Real = 0.7;
+    var Velocity : Real = 0.0;
+    var Grounded : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Velocity += this.Gravity * event.Dt;
+        this.Velocity *= this.Drag * event.Dt;
+        
+        if (!this.Owner.Collider.Contacts.IsNotEmpty)
+        {
+            this.Owner.Transform.Translation -= Real3(0, 0, this.Velocity);
+        }
+        else
+        {
+            this.Grounded = false;
+            foreach (var thing in this.Owner.Collider.Contacts)
+            {
+                if (Math.ASin(thing.FirstPoint.WorldNormalTowardsOther.Y) * 180 / Math.Pi >= 90)
+                {
+                     this.Grounded = true;
+                }
+            }
+            if (this.Grounded)
+            {
+                this.Velocity = 0.0;
+                this.Owner.RigidBody.Velocity *= 0.7;
+            }
+        }
+    }
+}

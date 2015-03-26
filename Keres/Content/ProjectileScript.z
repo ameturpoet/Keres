@@ -13,17 +13,18 @@ class ProjectileScript : ZilchComponent
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollide);
+        
     }
     
     function OnCollide(event : CollisionEvent)
     {
         if (event.OtherObject.Name == "enemy")
         {
+            var stunEffect = this.Owner.Space.CreateAtPosition(this.EnemyStunFlash, this.Owner.Transform.Translation);
             //Stun the enemy and create a blue flash? and noise at the point of impact
-            this.Owner.Space.CreateAtPosition(this.EnemyStunFlash, this.Owner.Transform.Translation);
             event.OtherObject.Soundbox_Keres.PlayStun();
             //Console.WriteLine("Flashed");
-            event.OtherObject.EnemyAI.Stun();
+            event.OtherObject.EnemyAI.Stun(stunEffect);
         }
         this.DeleteNext = true;
     }

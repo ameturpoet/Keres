@@ -1,3 +1,5 @@
+enum PlayerState { Disabled, Normal, Stunned, Dead}
+
 class PlayerControl_Move : ZilchComponent
 {
     var Camra : Cog = null;
@@ -19,7 +21,7 @@ class PlayerControl_Move : ZilchComponent
     [Dependency]
     var SoundBox : Soundbox_Player = null;
     
-    var Disabled : Boolean = false;
+    var State : PlayerState = PlayerState.Normal;
     var Moving : Boolean = false;
     var CameraOffset : Real3 = Real3(0, 0, 0);
     var HeadBobCounter : Real = 0.0;
@@ -33,6 +35,9 @@ class PlayerControl_Move : ZilchComponent
     var MovementTracker : Real3 = Real3(0, 0, 0);
     var Sprinting : Real = 0.0;
     var BreathingHeavy : Boolean = false;
+    var ForwardVector : Real3 = Real3(0, 0, 0);
+    var RightVector : Real3 = Real3(0, 0, 0);
+    var StunTimer : Real = 0.0;
     
     function Initialize(init : CogInitializer)
     {
@@ -41,13 +46,21 @@ class PlayerControl_Move : ZilchComponent
         this.Camra = this.Owner.Space.FindObjectByName("Camera");
         this.LevelGeometry = this.Owner.Space.FindObjectByName("LevelGeometry");
         this.HUDspace = this.GameSession.FindSpaceByName("HUDSpace");
+        this.HUDspace.FindObjectByName("BlackOverlay").LoadScreenElement.ConnectEvents(this.Owner.Space);
+        this.HUDspace.FindObjectByName("LoadingIcon").LoadScreenElement.ConnectEvents(this.Owner.Space);
+        this.HUDspace.FindObjectByName("LoadingText").LoadScreenElement.ConnectEvents(this.Owner.Space);
+        
+        var directionAngle = this.Owner.Transform.EulerAngles.Z - (Math.Pi / 2);
+            
+        this.ForwardVector = Real3(Math.Cos(directionAngle), Math.Sin(directionAngle), 0);
+        this.RightVector = Real3(Math.Cos(this.Owner.Transform.EulerAngles.Z), Math.Sin(this.Owner.Transform.EulerAngles.Z), 0);
     }
 
     //Master update function, calls everything else from here
     function OnLogicUpdate(event : UpdateEvent)
     {
         
-        if (!this.Disabled)
+        if (this.State == PlayerState.Normal)
         {
             this.DoSprinting();
             this.Movement(event.Dt);
@@ -61,6 +74,36 @@ class PlayerControl_Move : ZilchComponent
             //Old position is used mostly for moving blips around on the radar
             this.OldPosition = this.Owner.Transform.Translation;
         }
+        else if (this.State == PlayerState.Stunned)
+        {
+            if (this.StunTimer <= 0.0)
+            {
+                this.State = PlayerState.Normal;
+            }
+            this.StunTimer -= event.Dt;
+            this.Owner.RigidBody.Velocity *= 0.9;
+        }
+        else if (this.State == PlayerState.Dead)
+        {
+            this.DeathAnimation(event.Dt);
+        }
+    }
+    
+    function Knockback(originLocation : Real3)
+    {
+        if (this.State != PlayerState.Dead)
+        {
+            var knockbackVector = this.Owner.Transform.Translation - originLocation;
+            knockbackVector.Z = 0;
+            knockbackVector = Math.Normalize(knockbackVector) * 25;
+            
+            this.StunTimer = 0.12;
+            
+            this.Owner.RigidBody.ApplyForce(knockbackVector);
+            
+            this.State = PlayerState.Stunned;
+        }
+        
     }
     
     //Updates Debug mode status
@@ -159,34 +202,14 @@ class PlayerControl_Move : ZilchComponent
         this.HUDspace.FindObjectByName("HUD_Radar").Transform.SetEulerAnglesXYZ(0, 0, -1 * this.Owner.Transform.EulerAngles.Z);
         
         //Then the current oxygen
-        var sr = StringBuilder();
-        
-        sr.WriteLine(this.Owner.PlayerStats.Oxygen as Integer);
-        
-        var oxygenText = this.HUDspace.FindObjectByName("HUD_Oxygen");
-        oxygenText.SpriteText.Text = sr.ToString();
-        
-        if (this.Owner.PlayerStats.Oxygen <= 30.0)
-        {
-            if (!oxygenText.HUD_OxygenText.Danger)
-            {
-                oxygenText.HUD_OxygenText.Danger = true;
-            }
-        }
-        else
-        {
-            if (oxygenText.HUD_OxygenText.Danger)
-            {
-                oxygenText.HUD_OxygenText.Danger = false;
-                oxygenText.SpriteText.Color = Real4(1.0, 1.0, 1.0, 1.0);
-            }
-        }
+        var oxygenBar = this.HUDspace.FindObjectByName("HUD_OxygenCurrent");
+        oxygenBar.HUD_AmmoBar.SetFill(this.PlayerStats.Oxygen / this.Owner.Oxygen.MaxOxygen);
         
         //Then the player's ammo
         this.HUDspace.FindObjectByName("HUD_AmmoCurrent").HUD_AmmoBar.SetFill(this.PlayerStats.Energy / 100.0);
         
         //Then the player's ammo reserve
-        sr = StringBuilder();
+        var sr = StringBuilder();
         
         sr.Write("/ ");
         sr.Write(this.Owner.PlayerStats.Batteries);
@@ -202,7 +225,7 @@ class PlayerControl_Move : ZilchComponent
         
         var sr = StringBuilder();
         
-        sr.Write("Tank x");
+        sr.Write("/ ");
         sr.Write((this.Owner.Inventory.GetItemCount("OxygenTank") + offset));
         
         counter.SpriteText.Text = sr.ToString();
@@ -403,8 +426,12 @@ class PlayerControl_Move : ZilchComponent
         if (Math.Length(direction) > 0)
         {
             var directionAngle = this.Owner.Transform.EulerAngles.Z - (Math.Pi / 2);
-            var forward = Real3(Math.Cos(directionAngle), Math.Sin(directionAngle), 0);
-            var right = Real3(Math.Cos(this.Owner.Transform.EulerAngles.Z), Math.Sin(this.Owner.Transform.EulerAngles.Z), 0);
+            
+            this.ForwardVector = Real3(Math.Cos(directionAngle), Math.Sin(directionAngle), 0);
+            this.RightVector = Real3(Math.Cos(this.Owner.Transform.EulerAngles.Z), Math.Sin(this.Owner.Transform.EulerAngles.Z), 0);
+            
+            var forward = this.ForwardVector;
+            var right = this.RightVector;
             
             if (this.Sprinting != 0.0)
             {
@@ -449,13 +476,58 @@ class PlayerControl_Move : ZilchComponent
         }
     }
     
+    //Plays the death animation
+    function DeathAnimation(dt : Real)
+    {
+        this.Owner.RigidBody.Velocity *= 0.0;
+        
+        this.FootstepCounter += dt;
+        Console.WriteLine(this.FootstepCounter);
+        //COSINE
+        if (this.FootstepCounter <= 0.5)
+        {
+            var stage = this.FootstepCounter / 0.5;
+            this.Owner.Transform.Translation = this.OldPosition - 0.2 * Real3(0, 0, (1.0 - Math.Cos(stage * Math.Pi / 2)));
+        }
+        else if (this.FootstepCounter <= 1.5)
+        {
+            this.OldPosition = this.Owner.Transform.Translation;
+        }
+        else if (this.FootstepCounter <= 2.1)
+        {
+            var stage = (this.FootstepCounter - 1.5) / 0.6;
+            var tempTranslation = this.OldPosition;
+            tempTranslation -= this.RightVector * Math.Sin(stage) * 0.23;
+            tempTranslation -= 0.24 * Real3(0, 0, (1.0 - Math.Cos(stage * Math.Pi / 2)));
+            this.Owner.Transform.Translation = tempTranslation;
+            this.Owner.Transform.SetEulerAnglesXYZ(this.Owner.Transform.EulerAngles.X, (Math.Pi / -2) * Math.Sin(Math.Pi / 2 * stage), this.Owner.Transform.EulerAngles.Z);
+            //this.Owner.Transform.Translation = this.OldPosition - 0.2 * Real3(0, 0, (1.0 - Math.Cos(stage * Math.Pi / 2)));
+        }
+        else
+        {
+            var blackScreen = this.HUDspace.FindObjectByName("BlackOverlay");
+            var settings = this.Owner.Space.LevelSettings;
+            settings.DeferredRenderer.GlowThreshold = 0 - blackScreen.LoadScreenElement.Alpha * 1.5;
+            if (!this.Moving)
+            {
+                blackScreen.LoadScreenElement.BeginFadeIn();
+                this.Moving = true;
+                blackScreen.LoadScreenElement.Speed = 0.4;
+            }
+            if (!blackScreen.LoadScreenElement.FadeIn)
+            {
+                this.Space.LoadLevel(Level.Find("DeathScreen"));
+            }
+        }
+    }
+    
     //Rotates the player and looks up or down based on mouse movement
     //The mouse is automatically rubberbanded to the center of the screen, so we
     //don't have to worry about running out of space
     //
     function OnMouseMove(event : MouseEvent)
     {
-        if (!this.Disabled && !this.Owner.Space.TimeSpace.Paused)
+        if (this.State == PlayerState.Normal && !this.Owner.Space.TimeSpace.Paused)
         {
             var deltaAngle = Real3(event.Movement.Y * 0.85, 0, event.Movement.X);
             deltaAngle /= 100 * (11 - this.LookSensitivity);

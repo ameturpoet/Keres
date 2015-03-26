@@ -55,30 +55,24 @@ class NavigationPoint : ZilchComponent
         
         
         var tempObject = geometry.TileArray2D.GetTileAt(this.Index2D, Real3(1, 0, 0));
-        //Console.WriteLine(tempObject.Name);
-        Console.Write("Connected ");
-        Console.WriteLine(this.Index);
         if (tempObject.Name == "Floor")
         {
             this.NearPoints.Add(tempObject);
         }
         
         tempObject = geometry.TileArray2D.GetTileAt(this.Index2D, Real3(-1, 0, 0));
-        //Console.WriteLine(tempObject.Name);
         if (tempObject.Name == "Floor")
         {
             this.NearPoints.Add(tempObject);
         }
         
         tempObject = geometry.TileArray2D.GetTileAt(this.Index2D, Real3(0, 1, 0));
-        //Console.WriteLine(tempObject.Name);
         if (tempObject.Name == "Floor")
         {
             this.NearPoints.Add(tempObject);
         }
         
         tempObject = geometry.TileArray2D.GetTileAt(this.Index2D, Real3(0, -1, 0));
-        //Console.WriteLine(tempObject.Name);
         if (tempObject.Name == "Floor")
         {
             this.NearPoints.Add(tempObject);

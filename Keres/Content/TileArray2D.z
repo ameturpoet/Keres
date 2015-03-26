@@ -36,7 +36,6 @@ class TileArray2D : ZilchComponent
         {
             //Gets the sign of both the X and Y coordinates
             var temp = tile.Transform.WorldTranslation;
-            //Console.WriteLine(temp.Y);
             
             //Check for X minimum and maximum
             if (temp.X < this.MinX)
@@ -63,9 +62,6 @@ class TileArray2D : ZilchComponent
         this.Width = this.MaxX - this.MinX + 1;
         this.Height = this.MaxY - this.MinY + 1;
         
-        Console.WriteLine(this.Width);
-        Console.WriteLine(this.Height);
-        
         //Creates an empty array
         for (var i = 0; i < this.Width * this.Height; i += 1)
         {
@@ -83,17 +79,9 @@ class TileArray2D : ZilchComponent
         temp.Y -= this.MaxY;
         temp.Y *= -1;
         
-        //Console.WriteLine(temp);
-        
         tile.NavigationPoint.Index2D = Real2(temp.X, temp.Y);
         
         var index = temp.X + this.Width * temp.Y;
-        //Console.WriteLine(index);
-        
-        if (index == 0)
-        {
-            Console.WriteLine("zero");
-        }
         
         return index;
     }
@@ -106,9 +94,6 @@ class TileArray2D : ZilchComponent
         temp.Y += offset.Y;
         
         var index = temp.X + this.Width * temp.Y;
-        
-        //Console.WriteLine("sweg");
-        //Console.WriteLine(index);
         
         if (temp.X >= this.Width || temp.X < 0 || temp.Y < 0 || temp.Y >= this.Height)
         {
@@ -143,7 +128,6 @@ class TileArray2D : ZilchComponent
     //OOOX
     function PopulateList(allTiles : Array[Cog])
     {
-        //Console.WriteLine(this.TileArray.Count);
         foreach (var tile in allTiles)
         {
             //45-degree corner tiles are weird, so we have to check for them
@@ -152,8 +136,6 @@ class TileArray2D : ZilchComponent
                 var index = this.CoordToIndex(tile.Transform.WorldTranslation, tile);
                 tile.NavigationPoint.Index = index;
                 var integerIndex = index as Integer;
-                
-                //Console.WriteLine(integerIndex);
                 
                 if (integerIndex < this.Count)
                 {
@@ -165,8 +147,6 @@ class TileArray2D : ZilchComponent
                 var index = this.CoordToIndex(tile.Parent.Transform.WorldTranslation, tile);
                 var integerIndex = index as Integer;
                 tile.NavigationPoint.Index = index;
-                
-                //Console.WriteLine(integerIndex);
                 
                 if (integerIndex < this.Count)
                 {

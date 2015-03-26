@@ -65,6 +65,9 @@ class HUDElement : ZilchComponent
             
             this.Owner.Transform.Translation = newPos;
             
+            Console.WriteLine(this.Owner.Name);
+            Console.WriteLine(newPos);
+            
             this.Done = true;
         }
     }

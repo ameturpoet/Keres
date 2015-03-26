@@ -1,0 +1,53 @@
+HOW TO USE COMBINATION AND PERMUTATION LOCKS
+
+Combination Lock: The order of the sequence doesn't matter
+So, if the correct combination is 1-13-4, then the player could enter 4-1-13 and it would still be correct
+
+Permutation Lock: The order does matter
+So, if the correct permutation is ABC, then the player MUST enter ABC in that order to be correct
+
+---
+1. The Locks
+---
+
+There are 2 lock archetypes pre-made for both combination and permutation locks
+They are Activator_CombinationLock and Activator_PermutationLock respectively
+
+	1: Drag the lock archetype you need into the world
+	2: Go to part 2. or 3. based on the one you chose
+
+---
+2. Combination Locks
+---
+	To configure a combination lock-
+
+	1: Go into the MultiSwitch object's children
+	2: Duplicate (or delete) subobjects to get the desired amount
+	3: For each subobject, go in and change its MaxValue, MinValue, and CorrectValue
+	
+	The SubSwitch object has a number attached to it (CurrentValue) that goes up by 1 each time
+	you press it. If the CurrentValue is greater than MaxValue, then it gets set to MinValue
+
+	So, if MaxValue is 3, MinValue is 1, and CorrectValue is 2:
+	
+	Start: CurrentValue = 1
+	Push1: CurrentValue = 2, SubSwitch is correct now
+	Push2: CurrentValue = 3, SubSwitch is no longer correct
+	Push3: CurrentValue = 1
+
+---
+3. Permutation Locks
+---
+	To configure a permutation lock-
+	
+	1: Go into the MultiSwitch object's children
+	2: Duplicate (or delete) subobjects to get the desired amount
+	3: Change each subobject's name to A SINGLE CHARACTER (e.g., 'A', '1', '@', etc.)
+	4: In the MultiSwitch, go to the Activator_Multiswitch script and change the CorrectSequence
+	   to the desired sequence
+
+	*NOTE*: The CorrectSequence MUST be made of characters that were used for the subswitches' names
+	If the CorrectSequence is ABZ, and you only have switches named A, B, and C, then the MultiSwitch
+	will NEVER activate
+
+	*NOTE2*: The same character can be used multiple times in the CorrectSequence, like AAB, CBBA, BBBB, etc.

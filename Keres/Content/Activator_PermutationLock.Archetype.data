@@ -1,0 +1,94 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "MultiSwitch",
+	},
+	Archetyped = 
+	{
+		string Name = "552c5b395f56ce75:Activator_Multiswitch",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [3.05632, 5.2804, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	Activator_Multiswitch = 
+	{
+		string CorrectSequence = "ABC",
+		Enum LockType = Permutation,
+		CogPath ActivationTarget = "",
+	},
+	Hierarchy = 
+	{
+		ArchetypeInstance = 
+		{
+			string Name = "552c5b6f50261b10:Activator_SubSwitch",
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.45184, -0.976886, 0],
+				Vec3 Scale = [0.5, 0.25, 0.25],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "A",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "552c5b6f50261b10:Activator_SubSwitch",
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.773333, -1.54684, 0],
+				Vec3 Scale = [0.5, 0.25, 0.25],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "B",
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "552c5b6f50261b10:Activator_SubSwitch",
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.298378, -2.07609, 0],
+				Vec3 Scale = [0.5, 0.25, 0.25],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "C",
+			},
+		},
+	},
+},

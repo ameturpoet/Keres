@@ -1,0 +1,15 @@
+Alpha 1.4
+3/25/2015
+-------------
+Changes
+---
++Added player knockback
++Added distinct particle effect with flickering lights to enemy stun
++Added combination and permutation locks
+	New documentation exists for these ("Combination and Permutation Locks.txt")
++Added HUD oxygen bar
++Partially implemented death animation
+
+---
+Bugfixes
+---

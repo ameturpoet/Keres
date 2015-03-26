@@ -4,6 +4,12 @@ class LightEffect_Flicker : ZilchComponent
     var Range : Real = 1.0;
     [Property]
     var Speed : Real = 1.0;
+    [Property]
+    var MinTime : Real = 0.05;
+    [Property]
+    var MaxTime : Real = 1.8;
+    [Property]
+    var HasParticleLinked : Boolean = false;
     
     var Timer : Real = 0.0;
     var FlickerTimer : Real = 0.0;
@@ -13,7 +19,7 @@ class LightEffect_Flicker : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.Range = this.Owner.Light.Range;
         var rnd = Random();
-        this.FlickerTimer = rnd.Range(0.05, 1.8);
+        this.FlickerTimer = rnd.Range(this.MinTime, this.MaxTime);
     }
     
     //Causes the light attached to the object to pulse in brightness at the speed
@@ -25,16 +31,27 @@ class LightEffect_Flicker : ZilchComponent
         if (this.FlickerTimer <= 0.0)
         {
             this.Timer += event.Dt * 30;
+            if (this.HasParticleLinked)
+            {
+                this.Owner.SpriteParticleSystem.Visible = true;
+            }
             if (this.Timer >= Math.Pi)
             {
                 this.Timer = 0;
                 var rnd = Random();
-                this.FlickerTimer = rnd.Range(0.05, 1.8);
+                this.FlickerTimer = rnd.Range(this.MinTime, this.MaxTime);
             }
         }
         else
         {
             this.FlickerTimer -= event.Dt;
+            if (this.HasParticleLinked)
+            {
+                if (this.Owner.SpriteParticleSystem.Visible)
+                {
+                    this.Owner.SpriteParticleSystem.Visible = false;
+                }
+            }
             if (this.FlickerTimer <= 0.0)
             {
                 this.FlickerTimer = 0.0;

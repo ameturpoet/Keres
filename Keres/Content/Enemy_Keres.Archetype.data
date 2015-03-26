@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
+		Vec3 Translation = [27.5402, -1.53067, 0],
 		Vec3 Scale = [0.1, 0.1, 0.1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -33,8 +33,9 @@ Cog =
 		int AttackDamage = 50,
 		float MaxStunTime = 2.5,
 		float Speed = 1.7,
-		float SightDistance = 5,
-		float AttentionSpanTime = 3,
+		float SightDistance = 3,
+		float MaxSightDistance = 20,
+		float AttentionSpanTime = 1000,
 		float AttackCooldown = 0.3,
 	},
 	BoxCollider = 
@@ -42,10 +43,10 @@ Cog =
 		bool Ghost = false,
 		bool SendsMessages = true,
 		bool Seamless = true,
-		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string MaterialName = "5405da44800eb0cf:ActorMaterial",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 		Vec3 Offset = [0, 0, 0],
-		Vec3 Size = [2.5, 2.5, 4],
+		Vec3 Size = [1, 1, 4],
 	},
 	RigidBody = 
 	{
@@ -53,7 +54,7 @@ Cog =
 		bool Asleep = false,
 		bool Kinematic = false,
 		bool RotationLocked = true,
-		bool Mode2D = false,
+		bool Mode2D = true,
 		bool AllowSleep = true,
 		bool Inherit2DMode = true,
 		Vec3 Velocity = [0, 0, 0],
@@ -73,9 +74,6 @@ Cog =
 		string Stunned = "5477f3bb6085e37d:Impact_Taser",
 		string Footstep = "5477f3b8606e5574:Footstep_Keres",
 		string BangOnDoor = "",
-		string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
-	},
-	FootsterScaler = 
-	{
+		string BecomeAware = "",
 	},
 },

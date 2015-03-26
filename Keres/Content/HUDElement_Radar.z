@@ -28,7 +28,7 @@ class HUDElement_Radar : ZilchComponent
             bl.Transform.Translation -= 2 * deltaMovement / this.RadarDistance;
             
             //If the blip if outside the area of the radar, it vanishes
-            if (Math.Length(bl.Transform.Translation) > this.Owner.Sprite.Size.X / 2)
+            if (Math.Length(bl.Transform.Translation) > this.Owner.Sprite.SpriteSource.GetSize().X / 2)
             {
                 if (bl.Sprite.Visible)
                 {
@@ -51,7 +51,7 @@ class HUDElement_Radar : ZilchComponent
     {
         if (Math.Length(Real2(relativePosition.X, relativePosition.Y)) <= this.RadarDistance)
         {
-            var blipLocation = (relativePosition / this.RadarDistance) * this.Owner.Sprite.Size.X / 2;
+            var blipLocation = (relativePosition / this.RadarDistance) * this.Owner.Sprite.SpriteSource.GetSize().X / 128;
             blipLocation.Z = 0.5;
             var newBlip = this.Owner.Space.CreateAtPosition(this.BlipArchetype, blipLocation);
             newBlip.AttachTo(this.Owner);
@@ -69,7 +69,7 @@ class HUDElement_Radar : ZilchComponent
     //
     function AddPermaBlip(relativePosition : Real3)
     {
-        var blipLocation = (relativePosition / this.RadarDistance) * this.Owner.Sprite.Size.X / 2;
+        var blipLocation = (relativePosition / this.RadarDistance) * this.Owner.Sprite.SpriteSource.GetSize().X / 2;
         blipLocation.Z = 0.5;
         var newBlip = this.Owner.Space.CreateAtPosition(this.BlipArchetype, blipLocation);
         newBlip.RemoveComponentByName("Effect_FadeToDelete");

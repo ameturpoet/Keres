@@ -93,7 +93,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [18.2474, -12.443, 51],
+			Vec3 Translation = [9.27714, -11.8886, 51],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-2.60304e-007, -6.61087e-008, -2.12045e-014, 1],
 		},
@@ -105,7 +105,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 13.5336,
+			float Size = 20.1897,
 		},
 		EditorCameraController = 
 		{
@@ -113,7 +113,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 5.20609e-007,
 			float HorizontalAngle = 1.01514e-007,
-			Vec3 LookTarget = [18.2474, -12.443, 1.00002],
+			Vec3 LookTarget = [9.27715, -11.8887, 1.00002],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -779,7 +779,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [3.76272, 7.76098, -0.19762],
+			Vec3 Translation = [3.76272, 7.76098, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3097,6 +3097,7 @@ Level =
 			float MaxStunTime = 2.5,
 			float Speed = 1.7,
 			float SightDistance = 5,
+			float MaxSightDistance = 20,
 			float AttentionSpanTime = 3,
 			float AttackCooldown = 0.3,
 		},
@@ -3175,6 +3176,7 @@ Level =
 			float MaxStunTime = 2.5,
 			float Speed = 1.7,
 			float SightDistance = 5,
+			float MaxSightDistance = 20,
 			float AttentionSpanTime = 3,
 			float AttackCooldown = 0.3,
 		},
@@ -3253,6 +3255,7 @@ Level =
 			float MaxStunTime = 2.5,
 			float Speed = 1.7,
 			float SightDistance = 5,
+			float MaxSightDistance = 20,
 			float AttentionSpanTime = 3,
 			float AttackCooldown = 0.3,
 		},

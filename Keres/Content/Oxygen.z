@@ -1,7 +1,7 @@
 class Oxygen : ZilchComponent
 {
     [Property]
-    var MaxOxygen : Integer = 100;
+    var MaxOxygen : Real = 100;
     
     [Property]
     var HeavyBreathingRate : Real = 2;
@@ -33,7 +33,7 @@ class Oxygen : ZilchComponent
             {
                 this.Owner.PlayerStats.Life = 0;
                 this.Owner.PlayerStats.Oxygen = 0.0;
-                this.Space.LoadLevel(Level.Find("DeathScreen"));
+                //this.Space.LoadLevel(Level.Find("DeathScreen"));
                 //If the player runs out of oxygen, load the death screen
             }
             

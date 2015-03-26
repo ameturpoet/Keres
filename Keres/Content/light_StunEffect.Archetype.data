@@ -1,0 +1,94 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "StunEffectZap",
+	},
+	Archetyped = 
+	{
+		string Name = "552c4ef1707dd64a:light_StunEffect",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SpriteParticleSystem = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = WorldSpace,
+		uint DrawOrder = 0,
+		float WarmUpTime = 0,
+		ParticleGeometry GeometryMode = Beam,
+		ParticleRenderMode RenderMode = Additive,
+		ParticleSortMode SortMode = Youngest,
+		ParticleAnimation ParticleAnimation = Single,
+		string Texture = "5440b820b8ef0557:ZapBeam",
+		Vec4 Tint = [0.72, 0.874, 1, 1],
+		float VelocityScale = 1,
+		float LengthScale = 1,
+		float MaxParticleSize = 100,
+		Vec3 SystemSize = [4, 4, 4],
+	},
+	LightningParticleEmitter = 
+	{
+		uint MinBranches = 0,
+		uint MaxBranches = 2,
+		float BranchProbabilityExponent = 0.1,
+		float DurationPerStrike = 1,
+		uint MinDepth = 0,
+		uint MaxDepth = 2,
+		float MinSegmentLength = 0.3,
+		float MaxSegmentLength = 0.5,
+		float MinRandomOffset = 0.7,
+		float MaxRandomOffset = 0.9,
+		float BeginSize = 0.08,
+		float EndSize = 0.08,
+		float HackOffsetPercentage = 0.3,
+		Vec3 TargetPosition = [-2.25554, -3.5, 0],
+		TargetSpace TargetSpace = WorldSpace,
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [0, 0, 0],
+		Vec3 RandomForce = [0, 0, 0],
+		float Torque = 0,
+		float Growth = 0,
+		float Dampening = 0,
+		Vec3 Twist = [0, 0, 0],
+	},
+	StunEffectScript = 
+	{
+	},
+	Light = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = false,
+		LightType LightType = Point,
+		Vec4 Color = [0.14, 0.613, 1, 1],
+		float Intensity = 1.3,
+		float Range = 3,
+		float Falloff = 1,
+		float Angle = 45,
+		float Size = 20,
+	},
+	LightEffect_Flicker = 
+	{
+		float Range = 1,
+		float Speed = 1,
+		float MinTime = 0.02,
+		float MaxTime = 0.12,
+		bool HasParticleLinked = true,
+	},
+},

@@ -1,0 +1,62 @@
+class Activator_SubSwitch : ZilchComponent
+{
+    //All properties are only used for combination locks
+    [Property]
+    var MaxValue : Integer = 2;
+    [Property]
+    var MinValue : Integer = 0;
+    [Property]
+    var CorrectValue : Integer = 2;
+    var CurrentValue : Integer = 1;
+    [Property]
+    var ShowText : Boolean = true;
+    var Combination : Boolean = false;
+    var Text : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.CurrentValue = this.MinValue;
+        
+        if (this.Owner.Parent.Activator_Multiswitch.LockType == SwitchType.Combination)
+        {
+            this.Combination = true;
+            Console.WriteLine("yes");
+            this.Text = this.Owner.FindChildByName("text");
+            var sb = new StringBuilder();
+            sb.Write(this.CurrentValue);
+            
+            if (this.ShowText)
+            {
+                this.Text.SpriteText.Text = sb.ToString();
+            }
+            else
+            {
+                this.Text.SpriteText.Visible = false;
+            }
+        }
+    }
+    
+    //Sends this object's name to the parent object
+    function Activate()
+    {
+        //If the switch belongs to a combination lock
+        if (this.Combination)
+        {
+            //Moves the current value along by 1
+            this.CurrentValue += 1;
+            
+            //If the current value is greater than the max value, reset it to the min value
+            if (this.CurrentValue > this.MaxValue)
+            {
+                this.CurrentValue = this.MinValue;
+            }
+            
+            var sb = new StringBuilder();
+            sb.Write(this.CurrentValue);
+            
+            this.Text.SpriteText.Text = sb.ToString();
+        }
+        
+        this.Owner.Parent.Activator_Multiswitch.UpdateSequence(this.Owner.Name);
+    }
+}

@@ -1,0 +1,31 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Bottle",
+	},
+	Archetyped = 
+	{
+		string Name = "55be5603036a043f:Bottle",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [4.19253, 4.55823, 27.7368],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "55abc49f41cd61a3:Material__25",
+		string MeshName = "55be5603036d646f:Bottle",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+},

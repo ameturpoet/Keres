@@ -13,9 +13,10 @@ class RibbonParticle : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.MaxLifetime = this.Lifetime;
         this.WidthStart = this.Owner.Transform.Scale.Y;
+        this.Owner.Model.Visible = true;
     }
     
     //Please, dear lord, find a better way to do this if you can
@@ -30,9 +31,6 @@ class RibbonParticle : ZilchComponent
         
         var angle1 = Math.Angle2D(difference);
         var angle2 = this.AngleBetween(normalizedDiff, Real3(normalizedDiff.X, normalizedDiff.Y, 0));
-        
-        this.Owner.Space.CreateAtPosition(this.LightEmitter, this.Start);
-        this.Owner.Space.CreateAtPosition(this.LightEmitter, this.End - difference * 0.1);
         
         if (normalizedDiff.Z >= 0.0)
         {

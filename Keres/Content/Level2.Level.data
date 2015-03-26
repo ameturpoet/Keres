@@ -93,7 +93,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [15.1135, -17.4337, 51.0111],
+			Vec3 Translation = [30.7252, -38.6783, 51.1146],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-2.56579e-007, -0.00261807, -6.71749e-010, 0.999997],
 		},
@@ -105,7 +105,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 49.0658,
+			float Size = 10.9481,
 		},
 		EditorCameraController = 
 		{
@@ -113,7 +113,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 5.13159e-007,
 			float HorizontalAngle = 0.00523609,
-			Vec3 LookTarget = [15.3753, -17.4337, 1.01174],
+			Vec3 LookTarget = [30.987, -38.6784, 1.11532],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -176,7 +176,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.512743, -9.50175, 0],
+			Vec3 Translation = [-0.508842, -9.50213, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -226,7 +226,7 @@ Level =
 			float MaxOxygen = 100,
 			float HeavyBreathingRate = 2,
 			int OxygenTanks = 1,
-			float RadarCooldown = 0,
+			float RadarCooldown = 2,
 			bool DebugMode = false,
 		},
 		Controller = 
@@ -240,7 +240,7 @@ Level =
 			Enum RadarPing = Q,
 			Enum RefillOxygen = R,
 			Enum Reload = F,
-			Enum Pause = Control,
+			Enum Pause = Escape,
 			Enum ToggleDebug = Zero,
 		},
 		NavigationEvents = 
@@ -255,7 +255,7 @@ Level =
 		},
 		Oxygen = 
 		{
-			int MaxOxygen = 100,
+			float MaxOxygen = 100,
 			float HeavyBreathingRate = 2,
 		},
 		SoundEmitter = 
@@ -652,19 +652,12 @@ Level =
 			string Name = "invPlayer",
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		LinkId = 
 		{
 			uint Id = 17,
-		},
-		Named = 
-		{
-			string Name = "enemy",
-		},
-		Archetyped = 
-		{
-			string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		},
 		Transform = 
 		{
@@ -672,63 +665,9 @@ Level =
 			Vec3 Scale = [0.1, 0.1, 0.1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Model = 
+		Named = 
 		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "4faa78123470162f:FallbackMaterial",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 1],
-		},
-		EnemyAI = 
-		{
-			int AttackDamage = 50,
-			float MaxStunTime = 2.5,
-			float Speed = 1.7,
-			float SightDistance = 3,
-			float MaxSightDistance = 20,
-			float AttentionSpanTime = 1000,
-			float AttackCooldown = 0.3,
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "5405da44800eb0cf:ActorMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [1, 1, 4],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = true,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		SoundEmitter = 
-		{
-			bool StartPlaying = false,
-			int ExtraPriority = 0,
-			string CueName = "54ffb77ae794dfe3:FootSteps",
-			float Volume = 1,
-			float Pitch = 1,
-			bool Positional = true,
-		},
-		Soundbox_Keres = 
-		{
-			string Stunned = "5477f3bb6085e37d:Impact_Taser",
-			string Footstep = "5477f3b8606e5574:Footstep_Keres",
-			string BangOnDoor = "",
-			string BecomeAware = "",
+			string Name = "enemy",
 		},
 	},
 	Cog = 
@@ -804,6 +743,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 1,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	Cog = 
@@ -844,6 +786,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 3,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	Cog = 
@@ -884,6 +829,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 3,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	ArchetypeInstance = 
@@ -3763,6 +3711,9 @@ Level =
 		{
 			float Range = 1,
 			float Speed = 1,
+			float MinTime = 0.05,
+			float MaxTime = 1.8,
+			bool HasParticleLinked = false,
 		},
 	},
 	Cog = 
@@ -3867,7 +3818,7 @@ Level =
 		},
 		Interactable_LoadGate = 
 		{
-			string LoadLevel = "54d02cd6b4163c77:Level3Alpha",
+			string LoadLevel = "55ebb464a6a93a55:Level3",
 			string TargetNodeName = "FromLevel2",
 			bool Enabled = false,
 		},
@@ -4120,162 +4071,40 @@ Level =
 			},
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		LinkId = 
 		{
 			uint Id = 81,
 		},
+		Transform = 
+		{
+			Vec3 Translation = [17.5349, -37.5502, -0.052227],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
 		Named = 
 		{
 			string Name = "enemy",
 		},
-		Archetyped = 
-		{
-			string Name = "5499dbe25aa98c1a:Enemy_Keres",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [17.5349, -36.3246, -0.052227],
-			Vec3 Scale = [0.1, 0.1, 0.1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "4faa78123470162f:FallbackMaterial",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 1],
-		},
-		EnemyAI = 
-		{
-			int AttackDamage = 50,
-			float MaxStunTime = 2.5,
-			float Speed = 1.7,
-			float SightDistance = 3,
-			float MaxSightDistance = 20,
-			float AttentionSpanTime = 1000,
-			float AttackCooldown = 0.3,
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "5405da44800eb0cf:ActorMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [1, 1, 4],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = true,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		SoundEmitter = 
-		{
-			bool StartPlaying = false,
-			int ExtraPriority = 0,
-			string CueName = "54ffb77ae794dfe3:FootSteps",
-			float Volume = 1,
-			float Pitch = 1,
-			bool Positional = true,
-		},
-		Soundbox_Keres = 
-		{
-			string Stunned = "5477f3bb6085e37d:Impact_Taser",
-			string Footstep = "5477f3b8606e5574:Footstep_Keres",
-			string BangOnDoor = "",
-			string BecomeAware = "",
-		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		LinkId = 
 		{
 			uint Id = 82,
 		},
-		Named = 
-		{
-			string Name = "enemy",
-		},
-		Archetyped = 
-		{
-			string Name = "5499dbe25aa98c1a:Enemy_Keres",
-		},
 		Transform = 
 		{
-			Vec3 Translation = [17.5003, -36.4631, -0.0524864],
+			Vec3 Translation = [17.5003, -35.4387, -0.0524864],
 			Vec3 Scale = [0.1, 0.1, 0.1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Model = 
+		Named = 
 		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "4faa78123470162f:FallbackMaterial",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 1],
-		},
-		EnemyAI = 
-		{
-			int AttackDamage = 50,
-			float MaxStunTime = 2.5,
-			float Speed = 1.7,
-			float SightDistance = 3,
-			float MaxSightDistance = 20,
-			float AttentionSpanTime = 1000,
-			float AttackCooldown = 0.3,
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "5405da44800eb0cf:ActorMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [1, 1, 4],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = true,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		SoundEmitter = 
-		{
-			bool StartPlaying = false,
-			int ExtraPriority = 0,
-			string CueName = "54ffb77ae794dfe3:FootSteps",
-			float Volume = 1,
-			float Pitch = 1,
-			bool Positional = true,
-		},
-		Soundbox_Keres = 
-		{
-			string Stunned = "5477f3bb6085e37d:Impact_Taser",
-			string Footstep = "5477f3b8606e5574:Footstep_Keres",
-			string BangOnDoor = "",
-			string BecomeAware = "",
+			string Name = "enemy",
 		},
 	},
 },
