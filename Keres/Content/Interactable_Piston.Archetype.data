@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-2.99878, 1.49778, 0],
+		Vec3 Translation = [-17.0016, -14.5065, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -30,9 +30,9 @@ Cog =
 	},
 	Interactable = 
 	{
-		bool ShowTooltip = true,
+		bool ShowTooltip = false,
 		string Tooltip = "Electric Door",
-		bool ShowControl = true,
+		bool ShowControl = false,
 	},
 	BoxCollider = 
 	{
@@ -53,19 +53,19 @@ Cog =
 		float Pitch = 1,
 		bool Positional = true,
 	},
-	Soundbox_Door = 
-	{
-		string Open = "5477f3b8607636ab:Door_Open",
-		string Close = "5477f3b8604c1ffd:Door_Close",
-		string Unlock = "5477f3b8607bbff1:Door_Unlock",
-	},
 	Interactable_Piston = 
 	{
-		bool PlayerCantUse = false,
+		bool PlayerCantUse = true,
 		float OpenTime = 1,
 		string NeckPiece = "55bbf4d95464e02a:PistonNeck",
-		bool Sticky = true,
+		bool Sticky = false,
 		int State = 2,
+	},
+	Soundbox_Piston = 
+	{
+		string Start = "55b72f5251c4f88c:Machine_Start",
+		string Loop = "55b72f6ca82baa4e:Machine_Loop",
+		string End = "55b72f42acf5fd19:Machine_End",
 	},
 	Hierarchy = 
 	{

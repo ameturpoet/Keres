@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Soundbox_Piston",
+		uint64 ResourceId = 55b72f31a35afaff,
+	},
+},

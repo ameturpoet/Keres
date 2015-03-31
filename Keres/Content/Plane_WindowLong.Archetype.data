@@ -1,0 +1,44 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Wall",
+	},
+	Archetyped = 
+	{
+		string Name = "55b73646017bf933:Plane_WindowLong",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [43.8068, -14.9416, -7.0721],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = false,
+		bool CastShadows = true,
+		string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+		string MeshName = "55b737eec62851e6:Plane_WindowFULL",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	MeshCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		string PhysicsMeshName = "541a9554d9923ab3:Plane",
+		bool DrawEdges = true,
+		bool DrawFaces = false,
+		bool DrawFaceNormals = false,
+	},
+},

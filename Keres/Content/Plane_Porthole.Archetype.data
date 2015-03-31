@@ -25,7 +25,7 @@ Cog =
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
 		string MaterialName = "553c0360e5111e6b:Mat_Crate",
-		string MeshName = "546cc04155516d88:Plane_Porthole",
+		string MeshName = "55b7353d8721bea0:Plane_Window",
 		Vec4 Color = [1, 1, 1, 1],
 	},
 },

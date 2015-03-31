@@ -1,10 +1,10 @@
 SoundCue = 
 {
 	SoundPlayMode PlayMode = Single,
-	float Volume = 0,
-	float VolumeVariation = 0,
+	float Volume = 0.3,
+	float VolumeVariation = 0.1,
 	float Pitch = 0,
-	float PitchVariation = 0,
+	float PitchVariation = 0.1,
 	float MinDistance = 10,
 	float MaxDistance = 10000,
 	float PositionRandomization = 0,
@@ -14,11 +14,23 @@ SoundCue =
 	Array Sounds = 
 	[
 		{
-			string SoundName = "5477f3be601f51a3:Footstep_Player_1",
+			string SoundName = "55b727442e7323a0:FootstepsMetalInterior1",
 			float Weight = 1,
 		},
 		{
-			string SoundName = "5477f3be600a898b:Footstep_Player_2",
+			string SoundName = "55b727442e765b1e:FootstepsMetalInterior2",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "55b727442e7a027e:FootstepsMetalInterior3",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "55b727472e7969b2:FootstepsMetalInterior4",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "55b727472e7ca4bd:FootstepsMetalInterior5",
 			float Weight = 1,
 		},
 	],
