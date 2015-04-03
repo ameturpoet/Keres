@@ -14,9 +14,19 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Translation = [0.0259838, -0.024826, -0.053596],
+		Vec3 Scale = [0.25, 0.25, 0.250001],
+		Quat Rotation = [0.516585, -0.482847, 0.482846, 0.516584],
+	},
+	Weapon = 
+	{
+		string Projectile = "541bb3f68b66bc61:projectile_Bullet",
+		string RibbonObject = "541bbd020465b0f4:ribbon_TestBeam",
+		CogPath ProjectileNode = "ProjectileNode",
+		int EnergyUse = 5,
+		float Range = 3,
+		float TimeToReload = 1,
+		string AmmoString = "",
 	},
 	Hierarchy = 
 	{
@@ -32,9 +42,9 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [-0.206774, 0.000321244, -0.603963],
+				Vec3 Translation = [-0.206773, 0.000321269, -0.603963],
 				Vec3 Scale = [0.0408621, 0.0408621, 0.0408621],
-				Quat Rotation = [-0.707107, -0, 0, 0.707107],
+				Quat Rotation = [-0.707107, -1.05461e-008, 9.59937e-009, 0.707107],
 			},
 			Model = 
 			{
@@ -42,7 +52,7 @@ Cog =
 				bool VisibilityCulling = true,
 				bool VisibilityEvents = false,
 				bool CastShadows = true,
-				string MaterialName = "546eaa26c7015017:Material__25",
+				string MaterialName = "546eb7504997842c:Mat_TaserBody",
 				string MeshName = "546eaa26c71ec467:Taser.Gun",
 				Vec4 Color = [1, 1, 1, 1],
 			},
@@ -69,9 +79,92 @@ Cog =
 				bool VisibilityCulling = true,
 				bool VisibilityEvents = false,
 				bool CastShadows = true,
-				string MaterialName = "546eaa21c704af2c:Material__27",
+				string MaterialName = "546eb77d4536fa77:Mat_TaserBattery",
 				string MeshName = "546eaa26c71ec471:Taser.Battery",
 				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "ProjectileNode",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.112079, 0.00261568, -0.0564492],
+				Vec3 Scale = [0.01, 0.01, 0.01],
+				Quat Rotation = [0.73694, -0.675958, -7.20636e-007, 5.29579e-007],
+			},
+			Model = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			ParticleAutoShutdown = 
+			{
+				float LifeTime = 0.075,
+			},
+			SpriteParticleSystem = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = false,
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = WorldSpace,
+				uint DrawOrder = 0,
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Beam,
+				ParticleRenderMode RenderMode = Additive,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "5440b820b8ef0557:ZapBeam",
+				Vec4 Tint = [1, 1, 1, 1],
+				float VelocityScale = 1,
+				float LengthScale = 1,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [4, 4, 4],
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 0],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = 0,
+				float Dampening = 0,
+				Vec3 Twist = [0, 0, 0],
+			},
+			LightningParticleEmitter = 
+			{
+				uint MinBranches = 1,
+				uint MaxBranches = 2,
+				float BranchProbabilityExponent = 0.1,
+				float DurationPerStrike = 0.2,
+				uint MinDepth = 1,
+				uint MaxDepth = 3,
+				float MinSegmentLength = 0.3,
+				float MaxSegmentLength = 1.5,
+				float MinRandomOffset = 0.1,
+				float MaxRandomOffset = 0.2,
+				float BeginSize = 0.1,
+				float EndSize = 0.1,
+				float HackOffsetPercentage = 0.3,
+				Vec3 TargetPosition = [10, 0, 0],
+				TargetSpace TargetSpace = WorldSpace,
 			},
 		},
 	},

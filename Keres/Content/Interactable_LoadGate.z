@@ -43,6 +43,7 @@ class Interactable_LoadGate : ZilchComponent
                 this.Owner.Interactable_Gate.UpdateSubObjects();
                 this.Space.FindObjectByName("FileManager").SaveManager.SavePlayerData();
                 this.Space.FindObjectByName("FileManager").SaveManager.SaveLevelState();
+                this.Space.FindObjectByName("Player").PlayerControl_Move.HUDspace.Destroy();
                 this.Space.LoadLevel(this.LoadLevel);
             }
         }

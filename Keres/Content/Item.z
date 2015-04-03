@@ -20,9 +20,14 @@ class Item : ZilchComponent
             this.Owner.Transform.Translation *= Real3(1, 1, 0);
             this.Owner.Transform.Translation += Real3(0, 0, -0.5);
         }
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.AutoPickup);
     }
 
-    function OnLogicUpdate(event : UpdateEvent)
+    function AutoPickup(event : CollisionEvent)
     {
+        if (event.OtherObject.Name == "Player")
+        {
+            this.Owner.Interactable.Activate(false);
+        }
     }
 }

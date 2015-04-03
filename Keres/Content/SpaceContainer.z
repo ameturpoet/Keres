@@ -1,0 +1,25 @@
+class SpaceContainer : ZilchComponent
+{
+    var GameSpace : Space = null;
+    var HUDSpace : Space = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        if (this.Owner.Space.Name == "Main")
+        {
+            this.GameSpace = this.Owner.Space;
+            this.SendEvent();
+        }
+    }
+
+    function SendEvent()
+    {
+        var spaceEvent = new SetSpacePointerEvent();
+        Console.WriteLine("Sent");
+        spaceEvent.GameSpace = this.GameSpace;
+        spaceEvent.HUDSpace = this.HUDSpace;
+
+        this.Owner.Space.DispatchEvent("SpacesSet", spaceEvent);
+    }
+}

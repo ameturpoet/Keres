@@ -24,8 +24,8 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
-		string MaterialName = "553c0360e5111e6b:Mat_Crate",
-		string MeshName = "546cc2d0921cf846:Plane_Window",
+		string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+		string MeshName = "55b7353d8721bea0:Plane_Window",
 		Vec4 Color = [1, 1, 1, 1],
 	},
 	MeshCollider = 

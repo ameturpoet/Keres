@@ -1,0 +1,37 @@
+class Soundbox_Piston : ZilchComponent
+{
+    [Property]
+    var Start : SoundCue = null;
+    [Property]
+    var Loop : SoundCue = null;
+    [Property]
+    var End : SoundCue = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function PlayStart()
+    {
+        if (this.Owner.SoundEmitter.IsPlaying())
+        {
+            this.Owner.SoundEmitter.Stop();
+        }
+        this.Owner.SoundEmitter.PlayCue(this.Start);
+    }
+
+    function PlayLoop()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.Loop);
+    }
+    
+    function PlayEnd()
+    {
+        if (this.Owner.SoundEmitter.IsPlaying())
+        {
+            this.Owner.SoundEmitter.Stop();
+        }
+        this.Owner.SoundEmitter.PlayCue(this.End);
+    }
+}

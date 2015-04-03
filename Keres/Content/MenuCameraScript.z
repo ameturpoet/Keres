@@ -1,0 +1,62 @@
+class MenuCameraScript : ZilchComponent
+{
+    [Property]
+    var CreditsLocation : Real3 = Real3(0, 0, 0);
+    [Property]
+    var CreditsRotation : Real = 0.0;
+    [Property]
+    var CreditsSize : Real = 0.0;
+    
+    var StartLocation : Real3 = Real3(0, 0, 0);
+    
+    var CurrentState : String = "Menu";
+    var MoveCounter : Real = 0.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.StartLocation = this.Owner.Transform.Translation;
+    }
+
+    //Moves the camera around Pluto
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.CreditsLocation = this.Owner.Space.FindObjectByName("CreditCamera").Transform.WorldTranslation;
+        if (this.CurrentState == "Credits" && this.MoveCounter < 1.0)
+        {
+            
+            var sinCounter = Math.Sin(this.MoveCounter * Math.Pi / 2);
+            
+            this.MoveCounter += event.Dt;
+            
+            this.Owner.Transform.Translation = (1.0 - sinCounter) * this.StartLocation + sinCounter * this.CreditsLocation;
+            
+            this.Owner.Transform.SetEulerAnglesXYZ(0, sinCounter * this.CreditsRotation * Math.Pi / 180, 0);
+            
+            this.Owner.Camera.Size = (20 * (1.0 - sinCounter) + this.CreditsSize * sinCounter);
+            
+            if (this.MoveCounter >= 1.0)
+            {
+                this.MoveCounter = 1.0;
+            }
+        }
+        else if (this.CurrentState == "Menu" && this.MoveCounter > 0.0)
+        {
+            
+            var sinCounter = Math.Sin(this.MoveCounter * Math.Pi / 2);
+            
+            this.MoveCounter -= event.Dt;
+            
+            this.Owner.Transform.Translation = (1.0 - sinCounter) * this.StartLocation + sinCounter * this.CreditsLocation;
+            
+            this.Owner.Transform.SetEulerAnglesXYZ(0, sinCounter * this.CreditsRotation * Math.Pi / 180, 0);
+            
+            this.Owner.Camera.Size = (20 * (1.0 - sinCounter) + this.CreditsSize * sinCounter);
+            
+            if (this.MoveCounter <= 0.0)
+            {
+                this.MoveCounter = 0.0;
+            }
+        }
+    }
+}
