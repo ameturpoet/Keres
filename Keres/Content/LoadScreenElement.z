@@ -8,15 +8,15 @@ class LoadScreenElement : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        Zero.Connect(this.Space, "SpacesSet", this.ConnectEvents);
         //var levelSpace = this.GameSession.FindSpaceByName("Main");
         
         //Zero.Connect(levelSpace, "ReadyToPlay", this.BeginFading);
     }
     
-    function ConnectEvents(event : SetSpacePointerEvent)
+    function ConnectEvents(levelSpace : Space)
     {
-        Zero.Connect(event.GameSpace, "ReadyToPlay", this.BeginFading);
+        Zero.Connect(levelSpace, "ReadyToPlay", this.BeginFading);
+        Console.WriteLine("swaaaaag");
     }
     
     function BeginFading(event : ReadyEvent)

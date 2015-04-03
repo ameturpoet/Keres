@@ -3,8 +3,8 @@ SoundCue =
 	SoundPlayMode PlayMode = Single,
 	float Volume = 1,
 	float VolumeVariation = 0,
-	float Pitch = -0.2,
-	float PitchVariation = 0.1,
+	float Pitch = 0,
+	float PitchVariation = 0,
 	float MinDistance = 10,
 	float MaxDistance = 10000,
 	float PositionRandomization = 0,
@@ -14,7 +14,7 @@ SoundCue =
 	Array Sounds = 
 	[
 		{
-			string SoundName = "55b727442e7323a0:FootstepsMetalInterior1",
+			string SoundName = "5541882a90838e70:FootstepsMetalInterior1",
 			float Weight = 1,
 		},
 	],

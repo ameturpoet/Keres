@@ -1,5 +1,9 @@
 GeometryContent = 
 {
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 546cc2d092154022,
+	},
 	GeometryImport = 
 	{
 		bool ChangeWinding = false,
@@ -13,7 +17,7 @@ GeometryContent =
 		[
 			{
 				string Name = "Plane_Window",
-				uint64 ResourceId = 55b7353d8721bea0,
+				uint64 ResourceId = 546cc2d0921cf846,
 			},
 		],
 		MeshMode MeshMode = Single,

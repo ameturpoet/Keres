@@ -2,15 +2,15 @@ Material =
 {
 	Phong = 
 	{
-		float SpecularExponent = 3,
-		float SpecularScalar = 0.3,
+		float SpecularExponent = 40,
+		float SpecularScalar = 1,
 	},
 	DoubledSide = 
 	{
 	},
 	NormalMapping = 
 	{
-		float Bumpiness = 4,
+		float Bumpiness = 2,
 		string NormalMapTexture = "546d94b96a8e764b:Pluto_n",
 		Vec2 NormalScroll = [0, 0],
 		Vec2 NormalTiling = [1, 1],

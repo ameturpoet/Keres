@@ -19,16 +19,14 @@ class MenuButton : ZilchComponent
         Zero.Connect(this.Owner, Events.MouseExit, this.OnMouseExit);
         Zero.Connect(this.Owner, Events.LeftMouseDown, this.OnMouseClick);
         Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnMouseRelease);
-        Zero.Connect(this.Space, "SpacesSet", this.SetTargetSpace);
+        this.GameSpace = this.GameSession.FindSpaceByName("Main");
         if (this.Target == "Play")
         {
             var fileManager = this.Owner.Space.FindObjectByName("FileManager");
             var level = fileManager.SaveManager.GetCurrentLevel();
             var text = this.Owner.Space.FindObjectByName("continueLevelText");
             
-            var levelNames = ResourceTable.Find("LevelNamesTable");
-            
-            text.SpriteText.Text = levelNames.FindValue(level.Name);
+            text.SpriteText.Text = level.Name;
             
             if (level.Name == this.Owner.Space.CurrentLevel.Name)
             {
@@ -37,11 +35,6 @@ class MenuButton : ZilchComponent
                 text.SpriteText.Visible = false;
             }
         }
-    }
-    
-    function SetTargetSpace(event : SetSpacePointerEvent)
-    {
-        this.GameSpace = event.GameSpace;
     }
     
     function ToggleEnabled()
@@ -91,15 +84,6 @@ class MenuButton : ZilchComponent
             {
                 this.DialogButtonNo();
             }
-            else if (this.Target == "Credits")
-            {
-                this.Credits();
-            }
-            else if (this.Target == "BacktoMenu")
-            {
-                this.BacktoMenu();
-            }
-
         }
     }
     
@@ -151,22 +135,6 @@ class MenuButton : ZilchComponent
         {
             this.GameSpace.LoadLevel(this.Owner.StartingLevel.StartingLevel);
         }
-    }
-    
-    //Starts the camera's movement to the credits section of the menu
-    function Credits()
-    {
-        var camera = this.Owner.Space.FindObjectByName("Camera");
-        camera.MenuCameraScript.CurrentState = "Credits";
-        camera.MenuCameraScript.MoveCounter = 0.0;
-    }
-    
-    //Starts the camera's movement to the credits section of the menu
-    function BacktoMenu()
-    {
-        var camera = this.Owner.Space.FindObjectByName("Camera");
-        camera.MenuCameraScript.CurrentState = "Menu";
-        camera.MenuCameraScript.MoveCounter = 1.0;
     }
     
     //Prompts the user to exit the game
@@ -224,7 +192,6 @@ class MenuButton : ZilchComponent
     function ClearDataDelete()
     {
         Zero.ObjectStore.ClearStore();
-        this.GameSpace.LoadLevel(Level.Find("MainMenu"));
     }
     
     //Starts a new game, clearing all saved data in the ObjectStore
@@ -298,7 +265,7 @@ class MenuButton : ZilchComponent
         }
         else
         {
-            this.Owner.Sprite.Color = Real4(0.3, 0.3, 0.3, 1.0);
+            this.Owner.Sprite.CurrentFrame = 2;
         }
     }
     

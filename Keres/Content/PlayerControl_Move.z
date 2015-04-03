@@ -46,11 +46,9 @@ class PlayerControl_Move : ZilchComponent
         this.Camra = this.Owner.Space.FindObjectByName("Camera");
         this.LevelGeometry = this.Owner.Space.FindObjectByName("LevelGeometry");
         this.HUDspace = this.GameSession.FindSpaceByName("HUDSpace");
-        
-        var spaceContainer = this.HUDspace.FindObjectByName("SpaceContainer");
-        spaceContainer.SpaceContainer.GameSpace = this.Owner.Space;
-        spaceContainer.SpaceContainer.HUDSpace = this.HUDspace;
-        spaceContainer.SpaceContainer.SendEvent();
+        this.HUDspace.FindObjectByName("BlackOverlay").LoadScreenElement.ConnectEvents(this.Owner.Space);
+        this.HUDspace.FindObjectByName("LoadingIcon").LoadScreenElement.ConnectEvents(this.Owner.Space);
+        this.HUDspace.FindObjectByName("LoadingText").LoadScreenElement.ConnectEvents(this.Owner.Space);
         
         var directionAngle = this.Owner.Transform.EulerAngles.Z - (Math.Pi / 2);
             
@@ -61,6 +59,7 @@ class PlayerControl_Move : ZilchComponent
     //Master update function, calls everything else from here
     function OnLogicUpdate(event : UpdateEvent)
     {
+        
         if (this.State == PlayerState.Normal)
         {
             this.DoSprinting();
@@ -342,8 +341,6 @@ class PlayerControl_Move : ZilchComponent
     {
         if (isMoving)
         {
-            
-            
             if (this.Sprinting == 1.0)
             {
                 this.HeadBobCounter += deltaTime * 8 * this.SprintMultiplier;
@@ -519,8 +516,7 @@ class PlayerControl_Move : ZilchComponent
             }
             if (!blackScreen.LoadScreenElement.FadeIn)
             {
-                this.HUDspace.Destroy();
-                this.Owner.Space.LoadLevel(Level.Find("DeathScreen"));
+                this.Space.LoadLevel(Level.Find("DeathScreen"));
             }
         }
     }

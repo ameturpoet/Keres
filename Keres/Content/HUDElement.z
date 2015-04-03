@@ -14,7 +14,6 @@ class HUDElement : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
-        
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         
         if (this.Anchor_Top)
@@ -65,6 +64,9 @@ class HUDElement : ZilchComponent
             }
             
             this.Owner.Transform.Translation = newPos;
+            
+            Console.WriteLine(this.Owner.Name);
+            Console.WriteLine(newPos);
             
             this.Done = true;
         }

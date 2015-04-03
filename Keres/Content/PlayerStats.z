@@ -24,6 +24,7 @@ class PlayerStats : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Console.WriteLine(this.Owner.Space.Name);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -38,16 +39,7 @@ class PlayerStats : ZilchComponent
                 this.Owner.PlayerControl_Move.Moving = false;
                 this.Owner.Collider.Ghost = true;
                 this.Owner.RigidBody.Velocity *= 0.0;
-                
-                var musicBox = this.Owner.Space.FindObjectByName("MusicBox");
-                
-                if (musicBox != null)
-                {
-                    musicBox.MusicBox.FadeOut();
-                }
-                
                 var enemies = this.Owner.Space.FindAllObjectsByName("enemy");
-                
                 
                 foreach (var enemy in enemies)
                 {

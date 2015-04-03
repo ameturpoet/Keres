@@ -10,17 +10,6 @@ class NavigationEvents : ZilchComponent
     }
 }
 
-//Event that occurs when the SpaceContainer gets the pointers
-class SetSpacePointerEvent : Event
-{
-    var GameSpace : Space = null;
-    var HUDSpace : Space = null;
-    
-    constructor() : base()
-    {
-    }
-}
-
 //Event that occurs when the level is all generated and ready to be played
 class ReadyEvent : Event
 {

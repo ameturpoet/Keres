@@ -14,9 +14,9 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-38.3287, -14.5, 0],
-		Vec3 Scale = [1, 0.4, 1],
-		Quat Rotation = [0, 0, 0.707107, 0.707107],
+		Vec3 Translation = [27.4999, -37.7416, 0.716095],
+		Vec3 Scale = [1, 0.452265, 1],
+		Quat Rotation = [0, 0, 0, 1],
 	},
 	Model = 
 	{
@@ -69,8 +69,8 @@ Cog =
 	},
 	Interactable_LoadGate = 
 	{
-		string LoadLevel = "55ebb24401b6767f:Level2",
-		string TargetNodeName = "FromLevel1",
+		string LoadLevel = "5480fcaf12f0dbf1:Proto_level",
+		string TargetNodeName = "",
 		bool Enabled = false,
 	},
 	Hierarchy = 
@@ -92,7 +92,7 @@ Cog =
 			Transform = 
 			{
 				Vec3 Translation = [0.25, 0, 0],
-				Vec3 Scale = [0.5, 2.5, 1],
+				Vec3 Scale = [0.5, 0.3, 1],
 				Quat Rotation = [0, 0, 5.68434e-014, 1],
 			},
 			Model = 
@@ -102,7 +102,7 @@ Cog =
 				bool VisibilityEvents = false,
 				bool CastShadows = true,
 				string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
-				string MeshName = "55abc49f41ce2e5a:Door",
+				string MeshName = "4de0354322b345ae:Cube",
 				Vec4 Color = [1, 1, 1, 0],
 			},
 			Interactable = 
@@ -119,7 +119,7 @@ Cog =
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 				string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
 				Vec3 Offset = [0, 0, 0],
-				Vec3 Size = [0.5, 0.09, 0.5],
+				Vec3 Size = [0.5, 0.5, 0.5],
 			},
 			GatePiece = 
 			{
@@ -162,7 +162,7 @@ Cog =
 			Transform = 
 			{
 				Vec3 Translation = [-0.25, 0, 0],
-				Vec3 Scale = [0.5, 2.5, 1],
+				Vec3 Scale = [0.5, 0.3, 1],
 				Quat Rotation = [0, 0, 5.68434e-014, 1],
 			},
 			Model = 
@@ -172,7 +172,7 @@ Cog =
 				bool VisibilityEvents = false,
 				bool CastShadows = true,
 				string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
-				string MeshName = "55abc49f41ce2e5a:Door",
+				string MeshName = "4de0354322b345ae:Cube",
 				Vec4 Color = [1, 1, 1, 0],
 			},
 			Interactable = 
@@ -189,7 +189,7 @@ Cog =
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 				string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
 				Vec3 Offset = [0, 0, 0],
-				Vec3 Size = [0.5, 0.09, 0.5],
+				Vec3 Size = [0.5, 0.5, 0.5],
 			},
 			GatePiece = 
 			{

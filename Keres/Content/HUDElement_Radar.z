@@ -28,7 +28,7 @@ class HUDElement_Radar : ZilchComponent
             bl.Transform.Translation -= 2 * deltaMovement / this.RadarDistance;
             
             //If the blip if outside the area of the radar, it vanishes
-            if (Math.Length(bl.Transform.Translation) > this.Owner.Sprite.SpriteSource.GetSize().X / 128)
+            if (Math.Length(bl.Transform.Translation) > this.Owner.Sprite.SpriteSource.GetSize().X / 2)
             {
                 if (bl.Sprite.Visible)
                 {

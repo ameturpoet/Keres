@@ -8,11 +8,4 @@ DataContent =
 		uint Version = 0,
 		bool ShowInEditor = true,
 	},
-	ContentTags = 
-	{
-		Array Tags = 
-		[
-			"Item",
-		],
-	},
 },

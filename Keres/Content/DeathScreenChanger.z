@@ -9,8 +9,7 @@ class DeathScreenChanger : ZilchComponent
     {
         if(Zero.Keyboard.KeyIsDown(Keys.Space))
         {
-            Console.WriteLine(this.Owner.Space.Name);
-            this.Owner.Space.LoadLevel(Level.Find("MainMenu"));
+            this.Space.LoadLevel(Level.Find("MainMenu"));
         }
     }
 }

@@ -276,13 +276,6 @@ class EnemyAI : ZilchComponent
             if (this.State == EnemyState.Idle)
             {
                 this.Owner.Soundbox_Keres.PlayAware();
-                var musicBox = this.Owner.Space.FindObjectByName("MusicBox");
-                
-                if (musicBox != null)
-                {
-                    musicBox.MusicBox.KeresFollowing += 1;
-                    musicBox.MusicBox.PlayMusic();
-                }
             }
             
             //If the player is within sight distance, immediately begin aggroing and head straight towards him
@@ -336,13 +329,6 @@ class EnemyAI : ZilchComponent
                     Console.WriteLine("Idle");
                     this.State = EnemyState.Idle;
                     this.Owner.RigidBody.Velocity *= 0;
-                    var musicBox = this.Owner.Space.FindObjectByName("MusicBox");
-                
-                    if (musicBox != null)
-                    {
-                        musicBox.MusicBox.KeresFollowing -= 1;
-                        musicBox.MusicBox.PlayMusic();
-                    }
                 }
             }
         }

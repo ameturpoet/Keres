@@ -1,8 +1,0 @@
-TextContent = 
-{
-	ZilchScriptBuilder = 
-	{
-		string Name = "MenuCameraScript",
-		uint64 ResourceId = 552ad4a94d22d924,
-	},
-},
