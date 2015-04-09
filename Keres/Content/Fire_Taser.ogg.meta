@@ -3,7 +3,7 @@ AudioContent =
 	SoundBuilder = 
 	{
 		string Name = "Fire_Taser",
-		uint64 ResourceId = 553801cebb1e0666,
+		uint64 ResourceId = 557325960e27e56f,
 		bool Compressed = true,
 		uint Quality = 100,
 		SoundLoadType LoadType = Decompress,

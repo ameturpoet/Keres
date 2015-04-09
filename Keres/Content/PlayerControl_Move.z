@@ -1,4 +1,4 @@
-enum PlayerState { Disabled, Normal, Stunned, Dead}
+enum PlayerState { Disabled, Normal, Stunned, Dead, Immobile}
 
 class PlayerControl_Move : ZilchComponent
 {
@@ -61,7 +61,7 @@ class PlayerControl_Move : ZilchComponent
     //Master update function, calls everything else from here
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if (this.State == PlayerState.Normal)
+        if (this.State == PlayerState.Normal || this.State == PlayerState.Immobile)
         {
             this.DoSprinting();
             this.Movement(event.Dt);
@@ -216,6 +216,14 @@ class PlayerControl_Move : ZilchComponent
         sr.Write(this.Owner.PlayerStats.Batteries);
         
         this.HUDspace.FindObjectByName("HUD_AmmoStock").SpriteText.Text = sr.ToString();
+    }
+    
+    function ShowHit()
+    {
+        if (this.State != PlayerState.Dead)
+        {
+            this.HUDspace.FindObjectByName("TookDamageOverlay").OverlayFadeOut.ShowOverlay();
+        }
     }
     
     //Just updates the oxygen tank count
@@ -403,79 +411,82 @@ class PlayerControl_Move : ZilchComponent
     //
     function Movement(deltaTime : Real)
     {
-        var direction = Real2(0, 0);
-        
-        this.Owner.RigidBody.Velocity *= 0;
-        
-        if (Zero.Keyboard.KeyIsDown(this.Controller.MoveForward))
+        if (this.State != PlayerState.Immobile)
         {
-            direction.Y = -1;
-        }
-        else if (Zero.Keyboard.KeyIsDown(this.Controller.MoveBackward))
-        {
-            direction.Y = 1;
-        }
-        if (Zero.Keyboard.KeyIsDown(this.Controller.MoveRight))
-        {
-            direction.X = 1;
-        }
-        else if (Zero.Keyboard.KeyIsDown(this.Controller.MoveLeft))
-        {
-            direction.X = -1;
-        }
-        
-        direction = Math.Normalize(direction);
-        
-        if (Math.Length(direction) > 0)
-        {
-            var directionAngle = this.Owner.Transform.EulerAngles.Z - (Math.Pi / 2);
+            var direction = Real2(0, 0);
             
-            this.ForwardVector = Real3(Math.Cos(directionAngle), Math.Sin(directionAngle), 0);
-            this.RightVector = Real3(Math.Cos(this.Owner.Transform.EulerAngles.Z), Math.Sin(this.Owner.Transform.EulerAngles.Z), 0);
+            this.Owner.RigidBody.Velocity *= 0;
             
-            var forward = this.ForwardVector;
-            var right = this.RightVector;
-            
-            if (this.Sprinting != 0.0)
+            if (Zero.Keyboard.KeyIsDown(this.Controller.MoveForward))
             {
-                this.BreathingHeavy = true;
+                direction.Y = -1;
+            }
+            else if (Zero.Keyboard.KeyIsDown(this.Controller.MoveBackward))
+            {
+                direction.Y = 1;
+            }
+            if (Zero.Keyboard.KeyIsDown(this.Controller.MoveRight))
+            {
+                direction.X = 1;
+            }
+            else if (Zero.Keyboard.KeyIsDown(this.Controller.MoveLeft))
+            {
+                direction.X = -1;
+            }
+            
+            direction = Math.Normalize(direction);
+            
+            if (Math.Length(direction) > 0)
+            {
+                var directionAngle = this.Owner.Transform.EulerAngles.Z - (Math.Pi / 2);
+                
+                this.ForwardVector = Real3(Math.Cos(directionAngle), Math.Sin(directionAngle), 0);
+                this.RightVector = Real3(Math.Cos(this.Owner.Transform.EulerAngles.Z), Math.Sin(this.Owner.Transform.EulerAngles.Z), 0);
+                
+                var forward = this.ForwardVector;
+                var right = this.RightVector;
+                
+                if (this.Sprinting != 0.0)
+                {
+                    this.BreathingHeavy = true;
+                }
+                else
+                {
+                    this.BreathingHeavy = false;
+                }
+                
+                //Because 'forward' varies based on which direction the player is facing, 
+                //we have to calculate relative forward and right and add them to the player's position
+                //based on the keys that were pressed
+                
+                var tempRight = direction.X * right * (this.Speed + this.SprintMultiplier * this.Sprinting);
+                var tempForward = direction.Y * forward * (this.Speed + this.SprintMultiplier * this.Sprinting);
+                
+                this.Owner.RigidBody.Velocity = tempRight + tempForward;
+                
+                
+                //Adds to the current movement tracker, which just keeps track of how much distance was covered
+                this.MovementTracker += tempRight * deltaTime;
+                this.MovementTracker += tempForward * deltaTime;
+                
+                var length = Math.Pow(this.MovementTracker.X, 2) + Math.Pow(this.MovementTracker.Y, 2);
+                
+                //If the user has moved by at least 1 unit, the level pathing is recalculated
+                if ((length >= 1.0 || length < 0.0) && !this.Owner.PlayerStats.DebugMode)
+                {
+                    this.MovementTracker = Real3(0, 0, 0);
+                    this.LevelGeometry.NavigationController.UpdateWeights(this.Owner.Transform.Translation);
+                }
+                
+                
+                //Also calls the HeadBob function
+                this.HeadBob(deltaTime, true);
             }
             else
             {
+                this.HeadBob(deltaTime, false);
                 this.BreathingHeavy = false;
             }
-            
-            //Because 'forward' varies based on which direction the player is facing, 
-            //we have to calculate relative forward and right and add them to the player's position
-            //based on the keys that were pressed
-            
-            var tempRight = direction.X * right * (this.Speed + this.SprintMultiplier * this.Sprinting);
-            var tempForward = direction.Y * forward * (this.Speed + this.SprintMultiplier * this.Sprinting);
-            
-            this.Owner.RigidBody.Velocity = tempRight + tempForward;
-            
-            
-            //Adds to the current movement tracker, which just keeps track of how much distance was covered
-            this.MovementTracker += tempRight * deltaTime;
-            this.MovementTracker += tempForward * deltaTime;
-            
-            var length = Math.Pow(this.MovementTracker.X, 2) + Math.Pow(this.MovementTracker.Y, 2);
-            
-            //If the user has moved by at least 1 unit, the level pathing is recalculated
-            if ((length >= 1.0 || length < 0.0) && !this.Owner.PlayerStats.DebugMode)
-            {
-                this.MovementTracker = Real3(0, 0, 0);
-                this.LevelGeometry.NavigationController.UpdateWeights(this.Owner.Transform.Translation);
-            }
-            
-            
-            //Also calls the HeadBob function
-            this.HeadBob(deltaTime, true);
-        }
-        else
-        {
-            this.HeadBob(deltaTime, false);
-            this.BreathingHeavy = false;
         }
     }
     
@@ -531,7 +542,7 @@ class PlayerControl_Move : ZilchComponent
     //
     function OnMouseMove(event : MouseEvent)
     {
-        if (this.State == PlayerState.Normal && !this.Owner.Space.TimeSpace.Paused)
+        if ((this.State == PlayerState.Normal || this.State == PlayerState.Immobile) && !this.Owner.Space.TimeSpace.Paused)
         {
             var deltaAngle = Real3(event.Movement.Y * 0.85, 0, event.Movement.X);
             deltaAngle /= 100 * (11 - this.LookSensitivity);

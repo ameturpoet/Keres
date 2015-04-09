@@ -1,0 +1,13 @@
+class CrazyText : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var rnd = new Random();
+        this.Owner.SpriteText.Color = Real4(rnd.Range(0, 1.0), rnd.Range(0, 1.0), rnd.Range(0, 1.0), 1.0);
+    }
+}

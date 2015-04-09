@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "LevelMiniMap",
+		uint64 ResourceId = 55755f4b79c0e5f3,
+	},
+},

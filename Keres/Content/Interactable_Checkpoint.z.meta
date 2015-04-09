@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Interactable_Checkpoint",
+		uint64 ResourceId = 5520655354fa3a77,
+	},
+},

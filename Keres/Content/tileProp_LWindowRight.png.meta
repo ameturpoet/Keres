@@ -3,7 +3,7 @@ ImageContent =
 	TextureBuilder = 
 	{
 		string Name = "tileProp_LWindowRight",
-		uint64 ResourceId = 5539a852c42a8d01,
+		uint64 ResourceId = 552040d75a17c932,
 		BuilderTextureType TextureType = Texture2D,
 		RgbUsage RgbUsage = Color,
 		AlphaUsage AlphaUsage = Transparency,

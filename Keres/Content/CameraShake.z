@@ -1,0 +1,25 @@
+class CameraShake : ZilchComponent
+{
+    var SinCounter : Real = 0.0;
+    var Enabled : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Enabled)
+        {
+            this.SinCounter += event.Dt * 60;
+            
+            var temp = Math.Sin(this.SinCounter) * 0.02;
+            var temp2 = Math.Cos(this.SinCounter + 0.3) * 0.02;
+            var temp3 = Math.Sin(this.SinCounter + 0.5) * 0.02;
+            
+            this.Owner.Transform.Translation = Real3(temp, 0, temp2);
+            
+        }
+    }
+}

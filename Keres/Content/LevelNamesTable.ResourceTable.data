@@ -15,12 +15,17 @@ ResourceTable =
 		},
 		{
 			string Name = "Level3",
-			string Value = "Area 3 - Whatever",
+			string Value = "Area 3 - Da Hood",
 			float Weight = 1,
 		},
 		{
-			string Name = "Level4",
+			string Name = "Level4Alpha",
 			string Value = "Area 4 - Chuck E Cheese",
+			float Weight = 1,
+		},
+		{
+			string Name = "Level5",
+			string Value = "Area 5 - Wally Wanker's Chocolate Place",
 			float Weight = 1,
 		},
 	],

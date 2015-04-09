@@ -3,7 +3,7 @@ ImageContent =
 	TextureBuilder = 
 	{
 		string Name = "door_N(1)",
-		uint64 ResourceId = 553809b6af9ac143,
+		uint64 ResourceId = 557325960e212665,
 		BuilderTextureType TextureType = Texture2D,
 		RgbUsage RgbUsage = Color,
 		AlphaUsage AlphaUsage = Transparency,

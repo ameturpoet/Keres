@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "SpriteEffect_Flicker",
+		uint64 ResourceId = 5574525b964f8ee7,
+	},
+},

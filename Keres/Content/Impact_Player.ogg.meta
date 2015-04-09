@@ -3,7 +3,7 @@ AudioContent =
 	SoundBuilder = 
 	{
 		string Name = "Impact_Player",
-		uint64 ResourceId = 553801cfbb012705,
+		uint64 ResourceId = 557325960e284054,
 		bool Compressed = true,
 		uint Quality = 100,
 		SoundLoadType LoadType = Decompress,

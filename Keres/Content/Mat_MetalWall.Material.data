@@ -1,7 +1,9 @@
 Material = 
 {
-	Lambert = 
+	Phong = 
 	{
+		float SpecularExponent = 40,
+		float SpecularScalar = 1,
 	},
 	NormalMapping = 
 	{

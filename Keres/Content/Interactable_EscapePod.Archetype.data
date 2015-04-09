@@ -1,0 +1,1717 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "EscapePod",
+	},
+	Archetyped = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [28.5, 23.5, -1.1],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		bool Visible = false,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = true,
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = true,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = true,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "EscapePodFloor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.5, 0, 0.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [1, 0, 0, -4.37114e-008],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb6101aab3b3e:Mat_MetalFloor",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "EscapePodFloor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.5, 1, 0.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [1, 0, 0, -4.37114e-008],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb6101aab3b3e:Mat_MetalFloor",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "EscapePodFloor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.5, 1, 0.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [1, 0, 0, -4.37114e-008],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb6101aab3b3e:Mat_MetalFloor",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 5,
+			},
+			Named = 
+			{
+				string Name = "EscapePodFloor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.5, 0, 0.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [1, 0, 0, -4.37114e-008],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb6101aab3b3e:Mat_MetalFloor",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 6,
+			},
+			Named = 
+			{
+				string Name = "EscapePodFloor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.5, 2, 0.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [1, 0, 0, -4.37114e-008],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb6101aab3b3e:Mat_MetalFloor",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 7,
+			},
+			Named = 
+			{
+				string Name = "EscapePodFloor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.5, 2, 0.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [1, 0, 0, -4.37114e-008],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb6101aab3b3e:Mat_MetalFloor",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 8,
+			},
+			Named = 
+			{
+				string Name = "EscapePodFloor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.5, 3, 0.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [1, 0, 0, -4.37114e-008],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb6101aab3b3e:Mat_MetalFloor",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 9,
+			},
+			Named = 
+			{
+				string Name = "EscapePodWall",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [1.5, 0, 1.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.5, 0.5, -0.5, 0.5],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 10,
+			},
+			Named = 
+			{
+				string Name = "EscapePodWall",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [1.5, 1, 1.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.5, 0.5, -0.5, 0.5],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 11,
+			},
+			Named = 
+			{
+				string Name = "EscapePodWall",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [1.5, 2, 1.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.5, 0.5, -0.5, 0.5],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 12,
+			},
+			Named = 
+			{
+				string Name = "EscapePodWall",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.5, 1, 1.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.5, -0.5, 0.5, 0.5],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 13,
+			},
+			Named = 
+			{
+				string Name = "EscapePodWall",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.5, 0, 1.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.5, -0.5, 0.5, 0.5],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 14,
+			},
+			Named = 
+			{
+				string Name = "EscapePodWall",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.5, 2, 1.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.5, -0.5, 0.5, 0.5],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 15,
+			},
+			Named = 
+			{
+				string Name = "EscapePodWall",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1, 3.20711, 1.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.653281, -0.270598, 0.270598, 0.653281],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "55746a37338118c8:Mat_MetalWindow",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 16,
+			},
+			Named = 
+			{
+				string Name = "EscapePodWall",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [1, 3.20711, 1.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [-0.653281, 0.270598, -0.270598, 0.653281],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "55746a37338118c8:Mat_MetalWindow",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 17,
+			},
+			Named = 
+			{
+				string Name = "EscapePodFloor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.5, 3, 0.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [1, 0, 0, -4.37114e-008],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb6101aab3b3e:Mat_MetalFloor",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 18,
+			},
+			Named = 
+			{
+				string Name = "EscapePodWall",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 3.70711, 1.1],
+				Vec3 Scale = [0.585786, 1, 1],
+				Quat Rotation = [-0.707107, 0, 0, 0.707107],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "55746a37338118c8:Mat_MetalWindow",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 19,
+			},
+			Named = 
+			{
+				string Name = "EscapePodWall",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1, -1, 1.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [3.09086e-008, -0.707107, 0.707107, -3.09086e-008],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 20,
+			},
+			Named = 
+			{
+				string Name = "EscapePodWall",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [1, -1, 1.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [3.09086e-008, -0.707107, 0.707107, -3.09086e-008],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb66a1e9b80d5:Mat_MetalWall",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 21,
+			},
+			Named = 
+			{
+				string Name = "EscapePodFloor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.5, 3, 2.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb6101aab3b3e:Mat_MetalFloor",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 22,
+			},
+			Named = 
+			{
+				string Name = "EscapePodFloor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.5, 3, 2.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb6101aab3b3e:Mat_MetalFloor",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 23,
+			},
+			Named = 
+			{
+				string Name = "EscapePodFloor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.5, 0, 2.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb6101aab3b3e:Mat_MetalFloor",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 24,
+			},
+			Named = 
+			{
+				string Name = "EscapePodFloor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.5, 1, 2.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb6101aab3b3e:Mat_MetalFloor",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 25,
+			},
+			Named = 
+			{
+				string Name = "EscapePodFloor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.5, 1, 2.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb6101aab3b3e:Mat_MetalFloor",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 26,
+			},
+			Named = 
+			{
+				string Name = "EscapePodFloor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-0.5, 2, 2.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb6101aab3b3e:Mat_MetalFloor",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 27,
+			},
+			Named = 
+			{
+				string Name = "EscapePodFloor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.5, 0, 2.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb6101aab3b3e:Mat_MetalFloor",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 28,
+			},
+			Named = 
+			{
+				string Name = "EscapePodFloor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.5, 2, 2.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = true,
+				string MaterialName = "541bb6101aab3b3e:Mat_MetalFloor",
+				string MeshName = "541a9554d9923aae:Plane",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			MeshCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				string PhysicsMeshName = "541a9554d9923ab3:Plane",
+				bool DrawEdges = true,
+				bool DrawFaces = false,
+				bool DrawFaceNormals = false,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 29,
+			},
+			Named = 
+			{
+				string Name = "EjectPodButton",
+			},
+			Archetyped = 
+			{
+				string Name = "549e1e47fdc7d5a4:Activator_PushButton",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.0105782, 3.11369, 0.6],
+				Vec3 Scale = [0.5, 0.25, 0.25],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			BoxCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [0.5, 0.5, 0.5],
+			},
+			Interactable = 
+			{
+				bool ShowTooltip = true,
+				string Tooltip = "Eject Escape Pod",
+				bool ShowControl = true,
+			},
+			Interactable_EscapePod = 
+			{
+				CogPath PodSeat = "../PodSeat",
+				CogPath PodDoor = "../podGate",
+				float MoveSpeed = 20,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = true,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "549a26d38a762daa:Door_SplitMiddle",
+			LinkId = 
+			{
+				uint Id = 30,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -0.5, 1.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "podGate",
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 31,
+			},
+			Named = 
+			{
+				string Name = "PodSeat",
+			},
+			Archetyped = 
+			{
+				string Name = "549e1e47fdc7d5a4:Activator_PushButton",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.0105782, 2.47599, 1.1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 32,
+			},
+			Named = 
+			{
+				string Name = "PodLight",
+			},
+			Archetyped = 
+			{
+				string Name = "549e1e47fdc7d5a4:Activator_PushButton",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.0105782, 1.53599, 2.10184],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = false,
+				bool CastShadows = true,
+				string MaterialName = "4de020863e85bb61:DefaultMaterial",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [1, 1, 1, 1],
+			},
+			Light = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = false,
+				LightType LightType = Box,
+				Vec4 Color = [1, 1, 1, 1],
+				float Intensity = 2.5,
+				float Range = 2,
+				float Falloff = 2,
+				float Angle = 45,
+				float Size = 4,
+			},
+		},
+	},
+},

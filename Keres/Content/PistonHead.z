@@ -1,15 +1,24 @@
 class PistonHead : ZilchComponent
 {
+    [Property]
     var TargetLocation : Real3 = Real3(0, 0, 0);
+    [Property]
     var Sticky : Boolean = false;
     var StickyCollider : Cog = null;
     var BlockConnected : Cog = null;
+    [Property]
     var BlockDistanceVector : Real3 = Real3(0, 0, 0);
+    [Property]
+    var Initialized : Boolean = false;
     
     function Initialize(init : CogInitializer)
     {
-        this.TargetLocation = this.Owner.Transform.Translation;
-        this.Owner.Transform.Translation = Real3(0, 0, 0);
+        if (!this.Initialized)
+        {
+            this.TargetLocation = this.Owner.Transform.Translation;
+            this.Owner.Transform.Translation = Real3(0, 0, 0);
+            this.Initialized = true;
+        }
     }
     
     function ConnectStickyEvents()

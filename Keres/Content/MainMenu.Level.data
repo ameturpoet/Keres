@@ -95,7 +95,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-9.4676, 5.32674, 67.4976],
+			Vec3 Translation = [-11.1359, -8.12844, 67.4976],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-3.02214e-007, 3.61368e-007, 1.01475e-013, 1],
 		},
@@ -107,7 +107,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 18.2684,
+			float Size = 10.9479,
 		},
 		EditorCameraController = 
 		{
@@ -115,7 +115,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 6.04428e-007,
 			float HorizontalAngle = -7.73929e-007,
-			Vec3 LookTarget = [-9.46764, 5.32671, 17.4976],
+			Vec3 LookTarget = [-11.136, -8.12848, 17.4976],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -222,7 +222,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-12.1571, 5.54526, 4.76451],
+			Vec3 Translation = [-15.3385, 5.54526, 4.76451],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -263,8 +263,8 @@ Level =
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 			string FontName = "4e7bac697bec55c5:Verdana",
 			uint FontSize = 128,
-			string Text = "KERES",
-			TextAlign Align = Center,
+			string Text = "Shadow of Pluto",
+			TextAlign Align = Left,
 			float PixelsPerUnit = 64,
 			bool Smoothing = true,
 		},
@@ -1303,7 +1303,7 @@ Level =
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 			string FontName = "4e7bac697bec55c5:Verdana",
 			uint FontSize = 32,
-			string Text = "Beta 1.0",
+			string Text = "Beta 1.2",
 			TextAlign Align = Center,
 			float PixelsPerUnit = 64,
 			bool Smoothing = true,
@@ -1956,7 +1956,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-11.7776, 5.28722, 4.4],
+			Vec3 Translation = [-15.1205, 5.28722, 4.4],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1997,8 +1997,8 @@ Level =
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 			string FontName = "4e7bac697bec55c5:Verdana",
 			uint FontSize = 128,
-			string Text = "KERES",
-			TextAlign Align = Center,
+			string Text = "Shadow of Pluto",
+			TextAlign Align = Left,
 			float PixelsPerUnit = 64,
 			bool Smoothing = true,
 		},

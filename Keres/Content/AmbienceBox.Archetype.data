@@ -6,7 +6,7 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "MusicBox",
+		string Name = "AmbBox",
 	},
 	Archetyped = 
 	{
@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-4.28592, -10.812, 1.00001],
+		Vec3 Translation = [-26.8748, -15.216, -0.920258],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},

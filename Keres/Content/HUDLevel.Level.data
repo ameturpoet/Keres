@@ -75,7 +75,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.493442, 1.34139, 36.4962],
+			Vec3 Translation = [1.32658, -11.347, 36.4962],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [4.52157e-007, -2.86217e-006, 1.30351e-012, 1],
 		},
@@ -87,7 +87,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 29.7594,
+			float Size = 36.7879,
 		},
 		EditorCameraController = 
 		{
@@ -95,7 +95,7 @@ Level =
 			float LookDistance = 33.5159,
 			float VerticalAngle = -9.04314e-007,
 			float HorizontalAngle = 5.68293e-006,
-			Vec3 LookTarget = [0.493632, 1.34142, 2.98029],
+			Vec3 LookTarget = [1.32677, -11.347, 2.98028],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -180,6 +180,10 @@ Level =
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
+		},
+		Microphone = 
+		{
+			bool Active = true,
 		},
 	},
 	Cog = 
@@ -311,6 +315,15 @@ Level =
 			bool Anchor_Bottom = false,
 			bool Anchor_Left = false,
 			bool Anchor_Right = true,
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "557318be1c410a7a:HUD_RadarPing",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = true,
 		},
 		Hierarchy = 
 		{
@@ -641,7 +654,7 @@ Level =
 				},
 				Sprite = 
 				{
-					bool Visible = false,
+					bool Visible = true,
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = false,
 					bool CastShadows = false,
@@ -697,13 +710,94 @@ Level =
 					uint StartFrame = 0,
 				},
 			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 18,
+				},
+				Named = 
+				{
+					string Name = "OxygenSuffocateOverlay",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0.1],
+					Vec3 Scale = [0.25, 0.25, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5520513253d68227:OxyOverlay",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 19,
+				},
+				Named = 
+				{
+					string Name = "TookDamageOverlay",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0.2],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [1, 0, 0, 1],
+					BlendMode BlendMode = Multiply,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "55747c29caa9882b:WhiteSquare",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				OverlayFadeOut = 
+				{
+				},
+			},
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 18,
+			uint Id = 20,
 		},
 		Named = 
 		{
@@ -746,7 +840,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 19,
+			uint Id = 21,
 		},
 		Named = 
 		{
@@ -801,7 +895,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 20,
+			uint Id = 22,
 		},
 		Named = 
 		{
@@ -861,7 +955,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 21,
+			uint Id = 23,
 		},
 		Named = 
 		{
@@ -896,7 +990,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 22,
+					uint Id = 24,
 				},
 				Named = 
 				{
@@ -935,7 +1029,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 23,
+					uint Id = 25,
 				},
 				Named = 
 				{
@@ -974,7 +1068,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 24,
+					uint Id = 26,
 				},
 				Named = 
 				{
@@ -1013,7 +1107,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 25,
+					uint Id = 27,
 				},
 				Named = 
 				{
@@ -1054,7 +1148,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 26,
+			uint Id = 28,
 		},
 		Named = 
 		{
@@ -1099,7 +1193,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 27,
+			uint Id = 29,
 		},
 		Named = 
 		{
@@ -1142,7 +1236,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 28,
+			uint Id = 30,
 		},
 		Named = 
 		{
@@ -1192,7 +1286,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 29,
+					uint Id = 31,
 				},
 				Named = 
 				{
@@ -1256,7 +1350,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 30,
+					uint Id = 32,
 				},
 				Named = 
 				{
@@ -1337,7 +1431,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 31,
+					uint Id = 33,
 				},
 				Named = 
 				{
@@ -1403,7 +1497,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 32,
+			uint Id = 34,
 		},
 		Named = 
 		{
@@ -1428,7 +1522,7 @@ Level =
 		string Name = "55c2fd63e354d704:HUD_ConfirmDialog",
 		LinkId = 
 		{
-			uint Id = 33,
+			uint Id = 35,
 		},
 		Transform = 
 		{
@@ -1445,7 +1539,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 34,
+			uint Id = 36,
 		},
 		Named = 
 		{
@@ -1474,13 +1568,22 @@ Level =
 			string EmptySprite = "545fd823ee3c9f6d:HUD_TaserEmpty",
 			string Type = "Oxygen",
 		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "557318d36c59410c:HUD_LowOxyPing",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = true,
+		},
 		Hierarchy = 
 		{
 			Cog = 
 			{
 				LinkId = 
 				{
-					uint Id = 35,
+					uint Id = 37,
 				},
 				Named = 
 				{
@@ -1519,7 +1622,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 36,
+					uint Id = 38,
 				},
 				Named = 
 				{
@@ -1558,7 +1661,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 37,
+					uint Id = 39,
 				},
 				Named = 
 				{
@@ -1597,7 +1700,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 38,
+					uint Id = 40,
 				},
 				Named = 
 				{
@@ -1636,7 +1739,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 39,
+					uint Id = 41,
 				},
 				Named = 
 				{
@@ -1677,7 +1780,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 40,
+			uint Id = 42,
 		},
 		Named = 
 		{
@@ -1722,7 +1825,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 41,
+			uint Id = 43,
 		},
 		Named = 
 		{

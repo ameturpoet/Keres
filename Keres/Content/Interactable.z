@@ -51,6 +51,10 @@ class Interactable : ZilchComponent
                 }
             }
         }
+        else if (this.Owner.GatePiece != null)
+        {
+            this.Owner.GatePiece.Activate();
+        }
         //PISTON
         else if (this.Owner.Interactable_Piston != null)
         {
@@ -73,6 +77,11 @@ class Interactable : ZilchComponent
         else if (this.Owner.Activator_Multiswitch != null)
         {
             this.Owner.Activator_Multiswitch.Activate();
+        }
+        //CHECKPOINT
+        else if (this.Owner.Interactable_Checkpoint != null)
+        {
+            this.Owner.Interactable_Checkpoint.Activate();
         }
         //SUBSWITCH
         else if (this.Owner.Activator_SubSwitch != null)
@@ -116,6 +125,10 @@ class Interactable : ZilchComponent
             {
                 this.Owner.Interactable_Alarm.Activate();
             }
+        }
+        else if (this.Owner.Interactable_EscapePod != null)
+        {
+            this.Owner.Interactable_EscapePod.Activate();
         }
     }
 }

@@ -155,6 +155,7 @@ class TileArray2D : ZilchComponent
             }
         }
         
+        /*
         var counter = 0;
         foreach (var tile in this.TileArray)
         {
@@ -172,6 +173,6 @@ class TileArray2D : ZilchComponent
                 Console.Write("X");
             }
             counter += 1;
-        }
+        }*/
     }
 }

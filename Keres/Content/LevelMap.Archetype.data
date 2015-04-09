@@ -1,0 +1,138 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "LEVELMAP",
+	},
+	Archetyped = 
+	{
+		string Name = "557453f3e684b4de:LevelMap",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-1.4116, -4.5516, 0],
+		Vec3 Scale = [0.1, 0.1, 0.1],
+		Quat Rotation = [0.653281, 0.270598, 0.270598, 0.653281],
+	},
+	Model = 
+	{
+		bool Visible = false,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = true,
+		string MaterialName = "541bb26add47e2d3:Mat_Beam",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+	},
+	Sprite = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = false,
+		Vec4 Color = [1, 1, 1, 1],
+		BlendMode BlendMode = Additive,
+		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		string SpriteSource = "55745349fa6e0b77:Map_lvl4",
+		bool RenderMask = false,
+		bool FlipX = false,
+		bool FlipY = false,
+		bool AnimationActive = true,
+		float AnimationSpeed = 1,
+		uint StartFrame = 0,
+	},
+	SpriteEffect_Flicker = 
+	{
+	},
+	LevelMiniMap = 
+	{
+		float MaptoWorldScale = 7.15,
+		bool MasterMap = false,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "PLAYERMARKER",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.09563, 2.40395, 0.05],
+				Vec3 Scale = [0.5, 0.5, 0.5],
+				Quat Rotation = [-4.63616e-007, -2.68221e-007, -1.58096e-013, 1],
+			},
+			Sprite = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Additive,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "55745349fa68b799:Map_PlayerLoc",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "MiniMapAnchor",
+			},
+			Archetyped = 
+			{
+				string Name = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.0377, 3.17268, 0.05],
+				Vec3 Scale = [0.5, 0.5, 0.5],
+				Quat Rotation = [-4.63616e-007, -2.68221e-007, -1.58096e-013, 1],
+			},
+			Sprite = 
+			{
+				bool Visible = false,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = false,
+				Vec4 Color = [1, 1, 1, 1],
+				BlendMode BlendMode = Additive,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string SpriteSource = "55745349fa68b799:Map_PlayerLoc",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool AnimationActive = true,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+		},
+	},
+},

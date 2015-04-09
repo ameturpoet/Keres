@@ -1,0 +1,32 @@
+class OverlayFadeOut : ZilchComponent
+{
+    var Active : Boolean = false;
+    var Alpha : Real = 0.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function ShowOverlay()
+    {
+        this.Active = true;
+        this.Alpha = 1.0;
+        this.Owner.Sprite.Color = Real4(1.0, 1.0 - this.Alpha, 1.0 - this.Alpha, 1.0);
+        this.Owner.Sprite.Visible = true;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Active)
+        {
+            this.Alpha -= event.Dt * 3;
+            this.Owner.Sprite.Color = Real4(1.0, 1.0 - this.Alpha, 1.0 - this.Alpha, 1.0);
+            if (this.Alpha <= 0.0)
+            {
+                this.Active = false;
+                this.Owner.Sprite.Visible = false;
+            }
+        }
+    }
+}

@@ -3,7 +3,7 @@ AudioContent =
 	SoundBuilder = 
 	{
 		string Name = "Door_Unlock",
-		uint64 ResourceId = 553801cebb1c7069,
+		uint64 ResourceId = 557325960e217f27,
 		bool Compressed = true,
 		uint Quality = 100,
 		SoundLoadType LoadType = Decompress,

@@ -24,7 +24,7 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
-		string MaterialName = "5405d5b5fb8f9704:Mat_Brick",
+		string MaterialName = "4faa78123470162f:FallbackMaterial",
 		string MeshName = "4de0354322b345ae:Cube",
 		Vec4 Color = [1, 1, 1, 1],
 	},
@@ -40,9 +40,9 @@ Cog =
 	},
 	TileMaterial = 
 	{
-		string FloorMaterial = "540260c6159f9173:Material__2",
-		string WallMaterial = "5405d5b5fb8f9704:Mat_Brick",
-		string CeilingMaterial = "5405de3fd6c09262:Mat_Concrete",
+		string FloorMaterial = "541bb26add47e2d3:Mat_Beam",
+		string WallMaterial = "541bb26add47e2d3:Mat_Beam",
+		string CeilingMaterial = "541bb26add47e2d3:Mat_Beam",
 	},
 	RigidBody = 
 	{

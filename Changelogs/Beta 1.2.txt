@@ -1,0 +1,15 @@
+Beta 1.2
+4/8/2015
+-------------
+Changes
+---
++Screen now flashes red when hit
++Door pieces can now activate their parent door object
++Floating holo-text now has a flickering effect to it
++Floating holo-text now has the additive blend mode, giving it a slight glow on-screen
++Added escape pod animation for the win state
++Added level map template, currently implemented for levels 1, 2, and 4.
+
+---
+Bugfixes
+---

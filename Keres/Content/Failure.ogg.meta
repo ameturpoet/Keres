@@ -3,7 +3,7 @@ AudioContent =
 	SoundBuilder = 
 	{
 		string Name = "Failure",
-		uint64 ResourceId = 553801cebb1dc1bd,
+		uint64 ResourceId = 557325960e275f28,
 		bool Compressed = true,
 		uint Quality = 100,
 		SoundLoadType LoadType = Decompress,

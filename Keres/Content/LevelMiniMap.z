@@ -1,0 +1,50 @@
+class LevelMiniMap : ZilchComponent
+{
+    [Property]
+    var MaptoWorldScale : Real = 7.15;
+    [Property]
+    var MasterMap : Boolean = false;
+    
+    var PlayerBlip : Cog = null;
+    var Player : Cog = null;
+    var MiniAnchor : Cog = null;
+    var OtherMaps : Array[Cog] = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.PlayerBlip = this.Owner.FindChildByName("PLAYERMARKER");
+        if (this.MasterMap)
+        {
+            Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+            this.Player = this.Owner.Space.FindObjectByName("Player");
+            this.MiniAnchor = this.Owner.FindChildByName("MiniMapAnchor");
+            this.Owner.Name = "MASTERMAP";
+            this.OtherMaps = new Array[Cog]();
+            
+            var maps = this.Owner.Space.FindAllObjectsByName("LEVELMAP");
+            foreach (var map in maps)
+            {
+                this.OtherMaps.Add(map);
+            }
+        }
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var playerLocation = this.Player.Transform.Translation;
+        playerLocation /= this.MaptoWorldScale;
+        playerLocation += this.MiniAnchor.Transform.Translation;
+        
+        this.PlayerBlip.Transform.Translation = playerLocation;
+        
+        foreach (var map in this.OtherMaps)
+        {
+            map.LevelMiniMap.UpdateBlipLocation(playerLocation);
+        }
+    }
+    
+    function UpdateBlipLocation(blipLoc : Real3)
+    {
+        this.PlayerBlip.Transform.Translation = blipLoc;
+    }
+}

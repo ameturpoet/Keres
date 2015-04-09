@@ -1,0 +1,34 @@
+Material = 
+{
+	Phong = 
+	{
+		float SpecularExponent = 40,
+		float SpecularScalar = 1,
+	},
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Alpha,
+	},
+	NormalMapping = 
+	{
+		float Bumpiness = 2,
+		string NormalMapTexture = "55746a3b32458cab:tile_WallWindow_n",
+		Vec2 NormalScroll = [0, 0],
+		Vec2 NormalTiling = [1, 1],
+		Vec2 NormalOffset = [0, 0],
+	},
+	SpecularMapping = 
+	{
+		string SpecularMapTexture = "55746a3a325b9350:tile_WallWindow_m",
+		Vec2 SpecularTiling = [1, 1],
+		Vec2 SpecularOffset = [0, 0],
+		Vec2 SpecularScroll = [0, 0],
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "55746a3a32729955:tile_WallWindow_d",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

@@ -3,7 +3,7 @@ ImageContent =
 	TextureBuilder = 
 	{
 		string Name = "Metal_Pearlstone(1)",
-		uint64 ResourceId = 553809b4afc11abe,
+		uint64 ResourceId = 557325960e307e2d,
 		BuilderTextureType TextureType = Texture2D,
 		RgbUsage RgbUsage = Color,
 		AlphaUsage AlphaUsage = Transparency,

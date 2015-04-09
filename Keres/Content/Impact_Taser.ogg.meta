@@ -3,7 +3,7 @@ AudioContent =
 	SoundBuilder = 
 	{
 		string Name = "Impact_Taser",
-		uint64 ResourceId = 553801cfbb013951,
+		uint64 ResourceId = 557325960e28725d,
 		bool Compressed = true,
 		uint Quality = 100,
 		SoundLoadType LoadType = Decompress,

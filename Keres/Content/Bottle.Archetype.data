@@ -8,6 +8,10 @@ Cog =
 	{
 		string Name = "Bottle",
 	},
+	Archetyped = 
+	{
+		string Name = "55be5603036a043f:Bottle",
+	},
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
@@ -18,7 +22,7 @@ Cog =
 	{
 		bool Visible = true,
 		bool VisibilityCulling = true,
-		bool VisibilityEvents = false,
+		bool VisibilityEvents = true,
 		bool CastShadows = true,
 		string MaterialName = "55abc49f41cd61a3:Material__25",
 		string MeshName = "55be5603036d646f:Bottle",

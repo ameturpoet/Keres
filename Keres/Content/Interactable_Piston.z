@@ -10,12 +10,18 @@ class Interactable_Piston : ZilchComponent
     var NeckPiece : Archetype = null;
     [Property]
     var Sticky : Boolean = false;
+    [Property]
     var CurrentOpenTime : Real = 0.0;
+    [Property]
     var Distance : Real = 0.0;
+    [Property]
+    var Initialized : Boolean = false;
+    [Property]
     var NeckPieces : Real = 0.0;
     
     var NeckPieceArray : Array[Cog] = null;
     var BlockConnected : Cog = null;
+    [Property]
     var BlockDistanceVector : Real3 = Real3(0, 0, 0);
     
     [Property]
@@ -32,14 +38,31 @@ class Interactable_Piston : ZilchComponent
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.Update);
         this.PistonHead = this.Owner.FindChildByName("PistonHead");
-        
-        if (this.Sticky)
-        {
-            this.PistonHead.PistonHead.Sticky = true;
-            this.PistonHead.PistonHead.ConnectStickyEvents();
-        }
-        this.Distance = Math.Length(this.PistonHead.Transform.Translation);
         this.NeckPieceArray = new Array[Cog]();
+        if (!this.Initialized)
+        {
+            Console.WriteLine(this.Owner.Name);
+            
+            if (this.Sticky)
+            {
+                this.PistonHead.PistonHead.Sticky = true;
+                this.PistonHead.PistonHead.ConnectStickyEvents();
+            }
+            this.Distance = Math.Length(this.PistonHead.Transform.Translation);
+            this.Initialized = true;
+        }
+        else
+        {
+            var neckPieces = this.PistonHead.Children;
+            
+            foreach (var neck in neckPieces)
+            {
+                if (neck.Name != "PistonStick")
+                {
+                    this.NeckPieceArray.Add(neck);
+                }
+            }
+        }
     }
     
     function Toggle()

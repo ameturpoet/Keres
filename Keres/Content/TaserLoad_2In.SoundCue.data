@@ -14,7 +14,7 @@ SoundCue =
 	Array Sounds = 
 	[
 		{
-			string SoundName = "5440a8d0417ea569:SFX_BatteryIn",
+			string SoundName = "557325960e3880f3:SFX_BatteryIn",
 			float Weight = 1,
 		},
 	],

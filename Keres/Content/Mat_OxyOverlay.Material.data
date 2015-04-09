@@ -1,0 +1,17 @@
+Material = 
+{
+	Lambert = 
+	{
+	},
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Multiply,
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "55205eb32d98c33d:OxyOverlay",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

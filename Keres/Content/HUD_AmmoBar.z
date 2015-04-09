@@ -12,6 +12,7 @@ class HUD_AmmoBar : ZilchComponent
     var DangerColor : Boolean = false;
     var DangerCounter : Real = 0.0;
     var Level : Real = 100;
+    var SoundCounter : Real = 0.0;
     
     function Initialize(init : CogInitializer)
     {
@@ -48,7 +49,21 @@ class HUD_AmmoBar : ZilchComponent
                     this.DangerColor = false;
                 }
             }
+            if (this.SoundCounter <= 0.0)
+            {
+                this.Owner.SoundEmitter.Play();
+                if (this.Level <= 10.0)
+                {
+                    this.SoundCounter = 1.0;
+                }
+                else
+                {
+                    this.SoundCounter = 2.0;
+                }
+                
+            }
             this.DangerCounter -= event.Dt;
+            this.SoundCounter -= event.Dt;
         }
         else
         {
@@ -56,6 +71,8 @@ class HUD_AmmoBar : ZilchComponent
             {
                 this.Danger = false;
                 this.DangerColor = false;
+                this.SoundCounter = 0.0;
+                this.DangerCounter = 0.0;
                 this.BarFill.Sprite.Color = Real4(1.0, 1.0, 1.0, 1.0);
                 this.Graphic.Sprite.Color = Real4(1.0, 1.0, 1.0, 1.0);
             }
@@ -75,6 +92,19 @@ class HUD_AmmoBar : ZilchComponent
             else if (this.Graphic.Sprite.SpriteSource.Name != this.FullSprite.Name)
             {
                 this.Graphic.Sprite.SpriteSource = this.FullSprite;
+            }
+        }
+        else if (this.Type == "Oxygen")
+        {
+            var oxygenOverlay = this.Owner.Space.FindObjectByName("OxygenSuffocateOverlay");
+            
+            if (this.Level <= 20.0)
+            {
+                oxygenOverlay.Sprite.Color = Real4(1.0, 1.0, 1.0, (20 - this.Level) / 20.0);
+            }
+            else
+            {
+                oxygenOverlay.Sprite.Color = Real4(1.0, 1.0, 1.0, 0.0);
             }
         }
     }

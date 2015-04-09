@@ -3,7 +3,7 @@ AudioContent =
 	SoundBuilder = 
 	{
 		string Name = "SFX_BatteryOut",
-		uint64 ResourceId = 553801cfbb0a764e,
+		uint64 ResourceId = 557325960e38a6be,
 		bool Compressed = true,
 		uint Quality = 100,
 		SoundLoadType LoadType = Decompress,

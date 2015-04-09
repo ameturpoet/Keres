@@ -28,6 +28,8 @@ class LoadScreenElement : ZilchComponent
     {
         this.FadeIn = true;
         this.FadeOut = false;
+        this.Owner.Sprite.Color = Real4(0.0, 0.0, 0.0, 0.0);
+        this.Alpha = 0.0;
     }
     
     //Makes the black overlay appear with the specified opacity

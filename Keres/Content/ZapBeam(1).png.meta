@@ -3,7 +3,7 @@ ImageContent =
 	TextureBuilder = 
 	{
 		string Name = "ZapBeam(1)",
-		uint64 ResourceId = 553809b5ae184bf2,
+		uint64 ResourceId = 557325950e02e937,
 		BuilderTextureType TextureType = Texture2D,
 		RgbUsage RgbUsage = Color,
 		AlphaUsage AlphaUsage = Transparency,

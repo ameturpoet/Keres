@@ -95,9 +95,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [5.72497, -3.73393, 51.4164],
+			Vec3 Translation = [-0.937267, -41.1743, 48.4601],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.00785387, -8.42666e-008, 6.39779e-010, 0.999969],
+			Quat Rotation = [0.007854, 0.0052357, -4.1123e-005, 0.999956],
 		},
 		Camera = 
 		{
@@ -107,15 +107,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 12.0993,
+			float Size = 10.9479,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = ZPlane,
 			float LookDistance = 50,
-			float VerticalAngle = -0.0157079,
-			float HorizontalAngle = 1.74157e-007,
-			Vec3 LookTarget = [5.72497, -2.94857, 1.42259],
+			float VerticalAngle = -0.0157084,
+			float HorizontalAngle = -0.0104718,
+			Vec3 LookTarget = [-1.46078, -40.3889, -1.53096],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -178,7 +178,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.495076, -6.30132, 0],
+			Vec3 Translation = [-0.495076, -6.29331, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -213,7 +213,7 @@ Level =
 			string SerializedGroupName = "549a22ec72ed1e23:PlayerGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Radius = 0.23,
-			float Height = 0.6,
+			float Height = 1,
 			uint Direction = 2,
 		},
 		Inventory = 
@@ -932,6 +932,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -995,6 +1001,12 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
 						},
 						Hierarchy = 
 						{
@@ -1196,6 +1208,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -1259,6 +1277,12 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
 						},
 						Hierarchy = 
 						{
@@ -1397,6 +1421,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -1460,6 +1490,12 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
 						},
 						Hierarchy = 
 						{
@@ -1598,6 +1634,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -1661,6 +1703,12 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
 						},
 						Hierarchy = 
 						{
@@ -1726,6 +1774,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -1790,6 +1844,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -1853,6 +1913,12 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
 						},
 						Hierarchy = 
 						{
@@ -1991,6 +2057,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -2055,6 +2127,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -2088,7 +2166,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [4.04101, -20.5046, 0.201542],
+					Vec3 Translation = [8.30395, -19.3024, 0.220322],
 					Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -2106,43 +2184,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-4.99726, -20.5804, 0.0692554],
-					Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "OxygenTank",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "549e0a49834032ed:Item_Key",
-				LinkId = 
-				{
-					uint Id = 44,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [9.95871, -25.9589, 0.139953],
-					Vec3 Scale = [0.1, 0.4, 0.1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Named = 
-				{
-					string Name = "RedKey",
-				},
-			},
-			ArchetypeInstance = 
-			{
-				string Name = "54b4efb11bfb540e:Item_OxyTank",
-				LinkId = 
-				{
-					uint Id = 45,
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-9.97688, -22.5037, 0.173786],
+					Vec3 Translation = [-9.31486, -19.3509, 0.088573],
 					Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -2155,7 +2197,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 46,
+					uint Id = 44,
 				},
 				Named = 
 				{
@@ -2218,7 +2260,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 47,
+					uint Id = 45,
 				},
 				Named = 
 				{
@@ -2289,7 +2331,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 48,
+							uint Id = 46,
 						},
 						Named = 
 						{
@@ -2345,6 +2387,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -2353,7 +2401,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 49,
+							uint Id = 47,
 						},
 						Named = 
 						{
@@ -2409,6 +2457,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -2419,7 +2473,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 50,
+					uint Id = 48,
 				},
 				Named = 
 				{
@@ -2490,7 +2544,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 51,
+							uint Id = 49,
 						},
 						Named = 
 						{
@@ -2546,6 +2600,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -2554,7 +2614,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 52,
+							uint Id = 50,
 						},
 						Named = 
 						{
@@ -2610,10 +2670,34 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
 					},
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "54b4efb11bfb540e:Item_OxyTank",
+				LinkId = 
+				{
+					uint Id = 51,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.823051, -5.22171, 0.445316],
+					Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Named = 
+				{
+					string Name = "OxygenTank",
 				},
 			},
 		},
@@ -2623,7 +2707,7 @@ Level =
 		string Name = "54b5514d89d60dac:Planet_Pluto",
 		LinkId = 
 		{
-			uint Id = 53,
+			uint Id = 52,
 		},
 		Transform = 
 		{
@@ -2640,7 +2724,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 54,
+			uint Id = 53,
 		},
 		Named = 
 		{
@@ -2683,7 +2767,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 55,
+			uint Id = 54,
 		},
 		Named = 
 		{
@@ -2726,7 +2810,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 56,
+			uint Id = 55,
 		},
 		Named = 
 		{
@@ -2769,7 +2853,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 57,
+			uint Id = 56,
 		},
 		Named = 
 		{
@@ -2812,7 +2896,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 58,
+			uint Id = 57,
 		},
 		Named = 
 		{
@@ -2847,7 +2931,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 59,
+			uint Id = 58,
 		},
 		Named = 
 		{
@@ -2882,7 +2966,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 60,
+			uint Id = 59,
 		},
 		Named = 
 		{
@@ -2917,7 +3001,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 61,
+			uint Id = 60,
 		},
 		Named = 
 		{
@@ -2952,7 +3036,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 62,
+			uint Id = 61,
 		},
 		Named = 
 		{
@@ -2987,7 +3071,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 63,
+			uint Id = 62,
 		},
 		Named = 
 		{
@@ -3022,7 +3106,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 64,
+			uint Id = 63,
 		},
 		Named = 
 		{
@@ -3057,7 +3141,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 65,
+			uint Id = 64,
 		},
 		Named = 
 		{
@@ -3136,7 +3220,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 66,
+			uint Id = 65,
 		},
 		Named = 
 		{
@@ -3215,7 +3299,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 67,
+			uint Id = 66,
 		},
 		Named = 
 		{
@@ -3294,7 +3378,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 68,
+			uint Id = 67,
 		},
 		Named = 
 		{
@@ -3357,6 +3441,11 @@ Level =
 			float OpenTime = 1,
 			string NeckPiece = "55bbf4d95464e02a:PistonNeck",
 			bool Sticky = false,
+			float CurrentOpenTime = 0,
+			float Distance = 0,
+			bool Initialized = false,
+			float NeckPieces = 0,
+			Vec3 BlockDistanceVector = [0, 0, 0],
 			int State = 2,
 		},
 		Hierarchy = 
@@ -3365,7 +3454,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 69,
+					uint Id = 68,
 				},
 				Named = 
 				{
@@ -3415,6 +3504,10 @@ Level =
 				},
 				PistonHead = 
 				{
+					Vec3 TargetLocation = [0, 0, 0],
+					bool Sticky = false,
+					Vec3 BlockDistanceVector = [0, 0, 0],
+					bool Initialized = false,
 				},
 				Hierarchy = 
 				{
@@ -3422,7 +3515,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 70,
+							uint Id = 69,
 						},
 						Named = 
 						{
@@ -3482,7 +3575,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 71,
+			uint Id = 70,
 		},
 		Named = 
 		{
@@ -3545,6 +3638,11 @@ Level =
 			float OpenTime = 1,
 			string NeckPiece = "55bbf4d95464e02a:PistonNeck",
 			bool Sticky = false,
+			float CurrentOpenTime = 0,
+			float Distance = 0,
+			bool Initialized = false,
+			float NeckPieces = 0,
+			Vec3 BlockDistanceVector = [0, 0, 0],
 			int State = 2,
 		},
 		Hierarchy = 
@@ -3553,7 +3651,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 72,
+					uint Id = 71,
 				},
 				Named = 
 				{
@@ -3603,6 +3701,10 @@ Level =
 				},
 				PistonHead = 
 				{
+					Vec3 TargetLocation = [0, 0, 0],
+					bool Sticky = false,
+					Vec3 BlockDistanceVector = [0, 0, 0],
+					bool Initialized = false,
 				},
 				Hierarchy = 
 				{
@@ -3610,7 +3712,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 73,
+							uint Id = 72,
 						},
 						Named = 
 						{
@@ -3670,7 +3772,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 74,
+			uint Id = 73,
 		},
 		Named = 
 		{
@@ -3733,6 +3835,11 @@ Level =
 			float OpenTime = 1,
 			string NeckPiece = "55bbf4d95464e02a:PistonNeck",
 			bool Sticky = false,
+			float CurrentOpenTime = 0,
+			float Distance = 0,
+			bool Initialized = false,
+			float NeckPieces = 0,
+			Vec3 BlockDistanceVector = [0, 0, 0],
 			int State = 2,
 		},
 		Hierarchy = 
@@ -3741,7 +3848,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 75,
+					uint Id = 74,
 				},
 				Named = 
 				{
@@ -3791,6 +3898,10 @@ Level =
 				},
 				PistonHead = 
 				{
+					Vec3 TargetLocation = [0, 0, 0],
+					bool Sticky = false,
+					Vec3 BlockDistanceVector = [0, 0, 0],
+					bool Initialized = false,
 				},
 				Hierarchy = 
 				{
@@ -3798,7 +3909,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 76,
+							uint Id = 75,
 						},
 						Named = 
 						{
@@ -3858,7 +3969,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 77,
+			uint Id = 76,
 		},
 		Named = 
 		{
@@ -3921,6 +4032,11 @@ Level =
 			float OpenTime = 1,
 			string NeckPiece = "55bbf4d95464e02a:PistonNeck",
 			bool Sticky = false,
+			float CurrentOpenTime = 0,
+			float Distance = 0,
+			bool Initialized = false,
+			float NeckPieces = 0,
+			Vec3 BlockDistanceVector = [0, 0, 0],
 			int State = 2,
 		},
 		Hierarchy = 
@@ -3929,7 +4045,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 78,
+					uint Id = 77,
 				},
 				Named = 
 				{
@@ -3979,6 +4095,10 @@ Level =
 				},
 				PistonHead = 
 				{
+					Vec3 TargetLocation = [0, 0, 0],
+					bool Sticky = false,
+					Vec3 BlockDistanceVector = [0, 0, 0],
+					bool Initialized = false,
 				},
 				Hierarchy = 
 				{
@@ -3986,7 +4106,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 79,
+							uint Id = 78,
 						},
 						Named = 
 						{
@@ -4046,7 +4166,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 80,
+			uint Id = 79,
 		},
 		Named = 
 		{
@@ -4109,6 +4229,11 @@ Level =
 			float OpenTime = 1,
 			string NeckPiece = "55bbf4d95464e02a:PistonNeck",
 			bool Sticky = false,
+			float CurrentOpenTime = 0,
+			float Distance = 0,
+			bool Initialized = false,
+			float NeckPieces = 0,
+			Vec3 BlockDistanceVector = [0, 0, 0],
 			int State = 2,
 		},
 		Hierarchy = 
@@ -4117,7 +4242,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 81,
+					uint Id = 80,
 				},
 				Named = 
 				{
@@ -4167,6 +4292,10 @@ Level =
 				},
 				PistonHead = 
 				{
+					Vec3 TargetLocation = [0, 0, 0],
+					bool Sticky = false,
+					Vec3 BlockDistanceVector = [0, 0, 0],
+					bool Initialized = false,
 				},
 				Hierarchy = 
 				{
@@ -4174,7 +4303,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 82,
+							uint Id = 81,
 						},
 						Named = 
 						{
@@ -4234,7 +4363,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 83,
+			uint Id = 82,
 		},
 		Archetyped = 
 		{
@@ -4283,7 +4412,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 84,
+			uint Id = 83,
 		},
 		Archetyped = 
 		{
@@ -4332,7 +4461,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 85,
+			uint Id = 84,
 		},
 		Archetyped = 
 		{
@@ -4381,7 +4510,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 86,
+			uint Id = 85,
 		},
 		Archetyped = 
 		{
@@ -4430,7 +4559,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 87,
+			uint Id = 86,
 		},
 		Archetyped = 
 		{
@@ -4479,7 +4608,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 88,
+			uint Id = 87,
 		},
 		Named = 
 		{
@@ -4535,7 +4664,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 89,
+			uint Id = 88,
 		},
 		Named = 
 		{
@@ -4591,7 +4720,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 90,
+			uint Id = 89,
 		},
 		Named = 
 		{
@@ -4637,7 +4766,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 91,
+			uint Id = 90,
 		},
 		Named = 
 		{
@@ -4675,7 +4804,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 92,
+					uint Id = 91,
 				},
 				Named = 
 				{
@@ -4729,7 +4858,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 93,
+					uint Id = 92,
 				},
 				Named = 
 				{
@@ -4783,7 +4912,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 94,
+					uint Id = 93,
 				},
 				Named = 
 				{
@@ -4837,7 +4966,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 95,
+					uint Id = 94,
 				},
 				Named = 
 				{
@@ -4893,7 +5022,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 96,
+			uint Id = 95,
 		},
 		Named = 
 		{
@@ -4901,7 +5030,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [8.37977, -11.0863, 0],
+			Vec3 Translation = [8.37977, -11.0863, -0.2],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
@@ -4918,16 +5047,21 @@ Level =
 			string FontName = "4e7bac697bec55c5:Verdana",
 			uint FontSize = 30,
 			string Text = "1",
-			TextAlign Align = Left,
+			TextAlign Align = Center,
 			float PixelsPerUnit = 64,
 			bool Smoothing = true,
+		},
+		Area = 
+		{
+			Vec2 Size = [1, 1],
+			Location Origin = Center,
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 97,
+			uint Id = 96,
 		},
 		Named = 
 		{
@@ -4935,7 +5069,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [4.40883, -11.0863, 0],
+			Vec3 Translation = [4.40883, -11.0863, -0.2],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
@@ -4952,16 +5086,21 @@ Level =
 			string FontName = "4e7bac697bec55c5:Verdana",
 			uint FontSize = 30,
 			string Text = "4",
-			TextAlign Align = Left,
+			TextAlign Align = Center,
 			float PixelsPerUnit = 64,
 			bool Smoothing = true,
+		},
+		Area = 
+		{
+			Vec2 Size = [1, 1],
+			Location Origin = Center,
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 98,
+			uint Id = 97,
 		},
 		Named = 
 		{
@@ -4969,7 +5108,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-5.57436, -11.0863, 0],
+			Vec3 Translation = [-5.57436, -11.0863, -0.2],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
@@ -4986,16 +5125,21 @@ Level =
 			string FontName = "4e7bac697bec55c5:Verdana",
 			uint FontSize = 30,
 			string Text = "3",
-			TextAlign Align = Left,
+			TextAlign Align = Center,
 			float PixelsPerUnit = 64,
 			bool Smoothing = true,
+		},
+		Area = 
+		{
+			Vec2 Size = [1, 1],
+			Location Origin = Center,
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 99,
+			uint Id = 98,
 		},
 		Named = 
 		{
@@ -5003,7 +5147,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-9.58595, -11.0863, 0],
+			Vec3 Translation = [-9.58595, -11.0863, -0.2],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
@@ -5020,9 +5164,14 @@ Level =
 			string FontName = "4e7bac697bec55c5:Verdana",
 			uint FontSize = 30,
 			string Text = "2",
-			TextAlign Align = Left,
+			TextAlign Align = Center,
 			float PixelsPerUnit = 64,
 			bool Smoothing = true,
+		},
+		Area = 
+		{
+			Vec2 Size = [1, 1],
+			Location Origin = Center,
 		},
 	},
 	ArchetypeInstance = 
@@ -5030,11 +5179,11 @@ Level =
 		string Name = "54b4efb11bfb540e:Item_OxyTank",
 		LinkId = 
 		{
-			uint Id = 100,
+			uint Id = 99,
 		},
 		Transform = 
 		{
-			Vec3 Translation = [1.10943, -18.9067, 0.991707],
+			Vec3 Translation = [-0.502838, -18.5242, 0.997742],
 			Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -5048,7 +5197,7 @@ Level =
 		string Name = "54b4efb11bfb540e:Item_OxyTank",
 		LinkId = 
 		{
-			uint Id = 101,
+			uint Id = 100,
 		},
 		Transform = 
 		{
@@ -5065,7 +5214,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 102,
+			uint Id = 101,
 		},
 		Named = 
 		{
@@ -5111,7 +5260,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 103,
+			uint Id = 102,
 		},
 		Named = 
 		{
@@ -5143,7 +5292,7 @@ Level =
 		string Name = "552aace2e8307957:MusicBox",
 		LinkId = 
 		{
-			uint Id = 104,
+			uint Id = 103,
 		},
 		Transform = 
 		{
@@ -5160,7 +5309,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 105,
+			uint Id = 104,
 		},
 		Named = 
 		{
@@ -5194,7 +5343,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 106,
+			uint Id = 105,
 		},
 		Named = 
 		{
@@ -5228,7 +5377,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 107,
+			uint Id = 106,
 		},
 		Named = 
 		{
@@ -5263,7 +5412,7 @@ Level =
 		string Name = "55b4d5008c634306:AmbienceBox",
 		LinkId = 
 		{
-			uint Id = 108,
+			uint Id = 107,
 		},
 		Transform = 
 		{
@@ -5273,7 +5422,680 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "MusicBox",
+			string Name = "AmbBox",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 108,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-9.51768, -16.5434, -0.153645],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 109,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-5.95843, -16.5434, -0.153645],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 110,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-5.1024, -16.5434, -0.153645],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 111,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.13363, -16.5434, -0.153645],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 112,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4.98966, -16.5434, -0.153645],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 113,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [7.82805, -16.5434, -0.153645],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 114,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [8.63902, -16.5434, -0.153645],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 115,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [9.58515, -16.5434, -0.153645],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 116,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [8.81923, -16.5434, -0.153645],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 117,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-18.004, -26.5385, -0.310772],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 118,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-17.3396, -26.5989, -0.311699],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 119,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-17.0678, -26.2365, -0.30608],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 120,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-18.3664, -29.0448, -0.350079],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 121,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-16.4336, -29.1958, -0.352535],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 122,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-16.947, -28.5617, -0.342518],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 123,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [28.2381, -16.9955, -0.16079],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 124,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [28.8422, -17.3758, -0.166699],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 125,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [28.5737, -19.3891, -0.198422],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 126,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [30.2964, -14.5795, -0.122834],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 127,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [25.7323, -14.5571, -0.122513],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 128,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [27.0076, -14.49, -0.121491],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 129,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [26.4483, -11.9622, -0.0817609],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 130,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [28.3947, -12.9241, -0.0969129],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 131,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [28.5737, -13.3939, -0.104199],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 132,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [28.7974, -14.5124, -0.121811],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 133,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [30.99, -12.2977, -0.0869985],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "55be51c116fda964:Interactable_Bottle",
+		LinkId = 
+		{
+			uint Id = 134,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [28.2381, -16.9955, -0.16079],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Bottle",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 135,
+		},
+		Named = 
+		{
+			string Name = "LEVELMAP",
+		},
+		Archetyped = 
+		{
+			string Name = "557453f3e684b4de:LevelMap",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-1.4116, -4.5516, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0.653281, 0.270598, 0.270598, 0.653281],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = true,
+			string MaterialName = "541bb26add47e2d3:Mat_Beam",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Additive,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "55745349fa6e0b77:Map_lvl4",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		SpriteEffect_Flicker = 
+		{
+		},
+		LevelMiniMap = 
+		{
+			float MaptoWorldScale = 7.15,
+			bool MasterMap = true,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 136,
+				},
+				Named = 
+				{
+					string Name = "PLAYERMARKER",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-1.09563, 2.40395, 0.05],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [-4.63616e-007, -2.68221e-007, -1.58096e-013, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Additive,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "55745349fa68b799:Map_PlayerLoc",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 137,
+				},
+				Named = 
+				{
+					string Name = "MiniMapAnchor",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-1.0377, 3.17268, 0.05],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [-4.63616e-007, -2.68221e-007, -1.58096e-013, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Additive,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "55745349fa68b799:Map_PlayerLoc",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "557453f3e684b4de:LevelMap",
+		LinkId = 
+		{
+			uint Id = 138,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-1.95902, -41.0551, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0.653281, 0.270598, 0.270598, 0.653281],
+		},
+		Named = 
+		{
+			string Name = "LEVELMAP",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 139,
+		},
+		Named = 
+		{
+			string Name = "WorldMapAnchor",
+		},
+		Archetyped = 
+		{
+			string Name = "55755f3a699ed1b5:WorldMapAnchor",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = true,
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
 		},
 	},
 },

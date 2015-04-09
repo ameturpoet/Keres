@@ -3,7 +3,7 @@ AudioContent =
 	SoundBuilder = 
 	{
 		string Name = "Door_Close",
-		uint64 ResourceId = 553801cebb1c1d21,
+		uint64 ResourceId = 557325960e22d69f,
 		bool Compressed = true,
 		uint Quality = 100,
 		SoundLoadType LoadType = Decompress,

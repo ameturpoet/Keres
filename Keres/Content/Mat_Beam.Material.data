@@ -1,9 +1,13 @@
 Material = 
 {
+	Transparency = 
+	{
+		MaterialBlendMode BlendMode = Additive,
+	},
 	EmissiveMapping = 
 	{
 		float EmissiveScale = 1,
-		string EmissiveMapTexture = "546fd8b316239e1a:CM_Zap",
+		string EmissiveMapTexture = "5403b4374cadb53c:CM_Rainbow",
 		Vec2 EmissiveScroll = [5, 5],
 		Vec2 EmissiveTiling = [0.3, 0.3],
 		Vec2 EmissiveOffset = [0, 0],
@@ -16,16 +20,11 @@ Material =
 		Vec2 NormalTiling = [1, 1],
 		Vec2 NormalOffset = [0, 0],
 	},
-	Transparency = 
-	{
-		MaterialBlendMode BlendMode = Additive,
-		bool CastShadow = false,
-	},
 	TextureDiffuse = 
 	{
-		string DiffuseTexture = "5405f43639b2cdb1:Gold",
-		Vec2 DiffuseScroll = [0, 0],
-		Vec2 DiffuseTiling = [1, 1],
+		string DiffuseTexture = "5403b4374cadb53c:CM_Rainbow",
+		Vec2 DiffuseScroll = [5, 5],
+		Vec2 DiffuseTiling = [0.3, 0.3],
 		Vec2 DiffuseOffset = [0, 0],
 	},
 },

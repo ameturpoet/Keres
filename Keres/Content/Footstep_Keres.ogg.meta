@@ -3,7 +3,7 @@ AudioContent =
 	SoundBuilder = 
 	{
 		string Name = "Footstep_Keres",
-		uint64 ResourceId = 553801cebb1e7bd1,
+		uint64 ResourceId = 557325960e26cc09,
 		bool Compressed = true,
 		uint Quality = 100,
 		SoundLoadType LoadType = Decompress,

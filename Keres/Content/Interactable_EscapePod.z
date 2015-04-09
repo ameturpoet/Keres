@@ -1,0 +1,96 @@
+class Interactable_EscapePod : ZilchComponent
+{
+    var Player : Cog = null;
+    [Property]
+    var PodSeat : CogPath = null;
+    [Property]
+    var PodDoor : CogPath = null;
+    var HUDspace : Space = null;
+    var Enabled : Boolean = false;
+    [Property]
+    var MoveSpeed : Real = 5.0;
+    
+    var Stage : Integer = 0;
+    var Counter : Real = 0.0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.HUDspace = this.GameSession.FindSpaceByName("HUDSpace");
+    }
+    
+    function Activate()
+    {
+        this.Player = this.Owner.Space.FindObjectByName("Player");
+        
+        var cam = this.Owner.Space.FindObjectByName("Camera");
+        
+        cam.CameraShake.Enabled = true;
+        
+        var skybox = this.Owner.Space.FindObjectByName("skybox");
+        
+        skybox.AttachTo(this.Owner.Parent);
+        
+        this.Player.AttachTo(this.PodSeat.Cog);
+        this.Player.RigidBody.DynamicState = RigidBodyDynamicState.Static;
+        this.Player.PlayerControl_Move.State = PlayerState.Immobile;
+        this.Player.Transform.Translation = Real3(0, 0, 0);
+        
+        this.PodDoor.Cog.Interactable_Gate.SetClosed();
+        
+        this.Enabled = true;
+        this.Stage = 1;
+        this.Counter = 2.5;
+        
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Enabled)
+        {
+            this.Counter -= event.Dt;
+            if (this.Stage == 1)
+            {
+                if (this.Counter <= 0.0)
+                {
+                    this.Stage = 2;
+                    var cam = this.Owner.Space.FindObjectByName("Camera");
+        
+                    cam.CameraShake.Enabled = false;
+                    
+                    this.Counter = 1.3;
+                    
+                    //this.Owner.Parent.RigidBody.Velocity = Real3(0, 5.0, 0);
+                    //this.Owner.Parent.RigidBody.DynamicState = RigidBodyDynamicState.Dynamic;
+                }
+            }
+            else if (this.Stage == 2)
+            {
+                this.Owner.Parent.Transform.Translation += Real3(0, this.MoveSpeed * event.Dt, 0);
+                
+                if (this.Counter <= 0.0)
+                {
+                    this.Stage = 3;
+                    
+                    var blackOverlay = this.HUDspace.FindObjectByName("BlackOverlay");
+                    
+                    blackOverlay.LoadScreenElement.Speed = 0.2;
+                    blackOverlay.LoadScreenElement.BeginFadeIn();
+                }
+            }
+            else
+            {
+                this.Owner.Parent.Transform.Translation += Real3(0, this.MoveSpeed * event.Dt, 0);
+                
+                var blackOverlay = this.HUDspace.FindObjectByName("BlackOverlay");
+                
+                if (!blackOverlay.LoadScreenElement.FadeIn)
+                {
+                    this.HUDspace.Destroy();
+                    this.Owner.Space.LoadLevel(Level.Find("WinScreen"));
+                }
+            }
+        }
+        
+    }
+}

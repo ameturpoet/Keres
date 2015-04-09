@@ -76,6 +76,7 @@ class EnemyAI : ZilchComponent
                 event.OtherObject.PlayerControl_Move.Knockback(this.Owner.Transform.Translation);
                 this.CurrentCooldown = this.AttackCooldown;
                 event.OtherObject.Soundbox_Player.PlayHit();
+                event.OtherObject.PlayerControl_Move.ShowHit();
                 Console.WriteLine("Attacked");
             }
             else if (event.OtherObject.GatePiece != null && this.BangTimeCooldown <= 0.0)
@@ -98,6 +99,7 @@ class EnemyAI : ZilchComponent
             }
             this.CurrentCooldown = this.AttackCooldown;
             event.OtherObject.Soundbox_Player.PlayHit();
+            event.OtherObject.PlayerControl_Move.ShowHit();
             Console.WriteLine("Attacked");
         }
     }

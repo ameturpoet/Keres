@@ -3,7 +3,7 @@ ImageContent =
 	TextureBuilder = 
 	{
 		string Name = "Starfield_m(1)",
-		uint64 ResourceId = 553809b5ae24d4ad,
+		uint64 ResourceId = 557325960e3fc195,
 		BuilderTextureType TextureType = Texture2D,
 		RgbUsage RgbUsage = Color,
 		AlphaUsage AlphaUsage = Transparency,

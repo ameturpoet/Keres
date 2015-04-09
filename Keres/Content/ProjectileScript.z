@@ -20,7 +20,7 @@ class ProjectileScript : ZilchComponent
     {
         if (event.OtherObject.Name == "enemy")
         {
-            var stunEffect = this.Owner.Space.CreateAtPosition(this.EnemyStunFlash, this.Owner.Transform.Translation);
+            var stunEffect = this.Owner.Space.CreateAtPosition(this.EnemyStunFlash, event.OtherObject.Transform.Translation);
             //Stun the enemy and create a blue flash? and noise at the point of impact
             event.OtherObject.Soundbox_Keres.PlayStun();
             //Console.WriteLine("Flashed");

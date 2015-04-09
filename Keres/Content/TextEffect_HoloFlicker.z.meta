@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "TextEffect_HoloFlicker",
+		uint64 ResourceId = 55748776209a8c60,
+	},
+},

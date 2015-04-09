@@ -3,7 +3,7 @@ ImageContent =
 	TextureBuilder = 
 	{
 		string Name = "HUD_ButtonOptions(1)",
-		uint64 ResourceId = 553809b6aff06f77,
+		uint64 ResourceId = 557325960e2a925f,
 		BuilderTextureType TextureType = Texture2D,
 		RgbUsage RgbUsage = Color,
 		AlphaUsage AlphaUsage = Transparency,

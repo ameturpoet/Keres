@@ -1,0 +1,30 @@
+class SpriteEffect_Flicker : ZilchComponent
+{
+    var FlickerIncrement : Real = 0.0;
+    var Level : Real = 1.0;
+    var BaseColor : Real4 = Real4(0.0, 0.0, 0.0, 0.0);
+    var ColorDiff : Real4 = Real4(1.0, 1.0, 1.0, 1.0);
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        var rnd = new Random();
+        this.FlickerIncrement = rnd.Range(0.6, 0.7);
+        this.BaseColor = this.Owner.Sprite.Color * 0.8;
+        this.ColorDiff = this.Owner.Sprite.Color - this.BaseColor;
+        Console.WriteLine(this.Owner.Sprite.Color);
+        Console.WriteLine(this.BaseColor);
+        Console.WriteLine(this.ColorDiff);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Level += this.FlickerIncrement;
+        if (this.Level > 1.0)
+        {
+            this.Level -= 1.0;
+        }
+        
+        this.Owner.Sprite.Color = this.BaseColor + this.ColorDiff * this.Level;
+    }
+}

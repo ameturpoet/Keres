@@ -65,6 +65,9 @@ Level =
 		DeathScreenChanger = 
 		{
 		},
+		GameStateManager = 
+		{
+		},
 	},
 	Cog = 
 	{

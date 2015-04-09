@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Interactable_EscapePod",
+		uint64 ResourceId = 5574768699085178,
+	},
+},

@@ -76,7 +76,7 @@ Level =
 			string ReflectionEnvironmentName = "4fab71e8bcb7a8ce:DefaultTexture",
 			bool GodRays = true,
 			bool RenderMasks = false,
-			bool Glow = false,
+			bool Glow = true,
 			float GlowThreshold = 0.7,
 		},
 		GameStateManager = 
@@ -95,9 +95,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-9.62033, -7.77601, 46.0618],
+			Vec3 Translation = [14.4307, -8.64107, 48.7569],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.00785091, -0.0287977, -0.000226189, 0.999554],
+			Quat Rotation = [0.0261711, 0.0209302, -0.000548074, 0.999438],
 		},
 		Camera = 
 		{
@@ -107,15 +107,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 14.7781,
+			float Size = 44.3958,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = ZPlane,
 			float LookDistance = 50,
-			float VerticalAngle = 0.0157085,
-			float HorizontalAngle = -6.22558,
-			Vec3 LookTarget = [-6.74202, -8.56141, -3.84909],
+			float VerticalAngle = -0.0523597,
+			float HorizontalAngle = -6.32506,
+			Vec3 LookTarget = [12.3403, -6.02428, -1.1308],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -178,7 +178,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [23.0742, -12.6394, 0],
+			Vec3 Translation = [-0.472851, -9.20994, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -593,7 +593,7 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [0, 0, 0],
-			Vec3 Scale = [2.5, 2.5, 2.5],
+			Vec3 Scale = [5, 5, 5],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Named = 
@@ -646,7 +646,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, -17.536],
+			Vec3 Translation = [0, 0, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1036,6 +1036,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -1099,6 +1105,12 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
 						},
 						Hierarchy = 
 						{
@@ -1300,6 +1312,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -1363,6 +1381,12 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
 						},
 						Hierarchy = 
 						{
@@ -1501,6 +1525,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -1564,6 +1594,12 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
 						},
 						Hierarchy = 
 						{
@@ -1702,6 +1738,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -1765,6 +1807,12 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
 						},
 						Hierarchy = 
 						{
@@ -1903,6 +1951,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -1966,6 +2020,12 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
 						},
 						Hierarchy = 
 						{
@@ -2257,6 +2317,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -2320,6 +2386,12 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
 						},
 						Hierarchy = 
 						{
@@ -2458,6 +2530,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -2521,6 +2599,12 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
 						},
 						Hierarchy = 
 						{
@@ -2659,6 +2743,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -2722,6 +2812,12 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
 						},
 						Hierarchy = 
 						{
@@ -2860,6 +2956,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -2923,6 +3025,12 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
 						},
 						Hierarchy = 
 						{
@@ -3061,6 +3169,12 @@ Level =
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
 						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
+						},
 						Hierarchy = 
 						{
 						},
@@ -3124,6 +3238,12 @@ Level =
 							bool Inherit2DMode = true,
 							Vec3 Velocity = [0, 0, 0],
 							Vec3 AngularVelocity = [0, 0, 0],
+						},
+						Interactable = 
+						{
+							bool ShowTooltip = true,
+							string Tooltip = "",
+							bool ShowControl = true,
 						},
 						Hierarchy = 
 						{
@@ -3329,6 +3449,11 @@ Level =
 					float OpenTime = 1,
 					string NeckPiece = "55bbf4d95464e02a:PistonNeck",
 					bool Sticky = false,
+					float CurrentOpenTime = 0,
+					float Distance = 0,
+					bool Initialized = false,
+					float NeckPieces = 0,
+					Vec3 BlockDistanceVector = [0, 0, 0],
 					int State = 2,
 				},
 				Soundbox_Piston = 
@@ -3393,6 +3518,10 @@ Level =
 						},
 						PistonHead = 
 						{
+							Vec3 TargetLocation = [0, 0, 0],
+							bool Sticky = false,
+							Vec3 BlockDistanceVector = [0, 0, 0],
+							bool Initialized = false,
 						},
 						Hierarchy = 
 						{
@@ -3517,6 +3646,11 @@ Level =
 					float OpenTime = 1,
 					string NeckPiece = "55bbf4d95464e02a:PistonNeck",
 					bool Sticky = false,
+					float CurrentOpenTime = 0,
+					float Distance = 0,
+					bool Initialized = false,
+					float NeckPieces = 0,
+					Vec3 BlockDistanceVector = [0, 0, 0],
 					int State = 1,
 				},
 				Soundbox_Piston = 
@@ -3581,6 +3715,10 @@ Level =
 						},
 						PistonHead = 
 						{
+							Vec3 TargetLocation = [0, 0, 0],
+							bool Sticky = false,
+							Vec3 BlockDistanceVector = [0, 0, 0],
+							bool Initialized = false,
 						},
 						Hierarchy = 
 						{
@@ -3705,6 +3843,11 @@ Level =
 					float OpenTime = 1,
 					string NeckPiece = "55bbf4d95464e02a:PistonNeck",
 					bool Sticky = false,
+					float CurrentOpenTime = 0,
+					float Distance = 0,
+					bool Initialized = false,
+					float NeckPieces = 0,
+					Vec3 BlockDistanceVector = [0, 0, 0],
 					int State = 2,
 				},
 				Soundbox_Piston = 
@@ -3769,6 +3912,10 @@ Level =
 						},
 						PistonHead = 
 						{
+							Vec3 TargetLocation = [0, 0, 0],
+							bool Sticky = false,
+							Vec3 BlockDistanceVector = [0, 0, 0],
+							bool Initialized = false,
 						},
 						Hierarchy = 
 						{
@@ -3893,6 +4040,11 @@ Level =
 					float OpenTime = 1,
 					string NeckPiece = "55bbf4d95464e02a:PistonNeck",
 					bool Sticky = false,
+					float CurrentOpenTime = 0,
+					float Distance = 0,
+					bool Initialized = false,
+					float NeckPieces = 0,
+					Vec3 BlockDistanceVector = [0, 0, 0],
 					int State = 2,
 				},
 				Soundbox_Piston = 
@@ -3957,6 +4109,10 @@ Level =
 						},
 						PistonHead = 
 						{
+							Vec3 TargetLocation = [0, 0, 0],
+							bool Sticky = false,
+							Vec3 BlockDistanceVector = [0, 0, 0],
+							bool Initialized = false,
 						},
 						Hierarchy = 
 						{
@@ -4188,6 +4344,62 @@ Level =
 				{
 				},
 			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 80,
+				},
+				Named = 
+				{
+					string Name = "PushBlock",
+				},
+				Archetyped = 
+				{
+					string Name = "55bbe0b547a46370:Interactable_PushBlock",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [8.8444, -20.5, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Model = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = true,
+					string MaterialName = "553c0360e5111e6b:Mat_Crate",
+					string MeshName = "4de0354322b345ae:Cube",
+					Vec4 Color = [1, 1, 1, 1],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "55bbef727f43e596:ReallyHeavyBlockMaterial",
+					string SerializedGroupName = "549a22ec72ed1e23:PlayerGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.5, 0.5, 0.5],
+				},
+				RigidBody = 
+				{
+					bool Static = false,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = true,
+					bool Mode2D = true,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				Interactable_PusyBlock = 
+				{
+				},
+			},
 		},
 	},
 	ArchetypeInstance = 
@@ -4195,7 +4407,7 @@ Level =
 		string Name = "54b5514d89d60dac:Planet_Pluto",
 		LinkId = 
 		{
-			uint Id = 80,
+			uint Id = 81,
 		},
 		Transform = 
 		{
@@ -4212,7 +4424,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 81,
+			uint Id = 82,
 		},
 		Named = 
 		{
@@ -4247,7 +4459,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 82,
+			uint Id = 83,
 		},
 		Named = 
 		{
@@ -4278,7 +4490,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 83,
+			uint Id = 84,
 		},
 		Named = 
 		{
@@ -4307,7 +4519,7 @@ Level =
 		Interactable = 
 		{
 			bool ShowTooltip = true,
-			string Tooltip = "to Level 3",
+			string Tooltip = "to Place",
 			bool ShowControl = true,
 		},
 		BoxCollider = 
@@ -4355,7 +4567,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 84,
+					uint Id = 85,
 				},
 				Named = 
 				{
@@ -4368,7 +4580,7 @@ Level =
 				Transform = 
 				{
 					Vec3 Translation = [0.25, 0, 0],
-					Vec3 Scale = [0.5, 0.3, 1],
+					Vec3 Scale = [0.5, 2.5, 1],
 					Quat Rotation = [0, 0, 5.68434e-014, 1],
 				},
 				Model = 
@@ -4377,8 +4589,8 @@ Level =
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = false,
 					bool CastShadows = true,
-					string MaterialName = "4faa78123470162f:FallbackMaterial",
-					string MeshName = "4de0354322b345ae:Cube",
+					string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
+					string MeshName = "55abc49f41ce2e5a:Door",
 					Vec4 Color = [1, 1, 1, 0],
 				},
 				Interactable = 
@@ -4395,7 +4607,7 @@ Level =
 					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 					string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
 					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
+					Vec3 Size = [0.5, 0.09, 0.5],
 				},
 				GatePiece = 
 				{
@@ -4425,7 +4637,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 85,
+					uint Id = 86,
 				},
 				Named = 
 				{
@@ -4438,7 +4650,7 @@ Level =
 				Transform = 
 				{
 					Vec3 Translation = [-0.25, 0, 0],
-					Vec3 Scale = [0.5, 0.3, 1],
+					Vec3 Scale = [0.5, 2.5, 1],
 					Quat Rotation = [0, 0, 5.68434e-014, 1],
 				},
 				Model = 
@@ -4447,8 +4659,8 @@ Level =
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = false,
 					bool CastShadows = true,
-					string MaterialName = "4faa78123470162f:FallbackMaterial",
-					string MeshName = "4de0354322b345ae:Cube",
+					string MaterialName = "553c00a1f6737479:Mat_BlueDoor",
+					string MeshName = "55abc49f41ce2e5a:Door",
 					Vec4 Color = [1, 1, 1, 0],
 				},
 				Interactable = 
@@ -4465,7 +4677,7 @@ Level =
 					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 					string SerializedGroupName = "541aa83f40c06b32:TerrainGroup",
 					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
+					Vec3 Size = [0.5, 0.09, 0.5],
 				},
 				GatePiece = 
 				{
@@ -4498,7 +4710,7 @@ Level =
 		string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		LinkId = 
 		{
-			uint Id = 86,
+			uint Id = 87,
 		},
 		Transform = 
 		{
@@ -4516,7 +4728,7 @@ Level =
 		string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		LinkId = 
 		{
-			uint Id = 87,
+			uint Id = 88,
 		},
 		Transform = 
 		{
@@ -4533,62 +4745,6 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 88,
-		},
-		Named = 
-		{
-			string Name = "PushBlock",
-		},
-		Archetyped = 
-		{
-			string Name = "55bbe0b547a46370:Interactable_PushBlock",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [8.8444, -20.5, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = false,
-			bool CastShadows = true,
-			string MaterialName = "553c0360e5111e6b:Mat_Crate",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 1],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "55bbef727f43e596:ReallyHeavyBlockMaterial",
-			string SerializedGroupName = "549a22ec72ed1e23:PlayerGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = true,
-			bool Mode2D = true,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		Interactable_PusyBlock = 
-		{
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
 			uint Id = 89,
 		},
 		Archetyped = 
@@ -4597,7 +4753,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [3.46334, -18.0248, 0.0260162],
+			Vec3 Translation = [3.46334, -17.9764, 0.0260162],
 			Vec3 Scale = [0.5, 0.25, 0.25],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -4840,7 +4996,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.513568, -9.90606, 0],
+			Vec3 Translation = [-0.456357, -9.96476, 0],
 			Vec3 Scale = [1, 0.4, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -5059,7 +5215,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.520053, -9.37429, 0],
+			Vec3 Translation = [-0.462842, -9.43298, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -5168,7 +5324,559 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "MusicBox",
+			string Name = "AmbBox",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 102,
+		},
+		Named = 
+		{
+			string Name = "LEVELMAP",
+		},
+		Archetyped = 
+		{
+			string Name = "558b1fa24e41beb3:LevelMap_2",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.0208621, -19.6059, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0.5, -0.5, -0.5, 0.5],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = true,
+			string MaterialName = "541bb26add47e2d3:Mat_Beam",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Additive,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "558b1faf73c2e77d:Map_lvl2",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		SpriteEffect_Flicker = 
+		{
+		},
+		LevelMiniMap = 
+		{
+			float MaptoWorldScale = 6.2,
+			bool MasterMap = true,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 103,
+				},
+				Named = 
+				{
+					string Name = "PLAYERMARKER",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-1.09563, 2.40395, 0.05],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [-4.63616e-007, -2.68221e-007, -1.58096e-013, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Additive,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "55745349fa68b799:Map_PlayerLoc",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 104,
+				},
+				Named = 
+				{
+					string Name = "MiniMapAnchor",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.79056, 3.66649, 0.05],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [-4.63616e-007, -2.68221e-007, -1.58096e-013, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Additive,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "55745349fa68b799:Map_PlayerLoc",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 105,
+		},
+		Named = 
+		{
+			string Name = "LEVELMAP",
+		},
+		Archetyped = 
+		{
+			string Name = "558b1fa24e41beb3:LevelMap_2",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [9.57561, -6.54716, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0.653281, 0.270598, 0.270598, 0.653281],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = true,
+			string MaterialName = "541bb26add47e2d3:Mat_Beam",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Additive,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "558b1faf73c2e77d:Map_lvl2",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		SpriteEffect_Flicker = 
+		{
+		},
+		LevelMiniMap = 
+		{
+			float MaptoWorldScale = 6.2,
+			bool MasterMap = false,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 106,
+				},
+				Named = 
+				{
+					string Name = "PLAYERMARKER",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-1.09563, 2.40395, 0.05],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [-4.63616e-007, -2.68221e-007, -1.58096e-013, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Additive,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "55745349fa68b799:Map_PlayerLoc",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 107,
+				},
+				Named = 
+				{
+					string Name = "MiniMapAnchor",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.79056, 3.66649, 0.05],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [-4.63616e-007, -2.68221e-007, -1.58096e-013, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Additive,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "55745349fa68b799:Map_PlayerLoc",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 108,
+		},
+		Named = 
+		{
+			string Name = "LEVELMAP",
+		},
+		Archetyped = 
+		{
+			string Name = "558b1fa24e41beb3:LevelMap_2",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [21.6248, -13.4571, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0.270598, 0.653281, 0.653281, 0.270598],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = true,
+			string MaterialName = "541bb26add47e2d3:Mat_Beam",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Additive,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "558b1faf73c2e77d:Map_lvl2",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		SpriteEffect_Flicker = 
+		{
+		},
+		LevelMiniMap = 
+		{
+			float MaptoWorldScale = 6.2,
+			bool MasterMap = false,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 109,
+				},
+				Named = 
+				{
+					string Name = "PLAYERMARKER",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-1.09563, 2.40395, 0.05],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [-4.63616e-007, -2.68221e-007, -1.58096e-013, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Additive,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "55745349fa68b799:Map_PlayerLoc",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 110,
+				},
+				Named = 
+				{
+					string Name = "MiniMapAnchor",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.79056, 3.66649, 0.05],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [-4.63616e-007, -2.68221e-007, -1.58096e-013, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Additive,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "55745349fa68b799:Map_PlayerLoc",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 111,
+		},
+		Named = 
+		{
+			string Name = "LEVELMAP",
+		},
+		Archetyped = 
+		{
+			string Name = "558b1fa24e41beb3:LevelMap_2",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [30.5747, -24.4708, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0.270598, 0.653281, 0.653281, 0.270598],
+		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = true,
+			string MaterialName = "541bb26add47e2d3:Mat_Beam",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Additive,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "558b1faf73c2e77d:Map_lvl2",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		SpriteEffect_Flicker = 
+		{
+		},
+		LevelMiniMap = 
+		{
+			float MaptoWorldScale = 6.2,
+			bool MasterMap = false,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 112,
+				},
+				Named = 
+				{
+					string Name = "PLAYERMARKER",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-1.09563, 2.40395, 0.05],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [-4.63616e-007, -2.68221e-007, -1.58096e-013, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Additive,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "55745349fa68b799:Map_PlayerLoc",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 113,
+				},
+				Named = 
+				{
+					string Name = "MiniMapAnchor",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-2.79056, 3.66649, 0.05],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [-4.63616e-007, -2.68221e-007, -1.58096e-013, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = false,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Additive,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "55745349fa68b799:Map_PlayerLoc",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
 		},
 	},
 },

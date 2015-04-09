@@ -20,6 +20,9 @@ class GatePiece : ZilchComponent
             this.StartingLocation = this.Owner.Transform.Translation;
             this.Initialized = true;
         }
+        this.Owner.Interactable.Tooltip = this.Owner.Parent.Interactable.Tooltip;
+        this.Owner.Interactable.ShowTooltip = this.Owner.Parent.Interactable.ShowTooltip;
+        this.Owner.Interactable.ShowControl = this.Owner.Parent.Interactable.ShowControl;
     }
     
     function SetToOpen()
@@ -30,6 +33,11 @@ class GatePiece : ZilchComponent
     function SetToClosed()
     {
         this.SetOpenPosition(0.0);
+    }
+    
+    function Activate()
+    {
+        this.Owner.Parent.Interactable.Activate(true);
     }
 
     //Sets the position of the door based on the current level of open-ness
