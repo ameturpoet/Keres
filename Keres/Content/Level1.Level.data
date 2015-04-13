@@ -95,7 +95,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-9.2935, -7.8211, 43.8435],
+			Vec3 Translation = [-12.0311, -6.37243, 43.8282],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.00523483, -2.77923e-005, -1.46327e-007, 0.999986],
 		},
@@ -107,7 +107,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 27.2532,
+			float Size = 18.2684,
 		},
 		EditorCameraController = 
 		{
@@ -115,7 +115,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0.0104697,
 			float HorizontalAngle = -18.8495,
-			Vec3 LookTarget = [-9.29074, -8.34457, -6.15374],
+			Vec3 LookTarget = [-12.0284, -6.8959, -6.16906],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -178,7 +178,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.52258, -4.49652, 0],
+			Vec3 Translation = [-1.54511, -4.55512, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -342,7 +342,7 @@ Level =
 							string RibbonObject = "541bbd020465b0f4:ribbon_TestBeam",
 							CogPath ProjectileNode = "ProjectileNode",
 							int EnergyUse = 100,
-							float Range = 3,
+							float Range = 10000,
 							float TimeToReload = 1,
 							string AmmoString = "",
 						},

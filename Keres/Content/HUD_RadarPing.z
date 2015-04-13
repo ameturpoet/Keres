@@ -10,11 +10,11 @@ class HUD_RadarPing : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        this.Owner.Transform.Scale += Real3(1.0, 1.0, 0.0) * event.Dt * 2;
+        this.Owner.Transform.Scale += Real3(1.0, 1.0, 0.0) * event.Dt / 1.28;
         this.Alpha -= event.Dt * 2;
-        if (this.Owner.Transform.Scale.X > 0.48)
+        if (this.Owner.Transform.Scale.X > 0.1953125)
         {
-            this.Owner.Transform.Scale = Real3(0.48, 0.48, 1);
+            this.Owner.Transform.Scale = Real3(0.1953125, 0.1953125, 1);
         }
         if (this.Alpha < 0.0)
         {

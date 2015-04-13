@@ -95,7 +95,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-4.67874, 3.67343, 21.7516],
+			Vec3 Translation = [5.0397, 2.64462, 21.7569],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.00261732, 2.49444e-006, 6.42217e-009, 0.999997],
 		},
@@ -107,7 +107,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 22.0464,
+			float Size = 3.29744,
 		},
 		EditorCameraController = 
 		{
@@ -115,7 +115,7 @@ Level =
 			float LookDistance = 9.13421,
 			float VerticalAngle = 0.00523464,
 			float HorizontalAngle = 6.28318,
-			Vec3 LookTarget = [-4.67879, 3.62562, 12.6175],
+			Vec3 LookTarget = [5.03965, 2.59681, 12.6228],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -143,7 +143,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.26019, 2.56547, 0],
+			Vec3 Translation = [-1, 2.56547, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -189,7 +189,7 @@ Level =
 			int Life = 100,
 			int Energy = 0,
 			int Batteries = 100,
-			float Oxygen = 1000,
+			float Oxygen = 100,
 			float MaxOxygen = 100,
 			float HeavyBreathingRate = 2,
 			int OxygenTanks = 1,
@@ -310,7 +310,7 @@ Level =
 							string RibbonObject = "541bbd020465b0f4:ribbon_TestBeam",
 							CogPath ProjectileNode = "ProjectileNode",
 							int EnergyUse = 5,
-							float Range = 3,
+							float Range = 10000,
 							float TimeToReload = 1,
 							string AmmoString = "",
 						},
@@ -2255,7 +2255,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [6.96553, 2.58948, 0],
+			Vec3 Translation = [8.94669, 4.3146, 0],
 			Vec3 Scale = [0.1, 0.1, 0.1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -6365,6 +6365,186 @@ Level =
 		Named = 
 		{
 			string Name = "AmbBox",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+		LinkId = 
+		{
+			uint Id = 142,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 2.5, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "enemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+		LinkId = 
+		{
+			uint Id = 143,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [1, 2.5, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "enemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+		LinkId = 
+		{
+			uint Id = 144,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [2, 2.5, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "enemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+		LinkId = 
+		{
+			uint Id = 145,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [3, 2.5, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "enemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+		LinkId = 
+		{
+			uint Id = 146,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [4, 2.5, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "enemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+		LinkId = 
+		{
+			uint Id = 147,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [6.00293, 2.5, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "enemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+		LinkId = 
+		{
+			uint Id = 148,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [7.00293, 2.5, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "enemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+		LinkId = 
+		{
+			uint Id = 149,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [9.00293, 2.5, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "enemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+		LinkId = 
+		{
+			uint Id = 150,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5.00293, 2.5, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "enemy",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "4faa6050b86884ec:DefaultArchetype",
+		LinkId = 
+		{
+			uint Id = 151,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [8.00293, 2.5, 0],
+			Vec3 Scale = [0.1, 0.1, 0.1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "enemy",
 		},
 	},
 },

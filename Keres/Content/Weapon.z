@@ -79,9 +79,12 @@ class Weapon : ZilchComponent
             }
             if (playerStats.Batteries > 0 && Zero.Keyboard.KeyIsPressed(controller.Reload))
             {
-                playerStats.Energy = 0;
-                this.Reloading = true;
-                this.ReloadTimer = this.TimeToReload;
+                if (playerStats.Energy < 100)
+                {
+                    playerStats.Energy = 0;
+                    this.Reloading = true;
+                    this.ReloadTimer = this.TimeToReload;
+                }
                 //Console.WriteLine("Started reloading");
             }
         }

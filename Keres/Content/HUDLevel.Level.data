@@ -75,7 +75,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.33398, -12.5256, 36.4962],
+			Vec3 Translation = [14.0353, 1.47922, 36.4963],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [4.52157e-007, -2.86217e-006, 1.30351e-012, 1],
 		},
@@ -87,7 +87,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 24.6598,
+			float Size = 33.2871,
 		},
 		EditorCameraController = 
 		{
@@ -95,7 +95,7 @@ Level =
 			float LookDistance = 33.5159,
 			float VerticalAngle = -9.04314e-007,
 			float HorizontalAngle = 5.68293e-006,
-			Vec3 LookTarget = [-1.33379, -12.5255, 2.98027],
+			Vec3 LookTarget = [14.0355, 1.47925, 2.98037],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -279,7 +279,7 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [13.2765, 7.14162, 0],
-			Vec3 Scale = [1, 1, 1],
+			Vec3 Scale = [2.5, 2.5, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -289,10 +289,10 @@ Level =
 			bool VisibilityEvents = false,
 			bool CastShadows = false,
 			Vec4 Color = [1, 1, 1, 0.3],
-			BlendMode BlendMode = Alpha,
+			BlendMode BlendMode = Additive,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "541aa13aec849265:Compass",
+			string SpriteSource = "55828924d5520434:Radar",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
@@ -339,26 +339,27 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, -1.89715, 0.1],
-					Vec3 Scale = [1, 1, 1],
+					Vec3 Translation = [0, -0.875915, 0.1],
+					Vec3 Scale = [0.5, 0.5, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
-				SpriteText = 
+				Sprite = 
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
+					bool VisibilityEvents = true,
 					bool CastShadows = false,
 					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
+					BlendMode BlendMode = Additive,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string FontName = "4e7bac697bec55c5:Verdana",
-					uint FontSize = 45,
-					string Text = "S",
-					TextAlign Align = Center,
-					float PixelsPerUnit = 64,
-					bool Smoothing = true,
+					string SpriteSource = "558288ba21bc1d6a:NorthSouth",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = false,
+					float AnimationSpeed = 1,
+					uint StartFrame = 1,
 				},
 			},
 			Cog = 
@@ -373,26 +374,27 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [1.89715, 0, 0.1],
-					Vec3 Scale = [1, 1, 1],
+					Vec3 Translation = [0, 0.875915, 0.1],
+					Vec3 Scale = [0.5, 0.5, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
-				SpriteText = 
+				Sprite = 
 				{
 					bool Visible = true,
 					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
+					bool VisibilityEvents = true,
 					bool CastShadows = false,
 					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
+					BlendMode BlendMode = Additive,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string FontName = "4e7bac697bec55c5:Verdana",
-					uint FontSize = 24,
-					string Text = "E",
-					TextAlign Align = Center,
-					float PixelsPerUnit = 64,
-					bool Smoothing = true,
+					string SpriteSource = "558288ba21bc1d6a:NorthSouth",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = false,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
 				},
 			},
 			Cog = 
@@ -400,74 +402,6 @@ Level =
 				LinkId = 
 				{
 					uint Id = 10,
-				},
-				Archetyped = 
-				{
-					string Name = "4faa6050b86884ec:DefaultArchetype",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-2.03931, 0, 0.1],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				SpriteText = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string FontName = "4e7bac697bec55c5:Verdana",
-					uint FontSize = 24,
-					string Text = "W",
-					TextAlign Align = Center,
-					float PixelsPerUnit = 64,
-					bool Smoothing = true,
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 11,
-				},
-				Archetyped = 
-				{
-					string Name = "4faa6050b86884ec:DefaultArchetype",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 1.89715, 0.1],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				SpriteText = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string FontName = "4e7bac697bec55c5:Verdana",
-					uint FontSize = 45,
-					string Text = "N",
-					TextAlign Align = Center,
-					float PixelsPerUnit = 64,
-					bool Smoothing = true,
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 12,
 				},
 				Named = 
 				{
@@ -480,46 +414,7 @@ Level =
 				Transform = 
 				{
 					Vec3 Translation = [0, 0, 0.02],
-					Vec3 Scale = [0.25, 0.25, 0.25],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = false,
-					Vec4 Color = [0, 0.49, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "5274db4c2e7c11f9:Circle",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 13,
-				},
-				Named = 
-				{
-					string Name = "GridLines",
-				},
-				Archetyped = 
-				{
-					string Name = "5491fd3173299584:HUD_RadarBlip",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0.01],
-					Vec3 Scale = [1, 1, 1],
+					Vec3 Scale = [0.5, 0.5, 0.25],
 					Quat Rotation = [0, 0, 0, 1],
 				},
 				Sprite = 
@@ -529,10 +424,10 @@ Level =
 					bool VisibilityEvents = false,
 					bool CastShadows = false,
 					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
+					BlendMode BlendMode = Additive,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "54bfbe5a9ea45e12:HUD_RadarLines",
+					string SpriteSource = "55828924d5285099:Player",
 					bool RenderMask = false,
 					bool FlipX = false,
 					bool FlipY = false,
@@ -547,7 +442,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 14,
+			uint Id = 11,
 		},
 		Named = 
 		{
@@ -591,7 +486,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 15,
+					uint Id = 12,
 				},
 				Named = 
 				{
@@ -636,7 +531,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 16,
+					uint Id = 13,
 				},
 				Named = 
 				{
@@ -675,7 +570,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 17,
+					uint Id = 14,
 				},
 				Named = 
 				{
@@ -714,7 +609,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 18,
+					uint Id = 15,
 				},
 				Named = 
 				{
@@ -753,7 +648,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 19,
+					uint Id = 16,
 				},
 				Named = 
 				{
@@ -797,7 +692,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 20,
+			uint Id = 17,
 		},
 		Named = 
 		{
@@ -840,7 +735,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 21,
+			uint Id = 18,
 		},
 		Named = 
 		{
@@ -895,7 +790,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 22,
+			uint Id = 19,
 		},
 		Named = 
 		{
@@ -955,7 +850,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 23,
+			uint Id = 20,
 		},
 		Named = 
 		{
@@ -990,7 +885,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 24,
+					uint Id = 21,
 				},
 				Named = 
 				{
@@ -1029,7 +924,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 25,
+					uint Id = 22,
 				},
 				Named = 
 				{
@@ -1068,7 +963,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 26,
+					uint Id = 23,
 				},
 				Named = 
 				{
@@ -1107,7 +1002,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 27,
+					uint Id = 24,
 				},
 				Named = 
 				{
@@ -1148,7 +1043,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 28,
+			uint Id = 25,
 		},
 		Named = 
 		{
@@ -1193,7 +1088,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 29,
+			uint Id = 26,
 		},
 		Named = 
 		{
@@ -1236,7 +1131,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 30,
+			uint Id = 27,
 		},
 		Named = 
 		{
@@ -1286,7 +1181,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 31,
+					uint Id = 28,
 				},
 				Named = 
 				{
@@ -1365,7 +1260,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 32,
+					uint Id = 29,
 				},
 				Named = 
 				{
@@ -1444,7 +1339,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 33,
+					uint Id = 30,
 				},
 				Named = 
 				{
@@ -1525,7 +1420,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 34,
+			uint Id = 31,
 		},
 		Named = 
 		{
@@ -1545,12 +1440,19 @@ Level =
 		{
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "55c2fd63e354d704:HUD_ConfirmDialog",
 		LinkId = 
 		{
-			uint Id = 35,
+			uint Id = 32,
+		},
+		Named = 
+		{
+			string Name = "ConfirmMenu",
+		},
+		Archetyped = 
+		{
+			string Name = "55c2fd63e354d704:HUD_ConfirmDialog",
 		},
 		Transform = 
 		{
@@ -1558,9 +1460,240 @@ Level =
 			Vec3 Scale = [2, 2, 2],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Named = 
+		Sprite = 
 		{
-			string Name = "ConfirmMenu",
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "558280f2a9d58b3a:HUD_ConfirmMenu",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [25, 25, 0.5],
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		HUD_ConfirmDialogScript = 
+		{
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 33,
+				},
+				Named = 
+				{
+					string Name = "dialogText",
+				},
+				Archetyped = 
+				{
+					string Name = "544fb0f9560fe465:HUD_MenuButton",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0.513984, 1],
+					Vec3 Scale = [0.611513, 0.611513, 0.611513],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [0.0200001, 1, 0, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string FontName = "4e7bac697bec55c5:Verdana",
+					uint FontSize = 16,
+					string Text = "Delete saved data?",
+					TextAlign Align = Center,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 34,
+				},
+				Named = 
+				{
+					string Name = "dialogNo",
+				},
+				Archetyped = 
+				{
+					string Name = "544fb0f9560fe465:HUD_MenuButton",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.75, -0.33906, 1],
+					Vec3 Scale = [0.75, 0.75, 1.5],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "55828445f6806ce5:button_No",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = false,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				Reactive = 
+				{
+					bool Active = true,
+					bool CaptureMouse = false,
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.78125, 0.5, 0.5],
+				},
+				MenuButton = 
+				{
+					string Target = "DialogNo",
+					bool LoadTargetAsLevel = false,
+					bool Disabled = false,
+				},
+				StartingLevel = 
+				{
+					string StartingLevel = "",
+				},
+				Soundbox_Menubutton = 
+				{
+					string Highlight = "5589894956eb4ce0:MenuButton_Highlight",
+					string Down = "55898976532eb315:MenuButton_Down",
+					string Up = "5589891daf5fa333:MenuButton_Up",
+				},
+				SoundEmitter = 
+				{
+					bool StartPlaying = false,
+					int ExtraPriority = 0,
+					string CueName = "4e1bd44008b4dc2a:DefaultCue",
+					float Volume = 1,
+					float Pitch = 1,
+					bool Positional = true,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 35,
+				},
+				Named = 
+				{
+					string Name = "dialogYes",
+				},
+				Archetyped = 
+				{
+					string Name = "544fb0f9560fe465:HUD_MenuButton",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.75, -0.339054, 1],
+					Vec3 Scale = [0.75, 0.75, 1.5],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = false,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5582847ef0acf038:button_Yes",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = false,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				Reactive = 
+				{
+					bool Active = true,
+					bool CaptureMouse = false,
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.78125, 0.5, 0.5],
+				},
+				MenuButton = 
+				{
+					string Target = "DialogYes",
+					bool LoadTargetAsLevel = false,
+					bool Disabled = false,
+				},
+				StartingLevel = 
+				{
+					string StartingLevel = "",
+				},
+				Soundbox_Menubutton = 
+				{
+					string Highlight = "5589894956eb4ce0:MenuButton_Highlight",
+					string Down = "55898976532eb315:MenuButton_Down",
+					string Up = "5589891daf5fa333:MenuButton_Up",
+				},
+				SoundEmitter = 
+				{
+					bool StartPlaying = false,
+					int ExtraPriority = 0,
+					string CueName = "4e1bd44008b4dc2a:DefaultCue",
+					float Volume = 1,
+					float Pitch = 1,
+					bool Positional = true,
+				},
+			},
 		},
 	},
 	Cog = 

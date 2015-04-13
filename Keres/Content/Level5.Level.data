@@ -310,7 +310,7 @@ Level =
 							string RibbonObject = "541bbd020465b0f4:ribbon_TestBeam",
 							CogPath ProjectileNode = "ProjectileNode",
 							int EnergyUse = 100,
-							float Range = 3,
+							float Range = 10000,
 							float TimeToReload = 1,
 							string AmmoString = "",
 						},

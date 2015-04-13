@@ -5,7 +5,8 @@ Changes
 ---
 +Added frequent pathing recalculation to Keres
 	-Seems to fix quite a lot of the pathing issues that were experienced
-+Added new art assets to synchronize the visuals for the buttons and menues
++Added new art assets to synchronize the visuals for the buttons and menus
++Added new art assets for the radar
 +Added sounds for stuff
 	-Doors
 	-Whoooosh
@@ -19,3 +20,5 @@ Changes
 ---
 Bugfixes
 ---
++Fixed a bug where the first radar ping that detected an enemy wouldn't play
+	sound

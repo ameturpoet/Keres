@@ -7,6 +7,7 @@ class HUDElement_Radar : ZilchComponent
     [Property]
     var RadarDistance : Real = 5.0;
     var HasNewBlip : Boolean = false;
+    var MaxDistance : Real = 0.0;
     
     /*
     *
@@ -22,14 +23,16 @@ class HUDElement_Radar : ZilchComponent
     {
         var allBlips = this.Owner.FindAllChildrenByName("Blip");
         
+        this.MaxDistance = this.Owner.Sprite.SpriteSource.GetSize().X / 128;
+        
         //Loops through all blips
         foreach (var bl in allBlips)
         {
             //Translates the blip
-            bl.Transform.Translation -= 2 * deltaMovement / this.RadarDistance;
+            bl.Transform.Translation -= 0.8 * deltaMovement / this.RadarDistance;
             
             //If the blip if outside the area of the radar, it vanishes
-            if (Math.Length(bl.Transform.Translation) > this.Owner.Sprite.SpriteSource.GetSize().X / 128)
+            if (Math.Length(bl.Transform.Translation) > this.MaxDistance)
             {
                 if (bl.Sprite.Visible)
                 {
@@ -53,7 +56,7 @@ class HUDElement_Radar : ZilchComponent
         if (Math.Length(Real2(relativePosition.X, relativePosition.Y)) <= this.RadarDistance)
         {
             var blipLocation = (relativePosition / this.RadarDistance) * this.Owner.Sprite.SpriteSource.GetSize().X / 128;
-            blipLocation.Z = 0.5;
+            blipLocation.Z = 0.01;
             var newBlip = this.Owner.Space.CreateAtPosition(this.BlipArchetype, blipLocation);
             newBlip.AttachTo(this.Owner);
             this.HasNewBlip = true;

@@ -167,7 +167,6 @@ class PlayerControl_Move : ZilchComponent
             if (this.PlayerStats.CooldownTimer <= 0.0)
             {
                 this.PlayerStats.CooldownTimer = this.PlayerStats.RadarCooldown;
-                this.Radar.HUDElement_Radar.AddPing();
                 
                 var enemies = this.Owner.Space.FindAllObjectsByName("enemy");
                 
@@ -177,6 +176,8 @@ class PlayerControl_Move : ZilchComponent
                     
                     this.Radar.HUDElement_Radar.AddBlip(relativePosition);
                 }
+                
+                this.Radar.HUDElement_Radar.AddPing();
             }
         }
         else
