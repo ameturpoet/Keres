@@ -6,6 +6,8 @@ class Soundbox_Door : ZilchComponent
     var Close : SoundCue = null;
     [Property]
     var Unlock : SoundCue = null;
+    [Property]
+    var Loop : SoundCue = null;
     
     function Initialize(init : CogInitializer)
     {
@@ -19,11 +21,15 @@ class Soundbox_Door : ZilchComponent
 
     function PlayOpen()
     {
+        this.Owner.SoundEmitter.Stop();
+        
+        this.Owner.SoundEmitter.PlayCue(this.Loop);
         this.Owner.SoundEmitter.PlayCue(this.Open);
     }
     
     function PlayClose()
     {
+        this.Owner.SoundEmitter.Stop();
         this.Owner.SoundEmitter.PlayCue(this.Close);
     }
 }

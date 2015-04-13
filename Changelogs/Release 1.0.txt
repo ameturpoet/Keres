@@ -1,0 +1,21 @@
+Release 1.0
+4/13/2015
+-------------
+Changes
+---
++Added frequent pathing recalculation to Keres
+	-Seems to fix quite a lot of the pathing issues that were experienced
++Added new art assets to synchronize the visuals for the buttons and menues
++Added sounds for stuff
+	-Doors
+	-Whoooosh
+	-Buttons
+	-Gunshot
+	-Dying and falling down
++Started framework for options menu
+	-Not entirely sure if we can get this done in time
+
+
+---
+Bugfixes
+---

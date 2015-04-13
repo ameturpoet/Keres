@@ -84,6 +84,7 @@ class EnemyAI : ZilchComponent
                 this.Owner.Soundbox_Keres.PlayDoorBang();
                 this.BangTimeCooldown = 0.6;
                 Console.WriteLine("Doorbang");
+                this.State = EnemyState.Idle;
             }
         }
     }
@@ -131,6 +132,8 @@ class EnemyAI : ZilchComponent
                 {
                     this.FootstepCounter = 1.4;
                     this.Soundbox.PlayFootstep();
+                    this.GetCurrentTile();
+                    this.GetNextTile();
                 }
             }
             //If the enemy is aggroed, it moves directly towards the player and checks for line-of-sight to the player

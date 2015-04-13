@@ -75,7 +75,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [1.32658, -11.347, 36.4962],
+			Vec3 Translation = [-1.33398, -12.5256, 36.4962],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [4.52157e-007, -2.86217e-006, 1.30351e-012, 1],
 		},
@@ -87,7 +87,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 36.7879,
+			float Size = 24.6598,
 		},
 		EditorCameraController = 
 		{
@@ -95,7 +95,7 @@ Level =
 			float LookDistance = 33.5159,
 			float VerticalAngle = -9.04314e-007,
 			float HorizontalAngle = 5.68293e-006,
-			Vec3 LookTarget = [1.32677, -11.347, 2.98028],
+			Vec3 LookTarget = [-1.33379, -12.5255, 2.98027],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -1249,7 +1249,7 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [0, -14.0713, 5],
-			Vec3 Scale = [1, 1, 1],
+			Vec3 Scale = [2, 2, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		HUDElement = 
@@ -1269,7 +1269,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "544fbf056c4d32c2:HUD_TempPauseScreen",
+			string SpriteSource = "558280f2a9df7d8c:HUD_PauseMenu",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
@@ -1298,8 +1298,8 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, 1.25785, 0.1],
-					Vec3 Scale = [2.5, 2.5, 2],
+					Vec3 Translation = [0, 0.473744, 0.1],
+					Vec3 Scale = [1.7, 1.1, 2],
 					Quat Rotation = [0, 0, 0, 1],
 				},
 				Sprite = 
@@ -1345,6 +1345,21 @@ Level =
 				{
 					string StartingLevel = "",
 				},
+				Soundbox_Menubutton = 
+				{
+					string Highlight = "5589894956eb4ce0:MenuButton_Highlight",
+					string Down = "55898976532eb315:MenuButton_Down",
+					string Up = "5589891daf5fa333:MenuButton_Up",
+				},
+				SoundEmitter = 
+				{
+					bool StartPlaying = false,
+					int ExtraPriority = 0,
+					string CueName = "4e1bd44008b4dc2a:DefaultCue",
+					float Volume = 1,
+					float Pitch = 1,
+					bool Positional = true,
+				},
 			},
 			Cog = 
 			{
@@ -1362,8 +1377,8 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, -0.793985, 0.1],
-					Vec3 Scale = [1, 1, 1],
+					Vec3 Translation = [0, -0.456026, 0.1],
+					Vec3 Scale = [1.7, 1.1, 2.5],
 					Quat Rotation = [0, 0, 0, 1],
 				},
 				Sprite = 
@@ -1376,30 +1391,13 @@ Level =
 					BlendMode BlendMode = Alpha,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "544fbcc6ad2dfc41:HUD_TempMenuButton",
+					string SpriteSource = "55828451f44f8d16:Button_Menu",
 					bool RenderMask = false,
 					bool FlipX = false,
 					bool FlipY = false,
 					bool AnimationActive = false,
 					float AnimationSpeed = 1,
 					uint StartFrame = 0,
-				},
-				SpriteText = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = false,
-					bool CastShadows = false,
-					Vec4 Color = [0, 0, 0, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string FontName = "4e7bac697bec55c5:Verdana",
-					uint FontSize = 36,
-					string Text = "MENU",
-					TextAlign Align = Center,
-					float PixelsPerUnit = 64,
-					bool Smoothing = true,
 				},
 				Reactive = 
 				{
@@ -1414,7 +1412,7 @@ Level =
 					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
+					Vec3 Size = [0.78125, 0.390625, 0.390625],
 				},
 				MenuButton = 
 				{
@@ -1425,6 +1423,21 @@ Level =
 				StartingLevel = 
 				{
 					string StartingLevel = "",
+				},
+				Soundbox_Menubutton = 
+				{
+					string Highlight = "5589894956eb4ce0:MenuButton_Highlight",
+					string Down = "55898976532eb315:MenuButton_Down",
+					string Up = "5589891daf5fa333:MenuButton_Up",
+				},
+				SoundEmitter = 
+				{
+					bool StartPlaying = false,
+					int ExtraPriority = 0,
+					string CueName = "4e1bd44008b4dc2a:DefaultCue",
+					float Volume = 1,
+					float Pitch = 1,
+					bool Positional = true,
 				},
 			},
 			Cog = 
@@ -1443,8 +1456,8 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, -2.78487, 0.1],
-					Vec3 Scale = [2.5, 2.5, 1],
+					Vec3 Translation = [0, -1.39924, 0.1],
+					Vec3 Scale = [1.7, 1.1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
 				Sprite = 
@@ -1490,6 +1503,21 @@ Level =
 				{
 					string StartingLevel = "",
 				},
+				Soundbox_Menubutton = 
+				{
+					string Highlight = "5589894956eb4ce0:MenuButton_Highlight",
+					string Down = "55898976532eb315:MenuButton_Down",
+					string Up = "5589891daf5fa333:MenuButton_Up",
+				},
+				SoundEmitter = 
+				{
+					bool StartPlaying = false,
+					int ExtraPriority = 0,
+					string CueName = "4e1bd44008b4dc2a:DefaultCue",
+					float Volume = 1,
+					float Pitch = 1,
+					bool Positional = true,
+				},
 			},
 		},
 	},
@@ -1527,7 +1555,7 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [0, 64, 10],
-			Vec3 Scale = [1, 1, 1],
+			Vec3 Scale = [2, 2, 2],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Named = 

@@ -95,9 +95,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.937267, -41.1743, 48.4601],
+			Vec3 Translation = [12.5725, -12.9171, 48.7626],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.007854, 0.0052357, -4.1123e-005, 0.999956],
+			Quat Rotation = [0.00785401, 0.00523571, -4.11231e-005, 0.999956],
 		},
 		Camera = 
 		{
@@ -107,7 +107,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 10.9479,
+			float Size = 29.7595,
 		},
 		EditorCameraController = 
 		{
@@ -115,7 +115,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = -0.0157084,
 			float HorizontalAngle = -0.0104718,
-			Vec3 LookTarget = [-1.46078, -40.3889, -1.53096],
+			Vec3 LookTarget = [12.049, -12.1317, -1.2285],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -279,6 +279,8 @@ Level =
 			string TaserReload1 = "5440a9a07eb01355:TaserLoad_0Swing",
 			string TaserReload2 = "5440a8f95db4c6af:TaserLoad_1Out",
 			string TaserReload3 = "5440a8eb591c454e:TaserLoad_2In",
+			string FallPart1 = "5582ff26b35ea1f4:Player_Fall1",
+			string FallPart2 = "5582fed48deb3fdb:Player_Fall2",
 		},
 		Hierarchy = 
 		{
@@ -869,6 +871,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -1145,6 +1148,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -1358,6 +1362,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -1571,6 +1576,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -1994,6 +2000,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -2149,8 +2156,8 @@ Level =
 				Transform = 
 				{
 					Vec3 Translation = [21.4967, -36.5386, 0.239139],
-					Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
-					Quat Rotation = [0, 0, 0, 1],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0.707107, 0, 0, 0.707107],
 				},
 				Named = 
 				{
@@ -2167,8 +2174,8 @@ Level =
 				Transform = 
 				{
 					Vec3 Translation = [8.30395, -19.3024, 0.220322],
-					Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
-					Quat Rotation = [0, 0, 0, 1],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0.707107, 0, 0, 0.707107],
 				},
 				Named = 
 				{
@@ -2185,8 +2192,8 @@ Level =
 				Transform = 
 				{
 					Vec3 Translation = [-9.31486, -19.3509, 0.088573],
-					Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
-					Quat Rotation = [0, 0, 0, 1],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0.707107, 0, 0, 0.707107],
 				},
 				Named = 
 				{
@@ -2324,6 +2331,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -2537,6 +2545,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -2692,8 +2701,8 @@ Level =
 				Transform = 
 				{
 					Vec3 Translation = [-0.823051, -5.22171, 0.445316],
-					Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
-					Quat Rotation = [0, 0, 0, 1],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0.707107, 0, 0, 0.707107],
 				},
 				Named = 
 				{
@@ -3434,6 +3443,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "",
 		},
 		Interactable_Piston = 
 		{
@@ -3631,6 +3641,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "",
 		},
 		Interactable_Piston = 
 		{
@@ -3828,6 +3839,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "",
 		},
 		Interactable_Piston = 
 		{
@@ -4025,6 +4037,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "",
 		},
 		Interactable_Piston = 
 		{
@@ -4222,6 +4235,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "",
 		},
 		Interactable_Piston = 
 		{
@@ -5184,8 +5198,8 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [-0.502838, -18.5242, 0.997742],
-			Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
-			Quat Rotation = [0, 0, 0, 1],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
 		Named = 
 		{
@@ -5202,8 +5216,8 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [0.078825, -32.5064, 0.637829],
-			Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
-			Quat Rotation = [0, 0, 0, 1],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
 		Named = 
 		{
@@ -5951,7 +5965,7 @@ Level =
 			BlendMode BlendMode = Additive,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "55745349fa6e0b77:Map_lvl4",
+			string SpriteSource = "557558ca9d9d73e7:Map_lvl4",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,

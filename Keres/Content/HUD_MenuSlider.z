@@ -1,0 +1,73 @@
+class HUD_MenuSlider : ZilchComponent
+{
+    [Property]
+    var DataType : String = null;
+    
+    var MinimumPosition : Real3 = Real3(0, 0, 0);
+    var MaximumPosition : Real3 = Real3(0, 0, 0);
+    var Level : Real = 0.0;
+    var SliderPiece : Cog = null;
+    var Text : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        var bar = this.Owner.FindChildByName("SliderBG");
+        this.SliderPiece = this.Owner.FindChildByName("SliderPiece");
+        this.Text = this.Owner.FindChildByName("SliderLevel");
+        
+        this.MinimumPosition = bar.Transform.Scale;
+        this.MinimumPosition.X /= -2;
+        this.MinimumPosition.Y = 0;
+        this.MinimumPosition.Z = 0;
+        this.MaximumPosition.X = this.MinimumPosition.X * -1;
+        
+        this.SetSliderLevel(0.7);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+    
+    function SetSliderLevel(level : Real)
+    {
+        this.Level = level;
+        
+        var newPos = this.MinimumPosition;
+        var diff = this.MaximumPosition - this.MinimumPosition;
+        newPos += level * diff;
+        
+        this.SliderPiece.Transform.Translation = newPos;
+        
+        var sb = new StringBuilder();
+        sb.WriteLine(((this.Level * 100) as Integer));
+        
+        this.Text.SpriteText.Text = sb.ToString();
+    }
+    
+    function SetSliderPosition(mousePos : Real3)
+    {
+        
+        var newPos = mousePos;
+        newPos.Y = 0.0;
+        newPos.Z = 0.0;
+        if (newPos.X > this.MaximumPosition.X)
+        {
+            newPos.X = this.MaximumPosition.X;
+        }
+        else if (newPos.X < this.MinimumPosition.X)
+        {
+            newPos.X = this.MinimumPosition.X;
+        }
+        
+        this.SliderPiece.Transform.Translation = newPos;
+        
+        this.Level = (newPos.X - this.MinimumPosition.X) / (this.MaximumPosition.X - this.MinimumPosition.X);
+        
+        var sb = new StringBuilder();
+        sb.WriteLine(((this.Level * 100) as Integer));
+        
+        this.Text.SpriteText.Text = sb.ToString();
+    }
+}

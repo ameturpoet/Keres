@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "HUD_MenuSliderPiece",
+		uint64 ResourceId = 557ddfdc0b972e0f,
+	},
+},

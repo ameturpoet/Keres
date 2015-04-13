@@ -506,9 +506,15 @@ class PlayerControl_Move : ZilchComponent
         else if (this.FootstepCounter <= 1.5)
         {
             this.OldPosition = this.Owner.Transform.Translation;
+            if (!this.Moving)
+            {
+                this.Owner.Soundbox_Player.PlayFall1();
+                this.Moving = true;
+            }
         }
         else if (this.FootstepCounter <= 2.1)
         {
+            this.Moving = false;
             var stage = (this.FootstepCounter - 1.5) / 0.6;
             var tempTranslation = this.OldPosition;
             tempTranslation -= this.RightVector * Math.Sin(stage) * 0.23;
@@ -527,6 +533,7 @@ class PlayerControl_Move : ZilchComponent
                 blackScreen.LoadScreenElement.BeginFadeIn();
                 this.Moving = true;
                 blackScreen.LoadScreenElement.Speed = 0.4;
+                this.Owner.Soundbox_Player.PlayFall2();
             }
             if (!blackScreen.LoadScreenElement.FadeIn)
             {

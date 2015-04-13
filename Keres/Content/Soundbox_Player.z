@@ -16,10 +16,24 @@ class Soundbox_Player : ZilchComponent
     var TaserReload2 : SoundCue = null;
     [Property]
     var TaserReload3 : SoundCue = null;
+    [Property]
+    var FallPart1 : SoundCue = null;
+    [Property]
+    var FallPart2 : SoundCue = null;
     
     function Initialize(init : CogInitializer)
     {
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function PlayFall1()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.FallPart1);
+    }
+    
+    function PlayFall2()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.FallPart2);
     }
 
     function PlayGunshot()

@@ -95,9 +95,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [14.4307, -8.64107, 48.7569],
+			Vec3 Translation = [24.7588, -39.6652, 46.6968],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.0261711, 0.0209302, -0.000548074, 0.999438],
+			Quat Rotation = [0.0261711, 0.0209285, -0.00054803, 0.999438],
 		},
 		Camera = 
 		{
@@ -107,7 +107,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 44.3958,
+			float Size = 22.0464,
 		},
 		EditorCameraController = 
 		{
@@ -115,7 +115,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = -0.0523597,
 			float HorizontalAngle = -6.32506,
-			Vec3 LookTarget = [12.3403, -6.02428, -1.1308],
+			Vec3 LookTarget = [22.6686, -37.0484, -3.19087],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -279,6 +279,8 @@ Level =
 			string TaserReload1 = "5440a9a07eb01355:TaserLoad_0Swing",
 			string TaserReload2 = "5440a8f95db4c6af:TaserLoad_1Out",
 			string TaserReload3 = "5440a8eb591c454e:TaserLoad_2In",
+			string FallPart1 = "5582ff26b35ea1f4:Player_Fall1",
+			string FallPart2 = "5582ff26b35ea1f4:Player_Fall1",
 		},
 		Hierarchy = 
 		{
@@ -655,12 +657,19 @@ Level =
 			string Name = "invPlayer",
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		LinkId = 
 		{
 			uint Id = 17,
+		},
+		Named = 
+		{
+			string Name = "enemy",
+		},
+		Archetyped = 
+		{
+			string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		},
 		Transform = 
 		{
@@ -668,9 +677,63 @@ Level =
 			Vec3 Scale = [0.1, 0.1, 0.1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Named = 
+		Model = 
 		{
-			string Name = "enemy",
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4faa78123470162f:FallbackMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		EnemyAI = 
+		{
+			int AttackDamage = 50,
+			float MaxStunTime = 2.5,
+			float Speed = 1.7,
+			float SightDistance = 3,
+			float MaxSightDistance = 20,
+			float AttentionSpanTime = 1000,
+			float AttackCooldown = 0.3,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "5405da44800eb0cf:ActorMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [1, 1, 4],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "54ffb77ae794dfe3:FootSteps",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = true,
+		},
+		Soundbox_Keres = 
+		{
+			string Stunned = "5477f3bb6085e37d:Impact_Taser",
+			string Footstep = "5477f3b8606e5574:Footstep_Keres",
+			string BangOnDoor = "55898a1e3eda56c8:Keres_BangDoor",
+			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
 		},
 	},
 	Cog = 
@@ -973,6 +1036,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -1249,6 +1313,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -1462,6 +1527,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -1675,6 +1741,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -1888,6 +1955,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -2043,8 +2111,8 @@ Level =
 				Transform = 
 				{
 					Vec3 Translation = [13.5231, -22.607, 0.19762],
-					Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
-					Quat Rotation = [0, 0, 0, 1],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0.707107, 0, 0, 0.707107],
 				},
 				Named = 
 				{
@@ -2061,8 +2129,8 @@ Level =
 				Transform = 
 				{
 					Vec3 Translation = [2.5569, -19.3115, 0.193824],
-					Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
-					Quat Rotation = [0, 0, 0, 1],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0.707107, 0, 0, 0.707107],
 				},
 				Named = 
 				{
@@ -2079,8 +2147,8 @@ Level =
 				Transform = 
 				{
 					Vec3 Translation = [24.0363, -18.972, 0.221721],
-					Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
-					Quat Rotation = [0, 0, 0, 1],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0.707107, 0, 0, 0.707107],
 				},
 				Named = 
 				{
@@ -2097,8 +2165,8 @@ Level =
 				Transform = 
 				{
 					Vec3 Translation = [31.4783, -23.5959, 0.19762],
-					Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
-					Quat Rotation = [0, 0, 0, 1],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0.707107, 0, 0, 0.707107],
 				},
 				Named = 
 				{
@@ -2115,8 +2183,8 @@ Level =
 				Transform = 
 				{
 					Vec3 Translation = [22.4765, -5.53643, 0.211139],
-					Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
-					Quat Rotation = [0, 0, 0, 1],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0.707107, 0, 0, 0.707107],
 				},
 				Named = 
 				{
@@ -2254,6 +2322,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -2467,6 +2536,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -2680,6 +2750,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -2893,6 +2964,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -3106,6 +3178,7 @@ Level =
 					string Open = "5477f3b8607636ab:Door_Open",
 					string Close = "5477f3b8604c1ffd:Door_Close",
 					string Unlock = "5477f3b8607bbff1:Door_Unlock",
+					string Loop = "5582f2742ced4104:Door_Loop",
 				},
 				Hierarchy = 
 				{
@@ -4554,6 +4627,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "5582f2742ced4104:Door_Loop",
 		},
 		Interactable_LoadGate = 
 		{
@@ -4705,12 +4779,19 @@ Level =
 			},
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		LinkId = 
 		{
 			uint Id = 87,
+		},
+		Named = 
+		{
+			string Name = "enemy",
+		},
+		Archetyped = 
+		{
+			string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		},
 		Transform = 
 		{
@@ -4718,17 +4799,78 @@ Level =
 			Vec3 Scale = [0.1, 0.1, 0.1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
+		Model = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4faa78123470162f:FallbackMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		EnemyAI = 
+		{
+			int AttackDamage = 50,
+			float MaxStunTime = 2.5,
+			float Speed = 1.7,
+			float SightDistance = 3,
+			float MaxSightDistance = 20,
+			float AttentionSpanTime = 1000,
+			float AttackCooldown = 0.3,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "5405da44800eb0cf:ActorMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [1, 1, 4],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "54ffb77ae794dfe3:FootSteps",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = true,
+		},
+		Soundbox_Keres = 
+		{
+			string Stunned = "5477f3bb6085e37d:Impact_Taser",
+			string Footstep = "5477f3b8606e5574:Footstep_Keres",
+			string BangOnDoor = "55898a1e3eda56c8:Keres_BangDoor",
+			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 88,
+		},
 		Named = 
 		{
 			string Name = "enemy",
 		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "5499dbe25aa98c1a:Enemy_Keres",
-		LinkId = 
+		Archetyped = 
 		{
-			uint Id = 88,
+			string Name = "5499dbe25aa98c1a:Enemy_Keres",
 		},
 		Transform = 
 		{
@@ -4736,9 +4878,63 @@ Level =
 			Vec3 Scale = [0.1, 0.1, 0.1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Named = 
+		Model = 
 		{
-			string Name = "enemy",
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "4faa78123470162f:FallbackMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		EnemyAI = 
+		{
+			int AttackDamage = 50,
+			float MaxStunTime = 2.5,
+			float Speed = 1.7,
+			float SightDistance = 3,
+			float MaxSightDistance = 20,
+			float AttentionSpanTime = 1000,
+			float AttackCooldown = 0.3,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "5405da44800eb0cf:ActorMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [1, 1, 4],
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = true,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = false,
+			int ExtraPriority = 0,
+			string CueName = "54ffb77ae794dfe3:FootSteps",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = true,
+		},
+		Soundbox_Keres = 
+		{
+			string Stunned = "5477f3bb6085e37d:Impact_Taser",
+			string Footstep = "5477f3b8606e5574:Footstep_Keres",
+			string BangOnDoor = "55898a1e3eda56c8:Keres_BangDoor",
+			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
 		},
 	},
 	Cog = 
@@ -5048,6 +5244,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "",
 		},
 		Interactable_LoadGate = 
 		{

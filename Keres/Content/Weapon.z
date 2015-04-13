@@ -54,13 +54,27 @@ class Weapon : ZilchComponent
         else
         {
             this.Recoil(deltaTime, playerStats);
-            if (playerStats.Energy >= this.EnergyUse && (this.MouseState != this.OldMState && this.MouseState) && this.RecoilTracker >= -0.25)
-            //if (playerStats.Energy >= this.EnergyUse && Zero.Mouse.IsButtonDown(MouseButtons.Left) && this.RecoilTracker >= -0.25)
+            
+            //this is really dumb, but comment the first if statement and uncomment the second one for FULL-AUTO ACTION
+            
+            if ((this.MouseState != this.OldMState && this.MouseState))
+            //if (this.MouseState)
             {
-                this.Fire(impactLocation);
-                if (!playerStats.DebugMode)
+                if (playerStats.Energy >= this.EnergyUse)
                 {
-                    playerStats.Energy -= this.EnergyUse;
+                    if (this.RecoilTracker >= -0.25)
+                    {
+                        this.Fire(impactLocation);
+                        if (!playerStats.DebugMode)
+                        {
+                            playerStats.Energy -= this.EnergyUse;
+                        }
+                    }
+                }
+                else if (playerStats.Batteries > 0)
+                {
+                    this.Reloading = true;
+                    this.ReloadTimer = this.TimeToReload;
                 }
             }
             if (playerStats.Batteries > 0 && Zero.Keyboard.KeyIsPressed(controller.Reload))

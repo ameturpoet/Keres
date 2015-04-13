@@ -39,13 +39,11 @@ class Interactable_Gate : ZilchComponent
         if (this.State == 0 || this.State == 1)
         {
             this.State = 3;
-            this.Owner.SoundEmitter.Stop();
-            this.Owner.Soundbox_Door.PlayClose();
+            this.Owner.Soundbox_Door.PlayOpen();
         }
         else if (this.State == 2 || this.State == 3)
         {
             this.State = 1;
-            this.Owner.SoundEmitter.Stop();
             this.Owner.Soundbox_Door.PlayOpen();
             if (this.Owner.Interactable_LoadGate != null)
             {
@@ -87,6 +85,7 @@ class Interactable_Gate : ZilchComponent
             {
                 this.State = 0;
                 this.CurrentOpenTime = this.OpenTime;
+                this.Owner.Soundbox_Door.PlayClose();
             }
             this.UpdateSubObjects();
         }
@@ -97,6 +96,7 @@ class Interactable_Gate : ZilchComponent
             {
                 this.State = 2;
                 this.CurrentOpenTime = 0.0;
+                this.Owner.Soundbox_Door.PlayClose();
             }
             this.UpdateSubObjects();
         }

@@ -1,0 +1,35 @@
+class HUD_MenuSliderPiece : ZilchComponent
+{
+    var Active : Boolean = false;
+    var MousePos : Real3 = Real3(0, 0, 0);
+    var Camera : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.MouseDown, this.MouseDown);
+        Zero.Connect(this.Space, Events.MouseUp, this.MouseUp);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.MouseMove);
+        this.Camera = this.Owner.Space.FindObjectByName("Camera");
+    }
+    
+    function MouseMove(event : UpdateEvent)
+    {
+        if (this.Active)
+        {
+            this.MousePos.X += Zero.Mouse.RawMovement.X / 48;
+            this.MousePos.Y += Zero.Mouse.RawMovement.Y / 48;
+            
+            this.Owner.Parent.HUD_MenuSlider.SetSliderPosition(this.MousePos);
+        }
+    }
+
+    function MouseDown(event : MouseEvent)
+    {
+        this.Active = true;
+    }
+    
+    function MouseUp(event : MouseEvent)
+    {
+        this.Active = false;
+    }
+}

@@ -183,6 +183,8 @@ class LevelGenerator : ZilchComponent
         player.PlayerControl_Move.UpdateO2(0);
         player.PlayerControl_Move.SetHUDPointers();
         player.Inventory.LoadItemIcons();
+        this.LevelGeometry = this.Owner.Space.FindObjectByName("LevelGeometry");
+        this.LevelGeometry.NavigationController.UpdateWeights(player.Transform.Translation);
         
     }
     

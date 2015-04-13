@@ -159,6 +159,8 @@ class MenuButton : ZilchComponent
         var camera = this.Owner.Space.FindObjectByName("Camera");
         camera.MenuCameraScript.CurrentState = "Credits";
         camera.MenuCameraScript.MoveCounter = 0.0;
+        this.Owner.SoundEmitter.Stop();
+        this.Owner.SoundEmitter.Play();
     }
     
     //Starts the camera's movement to the credits section of the menu
@@ -167,6 +169,8 @@ class MenuButton : ZilchComponent
         var camera = this.Owner.Space.FindObjectByName("Camera");
         camera.MenuCameraScript.CurrentState = "Menu";
         camera.MenuCameraScript.MoveCounter = 1.0;
+        this.Owner.SoundEmitter.Stop();
+        this.Owner.SoundEmitter.Play();
     }
     
     //Prompts the user to exit the game
@@ -285,10 +289,13 @@ class MenuButton : ZilchComponent
                 if (this.Clicked)
                 {
                     this.Owner.Sprite.CurrentFrame = 2;
+                    this.Owner.Soundbox_Menubutton.PlayDown();
                 }
                 else
                 {
                     this.Owner.Sprite.CurrentFrame = 1;
+                    this.Owner.Soundbox_Menubutton.PlayHighlight();
+                    
                 }
             }
             else
@@ -328,6 +335,7 @@ class MenuButton : ZilchComponent
     {
         if (this.Clicked && this.Highlighted)
         {
+            this.Owner.Soundbox_Menubutton.PlayUp();
             this.Clicked = false;
             this.SetCorrectSprite();
             this.DoTarget();

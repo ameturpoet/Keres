@@ -1,0 +1,29 @@
+class Soundbox_Menubutton : ZilchComponent
+{
+    [Property]
+    var Highlight : SoundCue = null;
+    [Property]
+    var Down : SoundCue = null;
+    [Property]
+    var Up : SoundCue = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function PlayHighlight()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.Highlight);
+    }
+
+    function PlayDown()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.Down);
+    }
+    
+    function PlayUp()
+    {
+        this.Owner.SoundEmitter.PlayCue(this.Up);
+    }
+}

@@ -15,7 +15,7 @@ Cog =
 	Transform = 
 	{
 		Vec3 Translation = [0, 62.3679, 25],
-		Vec3 Scale = [1, 1, 1],
+		Vec3 Scale = [2, 2, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
@@ -28,11 +28,10 @@ Cog =
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "55c2fc08198cd9ad:HUD_ButtonConfirmDialog",
+		string SpriteSource = "558280f2a9d58b3a:HUD_ConfirmMenu",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
-		bool OnTop = false,
 		bool AnimationActive = true,
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
@@ -65,7 +64,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "dialogYes",
+				string Name = "dialogText",
 			},
 			Archetyped = 
 			{
@@ -73,28 +72,9 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [-1.96, -1.23969, 1],
+				Vec3 Translation = [0, 0.513984, 1],
 				Vec3 Scale = [0.611513, 0.611513, 0.611513],
 				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = false,
-				bool CastShadows = false,
-				Vec4 Color = [1, 1, 1, 1],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "544fbcc6ad2dfc41:HUD_TempMenuButton",
-				bool RenderMask = false,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool OnTop = false,
-				bool AnimationActive = false,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
 			},
 			SpriteText = 
 			{
@@ -102,44 +82,16 @@ Cog =
 				bool VisibilityCulling = true,
 				bool VisibilityEvents = false,
 				bool CastShadows = false,
-				Vec4 Color = [0, 0, 0, 1],
+				Vec4 Color = [0.0200001, 1, 0, 1],
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				TextPositionMode Position = Centered,
 				string FontName = "4e7bac697bec55c5:Verdana",
-				uint FontSize = 36,
-				string Text = "YES",
-				bool OnTop = false,
-				Vec2 Size = [0, 0],
-				TextAlign Align = Left,
+				uint FontSize = 16,
+				string Text = "Delete saved data?",
+				TextAlign Align = Center,
 				float PixelsPerUnit = 64,
 				bool Smoothing = true,
-			},
-			Reactive = 
-			{
-				bool Active = true,
-				bool CaptureMouse = false,
-			},
-			BoxCollider = 
-			{
-				bool Ghost = false,
-				bool SendsMessages = true,
-				bool Seamless = true,
-				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, 0, 0],
-				Vec3 Size = [0.5, 0.5, 0.5],
-			},
-			MenuButton = 
-			{
-				string Target = "DialogYes",
-				bool LoadTargetAsLevel = false,
-				bool Disabled = false,
-			},
-			StartingLevel = 
-			{
-				string StartingLevel = "54c6ebb176a4e36f:Level2Alpha",
 			},
 		},
 		Cog = 
@@ -158,8 +110,8 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [1.96, -1.2397, 1],
-				Vec3 Scale = [0.611513, 0.611513, 0.611513],
+				Vec3 Translation = [0.75, -0.33906, 1],
+				Vec3 Scale = [0.75, 0.75, 1.5],
 				Quat Rotation = [0, 0, 0, 1],
 			},
 			Sprite = 
@@ -172,34 +124,13 @@ Cog =
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "544fbcc6ad2dfc41:HUD_TempMenuButton",
+				string SpriteSource = "55828445f6806ce5:button_No",
 				bool RenderMask = false,
 				bool FlipX = false,
 				bool FlipY = false,
-				bool OnTop = false,
 				bool AnimationActive = false,
 				float AnimationSpeed = 1,
 				uint StartFrame = 0,
-			},
-			SpriteText = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = false,
-				bool CastShadows = false,
-				Vec4 Color = [0, 0, 0, 1],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				TextPositionMode Position = Centered,
-				string FontName = "4e7bac697bec55c5:Verdana",
-				uint FontSize = 36,
-				string Text = "NO",
-				bool OnTop = false,
-				Vec2 Size = [0, 0],
-				TextAlign Align = Left,
-				float PixelsPerUnit = 64,
-				bool Smoothing = true,
 			},
 			Reactive = 
 			{
@@ -214,7 +145,7 @@ Cog =
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 				Vec3 Offset = [0, 0, 0],
-				Vec3 Size = [0.5, 0.5, 0.5],
+				Vec3 Size = [0.78125, 0.5, 0.5],
 			},
 			MenuButton = 
 			{
@@ -224,7 +155,22 @@ Cog =
 			},
 			StartingLevel = 
 			{
-				string StartingLevel = "54c6ebb176a4e36f:Level2Alpha",
+				string StartingLevel = "",
+			},
+			Soundbox_Menubutton = 
+			{
+				string Highlight = "5589894956eb4ce0:MenuButton_Highlight",
+				string Down = "55898976532eb315:MenuButton_Down",
+				string Up = "5589891daf5fa333:MenuButton_Up",
+			},
+			SoundEmitter = 
+			{
+				bool StartPlaying = false,
+				int ExtraPriority = 0,
+				string CueName = "4e1bd44008b4dc2a:DefaultCue",
+				float Volume = 1,
+				float Pitch = 1,
+				bool Positional = true,
 			},
 		},
 		Cog = 
@@ -235,7 +181,7 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "dialogText",
+				string Name = "dialogYes",
 			},
 			Archetyped = 
 			{
@@ -243,29 +189,67 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, 0.0582731, 1],
-				Vec3 Scale = [0.611513, 0.611513, 0.611513],
+				Vec3 Translation = [-0.75, -0.339054, 1],
+				Vec3 Scale = [0.75, 0.75, 1.5],
 				Quat Rotation = [0, 0, 0, 1],
 			},
-			SpriteText = 
+			Sprite = 
 			{
 				bool Visible = true,
 				bool VisibilityCulling = true,
 				bool VisibilityEvents = false,
 				bool CastShadows = false,
-				Vec4 Color = [0, 0, 0, 1],
+				Vec4 Color = [1, 1, 1, 1],
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
 				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				TextPositionMode Position = Centered,
-				string FontName = "4e7bac697bec55c5:Verdana",
-				uint FontSize = 36,
-				string Text = "Delete saved data?",
-				bool OnTop = false,
-				Vec2 Size = [12, 2.3],
-				TextAlign Align = Center,
-				float PixelsPerUnit = 64,
-				bool Smoothing = true,
+				string SpriteSource = "5582847ef0acf038:button_Yes",
+				bool RenderMask = false,
+				bool FlipX = false,
+				bool FlipY = false,
+				bool AnimationActive = false,
+				float AnimationSpeed = 1,
+				uint StartFrame = 0,
+			},
+			Reactive = 
+			{
+				bool Active = true,
+				bool CaptureMouse = false,
+			},
+			BoxCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = true,
+				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [0.78125, 0.5, 0.5],
+			},
+			MenuButton = 
+			{
+				string Target = "DialogYes",
+				bool LoadTargetAsLevel = false,
+				bool Disabled = false,
+			},
+			StartingLevel = 
+			{
+				string StartingLevel = "",
+			},
+			Soundbox_Menubutton = 
+			{
+				string Highlight = "5589894956eb4ce0:MenuButton_Highlight",
+				string Down = "55898976532eb315:MenuButton_Down",
+				string Up = "5589891daf5fa333:MenuButton_Up",
+			},
+			SoundEmitter = 
+			{
+				bool StartPlaying = false,
+				int ExtraPriority = 0,
+				string CueName = "4e1bd44008b4dc2a:DefaultCue",
+				float Volume = 1,
+				float Pitch = 1,
+				bool Positional = true,
 			},
 		},
 	},

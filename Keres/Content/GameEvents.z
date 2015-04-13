@@ -10,6 +10,16 @@ class NavigationEvents : ZilchComponent
     }
 }
 
+class SetOptionsEvent : Event
+{
+    var SFXLevel : Real = 1.0;
+    var MusicLevel : Real = 1.0;
+    
+    constructor() : base()
+    {
+    }
+}
+
 //Event that occurs when the SpaceContainer gets the pointers
 class SetSpacePointerEvent : Event
 {

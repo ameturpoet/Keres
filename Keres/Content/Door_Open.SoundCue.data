@@ -1,7 +1,7 @@
 SoundCue = 
 {
 	SoundPlayMode PlayMode = Single,
-	float Volume = 0,
+	float Volume = 0.8,
 	float VolumeVariation = 0,
 	float Pitch = 0,
 	float PitchVariation = 0,
@@ -14,7 +14,7 @@ SoundCue =
 	Array Sounds = 
 	[
 		{
-			string SoundName = "557325960e2142f2:Door_Open",
+			string SoundName = "5582f24bd16a349c:Door_Open_0",
 			float Weight = 1,
 		},
 	],

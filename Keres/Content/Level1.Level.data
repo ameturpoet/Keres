@@ -95,7 +95,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-43.5163, -31.7769, 44.0924],
+			Vec3 Translation = [-9.2935, -7.8211, 43.8435],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.00523483, -2.77923e-005, -1.46327e-007, 0.999986],
 		},
@@ -107,7 +107,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 3.29744,
+			float Size = 27.2532,
 		},
 		EditorCameraController = 
 		{
@@ -115,7 +115,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0.0104697,
 			float HorizontalAngle = -18.8495,
-			Vec3 LookTarget = [-43.5136, -32.3003, -5.90482],
+			Vec3 LookTarget = [-9.29074, -8.34457, -6.15374],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -279,6 +279,8 @@ Level =
 			string TaserReload1 = "5440a9a07eb01355:TaserLoad_0Swing",
 			string TaserReload2 = "5440a8f95db4c6af:TaserLoad_1Out",
 			string TaserReload3 = "5440a8eb591c454e:TaserLoad_2In",
+			string FallPart1 = "5582ff26b35ea1f4:Player_Fall1",
+			string FallPart2 = "5582fed48deb3fdb:Player_Fall2",
 		},
 		Hierarchy = 
 		{
@@ -838,7 +840,7 @@ Level =
 			bool PlayerCantOpen = false,
 			bool Locked = false,
 			string Key = "TestKey",
-			float OpenTime = 0.3,
+			float OpenTime = 1.2,
 			int State = 2,
 		},
 		SoundEmitter = 
@@ -855,6 +857,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "5582f2742ced4104:Door_Loop",
 		},
 		Hierarchy = 
 		{
@@ -1068,6 +1071,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "5582f2742ced4104:Door_Loop",
 		},
 		Hierarchy = 
 		{
@@ -1344,6 +1348,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "5582f2742ced4104:Door_Loop",
 		},
 		Hierarchy = 
 		{
@@ -1557,6 +1562,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "5582f2742ced4104:Door_Loop",
 		},
 		Hierarchy = 
 		{
@@ -1833,6 +1839,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "5582f2742ced4104:Door_Loop",
 		},
 		Hierarchy = 
 		{
@@ -2046,6 +2053,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "5582f2742ced4104:Door_Loop",
 		},
 		Hierarchy = 
 		{
@@ -2259,6 +2267,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "5582f2742ced4104:Door_Loop",
 		},
 		Hierarchy = 
 		{
@@ -2601,6 +2610,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "5582f2742ced4104:Door_Loop",
 		},
 		Hierarchy = 
 		{
@@ -2814,6 +2824,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "5582f2742ced4104:Door_Loop",
 		},
 		Hierarchy = 
 		{
@@ -3027,6 +3038,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "5582f2742ced4104:Door_Loop",
 		},
 		Hierarchy = 
 		{
@@ -3240,6 +3252,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "5582f2742ced4104:Door_Loop",
 		},
 		Hierarchy = 
 		{
@@ -3453,6 +3466,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "",
 		},
 		Interactable_LoadGate = 
 		{
@@ -3672,6 +3686,7 @@ Level =
 			string Open = "5477f3b8607636ab:Door_Open",
 			string Close = "5477f3b8604c1ffd:Door_Close",
 			string Unlock = "5477f3b8607bbff1:Door_Unlock",
+			string Loop = "5582f2742ced4104:Door_Loop",
 		},
 		Hierarchy = 
 		{
@@ -3892,7 +3907,7 @@ Level =
 		{
 			string Stunned = "5477f3bb6085e37d:Impact_Taser",
 			string Footstep = "5477f3b8606e5574:Footstep_Keres",
-			string BangOnDoor = "",
+			string BangOnDoor = "55898a1e3eda56c8:Keres_BangDoor",
 			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
 		},
 		FootsterScaler = 
@@ -4167,8 +4182,8 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [-37.8644, -23.0748, 0],
-			Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
-			Quat Rotation = [0, 0, 0, 1],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
 		Named = 
 		{
@@ -4185,8 +4200,8 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [-22.1833, -17.2678, 0],
-			Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
-			Quat Rotation = [0, 0, 0, 1],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
 		Named = 
 		{
@@ -5330,12 +5345,19 @@ Level =
 			string Name = "PushBlock",
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "544b824664dc34ac:Activator_Lever",
 		LinkId = 
 		{
 			uint Id = 125,
+		},
+		Named = 
+		{
+			string Name = "Activator_Lever",
+		},
+		Archetyped = 
+		{
+			string Name = "544b824664dc34ac:Activator_Lever",
 		},
 		Transform = 
 		{
@@ -5343,16 +5365,123 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
-		Named = 
+		Model = 
 		{
-			string Name = "Activator_Lever",
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
+			string MaterialName = "557de41433ee9767:Mat_Lever",
+			string MeshName = "544b802bd6734b09:Lever.Plane001",
+			Vec4 Color = [1, 1, 1, 1],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0.1, 0, 0.085],
+			Vec3 Size = [0.35, 0.25, 0.15],
+		},
+		Interactable = 
+		{
+			bool ShowTooltip = true,
+			string Tooltip = "Pull Lever",
+			bool ShowControl = true,
+		},
+		Activator_Lever = 
+		{
+			CogPath ActivationTarget = ":/piston1",
+			bool PlayerCanActivate = true,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 126,
+				},
+				Named = 
+				{
+					string Name = "Level_Handle",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.1, 0, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [-0.258819, 0, 0, 0.965926],
+				},
+				RigidBody = 
+				{
+					bool Static = true,
+					bool Asleep = false,
+					bool Kinematic = false,
+					bool RotationLocked = false,
+					bool Mode2D = true,
+					bool AllowSleep = true,
+					bool Inherit2DMode = true,
+					Vec3 Velocity = [0, 0, 0],
+					Vec3 AngularVelocity = [0, 0, 0],
+				},
+				BoxCollider = 
+				{
+					bool Ghost = false,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					Vec3 Size = [0.005, 0.005, 0.005],
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 127,
+						},
+						Named = 
+						{
+							string Name = "levermodel",
+						},
+						Archetyped = 
+						{
+							string Name = "4faa6050b86884ec:DefaultArchetype",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, 0, 0.23],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = false,
+							bool CastShadows = true,
+							string MaterialName = "557de41433ee9767:Mat_Lever",
+							string MeshName = "544b802bd6734b10:Lever.Box001",
+							Vec4 Color = [1, 1, 1, 1],
+						},
+					},
+				},
+			},
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 126,
+			uint Id = 128,
 		},
 		Named = 
 		{
@@ -5394,7 +5523,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 127,
+			uint Id = 129,
 		},
 		Named = 
 		{
@@ -5436,7 +5565,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 128,
+			uint Id = 130,
 		},
 		Named = 
 		{
@@ -5479,7 +5608,7 @@ Level =
 		string Name = "55b4d5008c634306:AmbienceBox",
 		LinkId = 
 		{
-			uint Id = 129,
+			uint Id = 131,
 		},
 		Transform = 
 		{
@@ -5497,7 +5626,7 @@ Level =
 		string Name = "54b553a94a3d820a:Plane_Window",
 		LinkId = 
 		{
-			uint Id = 130,
+			uint Id = 132,
 		},
 		Transform = 
 		{
@@ -5515,7 +5644,7 @@ Level =
 		string Name = "54b553a94a3d820a:Plane_Window",
 		LinkId = 
 		{
-			uint Id = 131,
+			uint Id = 133,
 		},
 		Transform = 
 		{
@@ -5533,13 +5662,13 @@ Level =
 		string Name = "54b4efb11bfb540e:Item_OxyTank",
 		LinkId = 
 		{
-			uint Id = 132,
+			uint Id = 134,
 		},
 		Transform = 
 		{
 			Vec3 Translation = [-6.69718, -22.3282, 0],
-			Vec3 Scale = [0.0858997, 0.0858997, 0.0858997],
-			Quat Rotation = [0, 0, 0, 1],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.707107, 0, 0, 0.707107],
 		},
 		Named = 
 		{
@@ -5550,7 +5679,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 133,
+			uint Id = 135,
 		},
 		Named = 
 		{
@@ -5608,7 +5737,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 134,
+					uint Id = 136,
 				},
 				Named = 
 				{
@@ -5647,7 +5776,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 135,
+					uint Id = 137,
 				},
 				Named = 
 				{
@@ -5689,7 +5818,7 @@ Level =
 		string Name = "5575580860318ce7:LevelMap_1",
 		LinkId = 
 		{
-			uint Id = 136,
+			uint Id = 138,
 		},
 		Transform = 
 		{
@@ -5706,7 +5835,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 137,
+			uint Id = 139,
 		},
 		Named = 
 		{
@@ -5764,7 +5893,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 138,
+					uint Id = 140,
 				},
 				Named = 
 				{
@@ -5803,7 +5932,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 139,
+					uint Id = 141,
 				},
 				Named = 
 				{
@@ -5844,7 +5973,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 140,
+			uint Id = 142,
 		},
 		Named = 
 		{
@@ -5902,7 +6031,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 141,
+					uint Id = 143,
 				},
 				Named = 
 				{
@@ -5941,7 +6070,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 142,
+					uint Id = 144,
 				},
 				Named = 
 				{
