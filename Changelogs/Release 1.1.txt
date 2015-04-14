@@ -1,0 +1,12 @@
+Release 1.1
+4/14/2015
+-------------
+Changes
+---
++COMMENTED/FILEHEADER'D ALL THE THINGS
++Fixed checkpoint stuff that I forgot to save before
+
+
+---
+Bugfixes
+---

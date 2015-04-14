@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      ProjectileScript
+*Author:    Alex DeJardin
+*Description:
+    Functionality for projectile objects
+    Deletes self on contact
+    
+*Other Contributors:
+    
+********************************************************/
 class ProjectileScript : ZilchComponent
 {
     [Property]

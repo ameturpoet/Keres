@@ -1,22 +1,33 @@
+/********************************************************
+*
+*File:      EnemyAI
+*Author:    Alex DeJardin
+*Description:
+    Causes enemies to move around and attack the player
+    
+*Other Contributors:
+    
+********************************************************/
+
 enum EnemyState { Idle, Aware, Aggroed, Stunned, Distracted }
 
 class EnemyAI : ZilchComponent
 {
     [Property]
-    var AttackDamage : Integer = 50;
-    var CurrentTile : Cog = null;
-    var Disabled : Boolean = true;
-    var TargetTile : Cog = null;
-    var ToTargetVector : Real3 = Real3(0, 0, 0);
-    var ToPlayerRay : Ray = Ray();
-    var RayFilter : CastFilter = CastFilter();
-    var State : EnemyState = EnemyState.Idle;
-    var Player : Cog = null;
-    var PlayerSightCooldown : Real = 0.0;
-    var SeesPlayer : Boolean = false;
-    var LevelGeometry : Cog = null;
-    var DistractingLocation : Real3 = Real3(0, 0, 0);
-    var StunTime : Real = 0.0;
+    var AttackDamage : Integer = 50; //The enemy's attack damage
+    var CurrentTile : Cog = null; //The current pathing tile attached to
+    var Disabled : Boolean = true; //Whether the enemy is disabled or not
+    var TargetTile : Cog = null; //The next pathing tile to move to
+    var ToTargetVector : Real3 = Real3(0, 0, 0); //The vector going to the next tile
+    var ToPlayerRay : Ray = Ray(); //The ray to cast at the player for line-of-sight
+    var RayFilter : CastFilter = CastFilter(); //The ray filter to cast with
+    var State : EnemyState = EnemyState.Idle; //The enemy's current state
+    var Player : Cog = null; //Pointer to the player
+    var PlayerSightCooldown : Real = 0.0; //Cooldown from the last time the player was seen, enemy gives up pursuit after a while
+    var SeesPlayer : Boolean = false; //Whether or not it sees the player right now
+    var LevelGeometry : Cog = null; //Pointer to the level geometry (and the pathing grid)
+    var DistractingLocation : Real3 = Real3(0, 0, 0); //The location the enemy is being distracted from
+    var StunTime : Real = 0.0; //The counter for when the enemy is stunned
     [Property]
     var MaxStunTime : Real = 3; //The amount of time the enemy will be stunned for
     [Property]
@@ -24,29 +35,31 @@ class EnemyAI : ZilchComponent
     [Property]
     var SightDistance : Real = 5.0; //Minimum sight distance for becoming aggroed
     [Property]
-    var MaxSightDistance : Real = 20.0;
+    var MaxSightDistance : Real = 20.0; //The maximum sight distance for detecting the player
     [Property]
     var AttentionSpanTime : Real = 3.0; //Max amount of time it takes to lose interest and become idle
     [Property]
     var AttackCooldown : Real = 0.3; //The cooldown between attacks for the enemy
     [Dependency]
-    var Soundbox : Soundbox_Keres = null;
-    var FootstepCounter : Real = 0.0;
-    var BangTimeCooldown : Real = 0.0;
-    var CurrentCooldown : Real = 0.0;
-    var ZappedEffect : Cog = null;
+    var Soundbox : Soundbox_Keres = null; //The enemy's soundbox
+    var FootstepCounter : Real = 0.0; //Counter for the footstep sound
+    var BangTimeCooldown : Real = 0.0; //Counter for the door-banging sound effect. Yes, the name is absurd
+    var CurrentCooldown : Real = 0.0; //Counter for attacking the player
+    var ZappedEffect : Cog = null; //The current particle effect for when the enemy is paralyzed
     
     function Initialize(init : CogInitializer)
     {
+        //Connects all the things
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        Zero.Connect(this.Space, "PathingChanged", this.UpdateTilePath);
         Zero.Connect(this.Space, "ReadyToPlay", this.Enable);
         Zero.Connect(this.Owner, Events.CollisionStarted, this.StartCollide);
         Zero.Connect(this.Owner, Events.CollisionPersisted, this.AttackPlayer);
+        //Sets pointers and initializes the player sight ray
         this.Player = this.Owner.Space.FindObjectByName("Player");
         this.LevelGeometry = this.Owner.Space.FindObjectByName("LevelGeometry");
         this.RayFilter.CollisionGroup = CollisionGroup.Find("LineofSightRayGroup");
         this.Owner.Transform.Translation *= Real3(1.0, 1.0, 0.0);
+        //Sets the name to enemy for compatibility reasons (most are named enemy anyway, but still)
         this.Owner.Name = "enemy";
     }
     
@@ -70,8 +83,10 @@ class EnemyAI : ZilchComponent
     {
         if (!this.Disabled)
         {
+            //If the other object is the player and we're not on our cooldown
             if (event.OtherObject.Name == "Player" && this.CurrentCooldown <= 0.0 && this.State != EnemyState.Stunned)
             {
+                //Attack the player
                 event.OtherObject.PlayerStats.Life -= this.AttackDamage;
                 event.OtherObject.PlayerControl_Move.Knockback(this.Owner.Transform.Translation);
                 this.CurrentCooldown = this.AttackCooldown;
@@ -79,8 +94,10 @@ class EnemyAI : ZilchComponent
                 event.OtherObject.PlayerControl_Move.ShowHit();
                 Console.WriteLine("Attacked");
             }
+            //If the other object is a door
             else if (event.OtherObject.GatePiece != null && this.BangTimeCooldown <= 0.0)
             {
+                //Play the 'banging on the door' sound and go idle
                 this.Owner.Soundbox_Keres.PlayDoorBang();
                 this.BangTimeCooldown = 0.6;
                 Console.WriteLine("Doorbang");
@@ -89,7 +106,7 @@ class EnemyAI : ZilchComponent
         }
     }
     
-    //Attacks the player upon collision
+    //Attacks the player upon continued collision if they're really that dumb or they got stuck in a corner I guess
     function AttackPlayer(event : CollisionEvent)
     {
         if (event.OtherObject.Name == "Player" && this.CurrentCooldown <= 0.0 && this.State != EnemyState.Stunned)
@@ -116,7 +133,7 @@ class EnemyAI : ZilchComponent
         
         if (!this.Disabled && this.CurrentCooldown <= 0.0)
         {
-            
+            //Decrements the door-bang cooldown
             if (this.BangTimeCooldown > 0.0)
             {
                 this.BangTimeCooldown -= event.Dt;
@@ -125,7 +142,6 @@ class EnemyAI : ZilchComponent
             //If the enemy's state is Aware or Distracted, it moves along the grid and checks for line-of-sight to the player
             if (this.State == EnemyState.Aware || this.State == EnemyState.Distracted)
             {
-                //Console.WriteLine("Aware");
                 this.MoveByGrid(event.Dt);
                 this.CheckForPlayer(event.Dt);
                 if (this.FootstepCounter <= 0.0)
@@ -194,8 +210,10 @@ class EnemyAI : ZilchComponent
     //Does nothing for as long as the enemy is stunned
     function BeStunned(deltaTime : Real)
     {
+        //If the enemy is no longer stunned
         if (this.StunTime <= 0.0)
         {
+            //Makes the enemy aware and deletes the stunned particle effect
             this.State = EnemyState.Aware;
             if (this.ZappedEffect != null)
             {
@@ -207,12 +225,6 @@ class EnemyAI : ZilchComponent
             this.GetNextTile();
         }
         this.StunTime -= deltaTime;
-    }
-    
-    //Wanders. Currently not implemented
-    function Wander(deltaTime : Real)
-    {
-        
     }
     
     //Moves directly towards the player
@@ -352,12 +364,6 @@ class EnemyAI : ZilchComponent
             }
         }
         }
-    }
-    
-    //Changes the tile the enemy will moves to if the pathing grid is updates
-    function UpdateTilePath(event : PathingUpdateEvent)
-    {
-        //this.GetNextTile();
     }
     
     //Gets the next tile to go to in the pathing grid

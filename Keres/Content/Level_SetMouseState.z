@@ -1,3 +1,15 @@
+/********************************************************
+*
+*File:      Level_SetMouseState
+*Author:    Alex DeJardin
+*Description:
+    Just sets the state of the mouse cursor based on the 
+    type of level loaded
+    
+*Other Contributors:
+    
+********************************************************/
+
 enum MouseState { Normal, Trapped, Invisible }
 
 class Level_SetMouseState : ZilchComponent

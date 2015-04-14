@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      HUDElement_NoRotate
+*Author:    Alex DeJardin
+*Description:
+    Makes children objects never rotate
+    
+*Other Contributors:
+    
+********************************************************/
 class HUDElement_NoRotate : ZilchComponent
 {
     function Initialize(init : CogInitializer)

@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      Item_Key
+*Author:    Alex DeJardin
+*Description:
+    Dummy class that designates the item as a key, 
+    also determines if the key vanishes after one use
+    
+*Other Contributors:
+    
+********************************************************/
 class Item_Key : ZilchComponent
 {
     [Dependency]

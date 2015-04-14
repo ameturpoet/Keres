@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      PistonHead
+*Author:    Alex DeJardin
+*Description:
+    Pushes and pulls objects that the piston contacts
+    
+*Other Contributors:
+    
+********************************************************/
 class PistonHead : ZilchComponent
 {
     [Property]

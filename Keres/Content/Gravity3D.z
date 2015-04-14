@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      Gravity3D
+*Author:    Alex DeJardin
+*Description:
+    Fakes 3D gravity because we're not allowed to used Mode3D
+    Really just used for bottles
+    
+*Other Contributors:
+    
+********************************************************/
 class Gravity3D : ZilchComponent
 {
     [Property]

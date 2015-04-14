@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      Interactable_Piston
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality for an object that extends and 
+    pushes other objects
+    
+*Other Contributors:
+    
+********************************************************/
 class Interactable_Piston : ZilchComponent
 {
     [Dependency]

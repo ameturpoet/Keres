@@ -1,3 +1,15 @@
+/********************************************************
+*
+*File:      PlayerControl_Move
+*Author:    Alex DeJardin
+*Description:
+    Contains all player functionality, controls and state 
+    management
+    
+*Other Contributors:
+    
+********************************************************/
+
 enum PlayerState { Disabled, Normal, Stunned, Dead, Immobile}
 
 class PlayerControl_Move : ZilchComponent

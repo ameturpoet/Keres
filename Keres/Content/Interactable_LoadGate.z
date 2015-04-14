@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      Interactable_LoadGate
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality for doors that load other levels
+    
+*Other Contributors:
+    
+********************************************************/
 class Interactable_LoadGate : ZilchComponent
 {
     [Dependency]

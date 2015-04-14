@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      MenuButton
+*Author:    Alex DeJardin
+*Description:
+    Functionality for menu buttons of all kinds
+    
+*Other Contributors:
+    
+********************************************************/
 class MenuButton : ZilchComponent
 {
     [Property]

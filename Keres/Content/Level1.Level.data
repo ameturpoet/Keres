@@ -95,7 +95,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-12.0311, -6.37243, 43.8282],
+			Vec3 Translation = [-22.4815, -6.37639, 43.8277],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.00523483, -2.77923e-005, -1.46327e-007, 0.999986],
 		},
@@ -107,7 +107,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 18.2684,
+			float Size = 26.9274,
 		},
 		EditorCameraController = 
 		{
@@ -115,7 +115,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0.0104697,
 			float HorizontalAngle = -18.8495,
-			Vec3 LookTarget = [-12.0284, -6.8959, -6.16906],
+			Vec3 LookTarget = [-22.4788, -6.89986, -6.1696],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -5394,7 +5394,6 @@ Level =
 		Activator_Lever = 
 		{
 			CogPath ActivationTarget = ":/piston1",
-			bool PlayerCanActivate = true,
 		},
 		Hierarchy = 
 		{
@@ -6105,6 +6104,20 @@ Level =
 					uint StartFrame = 0,
 				},
 			},
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "5520651f48a785d2:Interactable_Checkpoint",
+		LinkId = 
+		{
+			uint Id = 145,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-23.2661, -6.49804, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
 		},
 	},
 },

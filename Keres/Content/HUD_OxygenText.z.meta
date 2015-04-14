@@ -1,8 +1,0 @@
-TextContent = 
-{
-	ZilchScriptBuilder = 
-	{
-		string Name = "HUD_OxygenText",
-		uint64 ResourceId = 553c1d6ddcecf16a,
-	},
-},

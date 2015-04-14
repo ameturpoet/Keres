@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      Soundbox_Menubutton
+*Author:    Alex DeJardin
+*Description:
+    Container for the sounds associated with buttons, called 
+    by the object itself when needed
+    
+*Other Contributors:
+    
+********************************************************/
 class Soundbox_Menubutton : ZilchComponent
 {
     [Property]

@@ -1,17 +1,25 @@
+/********************************************************
+*
+*File:      Activator_ElectricZap
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality for an Activator that you have
+    to shoot with your taser to use
+    
+*Other Contributors:
+    
+********************************************************/
 class Activator_ElectricZap : ZilchComponent
 {
     [Property]
-    var ActivationTarget : CogPath = null;
-    [Property]
-    var LimitedUse : Boolean = false;
-    [Property]
-    var ChargesLeft : Integer = 1;
+    var ActivationTarget : CogPath = null; //The object that this Activator will activate
     
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollide);
     }
 
+    //Activates the target object when this object contacts an object named 'Zap'
     function OnCollide(event : CollisionEvent)
     {
         if (event.OtherObject.Name == "Zap")

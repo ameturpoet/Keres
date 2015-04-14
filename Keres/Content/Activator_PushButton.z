@@ -1,11 +1,18 @@
+/********************************************************
+*
+*File:      Activator_PushButton
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality for an Activator that the
+    player pushes. Really simple
+    
+*Other Contributors:
+    
+********************************************************/
 class Activator_PushButton : ZilchComponent
 {
     [Property]
-    var ActivationTarget : CogPath = null;
-    [Property]
-    var LimitedUse : Boolean = false;
-    [Property]
-    var ChargesLeft : Integer = 1;
+    var ActivationTarget : CogPath = null; //the activator's target object
     
     function Initialize(init : CogInitializer)
     {

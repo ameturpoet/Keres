@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-5.53216, -13.0838, 0.299995],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [0.1, 0.4, 0.1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -24,7 +24,7 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
 		bool CastShadows = true,
-		string MaterialName = "5405d5b5fb8f9704:Mat_Brick",
+		string MaterialName = "546eb77d4536fa77:Mat_TaserBattery",
 		string MeshName = "4de0354322b345ae:Cube",
 		Vec4 Color = [1, 1, 1, 1],
 	},
@@ -43,7 +43,6 @@ Cog =
 		bool ShowTooltip = true,
 		string Tooltip = "Pick up Energy Cell",
 		bool ShowControl = true,
-		Enum Control = Space,
 	},
 	Item = 
 	{
@@ -52,6 +51,7 @@ Cog =
 		int Count = 0,
 		bool Stacks = false,
 		string InventoryIcon = "54bfce3c86527f91:ItemIcon_TestKey",
+		bool FallToGround = true,
 	},
 	Item_Battery = 
 	{

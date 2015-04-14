@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      GameEvents
+*Author:    Alex DeJardin
+*Description:
+    Contains definitions for all of the custom events used in the game
+    
+*Other Contributors:
+    
+********************************************************/
+
 class NavigationEvents : ZilchComponent
 {
     function Initialize(init : CogInitializer)

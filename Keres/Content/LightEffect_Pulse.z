@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      LightEffect_Pulse
+*Author:    Alex DeJardin
+*Description:
+    Makes the light pulse between minimum and maximum 
+    intensities
+    
+*Other Contributors:
+    
+********************************************************/
 class LightEffect_Pulse : ZilchComponent
 {
     [Property]

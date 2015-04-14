@@ -76,7 +76,7 @@ Level =
 			bool AntiAliasing = false,
 			bool Refraction = true,
 			bool Reflections = true,
-			string ReflectionEnvironmentName = "4fab71e8bcb7a8ce:DefaultTexture",
+			string ReflectionEnvironmentName = "5405f42f3afa10ec:CM_Gold",
 			bool GodRays = true,
 			bool RenderMasks = false,
 			bool Glow = true,
@@ -95,7 +95,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [5.0397, 2.64462, 21.7569],
+			Vec3 Translation = [3.27353, 3.35379, 21.7532],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.00261732, 2.49444e-006, 6.42217e-009, 0.999997],
 		},
@@ -115,7 +115,7 @@ Level =
 			float LookDistance = 9.13421,
 			float VerticalAngle = 0.00523464,
 			float HorizontalAngle = 6.28318,
-			Vec3 LookTarget = [5.03965, 2.59681, 12.6228],
+			Vec3 LookTarget = [3.27349, 3.30598, 12.6191],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 

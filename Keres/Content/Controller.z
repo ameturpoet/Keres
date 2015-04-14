@@ -1,3 +1,15 @@
+/********************************************************
+*
+*File:      Controller
+*Author:    Alex DeJardin
+*Description:
+    Container that houses definitions for all of the game's
+    controls.
+    Also handles pausing the game
+    
+*Other Contributors:
+    
+********************************************************/
 class Controller : ZilchComponent
 {
     [Property]
@@ -30,16 +42,11 @@ class Controller : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if (Zero.Keyboard.KeyIsPressed(Keys.P))
-        {
-            this.Space.FindObjectByName("FileManager").SaveManager.SavePlayerData();
-            this.Space.FindObjectByName("FileManager").SaveManager.SaveLevelState();
-        }
+        //Pauses the game, showing the menu on the HUD layer
         if (Zero.Keyboard.KeyIsPressed(this.Pause))
         {
             this.Space.TimeSpace.TogglePause();
             this.Owner.PlayerControl_Move.HUDspace.FindObjectByName("BlackOverlay").LoadScreenElement.Appear(0.75);
-            //this.Owner.PlayerControl_Move.HUDspace.FindObjectByName("HUD_PauseMenu").HUD_PauseScreen.OpenMenu();
             this.Owner.PlayerControl_Move.HUDspace.FindObjectByName("HUD_PauseMenu").Transform.Translation = Real3(0, 0, 5);
             Zero.Mouse.ToggleTrapped();
         }

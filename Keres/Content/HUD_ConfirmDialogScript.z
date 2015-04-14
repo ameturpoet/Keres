@@ -1,3 +1,15 @@
+/********************************************************
+*
+*File:      HUD_ConfirmDialogScript
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality for the confirmation dialog
+    that pops up when the player makes destructive 
+    actions
+    
+*Other Contributors:
+    
+********************************************************/
 class HUD_ConfirmDialogScript : ZilchComponent
 {
     var DialogText : Cog = null;

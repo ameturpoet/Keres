@@ -1,3 +1,16 @@
+/********************************************************
+*
+*File:      SpaceContainer
+*Author:    Alex DeJardin
+*Description:
+    Contains pointers to the GameSpace and HUDSpace,
+    needed because the update to Zero broke everything
+    and we lost the ability to find the gamespace for 
+    some reason
+    
+*Other Contributors:
+    
+********************************************************/
 class SpaceContainer : ZilchComponent
 {
     var GameSpace : Space = null;

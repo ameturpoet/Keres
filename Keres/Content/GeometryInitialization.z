@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      GeometryInitialization
+*Author:    Alex DeJardin
+*Description:
+    Initializes the generation of level geometry
+    
+*Other Contributors:
+    
+********************************************************/
 class GeometryInitialization : ZilchComponent
 {
     [Dependency]

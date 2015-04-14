@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      DebugEnemyState
+*Author:    Alex DeJardin
+*Description:
+    Overrides the enemy's AI and allows the player to 
+    control the state of the enemy
+    
+*Other Contributors:
+    
+********************************************************/
 class DebugEnemyState : ZilchComponent
 {
     function Initialize(init : CogInitializer)

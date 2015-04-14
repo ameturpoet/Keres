@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      LightEffect_DimtoDeath
+*Author:    Alex DeJardin
+*Description:
+    Dims the light until it's invisible, then deletes itself
+    
+*Other Contributors:
+    
+********************************************************/
 class LightEffect_DimtoDeath : ZilchComponent
 {
     [Property]

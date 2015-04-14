@@ -1,3 +1,16 @@
+/********************************************************
+*
+*File:      HUDElement_Radar
+*Author:    Alex DeJardin
+*Description:
+    Functionality for the radar, checks distance against
+    blip location to avoid having blips go outside of the
+    radar area
+    
+*Other Contributors:
+    
+********************************************************/
+
 class HUDElement_Radar : ZilchComponent
 {
     [Property]

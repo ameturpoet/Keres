@@ -1,3 +1,15 @@
+/********************************************************
+*
+*File:      Tile_Replace3D
+*Author:    Alex DeJardin
+*Description:
+    Attached to the tiles in the TileMap, replaces each 
+    tile with walls, floors, and props 
+    
+*Other Contributors:
+    
+********************************************************/
+
 enum ReplaceType { Tile, TilePainter }
 
 class Tile_Replace3D : ZilchComponent

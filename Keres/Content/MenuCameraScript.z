@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      MenuCameraScript
+*Author:    Alex DeJardin
+*Description:
+    Functionality for the moving camera in the main menu
+    
+*Other Contributors:
+    
+********************************************************/
 class MenuCameraScript : ZilchComponent
 {
     [Property]

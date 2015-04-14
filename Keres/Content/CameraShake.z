@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      CameraShake
+*Author:    Alex DeJardin
+*Description:
+    Makes the camera shake. Pretty simple.
+    
+*Other Contributors:
+    
+********************************************************/
 class CameraShake : ZilchComponent
 {
     var SinCounter : Real = 0.0;
@@ -10,8 +20,10 @@ class CameraShake : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        //If the shake is turned on
         if (this.Enabled)
         {
+            //Does some crazy sin wave stuff to simulate shaking
             this.SinCounter += event.Dt * 60;
             
             var temp = Math.Sin(this.SinCounter) * 0.02;

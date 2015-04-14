@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      PlayerStats
+*Author:    Alex DeJardin
+*Description:
+    Container for the player's status, makes the player 
+    dead if they run out of life or oxygen 
+    
+*Other Contributors:
+    
+********************************************************/
 class PlayerStats : ZilchComponent
 {
     [Property]

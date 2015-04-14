@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      Logo_ZoomInAndFade
+*Author:    Alex DeJardin
+*Description:
+    Makes the logo zoom in and fade out 
+    
+*Other Contributors:
+    
+********************************************************/
 class Logo_ZoomInAndFade : ZilchComponent
 {
     var Timer : Real = 0.0;

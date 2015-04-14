@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      HUD_AmmoBar
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality for dynamic bars for oxygen
+    and ammo
+    
+*Other Contributors:
+    
+********************************************************/
 class HUD_AmmoBar : ZilchComponent
 {
     [Property]

@@ -1,26 +1,38 @@
+/********************************************************
+*
+*File:      Activator_SubSwitch
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality for an Activator that is used
+    by the Activator_Multiswitch for sequence input
+    
+*Other Contributors:
+    
+********************************************************/
 class Activator_SubSwitch : ZilchComponent
 {
     //All properties are only used for combination locks
     [Property]
-    var MaxValue : Integer = 2;
+    var MaxValue : Integer = 2; //This bit's max value
     [Property]
-    var MinValue : Integer = 0;
+    var MinValue : Integer = 0; //This bit's min value
     [Property]
-    var CorrectValue : Integer = 2;
-    var CurrentValue : Integer = 1;
+    var CorrectValue : Integer = 2; //The correct value
+    var CurrentValue : Integer = 1; //The current value
     [Property]
-    var ShowText : Boolean = true;
-    var Combination : Boolean = false;
-    var Text : Cog = null;
+    var ShowText : Boolean = true; //Whether to show the current value
+    var Combination : Boolean = false; //Whether or not this is used in a combination lock
+    var Text : Cog = null; //The text cog
     
     function Initialize(init : CogInitializer)
     {
         this.CurrentValue = this.MinValue;
         
+        //If this is part of a combination lock
         if (this.Owner.Parent.Activator_Multiswitch.LockType == SwitchType.Combination)
         {
+            //Sets all the necessary properties
             this.Combination = true;
-            Console.WriteLine("yes");
             this.Text = this.Owner.FindChildByName("text");
             var sb = new StringBuilder();
             sb.Write(this.CurrentValue);
@@ -57,6 +69,7 @@ class Activator_SubSwitch : ZilchComponent
             this.Text.SpriteText.Text = sb.ToString();
         }
         
+        //Updates the sequence of the parent object
         this.Owner.Parent.Activator_Multiswitch.UpdateSequence(this.Owner.Name);
     }
 }

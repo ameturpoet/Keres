@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      LightEffect_Flicker
+*Author:    Alex DeJardin
+*Description:
+    Makes the light flicker on and off at random
+    
+*Other Contributors:
+    
+********************************************************/
 class LightEffect_Flicker : ZilchComponent
 {
     [Property]

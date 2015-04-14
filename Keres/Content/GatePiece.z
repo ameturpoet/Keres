@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      GatePiece
+*Author:    Alex DeJardin
+*Description:
+    Updates the state of sections of a gate
+    
+*Other Contributors:
+    
+********************************************************/
 enum OpenType { MoveLeft, MoveRight, SwingLeft, SwingRight }
 
 class GatePiece : ZilchComponent

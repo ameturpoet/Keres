@@ -1,3 +1,16 @@
+/********************************************************
+*
+*File:      Activator_Multiswitch
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality for an Activator that requires
+    a sequence input
+    
+*Other Contributors:
+    
+********************************************************/
+
+//The type of lock to use
 enum SwitchType { Combination, Permutation } 
 
 class Activator_Multiswitch : ZilchComponent
@@ -77,6 +90,7 @@ class Activator_Multiswitch : ZilchComponent
         }
     }
     
+    //Activates this object's target
     function Activate()
     {
         if (this.ActivationTarget.Cog != null)

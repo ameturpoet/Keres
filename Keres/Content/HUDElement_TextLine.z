@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      HUDElement_TextLine
+*Author:    Alex DeJardin
+*Description:
+    Makes lines of text in the textlog move up and 
+    disappear after a while
+    
+*Other Contributors:
+    
+********************************************************/
 class HUDElement_TextLine : ZilchComponent
 {
     var LineNumber : Integer = 1;

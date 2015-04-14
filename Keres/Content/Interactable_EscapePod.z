@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      Interactable_EscapePod
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality for the escape pod object
+    
+*Other Contributors:
+    
+********************************************************/
 class Interactable_EscapePod : ZilchComponent
 {
     var Player : Cog = null;

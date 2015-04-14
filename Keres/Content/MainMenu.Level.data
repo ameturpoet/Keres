@@ -65,7 +65,7 @@ Level =
 			bool AntiAliasing = false,
 			bool Refraction = true,
 			bool Reflections = true,
-			string ReflectionEnvironmentName = "4fab71e8bcb7a8ce:DefaultTexture",
+			string ReflectionEnvironmentName = "546fd8b316239e1a:CM_Zap",
 			bool GodRays = true,
 			bool RenderMasks = false,
 			bool Glow = true,
@@ -95,9 +95,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-5.58487, -7.62853, 67.4977],
+			Vec3 Translation = [-56.8609, -2.26488, 63.0852],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-3.02214e-007, 3.61368e-007, 1.01475e-013, 1],
+			Quat Rotation = [6.65895e-008, 1.61027e-006, -1.05709e-013, 1],
 		},
 		Camera = 
 		{
@@ -107,15 +107,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 30.1194,
+			float Size = 24.6597,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = ZPlane,
 			float LookDistance = 50,
-			float VerticalAngle = 6.04428e-007,
-			float HorizontalAngle = -7.73929e-007,
-			Vec3 LookTarget = [-5.58491, -7.62856, 17.4976],
+			float VerticalAngle = -1.33179e-007,
+			float HorizontalAngle = -3.26615e-006,
+			Vec3 LookTarget = [-56.8611, -2.26487, 13.0852],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -310,6 +310,15 @@ Level =
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = true,
+			int ExtraPriority = 0,
+			string CueName = "5582bdd7d2c2fd4a:MenuAmbience",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = true,
 		},
 	},
 	Cog = 
@@ -1244,7 +1253,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [22.1586, -12.7693, -15.184],
+					Vec3 Translation = [16.7969, -12.2737, -4.526],
 					Vec3 Scale = [2, 2, 1],
 					Quat Rotation = [-1.67038e-022, 0.5, 2.89317e-022, 0.866025],
 				},
@@ -2089,22 +2098,398 @@ Level =
 			bool Smoothing = true,
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "557dd3c8498d5f91:MenuSlider",
 		LinkId = 
 		{
 			uint Id = 43,
 		},
-		Transform = 
-		{
-			Vec3 Translation = [-5.57084, -1.72108, -50],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
 		Named = 
 		{
-			string Name = "HUD_Slider",
+			string Name = "OptionsMenu",
+		},
+		Archetyped = 
+		{
+			string Name = "4faa6050b86884ec:DefaultArchetype",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-59.7013, -3.53723, 13.0851],
+			Vec3 Scale = [12, 20, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "541a8e91d7b5c749:0000",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 44,
+				},
+				Named = 
+				{
+					string Name = "SliderSFX",
+				},
+				Archetyped = 
+				{
+					string Name = "557dd3c8498d5f91:MenuSlider",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.235919, 0.244682, 1],
+					Vec3 Scale = [0.0833333, 0.05, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				HUD_MenuSlider = 
+				{
+					string DataType = "soundVolume",
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 45,
+						},
+						Named = 
+						{
+							string Name = "SliderPiece",
+						},
+						Archetyped = 
+						{
+							string Name = "4faa6050b86884ec:DefaultArchetype",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, -1.19209e-007, -2.28882e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = true,
+							bool CastShadows = true,
+							string MaterialName = "4de020863e85bb61:DefaultMaterial",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [1, 1, 1, 1],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.5, 0.5],
+						},
+						Reactive = 
+						{
+							bool Active = true,
+							bool CaptureMouse = false,
+						},
+						HUD_MenuSliderPiece = 
+						{
+						},
+					},
+					ArchetypeInstance = 
+					{
+						string Name = "4faa6050b86884ec:DefaultArchetype",
+						LinkId = 
+						{
+							uint Id = 46,
+						},
+						Transform = 
+						{
+							Vec3 Translation = [2.28882e-005, -1.19209e-007, -2.28882e-005],
+							Vec3 Scale = [5, 0.3, 0.4],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Named = 
+						{
+							string Name = "SliderBG",
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 47,
+						},
+						Named = 
+						{
+							string Name = "SliderLevel",
+						},
+						Archetyped = 
+						{
+							string Name = "4faa6050b86884ec:DefaultArchetype",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [2.99896, -0.17283, 0.6],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						SpriteText = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = true,
+							bool CastShadows = false,
+							Vec4 Color = [1, 1, 1, 1],
+							BlendMode BlendMode = Alpha,
+							SpriteGeometryMode GeometryMode = ZPlane,
+							string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+							string FontName = "4e7bac697bec55c5:Verdana",
+							uint FontSize = 32,
+							string Text = "100",
+							TextAlign Align = Center,
+							float PixelsPerUnit = 64,
+							bool Smoothing = true,
+						},
+						Area = 
+						{
+							Vec2 Size = [1, 1],
+							Location Origin = CenterLeft,
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 48,
+				},
+				Named = 
+				{
+					string Name = "text1",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.445047, 0.313298, 0.2],
+					Vec3 Scale = [0.0833333, 0.05, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0, 0, 0, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string FontName = "4e7bac697bec55c5:Verdana",
+					uint FontSize = 32,
+					string Text = "SFX Volume",
+					TextAlign Align = Left,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 49,
+				},
+				Named = 
+				{
+					string Name = "SliderMusic",
+				},
+				Archetyped = 
+				{
+					string Name = "557dd3c8498d5f91:MenuSlider",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.235919, 0.10842, 1],
+					Vec3 Scale = [0.0833333, 0.05, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				HUD_MenuSlider = 
+				{
+					string DataType = "musicVolume",
+				},
+				Hierarchy = 
+				{
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 50,
+						},
+						Named = 
+						{
+							string Name = "SliderPiece",
+						},
+						Archetyped = 
+						{
+							string Name = "4faa6050b86884ec:DefaultArchetype",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [0, -1.19209e-007, -2.28882e-005],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Model = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = true,
+							bool CastShadows = true,
+							string MaterialName = "4de020863e85bb61:DefaultMaterial",
+							string MeshName = "4de0354322b345ae:Cube",
+							Vec4 Color = [1, 1, 1, 1],
+						},
+						BoxCollider = 
+						{
+							bool Ghost = false,
+							bool SendsMessages = true,
+							bool Seamless = true,
+							string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+							Vec3 Offset = [0, 0, 0],
+							Vec3 Size = [0.5, 0.5, 0.5],
+						},
+						Reactive = 
+						{
+							bool Active = true,
+							bool CaptureMouse = false,
+						},
+						HUD_MenuSliderPiece = 
+						{
+						},
+					},
+					ArchetypeInstance = 
+					{
+						string Name = "4faa6050b86884ec:DefaultArchetype",
+						LinkId = 
+						{
+							uint Id = 51,
+						},
+						Transform = 
+						{
+							Vec3 Translation = [2.28882e-005, -1.19209e-007, -2.28882e-005],
+							Vec3 Scale = [5, 0.3, 0.4],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						Named = 
+						{
+							string Name = "SliderBG",
+						},
+					},
+					Cog = 
+					{
+						LinkId = 
+						{
+							uint Id = 52,
+						},
+						Named = 
+						{
+							string Name = "SliderLevel",
+						},
+						Archetyped = 
+						{
+							string Name = "4faa6050b86884ec:DefaultArchetype",
+						},
+						Transform = 
+						{
+							Vec3 Translation = [2.99896, -0.17283, 0.6],
+							Vec3 Scale = [1, 1, 1],
+							Quat Rotation = [0, 0, 0, 1],
+						},
+						SpriteText = 
+						{
+							bool Visible = true,
+							bool VisibilityCulling = true,
+							bool VisibilityEvents = true,
+							bool CastShadows = false,
+							Vec4 Color = [1, 1, 1, 1],
+							BlendMode BlendMode = Alpha,
+							SpriteGeometryMode GeometryMode = ZPlane,
+							string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+							string FontName = "4e7bac697bec55c5:Verdana",
+							uint FontSize = 32,
+							string Text = "100",
+							TextAlign Align = Center,
+							float PixelsPerUnit = 64,
+							bool Smoothing = true,
+						},
+						Area = 
+						{
+							Vec2 Size = [1, 1],
+							Location Origin = CenterLeft,
+						},
+					},
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 53,
+				},
+				Named = 
+				{
+					string Name = "text1",
+				},
+				Archetyped = 
+				{
+					string Name = "4faa6050b86884ec:DefaultArchetype",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.445047, 0.173328, 0.2],
+					Vec3 Scale = [0.0833333, 0.05, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0, 0, 0, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string FontName = "4e7bac697bec55c5:Verdana",
+					uint FontSize = 32,
+					string Text = "Music Volume",
+					TextAlign Align = Left,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+			},
 		},
 	},
 },

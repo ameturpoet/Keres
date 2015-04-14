@@ -1,8 +1,0 @@
-TextContent = 
-{
-	ZilchScriptBuilder = 
-	{
-		string Name = "FileManager_LevelData",
-		uint64 ResourceId = 549815ba7d147dd8,
-	},
-},

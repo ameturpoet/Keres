@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      OverlayFadeOut
+*Author:    Alex DeJardin
+*Description:
+    Makes this object fade out
+    
+*Other Contributors:
+    
+********************************************************/
 class OverlayFadeOut : ZilchComponent
 {
     var Active : Boolean = false;

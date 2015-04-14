@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      Interactable_Gate
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality for doors
+    
+*Other Contributors:
+    
+********************************************************/
 class Interactable_Gate : ZilchComponent
 {
     [Dependency]

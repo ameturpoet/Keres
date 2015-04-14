@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      HUD_MenuSlider
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality a menu slider
+    
+*Other Contributors:
+    
+********************************************************/
 class HUD_MenuSlider : ZilchComponent
 {
     [Property]

@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      TileArray2D
+*Author:    Alex DeJardin
+*Description:
+    Creates and manages the array of tiles in each level
+    for pathfinding
+    
+*Other Contributors:
+    
+********************************************************/
 class TileArray2D : ZilchComponent
 {
     var MinX : Real = 0;

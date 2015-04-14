@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      HUD_MenuSliderPiece
+*Author:    Alex DeJardin
+*Description:
+    Updates the MenuSlider that this script's object is 
+    childed to
+    
+*Other Contributors:
+    
+********************************************************/
 class HUD_MenuSliderPiece : ZilchComponent
 {
     var Active : Boolean = false;

@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      PlayerStatus
+*Author:    Alex DeJardin
+*Description:
+    Contains the save info for the player and applies it
+    during loading 
+    
+*Other Contributors:
+    
+********************************************************/
 class PlayerStatus : ZilchComponent
 {
     [Property]

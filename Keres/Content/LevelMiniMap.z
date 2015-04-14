@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      LevelMiniMap
+*Author:    Alex DeJardin
+*Description:
+    Functionality for an in-game map that actively 
+    tracks the player's location
+    
+*Other Contributors:
+    
+********************************************************/
 class LevelMiniMap : ZilchComponent
 {
     [Property]
@@ -13,6 +24,8 @@ class LevelMiniMap : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         this.PlayerBlip = this.Owner.FindChildByName("PLAYERMARKER");
+        //Only connects events if this is the master map to avoid
+        //making multiple identical calculations
         if (this.MasterMap)
         {
             Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -31,12 +44,15 @@ class LevelMiniMap : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        //Gets the player's location and converts it to the scale
+        //of the map
         var playerLocation = this.Player.Transform.Translation;
         playerLocation /= this.MaptoWorldScale;
         playerLocation += this.MiniAnchor.Transform.Translation;
         
         this.PlayerBlip.Transform.Translation = playerLocation;
         
+        //Updates every other map in the level
         foreach (var map in this.OtherMaps)
         {
             map.LevelMiniMap.UpdateBlipLocation(playerLocation);

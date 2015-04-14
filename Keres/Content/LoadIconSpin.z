@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      LoadIconSpin
+*Author:    Alex DeJardin
+*Description:
+    Makes the loading icon spin
+    
+*Other Contributors:
+    
+********************************************************/
 class LoadIconSpin : ZilchComponent
 {
     [Property]

@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      HUD_PauseScreen
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality for the pause screen that 
+    appears in the HUD layer
+    
+*Other Contributors:
+    
+********************************************************/
 class HUD_PauseScreen : ZilchComponent
 {
     var Enabled : Boolean = false;

@@ -1,5 +1,15 @@
+/********************************************************
+*
+*File:      LevelGenerator
+*Author:    Alex DeJardin
+*Description:
+    Master object that controls the order of events for 
+    the generation of levels
+    
+*Other Contributors:
+    
+********************************************************/
 enum LevelState { Loading, Generating, Painting, Connecting, Ready, Done }
-
 
 class LevelGenerator : ZilchComponent
 {

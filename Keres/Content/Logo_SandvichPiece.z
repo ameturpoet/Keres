@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      Logo_SandvichPiece
+*Author:    Alex DeJardin
+*Description:
+    Makes each piece of the Sandvich logo work
+    
+*Other Contributors:
+    
+********************************************************/
 class Logo_SandvichPiece : ZilchComponent
 {
     [Property]

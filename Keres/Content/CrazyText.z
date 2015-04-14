@@ -1,3 +1,16 @@
+/********************************************************
+*
+*File:      CrazyText
+*Author:    Alex DeJardin
+*Description:
+    Makes the SpriteText of the object this is attached to
+    go craaaAAAAaaaaAAAaazy!
+    
+    Totally not used for anything
+    
+*Other Contributors:
+    
+********************************************************/
 class CrazyText : ZilchComponent
 {
     function Initialize(init : CogInitializer)
@@ -5,6 +18,7 @@ class CrazyText : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
+    //Makes the text a new, random color every frame
     function OnLogicUpdate(event : UpdateEvent)
     {
         var rnd = new Random();

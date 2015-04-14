@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      Planet_Rotate
+*Author:    Alex DeJardin
+*Description:
+    Makes Pluto rotate ever so slightly
+    
+*Other Contributors:
+    
+********************************************************/
 class Planet_Rotate : ZilchComponent
 {
     //Please note: Although it is not technically a planet, Pluto still gets this script because it totally should still be a planet

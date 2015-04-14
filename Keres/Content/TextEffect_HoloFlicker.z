@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      TextEffect_HoloFlicker
+*Author:    Alex DeJardin
+*Description:
+    Makes SpriteText flicker a bit like a hologram
+    
+*Other Contributors:
+    
+********************************************************/
 class TextEffect_HoloFlicker : ZilchComponent
 {
     var FlickerIncrement : Real = 0.0;

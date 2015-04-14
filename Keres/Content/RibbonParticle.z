@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      RibbonParticle
+*Author:    Alex DeJardin
+*Description:
+    Creates a ribbon particle from the starting point to 
+    the ending point 
+    
+*Other Contributors:
+    
+********************************************************/
 class RibbonParticle : ZilchComponent
 {
     var Start : Real3 = Real3(0, 0, 0);

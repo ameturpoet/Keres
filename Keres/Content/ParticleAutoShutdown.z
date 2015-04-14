@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      ParticleAutoShutdown
+*Author:    Alex DeJardin
+*Description:
+    Makes the particle system shut off after an instant,
+    used for the taser lighting 
+    
+*Other Contributors:
+    
+********************************************************/
 class ParticleAutoShutdown : ZilchComponent
 {
     [Property]

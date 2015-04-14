@@ -1,15 +1,26 @@
+/********************************************************
+*
+*File:      Activator_Lever
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality for an Activator with a
+    physical lever handle that can be pulled
+    
+    Based on the Gate script
+    
+*Other Contributors:
+    
+********************************************************/
 class Activator_Lever : ZilchComponent
 {
     [Property]
-    var ActivationTarget : CogPath = null;
-    [Property]
-    var PlayerCanActivate : Boolean = true;
+    var ActivationTarget : CogPath = null; //The object to activate
     
-    var Active : Boolean = false;
-    var State : Boolean = false;
-    var CurrentLevel : Real = 0.0;
-    var MaxLevel : Real = 0.2;
-    var Lever : Cog = null;
+    var Active : Boolean = false; //Whether the lever is currently moving
+    var State : Boolean = false; //The state of pulled-ness
+    var CurrentLevel : Real = 0.0; //The current level of pulled-ness
+    var MaxLevel : Real = 0.2; //The max level of pulled-ness
+    var Lever : Cog = null; //The lever handle 
     
     function Initialize(init : CogInitializer)
     {
@@ -17,14 +28,17 @@ class Activator_Lever : ZilchComponent
         this.Lever = this.Owner.FindChildByName("Level_Handle");
     }
     
+    //Updates the rotation of the lever handle
     function UpdateLever(event : UpdateEvent)
     {
+        //If the lever is currently being pulled
         if (this.Active)
         {
+            //If the lever's state is pulled
             if (this.State)
             {
+                //Advances the current pulled-ness level
                 this.CurrentLevel += event.Dt;
-                this.SetLeverLevel(this.CurrentLevel);
                 
                 if (this.CurrentLevel >= this.MaxLevel)
                 {
@@ -34,6 +48,7 @@ class Activator_Lever : ZilchComponent
             }
             else
             {
+                //Decrements the current pulled-ness level
                 this.CurrentLevel -= event.Dt;
                 
                 if (this.CurrentLevel <= 0.0)
@@ -42,16 +57,19 @@ class Activator_Lever : ZilchComponent
                     this.Active = false;
                 }
             }
+            //Sets the level of the lever
             this.SetLeverLevel(this.CurrentLevel / this.MaxLevel);
         }
     }
     
+    //Sets the current level of pulled-ness for the lever handle
     function SetLeverLevel(level : Real)
     {
         var derp = Real3((-30 + 60 * level) * Math.Pi / 180, 0, 0);
         this.Lever.Transform.EulerAngles = derp;
     }
 
+    //Activates this object's target
     function Activate()
     {
         if (this.ActivationTarget.Cog != null)

@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      Inventory
+*Author:    Alex DeJardin
+*Description:
+    Functionality for the player's inventory
+    
+*Other Contributors:
+    
+********************************************************/
 class Inventory : ZilchComponent
 {
     var InventoryObject : Cog = null;

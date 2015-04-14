@@ -1,10 +1,22 @@
+/********************************************************
+*
+*File:      Activator_FloorSwitch
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality for an Activator that goes off
+    when an object makes contact with it
+    
+*Other Contributors:
+    
+********************************************************/
 class Activator_FloorSwitch : ZilchComponent
 {
     [Property]
-    var ActivationTarget : CogPath = null;
+    var ActivationTarget : CogPath = null; //The object that this will activate
     [Property]
-    var PlayerCanActivate : Boolean = true;
+    var PlayerCanActivate : Boolean = true; //Whether or not the player can activate this
     
+    //Tracker for whether this is currently active
     var Active : Boolean = false;
     
     function Initialize(init : CogInitializer)
@@ -15,6 +27,8 @@ class Activator_FloorSwitch : ZilchComponent
     
     function OnCollisionPush(event : CollisionEvent)
     {
+        //Only activates target if there wasn't already an object 
+        //in contact
         if (!this.Active)
         {
             if (this.PlayerCanActivate && event.OtherObject.Name == "Player")
@@ -32,6 +46,7 @@ class Activator_FloorSwitch : ZilchComponent
     
     function OnCollisionEnd(event : CollisionEvent)
     {
+        //Makes sure that the number of collisions is 0 before turning off
         if (!this.Owner.Collider.Contacts.IsNotEmpty)
         {
             if (this.PlayerCanActivate && event.OtherObject.Name == "Player")
@@ -47,6 +62,7 @@ class Activator_FloorSwitch : ZilchComponent
         }
     }
 
+    //Activates this object's target
     function Activate()
     {
         this.ActivationTarget.Cog.Interactable.Activate(false);

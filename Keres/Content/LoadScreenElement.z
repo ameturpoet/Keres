@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      LoadScreenElement
+*Author:    Alex DeJardin
+*Description:
+    Functionality for loading screen elements, controls opacity
+    and visibility
+    
+*Other Contributors:
+    
+********************************************************/
 class LoadScreenElement : ZilchComponent
 {
     var Alpha : Real = 1.0;

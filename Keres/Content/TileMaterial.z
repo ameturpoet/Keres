@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      TileMaterial
+*Author:    Alex DeJardin
+*Description:
+    Changes the material of objects being touched based 
+    on their name, painting the environment
+    
+*Other Contributors:
+    
+********************************************************/
 class TileMaterial : ZilchComponent
 {
     [Property]

@@ -1,13 +1,29 @@
+/********************************************************
+*
+*File:      Interactable_Checkpoint
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality for an object that saves the 
+    player's progress 
+    
+*Other Contributors:
+    
+********************************************************/
 class Interactable_Checkpoint : ZilchComponent
 {
     function Initialize(init : CogInitializer)
     {
-        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.Activate);
     }
 
-    function Activate()
+    function Activate(event : CollisionEvent)
     {
-        this.Space.FindObjectByName("FileManager").SaveManager.SavePlayerData();
-        this.Space.FindObjectByName("FileManager").SaveManager.SaveLevelState();
+        if (event.OtherObject.Name == "Player")
+        {
+            this.Space.FindObjectByName("FileManager").SaveManager.SavePlayerData();
+            this.Space.FindObjectByName("FileManager").SaveManager.SaveLevelState();
+            var player = event.OtherObject;
+            player.PlayerControl_Move.TextLog.HUDElement_TextLog.AddLine("Checkpoint reached");
+        }
     }
 }

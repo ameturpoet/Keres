@@ -1,3 +1,15 @@
+/********************************************************
+*
+*File:      MusicBox
+*Author:    Alex DeJardin
+*Description:
+    Plays music dynamically based on the number of enemies
+    following the player
+    
+*Other Contributors:
+    
+********************************************************/
+
 class MusicBox : ZilchComponent
 {
     var KeresFollowing : Integer = 0;

@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      SaveLoader
+*Author:    Alex DeJardin
+*Description:
+    Saves and sets player data 
+    
+*Other Contributors:
+    
+********************************************************/
 class SaveLoader : ZilchComponent
 {
     [Property]

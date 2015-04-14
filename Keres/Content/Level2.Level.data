@@ -95,7 +95,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [24.7588, -39.6652, 46.6968],
+			Vec3 Translation = [40.2305, -16.1366, 47.2827],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0.0261711, 0.0209285, -0.00054803, 0.999438],
 		},
@@ -107,7 +107,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 22.0464,
+			float Size = 100,
 		},
 		EditorCameraController = 
 		{
@@ -115,7 +115,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = -0.0523597,
 			float HorizontalAngle = -6.32506,
-			Vec3 LookTarget = [22.6686, -37.0484, -3.19087],
+			Vec3 LookTarget = [38.1403, -13.5198, -2.60496],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -734,6 +734,9 @@ Level =
 			string Footstep = "5477f3b8606e5574:Footstep_Keres",
 			string BangOnDoor = "55898a1e3eda56c8:Keres_BangDoor",
 			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
+		},
+		FootsterScaler = 
+		{
 		},
 	},
 	Cog = 
@@ -4857,6 +4860,9 @@ Level =
 			string BangOnDoor = "55898a1e3eda56c8:Keres_BangDoor",
 			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
 		},
+		FootsterScaler = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -4936,6 +4942,9 @@ Level =
 			string BangOnDoor = "55898a1e3eda56c8:Keres_BangDoor",
 			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
 		},
+		FootsterScaler = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -4982,8 +4991,6 @@ Level =
 		Activator_PushButton = 
 		{
 			CogPath ActivationTarget = ":/piston1",
-			bool LimitedUse = false,
-			int ChargesLeft = 1,
 		},
 	},
 	Cog = 
@@ -5031,8 +5038,6 @@ Level =
 		Activator_PushButton = 
 		{
 			CogPath ActivationTarget = ":/piston2",
-			bool LimitedUse = false,
-			int ChargesLeft = 1,
 		},
 	},
 	Cog = 
@@ -5080,8 +5085,6 @@ Level =
 		Activator_PushButton = 
 		{
 			CogPath ActivationTarget = ":/piston3",
-			bool LimitedUse = false,
-			int ChargesLeft = 1,
 		},
 	},
 	Cog = 
@@ -5129,8 +5132,6 @@ Level =
 		Activator_PushButton = 
 		{
 			CogPath ActivationTarget = ":/piston4",
-			bool LimitedUse = false,
-			int ChargesLeft = 1,
 		},
 	},
 	Cog = 

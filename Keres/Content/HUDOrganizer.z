@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      HUDOrganizer
+*Author:    Alex DeJardin
+*Description:
+    Container for the screen resolution and the screen 
+    block object
+    
+*Other Contributors:
+    
+********************************************************/
 class HUDOrganizer : ZilchComponent
 {
     [Property]

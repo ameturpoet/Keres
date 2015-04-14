@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      Oxygen
+*Author:    Kyle Cummins
+*Description:
+    Functionality for player oxygen 
+    
+*Other Contributors:
+    Alex DeJardin, tweaking to fit with other scripts
+    
+********************************************************/
 class Oxygen : ZilchComponent
 {
     [Property]

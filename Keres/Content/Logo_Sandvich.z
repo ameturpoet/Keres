@@ -1,3 +1,13 @@
+/********************************************************
+*
+*File:      Logo_Sandvich
+*Author:    Alex DeJardin
+*Description:
+    Makes the Sandvich logo in the intro work
+    
+*Other Contributors:
+    
+********************************************************/
 class Logo_Sandvich : ZilchComponent
 {
     [Property]

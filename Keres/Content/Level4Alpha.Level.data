@@ -3224,6 +3224,9 @@ Level =
 			string BangOnDoor = "",
 			string BecomeAware = "",
 		},
+		FootsterScaler = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -3303,6 +3306,9 @@ Level =
 			string BangOnDoor = "",
 			string BecomeAware = "",
 		},
+		FootsterScaler = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -3381,6 +3387,9 @@ Level =
 			string Footstep = "5477f3b8606e5574:Footstep_Keres",
 			string BangOnDoor = "",
 			string BecomeAware = "",
+		},
+		FootsterScaler = 
+		{
 		},
 	},
 	Cog = 
@@ -4418,8 +4427,6 @@ Level =
 		Activator_PushButton = 
 		{
 			CogPath ActivationTarget = ":/pistonleft",
-			bool LimitedUse = false,
-			int ChargesLeft = 1,
 		},
 	},
 	Cog = 
@@ -4467,8 +4474,6 @@ Level =
 		Activator_PushButton = 
 		{
 			CogPath ActivationTarget = ":/pistonright",
-			bool LimitedUse = false,
-			int ChargesLeft = 1,
 		},
 	},
 	Cog = 
@@ -4516,8 +4521,6 @@ Level =
 		Activator_PushButton = 
 		{
 			CogPath ActivationTarget = ":/pistonBL",
-			bool LimitedUse = false,
-			int ChargesLeft = 1,
 		},
 	},
 	Cog = 
@@ -4565,8 +4568,6 @@ Level =
 		Activator_PushButton = 
 		{
 			CogPath ActivationTarget = ":/pistonTR",
-			bool LimitedUse = false,
-			int ChargesLeft = 1,
 		},
 	},
 	Cog = 
@@ -4614,8 +4615,6 @@ Level =
 		Activator_PushButton = 
 		{
 			CogPath ActivationTarget = ":/pistonTL",
-			bool LimitedUse = false,
-			int ChargesLeft = 1,
 		},
 	},
 	Cog = 

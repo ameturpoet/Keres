@@ -1,11 +1,19 @@
+/********************************************************
+*
+*File:      FootsterScaler (should probably be FootstepScaler but w/e)
+*Author:    Kyle Cummins
+*Description:
+    Adjusts sound emitter volume based on distance to the player
+    
+*Other Contributors:
+    Alex DeJardin, tweaking numbers
+    
+********************************************************/
 class FootsterScaler : ZilchComponent
 {
     var Distance : Real = 0;
     var YDist : Real = 0;
     var XDist : Real = 0;
-    
-    
-    
     
     function Initialize(init : CogInitializer)
     {
@@ -14,8 +22,10 @@ class FootsterScaler : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        //Gets the player
         var player = this.Space.FindObjectByName("Player");
         
+        //Calculates the distance to the player
         if(player != null)
         {
             this.YDist = this.Owner.Transform.Translation.Y - player.Transform.Translation.Y;
@@ -26,6 +36,7 @@ class FootsterScaler : ZilchComponent
             
             this.Distance = Math.Sqrt(this.YDist + this.XDist);
             
+            //Sets the sound volume based on the distance to the player
             if(this.Distance > 25)
             {
                 this.Owner.SoundEmitter.Volume = 0;

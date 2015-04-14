@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      ScreenAreaBlock
+*Author:    Alex DeJardin
+*Description:
+    Container for the screen area, used for aligning HUD
+    elements
+    
+*Other Contributors:
+    
+********************************************************/
 class ScreenAreaBlock : ZilchComponent
 {
     [Property]

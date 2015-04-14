@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      NavigationPoint
+*Author:    Alex DeJardin
+*Description:
+    Contains the weight of this pathing node and pointers 
+    to the connected nodes 
+    
+*Other Contributors:
+    
+********************************************************/
 class NavigationPoint : ZilchComponent
 {
     [Dependency]

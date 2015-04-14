@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      Interactable_Alarm
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality for an object that makes a 
+    loud noise and distracts enemies
+    
+*Other Contributors:
+    
+********************************************************/
 class Interactable_Alarm : ZilchComponent
 {
     [Dependency]

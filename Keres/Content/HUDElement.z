@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      HUDElement
+*Author:    Alex DeJardin
+*Description:
+    Relocates an object on-screen so that it's always a 
+    certain distance away from the edge of the viewport
+    
+*Other Contributors:
+    
+********************************************************/
 class HUDElement : ZilchComponent
 {
     var StartOffset : Real3 = Real3(0, 0, 0);

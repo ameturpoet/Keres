@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      Activator_ElectricZap
+*Author:    Alex DeJardin
+*Description:
+    Contains functionality for the text log, adding and
+    incrementing lines
+    
+*Other Contributors:
+    
+********************************************************/
 class HUDElement_TextLog : ZilchComponent
 {
     [Property]

@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      GameSpacePointer
+*Author:    Alex DeJardin
+*Description:
+    Contains a pointer to the GameSpace because Zero 
+    broke everything ;(
+    
+*Other Contributors:
+    
+********************************************************/
 class GameSpacePointer : ZilchComponent
 {
     var GameSpace : Space = null;

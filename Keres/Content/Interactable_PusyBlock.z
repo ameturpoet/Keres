@@ -1,3 +1,15 @@
+/********************************************************
+*
+*File:      Interactable_PusyBlock
+*Author:    Alex DeJardin
+*Description:
+    Totally made a type in the name
+    Makes physics object (like push blocks) not move 
+    when the player pushes them
+    
+*Other Contributors:
+    
+********************************************************/
 class Interactable_PusyBlock : ZilchComponent
 {
     var OldPosition : Real3 = Real3(0, 0, 0);

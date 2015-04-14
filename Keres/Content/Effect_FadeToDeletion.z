@@ -1,11 +1,22 @@
+/********************************************************
+*
+*File:      Effect_FadeToDeletion
+*Author:    Alex DeJardin
+*Description:
+    Causes an object to slowly fade out and delete itself
+    once it's invisible
+    
+*Other Contributors:
+    
+********************************************************/
 class Effect_FadeToDeletion : ZilchComponent
 {
     [Property]
-    var Lifetime : Real = 1.0;
+    var Lifetime : Real = 1.0; //The amount of time this will exist before deleting itself
     [Property]
-    var StartFadingAt : Real = 1.0;
-    var TimePassed : Real = 0.0;
-    var FadeStartDifference : Real = 0.0;
+    var StartFadingAt : Real = 1.0; //The time to start fading at
+    var TimePassed : Real = 0.0; //The current counter for the time
+    var FadeStartDifference : Real = 0.0; //The difference between the time to start fading and the max time
     
     //This causes objects to begin fading after a certain amount of time, deleting themselves once they're no longer visible
     //
@@ -23,9 +34,12 @@ class Effect_FadeToDeletion : ZilchComponent
     {
         this.TimePassed += event.Dt;
         
+        //If the time passed is greater than the time to start fading
         if (this.Owner.Sprite != null && this.TimePassed >= this.StartFadingAt)
         {
+            //Gets the current sprite color
             var newColor = this.Owner.Sprite.Color;
+            //Sets the alpha
             newColor.W =  (this.StartFadingAt - this.TimePassed) / this.FadeStartDifference;
             if (this.Owner.Sprite.Visible)
             {
@@ -33,10 +47,12 @@ class Effect_FadeToDeletion : ZilchComponent
             }
             if (this.Owner.SpriteText != null)
             {
+                //If the object has text, set the color of that too
                 this.Owner.SpriteText.Color = newColor;
             }
         }
         
+        //If the time passed is over the object's lifetime, then it deletes itself
         if (this.TimePassed >= this.Lifetime)
         {
             this.Owner.Destroy();

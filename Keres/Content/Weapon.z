@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      Weapon
+*Author:    Alex DeJardin
+*Description:
+    Funcionality for the player's taser, firing, reloading,
+    and playing sounds
+    
+*Other Contributors:
+    
+********************************************************/
 class Weapon : ZilchComponent
 {
     [Property]

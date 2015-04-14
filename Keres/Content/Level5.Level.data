@@ -107,7 +107,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 44.3958,
+			float Size = 100,
 		},
 		EditorCameraController = 
 		{
@@ -702,6 +702,9 @@ Level =
 			string Footstep = "5477f3b8606e5574:Footstep_Keres",
 			string BangOnDoor = "55898a1e3eda56c8:Keres_BangDoor",
 			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
+		},
+		FootsterScaler = 
+		{
 		},
 	},
 	Cog = 
@@ -4255,8 +4258,6 @@ Level =
 		Activator_PushButton = 
 		{
 			CogPath ActivationTarget = ":/piston1",
-			bool LimitedUse = false,
-			int ChargesLeft = 1,
 		},
 	},
 	Cog = 
@@ -4698,8 +4699,6 @@ Level =
 		Activator_PushButton = 
 		{
 			CogPath ActivationTarget = ":/piston1",
-			bool LimitedUse = false,
-			int ChargesLeft = 1,
 		},
 	},
 	Cog = 
@@ -4747,8 +4746,6 @@ Level =
 		Activator_PushButton = 
 		{
 			CogPath ActivationTarget = ":/piston1",
-			bool LimitedUse = false,
-			int ChargesLeft = 1,
 		},
 	},
 	Cog = 
@@ -5216,6 +5213,9 @@ Level =
 			string BangOnDoor = "55898a1e3eda56c8:Keres_BangDoor",
 			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
 		},
+		FootsterScaler = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -5294,6 +5294,9 @@ Level =
 			string Footstep = "5477f3b8606e5574:Footstep_Keres",
 			string BangOnDoor = "55898a1e3eda56c8:Keres_BangDoor",
 			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
+		},
+		FootsterScaler = 
+		{
 		},
 	},
 	Cog = 
@@ -5374,6 +5377,9 @@ Level =
 			string BangOnDoor = "55898a1e3eda56c8:Keres_BangDoor",
 			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
 		},
+		FootsterScaler = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -5453,6 +5459,9 @@ Level =
 			string BangOnDoor = "55898a1e3eda56c8:Keres_BangDoor",
 			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
 		},
+		FootsterScaler = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -5531,6 +5540,9 @@ Level =
 			string Footstep = "5477f3b8606e5574:Footstep_Keres",
 			string BangOnDoor = "55898a1e3eda56c8:Keres_BangDoor",
 			string BecomeAware = "553c2161c92ad9fd:Keres_BecomeAware",
+		},
+		FootsterScaler = 
+		{
 		},
 	},
 	ArchetypeInstance = 

@@ -1,8 +1,0 @@
-TextContent = 
-{
-	ZilchScriptBuilder = 
-	{
-		string Name = "DebugConsole",
-		uint64 ResourceId = 5467bf02a08a72fc,
-	},
-},

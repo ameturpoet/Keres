@@ -1,3 +1,14 @@
+/********************************************************
+*
+*File:      Soundbox_Door
+*Author:    Alex DeJardin
+*Description:
+    Container for the sounds associated with doors, called 
+    by the object itself when needed
+    
+*Other Contributors:
+    
+********************************************************/
 class Soundbox_Door : ZilchComponent
 {
     [Property]
